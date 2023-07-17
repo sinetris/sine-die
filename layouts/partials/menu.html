@@ -1,0 +1,28 @@
+<nav>
+  <ul>
+    {{ range .Site.Menus.main}}
+      {{- $attrs := dict "href" .URL }}
+      {{- if $.IsMenuCurrent .Menu . }}
+        {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- else if $.HasMenuCurrent .Menu .}}
+        {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- end }}
+      <li>
+        <a
+          {{- range $k, $v := $attrs }}
+            {{- with $v }}
+              {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+            {{- end }}
+          {{- end -}}
+        >
+          {{ .Name }}
+          {{- with .Page }}
+            {{- with .Params.version -}}
+              ({{ . }})
+            {{- end }}
+          {{- end }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>

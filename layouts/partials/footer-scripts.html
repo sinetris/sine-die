@@ -1,0 +1,12 @@
+{{- $js_files := slice "js/theme.js" "js/app.js" -}}
+{{- range $js_file := $js_files }}
+  {{- if $.Site.IsServer -}}
+    {{- with resources.Get $js_file }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else -}}
+    {{- with resources.Get $js_file | minify | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+    {{- end }}
+  {{- end -}}
+{{- end -}}

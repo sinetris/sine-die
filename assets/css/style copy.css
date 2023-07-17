@@ -1,0 +1,90 @@
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+a {
+  color: var(--font-color);
+}
+
+figure,
+blockquote {
+  color: var(--fg-primary-color);
+  background-color: var(--bg-primary-color);
+}
+
+hr {
+  background-color: var(--color-lightGrey);
+}
+
+table.striped tr:nth-of-type(2n) {
+  background-color: var(--bg-secondary-color);
+}
+
+thead {
+  border-bottom: 2px solid var(--color-lightGrey);
+}
+
+tfoot {
+  border-top: 2px solid var(--color-lightGrey);
+}
+
+code,
+kbd {
+  background-color: var(--bg-color-secondary);
+  color: var(--color-error);
+}
+/* 
+pre {
+  background-color: var(--bg-color-secondary);
+}
+
+fieldset {
+  border: 1px solid var(--color-lightGrey);
+}
+
+header,
+footer {
+  background-color: var(--bg-color-secondary-left);
+  color: var(--bg-color-secondary-left);
+}
+
+body>header nav {
+  background-color: var(--fg-primary-color);
+}
+
+body>header nav a {
+  color: var(--color-lightGrey);
+}
+
+body>header .brand {
+  color: var(--color-secondary);
+}
+
+body>header h1 {
+  background-color: var(--fg-primary-color);
+}
+
+nav a,
+nav .brand {
+  color: var(--primary-color);
+}
+
+nav a[aria-current="page"]:not(.button),
+nav a.active:not(.button) {
+  color: var(--color-primary-bg, #000);
+} */
+
+#primary-navigation {
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+}
+
+#primary-navigation li .active {
+  color: var(--color-on-inverse-surface);
+  background-color: var(--color-inverse-surface);
+}
+
+span.theme-switcher-menu {
+  margin: auto 0.5em;
+}

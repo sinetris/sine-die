@@ -1,0 +1,15 @@
+<nav id="primary-navigation" aria-label="Primary navigation">
+  <strong class="brand">{{ .Site.Title }}</strong>
+  <ul>
+    {{ partial "menu.html" . }}
+  </ul>
+  <search>
+    <form role="search">
+      <input type="search" name="q" placeholder="Search query" aria-label="Search through site content">
+      <button>Go</button>
+    </form>
+  </search>
+  <button type="button" class="theme-switcher">
+    Switch Theme
+  </button>
+</nav>
