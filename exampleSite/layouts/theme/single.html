@@ -1,0 +1,547 @@
+{{ define "main" }}
+<article class="theme-palette-example">
+  <h2>Palette</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>main</th>
+        <th>lightest</th>
+        <th>lighter</th>
+        <th>light</th>
+        <th>medium-light</th>
+        <th>medium</th>
+        <th>medium-dark</th>
+        <th>dark</th>
+        <th>darker</th>
+        <th>darkest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="primary">
+        <td class="color-main">primary</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="secondary-left">
+        <td class="color-main">secondary-left</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="secondary-right">
+        <td class="color-main">secondary-right</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="complementary">
+        <td class="color-main">complementary</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="warning">
+        <td class="color-main">warning</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="success">
+        <td class="color-main">success</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+      <tr class="error">
+        <td class="color-main">error</td>
+        <td class="color-lightest">lightest</td>
+        <td class="color-lighter">lighter</td>
+        <td class="color-light">light</td>
+        <td class="color-medium-light">medium-light</td>
+        <td class="color-medium">medium</td>
+        <td class="color-medium-dark">medium-dark</td>
+        <td class="color-dark">dark</td>
+        <td class="color-darker">darker</td>
+        <td class="color-darkest">darkest</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<article class="theme-schema-example">
+  <h2>Baseline color scheme</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>System token</th>
+        <th>Light scheme ref token</th>
+        <th>Dark scheme ref token</th>
+        <th>Light scheme colored cell</th>
+        <th>Dark scheme colored cell</th>
+      </tr>
+    </thead>
+    <tbody>
+      <caption class="title primary-title">Primary</caption>
+      <tr class="title primary-title">
+        <th colspan="6">Primary</th>
+      </tr>
+      <tr class="color-primary">
+        <th>Primary</th>
+        <td>--color-primary</td>
+        <td>--palette-primary-medium</td>
+        <td>--palette-primary-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-primary-container">
+        <th>Primary container</th>
+        <td>--color-primary-container</td>
+        <td>--palette-primary-lighter</td>
+        <td>--palette-primary-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-primary">
+        <th>On primary</th>
+        <td>--color-on-primary</td>
+        <td>--palette-primary-lightest</td>
+        <td>--palette-primary-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-primary-container">
+        <th>On primary container</th>
+        <td>--color-on-primary-container</td>
+        <td>--palette-primary-darker</td>
+        <td>--palette-primary-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-inverse-primary">
+        <th>Inverse primary</th>
+        <td>--color-inverse-primary</td>
+        <td>--palette-primary-light</td>
+        <td>--palette-primary-medium</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <caption class="title primary-title">Primary</caption>
+      <tr class="title secondary-title">
+        <th colspan="6">Secondary</th>
+      </tr>
+      <tr class="color-secondary">
+        <th>Secondary</th>
+        <td>--color-secondary</td>
+        <td>--palette-secondary-left-medium</td>
+        <td>--palette-secondary-left-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-secondary-container">
+        <th>Secondary container</th>
+        <td>--color-secondary-container</td>
+        <td>--palette-secondary-left-lighter</td>
+        <td>--palette-secondary-left-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-secondary">
+        <th>On secondary</th>
+        <td>--color-on-secondary</td>
+        <td>--palette-secondary-left-lightest</td>
+        <td>--palette-secondary-left-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-secondary-container">
+        <th>On secondary container</th>
+        <td>--color-on-secondary-container</td>
+        <td>--palette-secondary-left-darker</td>
+        <td>--palette-secondary-left-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title tertiary-title">
+        <th colspan="6">Tertiary</th>
+      </tr>
+      <tr class="color-tertiary">
+        <th>Tertiary</th>
+        <td>--color-tertiary</td>
+        <td>--palette-secondary-right-medium</td>
+        <td>--palette-secondary-right-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-tertiary-container">
+        <th>Tertiary container</th>
+        <td>--color-tertiary-container</td>
+        <td>--palette-secondary-right-lighter</td>
+        <td>--palette-secondary-right-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-tertiary">
+        <th>On tertiary</th>
+        <td>--color-on-tertiary</td>
+        <td>--palette-secondary-right-lightest</td>
+        <td>--palette-secondary-right-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-tertiary-container">
+        <th>On tertiary container</th>
+        <td>--color-on-tertiary-container</td>
+        <td>--palette-secondary-right-darker</td>
+        <td>--palette-secondary-right-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title complementary-title">
+        <th colspan="6">Complementary</th>
+      </tr>
+      <tr class="color-complementary">
+        <th>Complementary</th>
+        <td>--color-complementary</td>
+        <td>--palette-complementary-medium</td>
+        <td>--palette-complementary-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-complementary-container">
+        <th>Complementary container</th>
+        <td>--color-complementary-container</td>
+        <td>--palette-complementary-lighter</td>
+        <td>--palette-complementary-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-complementary">
+        <th>On complementary</th>
+        <td>--color-on-complementary</td>
+        <td>--palette-complementary-lightest</td>
+        <td>--palette-complementary-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-complementary-container">
+        <th>On complementary container</th>
+        <td>--color-on-complementary-container</td>
+        <td>--palette-complementary-darkest</td>
+        <td>--palette-complementary-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title surface-title">
+        <th colspan="6">Surface</th>
+      </tr>
+      <tr class="color-surface">
+        <th>Surface</th>
+        <td>--color-surface</td>
+        <td>--palette-neutral90</td>
+        <td>--palette-neutral10</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-dim">
+        <th>Surface dim</th>
+        <td>--color-surface-dim</td>
+        <td>--palette-neutral87</td>
+        <td>--palette-neutral22</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-bright">
+        <th>Surface bright</th>
+        <td>--color-surface-bright</td>
+        <td>--palette-neutral98</td>
+        <td>--palette-neutral24</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-container-lowest">
+        <th>Surface container lowest</th>
+        <td>--color-surface-container-lowest</td>
+        <td>--palette-neutral100</td>
+        <td>--palette-neutral4</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-container-low">
+        <th>Surface container low</th>
+        <td>--color-surface-container-low</td>
+        <td>--palette-neutral96</td>
+        <td>--palette-neutral10</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-container">
+        <th>Surface container</th>
+        <td>--color-surface-container</td>
+        <td>--palette-neutral94</td>
+        <td>--palette-neutral12</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-container-high">
+        <th>Surface container high</th>
+        <td>--color-surface-container-high</td>
+        <td>--palette-neutral92</td>
+        <td>--palette-neutral17</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-container-highest">
+        <th>Surface container highest</th>
+        <td>--color-surface-container-highest</td>
+        <td>--palette-neutral90</td>
+        <td>--palette-neutral22</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-variant">
+        <th>Surface variant</th>
+        <td>--color-surface-variant</td>
+        <td>--palette-neutral-variant90</td>
+        <td>--palette-neutral-variant30</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-surface">
+        <th>On surface</th>
+        <td>--color-on-surface</td>
+        <td>--palette-neutral20</td>
+        <td>--palette-neutral90</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-surface-variant">
+        <th>On surface variant</th>
+        <td>--color-on-surface-variant</td>
+        <td>--palette-neutral-variant10</td>
+        <td>--palette-neutral-variant80</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-inverse-surface">
+        <th>Inverse surface</th>
+        <td>--color-inverse-surface</td>
+        <td>--palette-neutral20</td>
+        <td>--palette-neutral90</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-inverse-on-surface">
+        <th>Inverse on surface</th>
+        <td>--color-inverse-on-surface</td>
+        <td>--palette-neutral95</td>
+        <td>--palette-neutral20</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title success-title">
+        <th colspan="6">Success</th>
+      </tr>
+      <tr class="color-success">
+        <th>Success</th>
+        <td>--color-success</td>
+        <td>--palette-success-medium</td>
+        <td>--palette-success-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-success-container">
+        <th>Success container</th>
+        <td>--color-success-container</td>
+        <td>--palette-success-lighter</td>
+        <td>--palette-success-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-success">
+        <th>On success</th>
+        <td>--color-on-success</td>
+        <td>--palette-success-lightest</td>
+        <td>--palette-success-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-success-container">
+        <th>On success container</th>
+        <td>--color-on-success-container</td>
+        <td>--palette-success-darkest</td>
+        <td>--palette-success-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title warning-title">
+        <th colspan="6">Warning</th>
+      </tr>
+      <tr class="color-warning">
+        <th>Warning</th>
+        <td>--color-warning</td>
+        <td>--palette-warning-medium</td>
+        <td>--palette-warning-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-warning-container">
+        <th>Warning container</th>
+        <td>--color-warning-container</td>
+        <td>--palette-warning-lighter</td>
+        <td>--palette-warning-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-warning">
+        <th>On warning</th>
+        <td>--color-on-warning</td>
+        <td>--palette-warning-lightest</td>
+        <td>--palette-warning-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-warning-container">
+        <th>On warning container</th>
+        <td>--color-on-warning-container</td>
+        <td>--palette-warning-darkest</td>
+        <td>--palette-warning-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title error-title">
+        <th colspan="6">Error</th>
+      </tr>
+      <tr class="color-error">
+        <th>Error</th>
+        <td>--color-error</td>
+        <td>--palette-error-medium</td>
+        <td>--palette-error-light</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-error-container">
+        <th>Error container</th>
+        <td>--color-error-container</td>
+        <td>--palette-error-lighter</td>
+        <td>--palette-error-medium-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-error">
+        <th>On error</th>
+        <td>--color-on-error</td>
+        <td>--palette-error-lightest</td>
+        <td>--palette-error-dark</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-error-container">
+        <th>On error container</th>
+        <td>--color-on-error-container</td>
+        <td>--palette-error-darkest</td>
+        <td>--palette-error-lighter</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="title extra-title">
+        <th colspan="6">Extra</th>
+      </tr>
+      <tr class="color-background">
+        <th>Background</th>
+        <td>--color-background</td>
+        <td>--palette-neutral95</td>
+        <td>--palette-neutral6</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-on-background">
+        <th>On background</th>
+        <td>--color-on-background</td>
+        <td>--palette-neutral10</td>
+        <td>--palette-neutral90</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-outline">
+        <th>Outline</th>
+        <td>--color-outline</td>
+        <td>--palette-neutral-variant50</td>
+        <td>--palette-neutral-variant60</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-outline-variant">
+        <th>Outline variant</th>
+        <td>--color-outline-variant</td>
+        <td>--palette-neutral-variant80</td>
+        <td>--palette-neutral-variant30</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-shadow">
+        <th>Shadow</th>
+        <td>--color-shadow</td>
+        <td>--palette-neutral0</td>
+        <td>--palette-neutral0</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-surface-tint-color">
+        <th>Surface tint</th>
+        <td>--color-surface-tint-color</td>
+        <td>--color-primary</td>
+        <td>--color-primary</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+      <tr class="color-scrim">
+        <th>Scrim</th>
+        <td>--color-scrim</td>
+        <td>--palette-neutral0</td>
+        <td>--palette-neutral0</td>
+        <td class="theme-light show-as-background-color"></td>
+        <td class="theme-dark show-as-background-color"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</article>
+{{ end }}

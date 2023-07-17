@@ -1,0 +1,32 @@
+theme = "sine-die"
+themesDir = "../.."
+defaultContentLanguage = "en"
+title = "sine-die"
+
+[outputs]
+home = ["HTML", "RSS", "PRINT"]
+
+[menu]
+[[menu.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menu.main]]
+  name = 'Colors Theme'
+  pageRef = '/pages/colors'
+  weight = 20
+[[menu.main]]
+  name = 'Services'
+  pageRef = '/#services'
+  weight = 30
+
+[params]
+contentSourceLink = "https://github.com/sinetris/sine-die"
+
+description = """\
+  sine-die: minimalist CSS framework for Hugo
+  """
+
+# Author
+author = "Duilio Ruggiero"
+authorLink = "https://github.com/sinetris"
