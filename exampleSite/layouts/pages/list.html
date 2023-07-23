@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="content">
+  the content
+  {{ .Content }}
+</div>
+<div>
+  the list
+  {{- range .Paginator.Pages -}}
+  <li>
+    {{- $short_date := .Date | time.Format (.Site.Params.dateFormat | default "2006-01-02" ) }}
+    {{- $long_date := .Date | time.Format (.Site.Params.dateFormat | default "02 Jan 2006" ) }}
+    <time datetime="{{ $short_date }}">{{ $long_date }}</time>
+    <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+    <p>{{ .Description }}</p>
+  </li>
+  {{- end -}}
+</div>
+{{ end }}

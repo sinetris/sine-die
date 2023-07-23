@@ -1,15 +1,14 @@
 ---
 title: 'sine-die: example homepage'
 date: "2023-06-28"
-draft: true
 ---
 
-## Content
+## sine-die
 
-Simple CSS framework usage example.
+A semantic HTML theme for Hugo
+
+Simple usage example.
 
 {{< author-say >}}
 This is a work-in-progress.
 {{< /author-say >}}
-
-[Colors]({{< relref "/pages/colors" >}} "Theme Colors Example")

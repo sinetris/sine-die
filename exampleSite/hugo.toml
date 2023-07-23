@@ -12,19 +12,23 @@ home = ["HTML", "RSS", "PRINT"]
   pageRef = '/'
   weight = 10
 [[menu.main]]
-  name = 'Colors Theme'
-  pageRef = '/pages/colors'
+  name = 'Palette'
+  pageRef = '/pages/palette'
   weight = 20
 [[menu.main]]
-  name = 'Services'
-  pageRef = '/#services'
+  name = 'Colors'
+  pageRef = '/pages/colors'
   weight = 30
+[[menu.main]]
+  name = 'Components'
+  pageRef = '/pages/components'
+  weight = 40
 
 [params]
 contentSourceLink = "https://github.com/sinetris/sine-die"
 
 description = """\
-  sine-die: minimalist CSS framework for Hugo
+  sine-die minimalist CSS framework for Hugo example
   """
 
 # Author

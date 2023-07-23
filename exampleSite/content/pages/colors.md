@@ -1,7 +1,6 @@
 ---
 title: Theme Colors
-date: "2023-06-28"
+date: "2023-07-15"
 description: Example of colors in the theme
-type: theme
 layout: colors
 ---

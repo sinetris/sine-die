@@ -1,7 +1,8 @@
 ---
-title: 'sine-die: example homepage'
+title: 'sine-die: examples'
 date: "2023-06-28"
-draft: true
+description: Usage example for the sine-die theme
+type: theme
 ---
 
 ## Content
@@ -12,4 +13,3 @@ Simple CSS framework usage example.
 This is a work-in-progress.
 {{< /author-say >}}
 
-{{< relref "/pages/colors" >}}

@@ -1,3 +1,8 @@
+:root {
+  --color-primary-hue: 220deg;
+  --color-primary-chroma: 0.2;
+}
+
 .theme-palette-example table {
   table-layout: fixed;
   width: 100%;
@@ -364,10 +369,10 @@
 /* Theme colors */
 .theme-schema-example tr.title th {
   border-top-style: solid;
-  border-top-width: 0.2em;
+  border-top-width: 0.2rem;
   border-top-color: var(--color-outline-variant);
   border-bottom-style: solid;
-  border-bottom-width: 0.1em;
+  border-bottom-width: 0.1rem;
   text-align: center;
   color: var(--color-outline);
 }
