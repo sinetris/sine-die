@@ -1,0 +1,51 @@
+/* Pagefind settings */
+:root {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-border-width: 0.1rem;
+  --pagefind-ui-border-radius: 5rem;
+  --pagefind-ui-image-border-radius: 0.2rem;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--font-family-sans);
+}
+
+:root,
+.theme-default,
+.theme-light {
+  --pagefind-ui-primary: var(--color-primary-container);
+  --pagefind-ui-text: var(--color-on-surface);
+  --pagefind-ui-background: var(--color-surface);
+  --pagefind-ui-border: var(--color-outline-variant);
+  --pagefind-ui-tag: var(--color-on-primary-container);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  .theme-default,
+  .theme-dark {
+    --pagefind-ui-primary: var(--color-primary-container);
+    --pagefind-ui-text: var(--color-on-surface);
+    --pagefind-ui-background: var(--color-surface);
+    --pagefind-ui-border: var(--color-outline-variant);
+    --pagefind-ui-tag: var(--color-on-primary-container);
+  }
+}
+
+#search button.pagefind-ui__search-clear {
+  background: none;
+}
+
+#search button.pagefind-ui__search-clear::before {
+  content: '';
+  font-size: 1rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  color: inherit;
+  background-color: currentColor;
+  -webkit-mask-size: 1rem;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 1rem;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  /* The image is added in assets.css.gtpl */
+}

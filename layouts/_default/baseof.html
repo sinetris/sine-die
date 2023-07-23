@@ -4,8 +4,14 @@
     {{ partial "head.html" . }}
   </head>
   <body class="theme-default">
-    <header class="homepage-header">
+    <header class="page-header">
       {{ partial "header.html" . }}
+      <div id="search"></div>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+          new PagefindUI({ element: "#search" });
+        });
+      </script>
     </header>
     <main aria-role="main">
       {{- with .Params.Title -}}

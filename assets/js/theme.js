@@ -1,18 +1,24 @@
-const themeToggleButton = document.querySelector("button.theme-switcher");
-themeToggleButton.addEventListener("click", toggleTheme);
-function toggleTheme() {
+function setTheme(themeMode, validThemes) {
   var root = document.body;
-  if (root.classList.contains("theme-dark")) {
-    root.classList.remove("theme-dark");
-    root.classList.add("theme-light");
-  } else if (root.classList.contains("theme-light")) {
-    root.classList.remove("theme-light");
-    root.classList.add("theme-dark");
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    root.classList.remove("theme-default");
-    root.classList.add("theme-light");
-  } else {
-    root.classList.remove("theme-default");
-    root.classList.add("theme-dark");
+  for (const theme of validThemes) {
+    root.classList.remove(theme);
   }
+  if (validThemes.includes(themeMode)) {
+    localStorage.setItem("theme-mode", themeMode);
+    root.classList.add(themeMode);
+  }
+}
+
+const themeSwitchButton = document.querySelector("button.theme-switcher");
+themeSwitchButton.addEventListener("click", switchTheme);
+function switchTheme() {
+  let themeMode = localStorage.getItem("theme-mode");
+  if (themeMode === null) themeMode = "theme-default";
+  const validThemes =
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ?
+      ["theme-default", "theme-dark", "theme-light"]
+      :
+      ["theme-default", "theme-light", "theme-dark"];
+  const nextThemeMode = validThemes.at((validThemes.indexOf(themeMode) + 1) % validThemes.length);
+  setTheme(nextThemeMode, validThemes);
 }

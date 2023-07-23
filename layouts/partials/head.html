@@ -12,7 +12,12 @@
   {{- end -}}
 {{ end -}}
 <title>{{ $title }}</title>
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
 <link rel="canonical" href="{{ .Permalink }}" />
-{{- with resources.Get "css/template.css" | resources.ExecuteAsTemplate "css/main.css" . | resources.Minify | resources.Fingerprint "sha512" }}
+{{- with resources.Get "css/main.css.gtpl" | resources.ExecuteAsTemplate "css/main.css" . | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
+{{- end -}}
+{{- with resources.Get "css/assets.css.gtpl" | resources.ExecuteAsTemplate "css/assets.css" . | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end -}}

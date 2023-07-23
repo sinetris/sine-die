@@ -3,38 +3,34 @@
 :root {
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
-  --font-size: 1.6rem;
+  --base-font-size: 100%;
+  --font-size: 1rem;
   --font-family-sans: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
   --headers-font-weight: 500;
   --line-height: 1.6;
+  --standard-border-radius: 3px;
 }
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
-  line-height: 1.15;
+  font-size: var(--base-font-size);
   text-size-adjust: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  font-family: var(--font-family-sans);
+  scroll-behavior: smooth;
 }
 
 body {
   line-height: var(--line-height);
   font-size: var(--font-size);
   font-family: var(--font-family-sans);
-  margin: 0;
   padding: 0;
 }
 
 main {
-  margin: 2.7em;
+  margin: 2.7rem;
 }
 
 h1,
@@ -43,44 +39,8 @@ h3,
 h4,
 h5,
 h6 {
-  /* padding: 0.35em 0 0.7em; */
   padding: 0;
-}
-
-h1,
-h2,
-h3 {
   font-weight: var(--headers-font-weight);
-}
-
-h4,
-h5,
-h6 {
-  font-weight: calc(var(--headers-font-weight) * 1.2);
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.75em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.25em;
-}
-
-h5 {
-  font-size: 1em;
-}
-
-h6 {
-  font-size: 0.85em;
 }
 
 a {
@@ -91,8 +51,13 @@ a:hover:not(.button) {
   opacity: 0.75;
 }
 
+a:any-link:hover:not(.button) {
+  text-decoration: underline;
+}
+
 button {
   font-family: inherit;
+  font-size: 1rem;
 }
 
 p {
@@ -109,8 +74,8 @@ dl dt {
 }
 
 hr {
-  border: none;
-  height: 1px;
+  border-style: solid;
+  height: 0.2rem;
   margin: 1rem 0;
 }
 
@@ -140,11 +105,11 @@ kbd {
   font-size: 90%;
   white-space: pre-wrap;
   border-radius: 4px;
-  padding: 0.2em 0.4em;
+  padding: 0.2rem 0.4rem;
 }
 
 pre {
-  font-size: 1em;
+  font-size: 1rem;
   padding: 1rem;
   overflow-x: auto;
 }
@@ -157,7 +122,12 @@ pre code {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  text-decoration: underline dotted;
+  text-decoration-style: dotted;
+  text-decoration-line: underline;
+  text-underline-offset: 0.3rem;
+  -webkit-text-decoration-style: dotted;
+  -webkit-text-decoration-line: underline;
+  -webkit-text-underline-offset: 0.3rem;
 }
 
 img {
@@ -175,19 +145,14 @@ body>header {
 }
 
 body>header .brand {
-  margin: 0.5em 0.5em;
+  margin: 0.5rem 0.5rem;
   padding: 0;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 body>header h1 {
-  /* font-size: 1.5em; */
+  /* font-size: 1.5rem; */
   margin: 0;
-}
-
-search {
-  display: flex;
-  align-items: center;
 }
 
 nav {

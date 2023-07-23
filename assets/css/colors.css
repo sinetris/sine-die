@@ -1,5 +1,4 @@
 :root {
-  --the-content: "stuff";
   --color-primary-hue: 222deg;
   --color-primary-chroma: 0.1;
   --color-primary-lightness: 70%;
@@ -30,8 +29,8 @@
   --palette-darker-lightness: 10%;
   --palette-darkest-lightness: 5%;
 
-  --palette-neutral-chroma: 0.025;
-  --palette-neutral-variant-chroma: 0.05;
+  --palette-neutral-chroma: 0.010;
+  --palette-neutral-variant-chroma: 0.025;
 
   /* Calculate Colors */
   --palette-primary-main: oklch(var(--color-primary-lightness) var(--color-primary-chroma) var(--color-primary-hue));
@@ -142,40 +141,40 @@
 .theme-default,
 .theme-light {
   --color-primary: var(--palette-primary-medium);
-  --color-primary-container: var(--palette-primary-lighter);
   --color-on-primary: var(--palette-primary-lightest);
+  --color-primary-container: var(--palette-primary-lighter);
   --color-on-primary-container: var(--palette-primary-darker);
 
   --color-inverse-primary: var(--palette-primary-light);
 
   --color-secondary: var(--palette-secondary-left-medium);
-  --color-secondary-container: var(--palette-secondary-left-lighter);
   --color-on-secondary: var(--palette-secondary-left-lightest);
+  --color-secondary-container: var(--palette-secondary-left-lighter);
   --color-on-secondary-container: var(--palette-secondary-left-darker);
 
   --color-tertiary: var(--palette-secondary-right-medium);
-  --color-tertiary-container: var(--palette-secondary-right-lighter);
   --color-on-tertiary: var(--palette-secondary-right-lightest);
+  --color-tertiary-container: var(--palette-secondary-right-lighter);
   --color-on-tertiary-container: var(--palette-secondary-right-darker);
 
   --color-complementary: var(--palette-complementary-medium);
-  --color-complementary-container: var(--palette-complementary-lighter);
   --color-on-complementary: var(--palette-complementary-lightest);
+  --color-complementary-container: var(--palette-complementary-lighter);
   --color-on-complementary-container: var(--palette-complementary-darker);
 
   --color-success: var(--palette-success-medium);
-  --color-success-container: var(--palette-success-lightest);
-  --color-on-success: var(--palette-success-lighter);
+  --color-on-success: var(--palette-success-lightest);
+  --color-success-container: var(--palette-success-lighter);
   --color-on-success-container: var(--palette-success-darker);
 
   --color-warning: var(--palette-warning-medium);
-  --color-warning-container: var(--palette-warning-lightest);
-  --color-on-warning: var(--palette-warning-lighter);
+  --color-on-warning: var(--palette-warning-lightest);
+  --color-warning-container: var(--palette-warning-lighter);
   --color-on-warning-container: var(--palette-warning-darker);
 
   --color-error: var(--palette-error-medium);
-  --color-error-container: var(--palette-error-lightest);
-  --color-on-error: var(--palette-error-lighter);
+  --color-on-error: var(--palette-error-lightest);
+  --color-error-container: var(--palette-error-lighter);
   --color-on-error-container: var(--palette-error-darker);
 
   --color-surface-tint-color: var(--palette-primary-main);
@@ -208,13 +207,12 @@
 
 
 @media (prefers-color-scheme: dark) {
-
   :root,
   .theme-default,
   .theme-dark {
     --color-primary: var(--palette-primary-light);
-    --color-primary-container: var(--palette-primary-medium-dark);
     --color-on-primary: var(--palette-primary-dark);
+    --color-primary-container: var(--palette-primary-medium-dark);
     --color-on-primary-container: var(--palette-primary-lighter);
 
     --color-inverse-primary: var(--palette-primary-medium);
