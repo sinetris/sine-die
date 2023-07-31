@@ -16,9 +16,9 @@ function switchTheme() {
   if (themeMode === null) themeMode = "theme-default";
   const validThemes =
     (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ?
-      ["theme-default", "theme-dark", "theme-light"]
+      ["theme-default", "theme-light", "theme-dark"]
       :
-      ["theme-default", "theme-light", "theme-dark"];
+      ["theme-default", "theme-dark", "theme-light"];
   const nextThemeMode = validThemes.at((validThemes.indexOf(themeMode) + 1) % validThemes.length);
   setTheme(nextThemeMode, validThemes);
 }
