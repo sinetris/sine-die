@@ -1,4 +1,9 @@
-function setTheme(themeMode, validThemes) {
+const getValidThemes = () => {
+  const defaultIsDark = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  return defaultIsDark ? ["theme-default", "theme-light", "theme-dark"] : ["theme-default", "theme-dark", "theme-light"];
+}
+
+const setTheme = (themeMode, validThemes) => {
   var root = document.body;
   for (const theme of validThemes) {
     root.classList.remove(theme);
@@ -9,16 +14,21 @@ function setTheme(themeMode, validThemes) {
   }
 }
 
-const themeSwitchButton = document.querySelector("button.theme-switcher");
-themeSwitchButton.addEventListener("click", switchTheme);
-function switchTheme() {
+const refreshTheme = () => {
   let themeMode = localStorage.getItem("theme-mode");
   if (themeMode === null) themeMode = "theme-default";
-  const validThemes =
-    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ?
-      ["theme-default", "theme-light", "theme-dark"]
-      :
-      ["theme-default", "theme-dark", "theme-light"];
+  setTheme(themeMode, getValidThemes());
+}
+
+const switchTheme = () => {
+  let themeMode = localStorage.getItem("theme-mode");
+  if (themeMode === null) themeMode = "theme-default";
+  const validThemes = getValidThemes();
   const nextThemeMode = validThemes.at((validThemes.indexOf(themeMode) + 1) % validThemes.length);
   setTheme(nextThemeMode, validThemes);
 }
+
+refreshTheme();
+
+const themeSwitchButton = document.querySelector("button.theme-switcher");
+themeSwitchButton.addEventListener("click", switchTheme);
