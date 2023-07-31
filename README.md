@@ -3,8 +3,9 @@
 ## Dependencies
 
 - [Hugo](https://gohugo.io)
-- [Git](a)
-- [Node.js](https://nodejs.org)
+- [Git](https://git-scm.com/)
+- [asdf](https://asdf-vm.com/) (for [Node.js](https://nodejs.org))
+- [Pagefind](https://pagefind.app/)
 
 ## Setup and run the example site
 
