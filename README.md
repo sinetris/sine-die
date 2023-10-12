@@ -9,7 +9,7 @@
 
 ## Setup and run the example site
 
-```sh
+```shell
 # Clone the sine-die repo
 git clone https://github.com/sinetris/sine-die.git sine-die-example
 cd sine-die-example
@@ -21,21 +21,21 @@ cd exampleSite
 # generate the files under `public`
 hugo
 # add pagefind and generate the search index from the static files in `public`
-npm_config_yes=true npx pagefind --source "public" --bundle-dir ../static/_pagefind
+npm_config_yes=true npx pagefind --site "public" --output-subdir ../static/_pagefind
 # Run the site locally
 hugo server --buildDrafts --tlsAuto --disableFastRender
 ```
 
 ## Add the sine-die theme to your Hugo site
 
-```sh
+```shell
 # Install the sine-die theme
 git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
 # Edit `hugo.toml` and change the theme to `theme = 'sine-die'`
 # Generate the static files
 hugo
 # Install and setup Pagefind
-npm_config_yes=true npx pagefind --source "public" --bundle-dir ../static/_pagefind
+npm_config_yes=true npx pagefind --site "public" --output-subdir ../static/_pagefind
 ```
 
 ## Credits
@@ -45,4 +45,7 @@ npm_config_yes=true npx pagefind --source "public" --bundle-dir ../static/_pagef
   metadata out of the box, a script to index pages generated with any static
   site generators, and use as low bandwidth as possible
 - [MDN Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility): web accessibility reference in MDN Web Docs
-- [Material Design](https://m3.material.io): In particular the [color system](https://m3.material.io/styles/color/the-color-system/key-colors-tones) is very similar to what I intended to use, and having almost everything ready was definitely a big help.
+- [Material Design](https://m3.material.io): In particular the
+  [color system](https://m3.material.io/styles/color/the-color-system/key-colors-tones)
+  is very similar to what I intended to use, and having almost everything ready
+  was definitely a big help.
