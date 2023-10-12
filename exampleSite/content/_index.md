@@ -1,5 +1,5 @@
 ---
-title: 'sine-die: example homepage'
+title: 'Home'
 date: "2023-06-28"
 ---
 
