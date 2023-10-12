@@ -1,9 +1,7 @@
-<nav id="primary-navigation" aria-label="Primary navigation">
-  <strong class="brand">{{ .Site.Title }}</strong>
+<nav id="primary-navigation" class="primary" aria-label="Primary navigation">
+  {{ partial "header_logo.html" . }}
   <ul>
     {{ partial "menu.html" . }}
   </ul>
-  <button type="button" class="theme-switcher">
-    Switch Theme
-  </button>
+  <button type="button" class="theme-switcher"></button>
 </nav>
