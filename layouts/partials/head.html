@@ -21,3 +21,6 @@
 {{- with resources.Get "css/assets.css.gtpl" | resources.ExecuteAsTemplate "css/assets.css" . | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end -}}
+{{- with resources.Get "css/override_assets.css.gtpl" | resources.ExecuteAsTemplate "css/override_assets.css" . | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
+{{- end -}}
