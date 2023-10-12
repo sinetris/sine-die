@@ -12,6 +12,7 @@
           new PagefindUI({ element: "#search" });
         });
       </script>
+      {{ partial "breadcrumbs.html" . }}
     </header>
     <main aria-role="main">
       {{- with .Params.Title -}}
