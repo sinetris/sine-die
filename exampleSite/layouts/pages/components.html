@@ -1,75 +1,89 @@
 {{ define "main" }}
-<article>
-  <!-- Default Headings -->
-  <h1>Heading 1</h1>
-  <h2>Heading 2</h2>
-  <h3>Heading 3</h3>
-  <h4>Heading 4</h4>
-  <h5>Heading 5</h5>
-  <h6>Heading 6</h6>
+  <article>
+    <!-- Default Headings -->
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
 
-  <p>This is a paragraph with random content. Duis ut tempor mollit nisi exercitation et incididunt occaecat tempor
-    aute ex cupidatat exercitation. Eiusmod incididunt ut enim sint pariatur. Tempor minim adipisicing quis Lorem sint
-    sunt anim velit esse pariatur laborum.</p>
-  <p>
-    This is another paragraph and this paragraph have a link to a footnote
-    <a href="#footnote" id="footnote-ref"><sup>1</sup></a>
-    .
-  </p>
-  <blockquote>
-    This is a blockquote that contain <strong>strong text</strong>, <em>emphasized text</em>,
-    <u>underlined text</u>, and <mark>highlighted text</mark>.
-  </blockquote>
+    <p>
+      This is a paragraph with random content. Duis ut tempor mollit nisi
+      exercitation et incididunt occaecat tempor aute ex cupidatat exercitation.
+      Eiusmod incididunt ut enim sint pariatur. Tempor minim adipisicing quis
+      Lorem sint sunt anim velit esse pariatur laborum.
+    </p>
+    <p>
+      This is another paragraph and this paragraph have a link to a footnote
+      <a href="#footnote" id="footnote-ref"><sup>1</sup></a>
+      .
+    </p>
+    <blockquote>
+      This is a blockquote that contain <strong>strong text</strong>,
+      <em>emphasized text</em>, <u>underlined text</u>, and
+      <mark>highlighted text</mark>.
+    </blockquote>
 
-  <!-- Other elements to text markup -->
-  <abbr title="Internationalization">I18N</abbr>
-  <strong>Strong</strong>
-  <b>Bold</b>
-  <em>Emphasis</em>
-  <i>Italic</i>
-  <a>Anchor</a>
-  <small>Small</small>
-  <u>Underline</u>
-  <mark>Highlighted</mark>
-  <code>Inline code</code>
-  <kbd>Alt</kbd> + <kbd>F4</kbd>
+    <!-- Other elements to text markup -->
+    <abbr title="Internationalization">I18N</abbr>
+    <strong>Strong</strong>
+    <b>Bold</b>
+    <em>Emphasis</em>
+    <i>Italic</i>
+    <a>Anchor</a>
+    <small>Small</small>
+    <u>Underline</u>
+    <mark>Highlighted</mark>
+    <code>Inline code</code>
+    <kbd>Alt</kbd> + <kbd>F4</kbd>
 
-  <!-- Bulleted list -->
-  <ul>
-    <li>
-      Item 1
-      <ul>
-        <li>Sub item 1</li>
-        <li>Sub item 2</li>
-      </ul>
-    </li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-  </ul>
-
-  <!-- Numbered list -->
-  <ol>
-    <li>First thing</li>
-    <li>Second thing</li>
-    <li>Third thing</li>
-  </ol>
-
-  <figure>
-    <img src="http://placekitten.com/420/420" alt="Image alt text">
-    <figcaption>Here is a caption for this image.</figcaption>
-  </figure>
-  <details>
-    <summary>Expand</summary>
-    <p>Now you can see me.</p>
-  </details>
-  <hr />
-  <footer>
-    This is the footer
-    <ol>
-      <li id="footnote">
-        <p>Footnote text links back.<a href="#footnote-ref">↩</a></p>
+    <!-- Bulleted list -->
+    <ul>
+      <li>
+        Item 1
+        <ul>
+          <li>Sub item 1</li>
+          <li>Sub item 2</li>
+        </ul>
       </li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <!-- Numbered list -->
+    <ol>
+      <li>First thing</li>
+      <li>Second thing</li>
+      <li>Third thing</li>
     </ol>
-  </footer>
-</article>
+
+    <figure>
+      <img
+        src="https://placekitten.com/4000/2000"
+        alt="An image showing kittens"
+      />
+      <figcaption>Large images should fit screen</figcaption>
+    </figure>
+    <details>
+      <summary>Expand</summary>
+      <p>You can read this content when the section is expanded</p>
+      <figure>
+        <img
+          src="https://placekitten.com/300/200"
+          alt="A small image showing kittens"
+        />
+        <figcaption>Small images should not upscale</figcaption>
+      </figure>
+    </details>
+    <hr />
+    <footer>
+      This is the footer
+      <ol>
+        <li id="footnote">
+          <p>Footnote text links back.<a href="#footnote-ref">↩</a></p>
+        </li>
+      </ol>
+    </footer>
+  </article>
 {{ end }}

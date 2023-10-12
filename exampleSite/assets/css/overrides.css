@@ -35,27 +35,27 @@
 }
 
 .theme-palette-example .primary .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-primary-medium);
 }
 
 .theme-palette-example .primary .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-primary-medium-dark);
 }
 
 .theme-palette-example .primary .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-primary-dark);
 }
 
 .theme-palette-example .primary .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-primary-darker);
 }
 
 .theme-palette-example .primary .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-primary-darkest);
 }
 
@@ -86,30 +86,29 @@
 }
 
 .theme-palette-example .secondary-left .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-left-medium);
 }
 
 .theme-palette-example .secondary-left .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-left-medium-dark);
 }
 
 .theme-palette-example .secondary-left .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-left-dark);
 }
 
 .theme-palette-example .secondary-left .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-left-darker);
 }
 
 .theme-palette-example .secondary-left .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-left-darkest);
 }
-
 
 /* secondary-right */
 .theme-palette-example .secondary-right .color-main {
@@ -138,27 +137,27 @@
 }
 
 .theme-palette-example .secondary-right .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-right-medium);
 }
 
 .theme-palette-example .secondary-right .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-right-medium-dark);
 }
 
 .theme-palette-example .secondary-right .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-right-dark);
 }
 
 .theme-palette-example .secondary-right .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-right-darker);
 }
 
 .theme-palette-example .secondary-right .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-secondary-right-darkest);
 }
 
@@ -189,27 +188,27 @@
 }
 
 .theme-palette-example .complementary .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-complementary-medium);
 }
 
 .theme-palette-example .complementary .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-complementary-medium-dark);
 }
 
 .theme-palette-example .complementary .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-complementary-dark);
 }
 
 .theme-palette-example .complementary .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-complementary-darker);
 }
 
 .theme-palette-example .complementary .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-complementary-darkest);
 }
 
@@ -240,27 +239,27 @@
 }
 
 .theme-palette-example .warning .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-warning-medium);
 }
 
 .theme-palette-example .warning .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-warning-medium-dark);
 }
 
 .theme-palette-example .warning .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-warning-dark);
 }
 
 .theme-palette-example .warning .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-warning-darker);
 }
 
 .theme-palette-example .warning .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-warning-darkest);
 }
 
@@ -291,27 +290,27 @@
 }
 
 .theme-palette-example .success .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-success-medium);
 }
 
 .theme-palette-example .success .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-success-medium-dark);
 }
 
 .theme-palette-example .success .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-success-dark);
 }
 
 .theme-palette-example .success .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-success-darker);
 }
 
 .theme-palette-example .success .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-success-darkest);
 }
 
@@ -342,27 +341,27 @@
 }
 
 .theme-palette-example .error .color-medium {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-error-medium);
 }
 
 .theme-palette-example .error .color-medium-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-error-medium-dark);
 }
 
 .theme-palette-example .error .color-dark {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-error-dark);
 }
 
 .theme-palette-example .error .color-darker {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-error-darker);
 }
 
 .theme-palette-example .error .color-darkest {
-  color: #FFF;
+  color: #fff;
   background-color: var(--palette-error-darkest);
 }
 
@@ -461,7 +460,9 @@
   background-color: var(--color-complementary-container);
 }
 
-.theme-schema-example .color-on-complementary-container .show-as-background-color {
+.theme-schema-example
+  .color-on-complementary-container
+  .show-as-background-color {
   background-color: var(--color-on-complementary-container);
 }
 
@@ -545,7 +546,9 @@
   background-color: var(--color-surface-bright);
 }
 
-.theme-schema-example .color-surface-container-lowest .show-as-background-color {
+.theme-schema-example
+  .color-surface-container-lowest
+  .show-as-background-color {
   background-color: var(--color-surface-container-lowest);
 }
 
@@ -561,7 +564,9 @@
   background-color: var(--color-surface-container-high);
 }
 
-.theme-schema-example .color-surface-container-highest .show-as-background-color {
+.theme-schema-example
+  .color-surface-container-highest
+  .show-as-background-color {
   background-color: var(--color-surface-container-highest);
 }
 
@@ -588,7 +593,6 @@
 .theme-schema-example .color-scrim .show-as-background-color {
   background-color: var(--color-scrim);
 }
-
 
 .theme-schema-example .color-surface-variant .show-as-background-color {
   background-color: var(--color-surface-variant);

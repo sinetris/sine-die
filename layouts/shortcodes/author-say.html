@@ -1,5 +1,5 @@
 {{- $modifier := .Get 0 -}}
-<figure {{- with $modifier }} class="{{ . }}"{{ end }}>
+<figure {{- with $modifier }}class="{{ . }}"{{ end }}>
   <figcaption><strong>Note by</strong> {{ .Site.Params.author }}</figcaption>
   <p>
     {{- .Inner | markdownify -}}
