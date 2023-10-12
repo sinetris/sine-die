@@ -22,8 +22,8 @@ mark {
 
 blockquote {
   margin: 2rem 0 2rem 2rem;
-  padding: .4rem .8rem;
-  border-left: .35rem solid var(--color-on-complementary-container);
+  padding: 0.4rem 0.8rem;
+  border-left: 0.35rem solid var(--color-on-complementary-container);
 }
 
 kbd {
@@ -44,11 +44,11 @@ figure {
   background-color: var(--color-surface);
   border-radius: 0.5rem;
   margin: 0.5rem;
+  width: fit-content;
 }
 
 img {
   height: auto;
-  width: 100%;
 }
 
 body > main {
@@ -57,7 +57,7 @@ body > main {
 }
 
 body > main > h1 {
-  color: var(--color-on-complementary-container);
+  color: var(--color-complementary);
 }
 
 body > footer {
@@ -118,8 +118,8 @@ button.theme-switcher {
   margin: auto 0.5rem;
 }
 
-button.theme-switcher::before {
-  content: '';
+button.theme-switcher {
+  content: "";
   font-size: 1rem;
   display: inline-block;
   width: 1rem;
@@ -131,4 +131,41 @@ button.theme-switcher::before {
   mask-size: 1rem;
   mask-repeat: no-repeat;
   vertical-align: middle;
+  background-color: (--color-surface-container);
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+/* Print */
+
+@media print {
+  #primary-navigation ul,
+  #search,
+  #theme-links {
+    display: none;
+  }
+  h2 {
+    page-break-before: always;
+  }
+  h1 + h2 {
+    page-break-before: avoid;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+  }
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
+  ol,
+  ul,
+  li {
+    page-break-inside: avoid;
+  }
+  h3 ~ :is(p, ul, ol) {
+    page-break-before: avoid;
+  }
 }
