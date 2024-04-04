@@ -4,11 +4,10 @@ licenselink = "https://github.com/sinetris/sine-die/blob/master/LICENSE"
 description = "Semantic HTML theme for Hugo"
 homepage = "https://github.com/sinetris/sine-die"
 tags = [
-  "blog",
   "clean",
-  "company",
   "customizable",
   "dark",
+  "documentation",
   "docs",
   "light",
   "minimal",
