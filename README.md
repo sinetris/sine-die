@@ -21,7 +21,7 @@ cd exampleSite
 # generate the files under `public`
 hugo
 # add pagefind and generate the search index from the static files in `public`
-npm_config_yes=true npx pagefind --site "public" --output-subdir ../static/_pagefind
+npm_config_yes=true npx pagefind
 # Run the site locally
 hugo server --buildDrafts --tlsAuto --disableFastRender
 ```
