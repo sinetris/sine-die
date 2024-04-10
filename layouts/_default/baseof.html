@@ -6,12 +6,7 @@
   <body class="theme-default">
     <header class="page-header">
       {{ partial "header.html" . }}
-      <div id="search"></div>
-      <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-          new PagefindUI({ element: "#search" });
-        });
-      </script>
+      {{ partial "search.html" . }}
       {{ partial "breadcrumbs.html" . }}
     </header>
     <main aria-role="main">
