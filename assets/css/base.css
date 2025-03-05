@@ -141,19 +141,12 @@ iframe {
   border: 0;
 }
 
-body > header {
+body>header {
   line-height: 1;
   top: 0;
-  /* position: sticky; */
 }
 
-body > header .brand {
-  margin: 0.5rem 0.5rem;
-  padding: 0;
-  font-size: 1.2rem;
-}
-
-body > main h1 {
+body>main h1 {
   margin-top: 0;
 }
 
@@ -164,7 +157,7 @@ nav.primary {
   justify-content: space-between;
 }
 
-nav.primary ul {
+nav.primary .menu ul {
   display: flex;
   align-items: center;
   padding: 0;
@@ -173,58 +166,19 @@ nav.primary ul {
 }
 
 nav.primary img {
-  max-height: 3rem;
+  min-height: 3rem;
 }
 
-nav.primary > .container {
+nav.primary>.container {
   display: flex;
 }
 
-nav.primary a,
+nav.primary .menu a,
 nav.brand {
   text-decoration: none;
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
-}
-
-nav-center,
-nav-left,
-nav-right {
-  display: flex;
-  flex: 1;
-}
-
-nav-left {
-  justify-content: flex-start;
-}
-
-nav-right {
-  justify-content: flex-end;
-}
-
-nav-center {
-  justify-content: center;
-}
-
-@media screen and (max-width: 480px) {
-  nav,
-  nav > .container {
-    flex-direction: column;
-  }
-
-  nav-center,
-  nav-left,
-  nav-right {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  button.theme-switcher {
-    position: fixed;
-    right: 0;
-    top: 1em;
-  }
 }
 
 nav.breadcrumb {
@@ -243,7 +197,7 @@ nav.breadcrumb li {
   display: inline;
 }
 
-nav.breadcrumb li + li::before {
+nav.breadcrumb li+li::before {
   display: inline-block;
   margin: 0 0.25em;
   content: ">";
@@ -252,4 +206,67 @@ nav.breadcrumb li + li::before {
 nav.breadcrumb li:last-child {
   font-weight: bold;
   text-decoration: none;
+}
+
+/* Mobile devices */
+
+@media only screen and (max-width: 480px),
+only screen and (max-device-width: 480px) {
+  nav,
+  nav>.container {
+    flex-direction: column;
+  }
+
+  nav-center,
+  nav-left,
+  nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button.theme-switcher {
+    position: fixed;
+    right: 0;
+    top: 1em;
+  }
+}
+
+/* Tablets devices */
+
+
+/* Print */
+
+@media print {
+  h2 {
+    break-before: auto;
+  }
+
+  h1+h2 {
+    page-break-before: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+  {
+    break-after: avoid-page;
+  }
+
+  pre,
+  blockquote {
+    break-inside: avoid-page;
+  }
+
+  ol,
+  ul,
+  li {
+    break-inside: avoid-page;
+  }
+
+  h3~ :is(p, ul, ol) {
+    break-before: avoid-page;
+  }
 }
