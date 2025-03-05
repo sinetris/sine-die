@@ -1,4 +1,3 @@
-
 .theme-dark button.theme-switcher {
   {{ with resources.Get "images/theme-dark.svg" | resources.Fingerprint "sha512" -}}
     -webkit-mask-image: url({{ .RelPermalink }});

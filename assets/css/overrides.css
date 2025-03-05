@@ -2,26 +2,3 @@
   Create a file `/assets/css/override.css` in your project
   if you need to make changes to the CSS.
 */
-
-/* By default, show the theme logo */
-
-#primary-navigation .brand {
-  background: none;
-}
-
-#primary-navigation .brand::before {
-  content: "";
-  font-size: 1rem;
-  display: inline-block;
-  width: 1.5rem;
-  height: 1rem;
-  color: inherit;
-  background-color: currentColor;
-  opacity: 0.5;
-  -webkit-mask-size: 1.5rem;
-  -webkit-mask-repeat: no-repeat;
-  mask-size: 1.5rem;
-  mask-repeat: no-repeat;
-  vertical-align: middle;
-  /* The image is added in assets.css.gtpl */
-}
