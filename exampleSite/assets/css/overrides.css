@@ -1,6 +1,6 @@
 :root {
-  --color-primary-hue: 220deg;
-  --color-primary-chroma: 0.2;
+  --color-primary-hue: 280deg;
+  --color-primary-chroma: 0.1;
 }
 
 .theme-palette-example table {
@@ -460,9 +460,7 @@
   background-color: var(--color-complementary-container);
 }
 
-.theme-schema-example
-  .color-on-complementary-container
-  .show-as-background-color {
+.theme-schema-example .color-on-complementary-container .show-as-background-color {
   background-color: var(--color-on-complementary-container);
 }
 
@@ -546,9 +544,7 @@
   background-color: var(--color-surface-bright);
 }
 
-.theme-schema-example
-  .color-surface-container-lowest
-  .show-as-background-color {
+.theme-schema-example .color-surface-container-lowest .show-as-background-color {
   background-color: var(--color-surface-container-lowest);
 }
 
@@ -564,9 +560,7 @@
   background-color: var(--color-surface-container-high);
 }
 
-.theme-schema-example
-  .color-surface-container-highest
-  .show-as-background-color {
+.theme-schema-example .color-surface-container-highest .show-as-background-color {
   background-color: var(--color-surface-container-highest);
 }
 
@@ -612,4 +606,11 @@
 
 .theme-schema-example .color-on-background .show-as-background-color {
   background-color: var(--color-on-background);
+}
+
+@media print {
+  .show-as-background-color {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }

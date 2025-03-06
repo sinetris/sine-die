@@ -1,6 +1,8 @@
 ---
 title: Theme Colors
-date: "2023-07-15"
+parent: pages-examples
 description: Example of colors in the theme
 layout: colors
+tags: ["Documentation", "Colors", "Palette"]
+categories: ["Examples"]
 ---
