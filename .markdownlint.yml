@@ -1,0 +1,28 @@
+---
+default: true
+
+# Exclusions for deliberate/widespread violations
+
+# MD010/no-hard-tabs - Hard tabs
+MD010:
+  ignore_code_languages:
+  - ini
+  - ShellSession
+
+# MD013/line-length - Line length
+MD013:
+  line_length: 80
+  code_block_line_length: 200
+
+# MD024/no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
+MD024:
+  siblings_only: true
+
+# MD046/code-block-style - Code block style
+MD046:
+  style: fenced
+
+# MD033/no-inline-html: Inline HTML
+MD033:
+  allowed_elements:
+  - img
