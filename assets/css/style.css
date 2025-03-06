@@ -1,10 +1,15 @@
 body {
-  background-color: var(--color-surface-container);
-  color: var(--color-on-background);
-  /* Sticky footer */
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas:
+      "header  header  header"
+      "content content sidebar"
+      "content content sidebar"
+      "footer  footer  footer";
 }
 
 a {
@@ -40,8 +45,8 @@ kbd {
 }
 
 figure {
-  color: var(--color-on-surface);
-  background-color: var(--color-surface);
+  color: var(--color-on-surface-variant);
+  background-color: var(--color-surface-variant);
   border-radius: 0.5rem;
   margin: 0.5rem;
   width: fit-content;
@@ -51,16 +56,38 @@ img {
   height: auto;
 }
 
-body > main {
-  margin: 1rem 2rem 3rem 2rem;
-  color: var(--color-on-surface);
+body>header {
+  grid-area: header;
 }
 
-body > main > h1 {
+body>header .brand {
+  margin: 0.5rem 0.5rem;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+body>main {
+  margin: 1rem 2rem 3rem 2rem;
+  color: var(--color-on-surface);
+  grid-area: content;
+}
+
+body>main > h1 {
   color: var(--color-complementary);
 }
 
-body > footer {
+body>aside.taxonomies {
+  grid-area: sidebar;
+  background-color: var(--color-surface-bright);
+  margin-top: 1em;
+  padding-left: 1em;
+  border-top-left-radius: 1em;
+  border-top: 0.1em solid var(--color-outline);
+  border-left: 0.1em solid var(--color-outline);
+}
+
+body>footer {
+  grid-area: footer;
   padding: 1.2rem;
   color: var(--color-on-surface);
   background-color: var(--color-surface);
@@ -86,24 +113,24 @@ body > footer {
 
 #primary-navigation {
   color: var(--color-on-surface);
-  background-color: var(--color-surface-dim);
+  background-color: var(--color-on-primary);
 }
 
-#primary-navigation li {
+#primary-navigation .menu li {
   padding-left: 1rem;
 }
 
-#primary-navigation a {
+#primary-navigation .menu a {
   color: var(--color-on-surface);
   border-bottom: 1px solid var(--color-outline-variant);
 }
 
-#primary-navigation a:hover {
-  border-bottom: 1px solid var(--color-complementary);
+#primary-navigation .menu a:hover {
+  border-bottom: 2px dashed var(--color-complementary);
   text-decoration: none;
 }
 
-#primary-navigation li a.active {
+#primary-navigation .menu a.active {
   color: var(--color-complementary);
   border-bottom: 1px solid var(--color-complementary);
 }
@@ -111,61 +138,184 @@ body > footer {
 /* Theme switcher */
 
 button.theme-switcher {
-  background-color: inherit;
   align-items: center;
   justify-content: center;
   border: none;
   margin: auto 0.5rem;
-}
-
-button.theme-switcher {
   content: "";
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  color: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-on-surface);
   background-color: currentColor;
-  -webkit-mask-size: 1rem;
+  -webkit-mask-size: 1.5rem;
   -webkit-mask-repeat: no-repeat;
-  mask-size: 1rem;
+  mask-size: 1.5rem;
   mask-repeat: no-repeat;
   vertical-align: middle;
-  background-color: (--color-surface-container);
   padding-right: 1.5rem;
   cursor: pointer;
 }
 
-/* Print */
+.taxonomy-terms {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  display: inline;
+}
+
+.taxonomy-title {
+  margin-bottom: 0.2em;
+}
+
+.taxonomy-term {
+  background: var(--color-outline);
+  border-width: 0;
+  border-radius: 0 3px 3px 0;
+  color: var(--color-outline-variant);
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  min-height: 1.5em;
+  max-width: 100%;
+  padding: 0 .5em 0 1em;
+  position: relative;
+  margin: 0 .5em .2em 0;
+  text-decoration: none;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  -webkit-clip-path: polygon(100% 0,100% 100%,.8em 100%,0 50%,.8em 0);
+  clip-path: polygon(100% 0,100% 100%,.8em 100%,0 50%,.8em 0);
+}
+
+.taxonomy-terms li {
+  display: inline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.taxonomy-count {
+  font-size: 0.8em;
+  line-height: 1.25em;
+  display: inline-block;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  margin-left: 0.6em;
+  text-align: center;
+  background-color: var(--color-surface-variant);
+  color: var(--color-on-surface-variant);
+  border-radius: 1em;
+}
+
+.pagination>li {
+  list-style: none;
+  display: inline-block;
+  padding: 1em;
+}
+
+.material-symbols-outlined {
+  float: inline-start;
+}
+
+.breadcrumb .material-symbols-outlined {
+  line-height: .4em;
+}
+
+h1 > .material-symbols-outlined {
+  font-size: 2rem;
+  padding-top: .6rem;
+}
+
+#primary-navigation {
+  z-index: 10;
+}
+
+#primary-navigation .brand a:any-link:hover {
+  text-decoration: none;
+}
+
+#primary-navigation .brand img {
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  border-radius: 5em;
+  padding: .25em;
+  margin-left: .5em;
+  margin-right: .5em;
+  background-color: var(--color-surface-tint-color);
+}
+
+#primary-navigation .brand .title span {
+  margin-bottom: 0.6em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  white-space: nowrap;
+}
+
+#primary-navigation .brand .title p {
+  text-align: right;
+  font-size: .8em;
+  color: var(--color-complementary);
+}
+
+#primary-navigation hgroup.title {
+  display: inline-block;
+}
+
+.pages-list > li {
+  list-style: none;
+}
+
+.pages-list > li > a.title{
+  font-weight: bold;
+}
+
+.pages-list > li>time {
+  display: block;
+  font-size: .8rem;
+  margin-left: 0.1em;
+  color: var(--color-outline);
+}
+
+.material-symbols-outlined:has(+ time) {
+  font-size: 1.1rem;
+  padding-right: 0.2em;
+  color: var(--color-outline);
+}
 
 @media print {
+  :root {
+    --font-size: 1rem;
+  }
+  body {
+    display: block;
+  }
+  aside.taxonomies,
+  .page-header .breadcrumb,
+  button.theme-switcher,
   #primary-navigation ul,
   #search,
   #theme-links {
     display: none;
   }
-  h2 {
-    page-break-before: always;
+  #primary-navigation .brand img ,
+  #primary-navigation .title {
+    padding: 0%;
+    margin: 0%;
   }
-  h1 + h2 {
-    page-break-before: avoid;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    page-break-after: avoid;
-  }
-  pre,
-  blockquote {
-    page-break-inside: avoid;
-  }
-  ol,
-  ul,
-  li {
-    page-break-inside: avoid;
-  }
-  h3 ~ :is(p, ul, ol) {
-    page-break-before: avoid;
+}
+
+@media screen and (max-width: 480px) {
+  button.theme-switcher {
+    top: 2em;
   }
 }

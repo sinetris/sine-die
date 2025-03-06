@@ -1,0 +1,27 @@
+{{ define "main" }}
+<h1>
+  <span class="material-symbols-outlined">
+    {{- if eq .Data.Singular "tag" -}}
+    label
+    {{- else if eq .Data.Singular "category" -}}
+    bookmark
+    {{- else if eq .Data.Singular "autor" -}}
+    person
+    {{- else -}}
+    settings
+    {{- end -}}
+  </span>
+  {{- .Title | singularize -}}
+</h1>
+<ul class="section-tree">
+  {{ range .Pages -}}
+  <li>
+    <a href="{{ .Permalink }}">
+      <span class="material-symbols-outlined">article</span>
+      {{ .Title }}
+    </a>
+    <p>{{ .Description }}</p>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}

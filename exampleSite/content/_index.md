@@ -1,6 +1,7 @@
 ---
 title: 'Home'
-date: "2023-06-28"
+categories: [Homepage]
+tags: [Example, Documentation]
 ---
 
 ## sine-die
@@ -10,5 +11,6 @@ A semantic HTML theme for Hugo
 Simple usage example.
 
 {{< author-say >}}
-This is a work-in-progress.
+This is a work-in-progress.\
+Expect breaking changes.
 {{< /author-say >}}

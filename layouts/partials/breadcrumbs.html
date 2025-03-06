@@ -4,7 +4,12 @@
     {{- range $index, $value := .Ancestors.Reverse }}
     <li property="itemListElement" typeof="ListItem">
       <a property="item" typeof="WebPage" href="{{.Permalink}}">
-        <span property="name">{{ .LinkTitle }}</span>
+        <span property="name">
+          {{- if eq $index 0 }}
+          <span class="material-symbols-outlined">home</span>
+          {{- end }}
+          {{ .LinkTitle }}
+        </span>
       </a>
       <meta property="position" content="{{ add 1 $index }}">
     </li>

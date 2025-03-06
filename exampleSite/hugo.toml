@@ -2,29 +2,13 @@ theme = "sine-die"
 themesDir = "../.."
 defaultContentLanguage = "en"
 title = "sine-die"
+sectionPagesMenu = 'main'
 
 [outputs]
 home = ["HTML", "RSS", "PRINT"]
 
-[menu]
-[[menu.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
-[[menu.main]]
-  name = 'Palette'
-  pageRef = '/pages/palette'
-  weight = 20
-[[menu.main]]
-  name = 'Colors'
-  pageRef = '/pages/colors'
-  weight = 30
-[[menu.main]]
-  name = 'Components'
-  pageRef = '/pages/components'
-  weight = 40
-
 [params]
+subTitle = "A semantic HTML theme for Hugo"
 contentSourceLink = "https://github.com/sinetris/sine-die"
 
 description = """\

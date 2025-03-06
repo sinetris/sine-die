@@ -11,22 +11,22 @@
 :root,
 .theme-default,
 .theme-light {
-  --pagefind-ui-primary: var(--color-primary-container);
-  --pagefind-ui-text: var(--color-on-surface);
-  --pagefind-ui-background: var(--color-surface);
-  --pagefind-ui-border: var(--color-outline-variant);
-  --pagefind-ui-tag: var(--color-on-primary-container);
+  --pagefind-ui-primary: var(--color-on-tertiary-container);
+  --pagefind-ui-text: var(--color-on-primary-container);
+  --pagefind-ui-background: var(--color-inverse-primary);
+  --pagefind-ui-border: var(--color-primary);
+  --pagefind-ui-tag: var(--color-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root,
   .theme-default,
   .theme-dark {
-    --pagefind-ui-primary: var(--color-primary-container);
-    --pagefind-ui-text: var(--color-on-surface);
-    --pagefind-ui-background: var(--color-surface);
-    --pagefind-ui-border: var(--color-outline-variant);
-    --pagefind-ui-tag: var(--color-on-primary-container);
+    --pagefind-ui-primary: var(--color-on-tertiary-container);
+    --pagefind-ui-text: var(--color-on-primary-container);
+    --pagefind-ui-background: var(--color-inverse-primary);
+    --pagefind-ui-border: var(--color-primary);
+    --pagefind-ui-tag: var(--color-secondary);
   }
 }
 

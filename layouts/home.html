@@ -1,12 +1,9 @@
 {{ define "main" }}
-<div class="content">
-  {{- with .Params.Title -}}
-  <h1>{{ . }}</h1>
-  {{- end -}}
+<article class="homepage-content">
   {{ .Content }}
-</div>
+</article>
 <ul class="pages-list">
-  {{ $pages := .Pages.ByTitle }}
+  {{ $pages := .Site.RegularPages }}
   {{ range (.Paginate $pages).Pages }}
   <li>
     {{- $short_date := .Date | time.Format (.Site.Params.dateFormat | default "2006-01-02" ) }}
@@ -20,5 +17,4 @@
   </li>
   {{- end -}}
 </ul>
-{{ template "_internal/pagination.html" . }}
 {{ end }}

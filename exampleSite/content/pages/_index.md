@@ -1,7 +1,10 @@
 ---
-title: 'Examples'
-date: "2023-06-28"
+title: Documentation
+identifier: docs
+weight: 10
 description: Usage example for the sine-die theme
+tags: ["Documentation", "Colors", "Dark", "Light"]
+categories: ["Examples"]
 type: theme
 ---
 

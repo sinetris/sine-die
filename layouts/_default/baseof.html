@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ $.Site.LanguageCode | default `en` }}">
+<html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
   <head>
     {{ partial "head.html" . }}
   </head>
@@ -10,11 +10,9 @@
       {{ partial "breadcrumbs.html" . }}
     </header>
     <main aria-role="main">
-      {{- with .Params.Title -}}
-      <h1>{{ . }}</h1>
-      {{- end -}}
       {{ block "main" . }}{{ end }}
     </main>
+    {{ partial "sidebar.html" . }}
     {{ partial "footer.html" . -}}
     {{ partial "footer-scripts.html" . }}
   </body>

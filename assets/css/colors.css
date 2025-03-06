@@ -23,15 +23,15 @@
   );
   --color-complementary-hue: calc(var(--color-primary-hue) + 180deg);
 
-  --palette-lightest-lightness: 100%;
-  --palette-lighter-lightness: 90%;
+  --palette-lightest-lightness: 95%;
+  --palette-lighter-lightness: 85%;
   --palette-light-lightness: 80%;
   --palette-medium-light-lightness: 70%;
   --palette-medium-lightness: 50%;
   --palette-medium-dark-lightness: 30%;
   --palette-dark-lightness: 20%;
-  --palette-darker-lightness: 10%;
-  --palette-darkest-lightness: 5%;
+  --palette-darker-lightness: 15%;
+  --palette-darkest-lightness: 7%;
 
   --palette-neutral-chroma: 0.01;
   --palette-neutral-variant-chroma: 0.025;

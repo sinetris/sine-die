@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1 class="title-header">
+  <span class="material-symbols-outlined">
+    {{- if eq .Data.Singular "tag" -}}
+    label
+    {{- else if eq .Data.Singular "category" -}}
+    bookmark
+    {{- else if eq .Data.Singular "autor" -}}
+    person
+    {{- else -}}
+    settings
+    {{- end -}}
+  </span>
+  {{- .Title | singularize -}}
+</h1>
+<ul>
+  {{ range .Pages }}
+  <li>
+    <a href="{{ .Permalink }}">
+      <span class="material-symbols-outlined">label</span>
+      {{ .Title }}
+    </a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
