@@ -1,1 +1,11 @@
-<strong class="brand">{{ .Site.Title }}</strong>
+<span class="brand">
+  <a href="/">
+    {{ with resources.Get "images/sine-die-logo.svg" | resources.Fingerprint "sha512" -}}
+    <img src="{{- .RelPermalink -}}" />
+    {{- end }}
+    <hgroup class="title">
+      <span>{{ .Site.Title }}</span>
+      <p>{{ .Site.Params.SubTitle }}</p>
+    </hgroup>
+  </a>
+</span>
