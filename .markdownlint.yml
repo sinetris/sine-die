@@ -6,8 +6,8 @@ default: true
 # MD010/no-hard-tabs - Hard tabs
 MD010:
   ignore_code_languages:
-  - ini
-  - ShellSession
+    - ini
+    - ShellSession
 
 # MD013/line-length - Line length
 MD013:
@@ -25,4 +25,4 @@ MD046:
 # MD033/no-inline-html: Inline HTML
 MD033:
   allowed_elements:
-  - img
+    - img

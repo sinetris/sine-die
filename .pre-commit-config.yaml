@@ -1,0 +1,62 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Git style
+      - id: check-added-large-files
+        args: ["--maxkb=900"]
+      - id: check-merge-conflict
+      - id: check-vcs-permalinks
+      - id: forbid-new-submodules
+      - id: no-commit-to-branch
+        args: [--branch, main]
+      - id: detect-private-key
+      # Common errors
+      - id: end-of-file-fixer
+        exclude_types:
+          - svg
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+        exclude: CHANGELOG.md
+      - id: check-executables-have-shebangs
+      # Cross platform
+      - id: check-case-conflict
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      # Security
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+      - id: detect-private-key
+      # Linters and Formatters
+      - id: check-yaml
+      - id: check-json
+      - id: pretty-format-json
+        args: ["--autofix", "--no-sort-keys"]
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        args:
+          - -P
+          - SCRIPTDIR
+          - -e
+          - SC2034
+          - -x
+  # Markdown/CommonMark Linter
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.43.0
+    hooks:
+      - id: markdownlint
+        # Makefile Linter
+        # Jsonnet Linter e Formatter
+        pass_filenames: false
+  # YAML Formatter
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.15.0
+    hooks:
+      # Generic
+      - id: yamlfmt
+        name: Format generic YAML files (exclude kubernetes and ansible)
+        alias: yamlfmt-generic
+        args: [-conf, .yamlfmt]
