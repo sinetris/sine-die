@@ -2,7 +2,7 @@
 site: public
 output_subdir: ../static/_pagefind
 showEmptyFilters: true
-root_selector: "body > main"
+root_selector: "body>main"
 exclude_selectors:
-  - "body > header"
-  - "body > footer"
+  - "body>header"
+  - "body>footer"
