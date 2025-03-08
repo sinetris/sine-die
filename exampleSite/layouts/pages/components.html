@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{- with .Params.Title -}}
+  <h1>{{ . }}</h1>
+  {{- end -}}
   <article>
     <!-- Default Headings -->
     <h1>Heading 1</h1>
@@ -37,6 +40,8 @@
     <mark>Highlighted</mark>
     <code>Inline code</code>
     <kbd>Alt</kbd> + <kbd>F4</kbd>
+    <cite>The Citation element</cite>
+    <dfn title="dfn">The Definition element</dfn>
 
     <!-- Bulleted list -->
     <ul>
@@ -58,24 +63,155 @@
       <li>Third thing</li>
     </ol>
 
+    <!-- Figure -->
     <figure>
-      <img
-        src="https://picsum.photos/id/145/4000/2000?grayscale"
-        alt="A 4000x2000 image"
-      />
+      <img src="https://picsum.photos/id/145/4000/2000?grayscale" alt="A 4000x2000 image" />
       <figcaption>Large images should fit screen</figcaption>
     </figure>
     <details>
       <summary>Expand</summary>
       <p>You can read this content when the section is expanded</p>
       <figure>
-        <img
-          src="https://picsum.photos/id/1/300/200"
-          alt="A 300x200 image"
-        />
+        <img src="https://picsum.photos/id/1/300/200" alt="A 300x200 image" />
         <figcaption>Small images should not upscale</figcaption>
       </figure>
     </details>
+
+    <!-- Form -->
+    <form>
+      <fieldset>
+        <legend>Buttons examples:</legend>
+        <button class="button">Normal Button</button>
+        <br>
+        <button class="button" disabled>Disabled Button</button>
+        <br>
+        <button class="button" type="button">Type Button</button>
+        <br>
+        <button class="button" type="reset">Reset Button</button>
+        <br>
+        <button class="button" type="submit">Submit Button</button>
+        <br>
+      </fieldset>
+      <fieldset>
+        <legend>Select examples:</legend>
+        <label for="form-select">select:</label>
+        <br>
+        <select name="form-select">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br>
+        <label for="form-select-selected">select with selected:</label>
+        <br>
+        <select name="form-select-selected">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat" selected>Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br>
+        <label for="form-select-size">select with size:</label>
+        <br>
+        <select name="form-select-size" size="3">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br>
+        <label for="form-select-multiple">select multiple:</label>
+        <br>
+        <select name="form-select-multiple" multiple>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br>
+        <label for="form-select-optgroup">select with optgroup:</label>
+        <br>
+        <select name="form-select-optgroup">
+          <optgroup label="Group 1">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+          </optgroup>
+          <optgroup label="Group 2">
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </optgroup>
+        </select>
+        <br>
+      </fieldset>
+      <fieldset>
+        <legend>Textarea examples:</legend>
+        <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+        <br>
+      </fieldset>
+      <fieldset>
+        <legend>Input examples:</legend>
+        <label for="form-input-button">button:</label><br>
+        <input type="button" name="form-input-button" value="Button"><br>
+        <label for="form-input-checkbox">checkbox:</label><br>
+        <input type="checkbox" name="form-input-checkbox"><br>
+        <label for="form-input-color">color:</label><br>
+        <input type="color" name="form-input-color"><br>
+        <label for="form-input-date">date:</label><br>
+        <input type="date" name="form-input-date"><br>
+        <label for="form-input-datetime-local">datetime-local:</label><br>
+        <input type="datetime-local" name="form-input-datetime-local"><br>
+        <label for="form-input-email">email:</label><br>
+        <input type="email" name="form-input-email"><br>
+        <label for="form-input-file">file:</label><br>
+        <input type="file" name="form-input-file"><br>
+        <label for="form-input-hidden">hidden:</label><br>
+        <input type="hidden" name="form-input-hidden"><br>
+        {{ with resources.Get "images/sine-die-logo.svg" | resources.Fingerprint "sha512" -}}
+          <label for="form-input-image">image:</label><br>
+          <input type="image" name="form-input-image" alt="input type image" src="{{- .RelPermalink -}}" style="height: 2em; width: 2em;"><br>
+        {{- end }}
+        <label for="form-input-month">month:</label><br>
+        <input type="month" name="form-input-month"><br>
+        <label for="form-input-number">number:</label><br>
+        <input type="number" name="form-input-number"><br>
+        <label for="form-input-password">password:</label><br>
+        <input type="password" name="form-input-password"><br>
+        <label for="form-input-radio">radio:</label><br>
+        <input type="radio" name="form-input-radio"><br>
+        <label for="form-input-range">range:</label><br>
+        <input type="range" name="form-input-range"><br>
+        <label for="form-input-reset">reset:</label><br>
+        <input type="reset" name="form-input-reset"><br>
+        <label for="form-input-search">search:</label><br>
+        <input type="search" name="form-input-search"><br>
+        <label for="form-input-submit">submit:</label><br>
+        <input type="submit" name="form-input-submit"><br>
+        <label for="form-input-tel">tel:</label><br>
+        <input type="tel" name="form-input-tel"><br>
+        <label for="form-input-text">text:</label><br>
+        <input type="text" name="form-input-text"><br>
+        <label for="form-input-time">time:</label><br>
+        <input type="time" name="form-input-time"><br>
+        <label for="form-input-url">url:</label><br>
+        <input type="url" name="form-input-url"><br>
+        <label for="form-input-week">week:</label><br>
+        <input type="week" name="form-input-week"><br>
+        <label for="form-input-placeholder">placeholder:</label><br>
+        <input name="form-input-placeholder" placeholder="this is a placeholder"><br>
+        <label for="form-input-required">required:</label><br>
+        <input name="form-input-required" required><br>
+        <label for="form-input-datalist">datalist:</label><br>
+        <input list="form-datalist" name="form-input-datalist"><br>
+        <datalist id="form-datalist">
+          <option value="Edge">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+      </fieldset>
+    </form>
     <hr />
     <footer>
       This is the footer

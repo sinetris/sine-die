@@ -1,6 +1,7 @@
 /* Pagefind settings */
+/* stylelint-disable selector-class-pattern */
 :root {
-  --pagefind-ui-scale: 1;
+  --pagefind-ui-scale: 0.8;
   --pagefind-ui-border-width: 0.1rem;
   --pagefind-ui-border-radius: 5rem;
   --pagefind-ui-image-border-radius: 0.2rem;
@@ -32,6 +33,7 @@
 
 #search button.pagefind-ui__search-clear {
   background: none;
+  border: none;
 }
 
 #search button.pagefind-ui__search-clear::before {
@@ -41,11 +43,19 @@
   width: 1rem;
   height: 1rem;
   color: inherit;
-  background-color: currentColor;
-  -webkit-mask-size: 1rem;
-  -webkit-mask-repeat: no-repeat;
+  background-color: currentcolor;
   mask-size: 1rem;
   mask-repeat: no-repeat;
   vertical-align: middle;
+
   /* The image is added in assets.css.gtpl */
 }
+
+@media only screen and (width <= 480px),
+only screen and (device-width <= 480px) {
+  .pagefind-ui__result-thumb {
+    display: none;
+  }
+}
+
+/* stylelint-enable selector-class-pattern */

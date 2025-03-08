@@ -32,3 +32,16 @@ refreshTheme();
 
 const themeSwitchButton = document.querySelector("button.theme-switcher");
 themeSwitchButton.addEventListener("click", switchTheme);
+
+function responsiveMenu() {
+  const responsiveClass = "responsive";
+  var menuElement = document.getElementById("primary-navigation");
+  if (menuElement.classList.contains(responsiveClass)) {
+    menuElement.classList.remove(responsiveClass);
+  } else {
+    menuElement.classList.add(responsiveClass);
+  }
+}
+
+const responsiveMenuButton = document.querySelector(".menu-icon>button");
+responsiveMenuButton.addEventListener("click", responsiveMenu);

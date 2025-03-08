@@ -1,7 +1,6 @@
 /* base theme properties */
 
 :root {
-  --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --base-font-size: 100%;
   --font-size: 1rem;
@@ -20,6 +19,7 @@ html {
   text-size-adjust: 100%;
   font-family: var(--font-family-sans);
   scroll-behavior: smooth;
+  min-height: 100vh
 }
 
 body {
@@ -27,6 +27,7 @@ body {
   font-size: var(--font-size);
   font-family: var(--font-family-sans);
   padding: 0;
+  min-height: 100vh
 }
 
 main {
@@ -51,10 +52,6 @@ a:hover:not(.button) {
   opacity: 0.75;
 }
 
-a:any-link:hover:not(.button) {
-  text-decoration: underline;
-}
-
 button {
   font-family: inherit;
   font-size: 1rem;
@@ -65,7 +62,7 @@ p {
 }
 
 figure {
-  padding: 1rem 1rem 0.5rem 1rem;
+  padding: 1rem 1rem 0.5rem;
 }
 
 blockquote {
@@ -125,11 +122,9 @@ pre code {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
+  text-underline-offset: 0.3rem;
   text-decoration-style: dotted;
   text-decoration-line: underline;
-  text-underline-offset: 0.3rem;
-  -webkit-text-decoration-style: dotted;
-  -webkit-text-decoration-line: underline;
   -webkit-text-underline-offset: 0.3rem;
 }
 
@@ -153,8 +148,6 @@ body>main h1 {
 nav.primary {
   display: flex;
   min-height: 5rem;
-  align-items: stretch;
-  justify-content: space-between;
 }
 
 nav.primary .menu ul {
@@ -183,7 +176,6 @@ nav.brand {
 
 nav.breadcrumb {
   padding: 1.5em 2em 0;
-  border-radius: 4px;
 }
 
 nav.breadcrumb ol {
@@ -208,41 +200,15 @@ nav.breadcrumb li:last-child {
   text-decoration: none;
 }
 
-/* Mobile devices */
-
-@media only screen and (max-width: 480px),
-only screen and (max-device-width: 480px) {
-  nav,
-  nav>.container {
-    flex-direction: column;
-  }
-
-  nav-center,
-  nav-left,
-  nav-right {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  button.theme-switcher {
-    position: fixed;
-    right: 0;
-    top: 1em;
-  }
+a:any-link:hover:not(.button) {
+  text-decoration: underline;
 }
-
-/* Tablets devices */
-
 
 /* Print */
 
 @media print {
   h2 {
     break-before: auto;
-  }
-
-  h1+h2 {
-    page-break-before: avoid;
   }
 
   h1,
@@ -253,6 +219,10 @@ only screen and (max-device-width: 480px) {
   h6
   {
     break-after: avoid-page;
+  }
+
+  h1+h2 {
+    page-break-before: avoid;
   }
 
   pre,
