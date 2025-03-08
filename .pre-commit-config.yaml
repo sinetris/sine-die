@@ -57,6 +57,16 @@ repos:
     hooks:
       # Generic
       - id: yamlfmt
-        name: Format generic YAML files (exclude kubernetes and ansible)
+        name: Format generic YAML files
         alias: yamlfmt-generic
         args: [-conf, .yamlfmt]
+  # CSS linter
+  - repo: https://github.com/thibaudcolas/pre-commit-stylelint
+    rev: v16.15.0
+    hooks:
+      - id: stylelint
+        files: \.(css|scss|sass)$
+        args: [--fix]
+        additional_dependencies:
+          - 'stylelint'
+          - 'stylelint-config-standard'
