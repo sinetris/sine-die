@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{- with .Params.Title -}}
+<h1>{{ . }}</h1>
+{{- end -}}
 <article class="theme-schema-example">
   <h2>Baseline color scheme</h2>
   <table>

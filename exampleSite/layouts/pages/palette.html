@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{- with .Params.Title -}}
+  <h1>{{ . }}</h1>
+  {{- end -}}
   <article class="theme-palette-example">
     <h2>Palette</h2>
     <table>
