@@ -1,28 +1,66 @@
 :root {
+  /****************************************************
+  Main Colors Definitions
+  We will use 'oklch' to calculate the color variations.
+  ****************************************************/
+
+  /*
+  Primary color (simplified explanation)
+  */
+
+  /* 'hue' is a value between 0 and 360 degrees and is the color itself */
   --color-primary-hue: 222deg;
-  --color-primary-chroma: 0.1;
+
+  /* 'chroma' is a value between 0% and 100% and is the color vividity (saturation) */
+  --colors-primary-chroma: 20%;
+
+  /* 'lightness' is a value between 0% (black) and 100% (white) */
   --color-primary-lightness: 70%;
 
-  --color-event-chroma: 0.2;
+  /*
+  Color Palette
+  */
 
-  --colors-secondary-angle: 20deg;
-  --color-warning-hue: 94deg;
+  /*
+  Main colors 'chroma'
+  Preferred values: between 10% and 70%)
+  */
+  --colors-chroma: 20%;
+
+  /* Use vivid colors for events (e.g. successes, warnings, errors) */
+  --color-event-chroma: 70%;
+
+  /* Use less saturated colors for neutral palettes */
+  --color-neutral-chroma: 10%;
+
+  /*
+  Secondary colors angle (left and right from the primary)
+  Preferred values: between 15 and 35 degrees
+  */
+  --colors-secondary-angle: 25deg;
+
+  /*
+  We want the warning colors to be yellow-ish
+  Preferred values: between 60 and 100 degrees
+  */
+  --color-warning-hue: 80deg;
   --color-warning-chroma: var(--color-event-chroma);
 
-  --color-success-hue: 150deg;
+  /*
+  We want the warning colors to be green-ish
+  Preferred values: between 120 and 155 degrees
+  */
+  --color-success-hue: 140deg;
   --color-success-chroma: var(--color-event-chroma);
 
+  /*
+  We want the warning colors to be red-ish
+  Preferred values: between 10 and 40 degrees
+  */
   --color-error-hue: 25deg;
   --color-error-chroma: var(--color-event-chroma);
 
-  --color-secondary-left-hue: calc(
-    var(--color-primary-hue) - var(--colors-secondary-angle)
-  );
-  --color-secondary-right-hue: calc(
-    var(--color-primary-hue) + var(--colors-secondary-angle)
-  );
-  --color-complementary-hue: calc(var(--color-primary-hue) + 180deg);
-
+  /* Colors lightness variations */
   --palette-lightest-lightness: 95%;
   --palette-lighter-lightness: 85%;
   --palette-light-lightness: 80%;
@@ -33,174 +71,186 @@
   --palette-darker-lightness: 15%;
   --palette-darkest-lightness: 7%;
 
-  --palette-neutral-chroma: 0.01;
-  --palette-neutral-variant-chroma: 0.025;
+  /*
+  Calculate Colors
+  */
 
-  /* Calculate Colors */
+  /* Calculate Secondary left/right and Complementary hue */
+  --color-secondary-left-hue: calc(
+    var(--color-primary-hue) - var(--colors-secondary-angle)
+  );
+  --color-secondary-right-hue: calc(
+    var(--color-primary-hue) + var(--colors-secondary-angle)
+  );
+  --color-complementary-hue: calc(var(--color-primary-hue) + 180deg);
+
+  /* Primary */
   --palette-primary-main: oklch(
-    var(--color-primary-lightness) var(--color-primary-chroma)
+    var(--color-primary-lightness) var(--colors-primary-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-lightest: oklch(
-    var(--palette-lightest-lightness) var(--color-primary-chroma)
+    var(--palette-lightest-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-lighter: oklch(
-    var(--palette-lighter-lightness) var(--color-primary-chroma)
+    var(--palette-lighter-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-light: oklch(
-    var(--palette-light-lightness) var(--color-primary-chroma)
+    var(--palette-light-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-medium-light: oklch(
-    var(--palette-medium-light-lightness) var(--color-primary-chroma)
+    var(--palette-medium-light-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-medium: oklch(
-    var(--palette-medium-lightness) var(--color-primary-chroma)
+    var(--palette-medium-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-medium-dark: oklch(
-    var(--palette-medium-dark-lightness) var(--color-primary-chroma)
+    var(--palette-medium-dark-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-dark: oklch(
-    var(--palette-dark-lightness) var(--color-primary-chroma)
+    var(--palette-dark-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-darker: oklch(
-    var(--palette-darker-lightness) var(--color-primary-chroma)
+    var(--palette-darker-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
   --palette-primary-darkest: oklch(
-    var(--palette-darkest-lightness) var(--color-primary-chroma)
+    var(--palette-darkest-lightness) var(--colors-chroma)
       var(--color-primary-hue)
   );
 
+  /* Secondary */
   --palette-secondary-left-main: oklch(
-    var(--color-primary-lightness) var(--color-primary-chroma)
+    var(--color-primary-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-lightest: oklch(
-    var(--palette-lightest-lightness) var(--color-primary-chroma)
+    var(--palette-lightest-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-lighter: oklch(
-    var(--palette-lighter-lightness) var(--color-primary-chroma)
+    var(--palette-lighter-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-light: oklch(
-    var(--palette-light-lightness) var(--color-primary-chroma)
+    var(--palette-light-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-medium-light: oklch(
-    var(--palette-medium-light-lightness) var(--color-primary-chroma)
+    var(--palette-medium-light-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-medium: oklch(
-    var(--palette-medium-lightness) var(--color-primary-chroma)
+    var(--palette-medium-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-medium-dark: oklch(
-    var(--palette-medium-dark-lightness) var(--color-primary-chroma)
+    var(--palette-medium-dark-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-dark: oklch(
-    var(--palette-dark-lightness) var(--color-primary-chroma)
+    var(--palette-dark-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-darker: oklch(
-    var(--palette-darker-lightness) var(--color-primary-chroma)
+    var(--palette-darker-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
   --palette-secondary-left-darkest: oklch(
-    var(--palette-darkest-lightness) var(--color-primary-chroma)
+    var(--palette-darkest-lightness) var(--colors-chroma)
       var(--color-secondary-left-hue)
   );
-
   --palette-secondary-right-main: oklch(
-    var(--color-primary-lightness) var(--color-primary-chroma)
+    var(--color-primary-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-lightest: oklch(
-    var(--palette-lightest-lightness) var(--color-primary-chroma)
+    var(--palette-lightest-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-lighter: oklch(
-    var(--palette-lighter-lightness) var(--color-primary-chroma)
+    var(--palette-lighter-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-light: oklch(
-    var(--palette-light-lightness) var(--color-primary-chroma)
+    var(--palette-light-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-medium-light: oklch(
-    var(--palette-medium-light-lightness) var(--color-primary-chroma)
+    var(--palette-medium-light-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-medium: oklch(
-    var(--palette-medium-lightness) var(--color-primary-chroma)
+    var(--palette-medium-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-medium-dark: oklch(
-    var(--palette-medium-dark-lightness) var(--color-primary-chroma)
+    var(--palette-medium-dark-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-dark: oklch(
-    var(--palette-dark-lightness) var(--color-primary-chroma)
+    var(--palette-dark-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-darker: oklch(
-    var(--palette-darker-lightness) var(--color-primary-chroma)
+    var(--palette-darker-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
   --palette-secondary-right-darkest: oklch(
-    var(--palette-darkest-lightness) var(--color-primary-chroma)
+    var(--palette-darkest-lightness) var(--colors-chroma)
       var(--color-secondary-right-hue)
   );
 
+  /* Complementary */
   --palette-complementary-main: oklch(
-    var(--color-primary-lightness) var(--color-primary-chroma)
+    var(--color-primary-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-lightest: oklch(
-    var(--palette-lightest-lightness) var(--color-primary-chroma)
+    var(--palette-lightest-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-lighter: oklch(
-    var(--palette-lighter-lightness) var(--color-primary-chroma)
+    var(--palette-lighter-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-light: oklch(
-    var(--palette-light-lightness) var(--color-primary-chroma)
+    var(--palette-light-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-medium-light: oklch(
-    var(--palette-medium-light-lightness) var(--color-primary-chroma)
+    var(--palette-medium-light-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-medium: oklch(
-    var(--palette-medium-lightness) var(--color-primary-chroma)
+    var(--palette-medium-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-medium-dark: oklch(
-    var(--palette-medium-dark-lightness) var(--color-primary-chroma)
+    var(--palette-medium-dark-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-dark: oklch(
-    var(--palette-dark-lightness) var(--color-primary-chroma)
+    var(--palette-dark-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-darker: oklch(
-    var(--palette-darker-lightness) var(--color-primary-chroma)
+    var(--palette-darker-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
   --palette-complementary-darkest: oklch(
-    var(--palette-darkest-lightness) var(--color-primary-chroma)
+    var(--palette-darkest-lightness) var(--colors-chroma)
       var(--color-complementary-hue)
   );
 
+  /* Warning */
   --palette-warning-main: oklch(
     var(--color-primary-lightness) var(--color-warning-chroma)
       var(--color-warning-hue)
@@ -242,6 +292,7 @@
       var(--color-warning-hue)
   );
 
+  /* Success */
   --palette-success-main: oklch(
     var(--color-primary-lightness) var(--color-success-chroma)
       var(--color-success-hue)
@@ -283,6 +334,7 @@
       var(--color-success-hue)
   );
 
+  /* Error */
   --palette-error-main: oklch(
     var(--color-primary-lightness) var(--color-error-chroma)
       var(--color-error-hue)
@@ -324,336 +376,304 @@
       var(--color-error-hue)
   );
 
+  /* Neutral */
   --palette-neutral0: oklch(
-    0% var(--palette-neutral-chroma) var(--color-primary-hue)
+    0% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral4: oklch(
-    4% var(--palette-neutral-chroma) var(--color-primary-hue)
+    4% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral6: oklch(
-    6% var(--palette-neutral-chroma) var(--color-primary-hue)
+    6% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral10: oklch(
-    10% var(--palette-neutral-chroma) var(--color-primary-hue)
+    10% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral12: oklch(
-    12% var(--palette-neutral-chroma) var(--color-primary-hue)
+    12% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral17: oklch(
-    17% var(--palette-neutral-chroma) var(--color-primary-hue)
+    17% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral20: oklch(
-    20% var(--palette-neutral-chroma) var(--color-primary-hue)
+    20% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral22: oklch(
-    22% var(--palette-neutral-chroma) var(--color-primary-hue)
+    22% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral24: oklch(
-    24% var(--palette-neutral-chroma) var(--color-primary-hue)
+    24% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral87: oklch(
-    87% var(--palette-neutral-chroma) var(--color-primary-hue)
+    87% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral90: oklch(
-    90% var(--palette-neutral-chroma) var(--color-primary-hue)
+    90% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral92: oklch(
-    92% var(--palette-neutral-chroma) var(--color-primary-hue)
+    92% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral94: oklch(
-    94% var(--palette-neutral-chroma) var(--color-primary-hue)
+    94% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral95: oklch(
-    95% var(--palette-neutral-chroma) var(--color-primary-hue)
+    95% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral96: oklch(
-    96% var(--palette-neutral-chroma) var(--color-primary-hue)
+    96% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral98: oklch(
-    98% var(--palette-neutral-chroma) var(--color-primary-hue)
+    98% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral100: oklch(
-    100% var(--palette-neutral-chroma) var(--color-primary-hue)
+    100% var(--color-neutral-chroma) var(--color-primary-hue)
   );
-
   --palette-neutral-variant10: oklch(10% 0.02 var(--color-primary-hue));
   --palette-neutral-variant30: oklch(30% 0.02 var(--color-primary-hue));
   --palette-neutral-variant50: oklch(50% 0.02 var(--color-primary-hue));
   --palette-neutral-variant60: oklch(60% 0.02 var(--color-primary-hue));
   --palette-neutral-variant80: oklch(80% 0.02 var(--color-primary-hue));
   --palette-neutral-variant90: oklch(90% 0.02 var(--color-primary-hue));
+
   color-scheme: light dark;
 }
 
-/* Theme light */
-
+/* Light Theme (default if 'prefers-color-scheme' is not supported) */
+.theme-default,
 .theme-light {
+  /* Primary */
   --color-primary: var(--palette-primary-medium);
   --color-on-primary: var(--palette-primary-lightest);
   --color-primary-container: var(--palette-primary-lighter);
   --color-on-primary-container: var(--palette-primary-darker);
-
   --color-inverse-primary: var(--palette-primary-light);
 
+  /* Secondary */
   --color-secondary: var(--palette-secondary-left-medium);
   --color-on-secondary: var(--palette-secondary-left-lightest);
   --color-secondary-container: var(--palette-secondary-left-lighter);
   --color-on-secondary-container: var(--palette-secondary-left-darker);
 
+  /* Tertiary */
   --color-tertiary: var(--palette-secondary-right-medium);
   --color-on-tertiary: var(--palette-secondary-right-lightest);
   --color-tertiary-container: var(--palette-secondary-right-lighter);
   --color-on-tertiary-container: var(--palette-secondary-right-darker);
 
+  /* Complementary */
   --color-complementary: var(--palette-complementary-medium);
   --color-on-complementary: var(--palette-complementary-lightest);
   --color-complementary-container: var(--palette-complementary-lighter);
   --color-on-complementary-container: var(--palette-complementary-darker);
 
+  /* Success */
   --color-success: var(--palette-success-medium);
   --color-on-success: var(--palette-success-lightest);
   --color-success-container: var(--palette-success-lighter);
   --color-on-success-container: var(--palette-success-darker);
 
+  /* Warning */
   --color-warning: var(--palette-warning-medium);
   --color-on-warning: var(--palette-warning-lightest);
   --color-warning-container: var(--palette-warning-lighter);
   --color-on-warning-container: var(--palette-warning-darker);
 
+  /* Error */
   --color-error: var(--palette-error-medium);
   --color-on-error: var(--palette-error-lightest);
   --color-error-container: var(--palette-error-lighter);
   --color-on-error-container: var(--palette-error-darker);
 
+  /* Surface */
   --color-surface-tint-color: var(--palette-primary-main);
-
   --color-surface-dim: var(--palette-neutral87);
   --color-surface: var(--palette-neutral90);
   --color-surface-bright: var(--palette-neutral98);
-
   --color-surface-container-lowest: var(--palette-neutral100);
   --color-surface-container-low: var(--palette-neutral96);
   --color-surface-container: var(--palette-neutral94);
   --color-surface-container-high: var(--palette-neutral92);
   --color-surface-container-highest: var(--palette-neutral90);
-
   --color-on-surface: var(--palette-neutral20);
   --color-on-surface-variant: var(--palette-neutral-variant10);
-
   --color-outline: var(--palette-neutral-variant50);
   --color-outline-variant: var(--palette-neutral-variant80);
   --color-shadow: var(--palette-neutral0);
   --color-scrim: var(--palette-neutral0);
-
   --color-surface-variant: var(--palette-neutral-variant90);
   --color-inverse-surface: var(--palette-neutral20);
   --color-inverse-on-surface: var(--palette-neutral95);
   --color-background: var(--palette-neutral90);
   --color-on-background: var(--palette-neutral20);
+
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: light) {
+  /* Set .theme-default same as .theme-light */
   .theme-default {
     --color-primary: var(--palette-primary-medium);
     --color-on-primary: var(--palette-primary-lightest);
     --color-primary-container: var(--palette-primary-lighter);
     --color-on-primary-container: var(--palette-primary-darker);
-
     --color-inverse-primary: var(--palette-primary-light);
-
     --color-secondary: var(--palette-secondary-left-medium);
     --color-on-secondary: var(--palette-secondary-left-lightest);
     --color-secondary-container: var(--palette-secondary-left-lighter);
     --color-on-secondary-container: var(--palette-secondary-left-darker);
-
     --color-tertiary: var(--palette-secondary-right-medium);
     --color-on-tertiary: var(--palette-secondary-right-lightest);
     --color-tertiary-container: var(--palette-secondary-right-lighter);
     --color-on-tertiary-container: var(--palette-secondary-right-darker);
-
     --color-complementary: var(--palette-complementary-medium);
     --color-on-complementary: var(--palette-complementary-lightest);
     --color-complementary-container: var(--palette-complementary-lighter);
     --color-on-complementary-container: var(--palette-complementary-darker);
-
     --color-success: var(--palette-success-medium);
     --color-on-success: var(--palette-success-lightest);
     --color-success-container: var(--palette-success-lighter);
     --color-on-success-container: var(--palette-success-darker);
-
     --color-warning: var(--palette-warning-medium);
     --color-on-warning: var(--palette-warning-lightest);
     --color-warning-container: var(--palette-warning-lighter);
     --color-on-warning-container: var(--palette-warning-darker);
-
     --color-error: var(--palette-error-medium);
     --color-on-error: var(--palette-error-lightest);
     --color-error-container: var(--palette-error-lighter);
     --color-on-error-container: var(--palette-error-darker);
-
     --color-surface-tint-color: var(--palette-primary-main);
-
     --color-surface-dim: var(--palette-neutral87);
     --color-surface: var(--palette-neutral90);
     --color-surface-bright: var(--palette-neutral98);
-
     --color-surface-container-lowest: var(--palette-neutral100);
     --color-surface-container-low: var(--palette-neutral96);
     --color-surface-container: var(--palette-neutral94);
     --color-surface-container-high: var(--palette-neutral92);
     --color-surface-container-highest: var(--palette-neutral90);
-
     --color-on-surface: var(--palette-neutral20);
     --color-on-surface-variant: var(--palette-neutral-variant10);
-
     --color-outline: var(--palette-neutral-variant50);
     --color-outline-variant: var(--palette-neutral-variant80);
     --color-shadow: var(--palette-neutral0);
     --color-scrim: var(--palette-neutral0);
-
     --color-surface-variant: var(--palette-neutral-variant90);
     --color-inverse-surface: var(--palette-neutral20);
     --color-inverse-on-surface: var(--palette-neutral95);
     --color-background: var(--palette-neutral90);
     --color-on-background: var(--palette-neutral20);
+
     color-scheme: light;
   }
 }
 
-/* Theme dark */
-
+/* Dark Theme */
 .theme-dark {
   --color-primary: var(--palette-primary-light);
   --color-on-primary: var(--palette-primary-dark);
   --color-primary-container: var(--palette-primary-medium-dark);
   --color-on-primary-container: var(--palette-primary-lighter);
-
   --color-inverse-primary: var(--palette-primary-medium);
-
   --color-secondary: var(--palette-secondary-left-light);
   --color-secondary-container: var(--palette-secondary-left-medium-dark);
   --color-on-secondary: var(--palette-secondary-left-dark);
   --color-on-secondary-container: var(--palette-secondary-left-lighter);
-
   --color-tertiary: var(--palette-secondary-right-light);
   --color-tertiary-container: var(--palette-secondary-right-medium-dark);
   --color-on-tertiary: var(--palette-secondary-right-dark);
   --color-on-tertiary-container: var(--palette-secondary-right-lighter);
-
   --color-complementary: var(--palette-complementary-light);
   --color-complementary-container: var(--palette-complementary-medium-dark);
   --color-on-complementary: var(--palette-complementary-dark);
   --color-on-complementary-container: var(--palette-complementary-lighter);
-
   --color-success: var(--palette-success-light);
   --color-success-container: var(--palette-success-medium-dark);
   --color-on-success: var(--palette-success-dark);
   --color-on-success-container: var(--palette-success-lighter);
-
   --color-warning: var(--palette-warning-light);
   --color-warning-container: var(--palette-warning-medium-dark);
   --color-on-warning: var(--palette-warning-dark);
   --color-on-warning-container: var(--palette-warning-lighter);
-
   --color-error: var(--palette-error-light);
   --color-error-container: var(--palette-error-medium-dark);
   --color-on-error: var(--palette-error-dark);
   --color-on-error-container: var(--palette-error-lighter);
-
   --color-surface-tint-color: var(--palette-primary-main);
-
   --color-surface-dim: var(--palette-neutral22);
   --color-surface: var(--palette-neutral10);
   --color-surface-bright: var(--palette-neutral24);
-
   --color-surface-container-lowest: var(--palette-neutral6);
   --color-surface-container-low: var(--palette-neutral10);
   --color-surface-container: var(--palette-neutral12);
   --color-surface-container-high: var(--palette-neutral17);
   --color-surface-container-highest: var(--palette-neutral22);
-
   --color-on-surface: var(--palette-neutral90);
   --color-on-surface-variant: var(--palette-neutral-variant80);
-
   --color-outline: var(--palette-neutral-variant60);
   --color-outline-variant: var(--palette-neutral-variant30);
   --color-shadow: var(--palette-neutral0);
   --color-scrim: var(--palette-neutral0);
-
   --color-surface-variant: var(--palette-neutral-variant30);
   --color-inverse-surface: var(--palette-neutral90);
   --color-inverse-on-surface: var(--palette-neutral20);
   --color-background: var(--palette-neutral20);
   --color-on-background: var(--palette-neutral90);
+
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  .theme-default,
-  .theme-dark {
+  /* Set .theme-default same as .theme-dark */
+  .theme-default {
     --color-primary: var(--palette-primary-light);
     --color-on-primary: var(--palette-primary-dark);
     --color-primary-container: var(--palette-primary-medium-dark);
     --color-on-primary-container: var(--palette-primary-lighter);
-
     --color-inverse-primary: var(--palette-primary-medium);
-
     --color-secondary: var(--palette-secondary-left-light);
     --color-secondary-container: var(--palette-secondary-left-medium-dark);
     --color-on-secondary: var(--palette-secondary-left-dark);
     --color-on-secondary-container: var(--palette-secondary-left-lighter);
-
     --color-tertiary: var(--palette-secondary-right-light);
     --color-tertiary-container: var(--palette-secondary-right-medium-dark);
     --color-on-tertiary: var(--palette-secondary-right-dark);
     --color-on-tertiary-container: var(--palette-secondary-right-lighter);
-
     --color-complementary: var(--palette-complementary-light);
     --color-complementary-container: var(--palette-complementary-medium-dark);
     --color-on-complementary: var(--palette-complementary-dark);
     --color-on-complementary-container: var(--palette-complementary-lighter);
-
     --color-success: var(--palette-success-light);
     --color-success-container: var(--palette-success-medium-dark);
     --color-on-success: var(--palette-success-dark);
     --color-on-success-container: var(--palette-success-lighter);
-
     --color-warning: var(--palette-warning-light);
     --color-warning-container: var(--palette-warning-medium-dark);
     --color-on-warning: var(--palette-warning-dark);
     --color-on-warning-container: var(--palette-warning-lighter);
-
     --color-error: var(--palette-error-light);
     --color-error-container: var(--palette-error-medium-dark);
     --color-on-error: var(--palette-error-dark);
     --color-on-error-container: var(--palette-error-lighter);
-
     --color-surface-tint-color: var(--palette-primary-main);
-
     --color-surface-dim: var(--palette-neutral22);
     --color-surface: var(--palette-neutral10);
     --color-surface-bright: var(--palette-neutral24);
-
     --color-surface-container-lowest: var(--palette-neutral6);
     --color-surface-container-low: var(--palette-neutral10);
     --color-surface-container: var(--palette-neutral12);
     --color-surface-container-high: var(--palette-neutral17);
     --color-surface-container-highest: var(--palette-neutral22);
-
     --color-on-surface: var(--palette-neutral90);
     --color-on-surface-variant: var(--palette-neutral-variant80);
-
     --color-outline: var(--palette-neutral-variant60);
     --color-outline-variant: var(--palette-neutral-variant30);
     --color-shadow: var(--palette-neutral0);
     --color-scrim: var(--palette-neutral0);
-
     --color-surface-variant: var(--palette-neutral-variant30);
     --color-inverse-surface: var(--palette-neutral90);
     --color-inverse-on-surface: var(--palette-neutral20);
     --color-background: var(--palette-neutral20);
     --color-on-background: var(--palette-neutral90);
+
     color-scheme: dark;
   }
 }
