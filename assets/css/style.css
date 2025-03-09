@@ -62,6 +62,7 @@ body>header .brand {
   margin: 0.5rem;
   padding: 0;
   font-size: 1.2rem;
+  align-content: center;
 }
 
 body>main {
@@ -122,6 +123,10 @@ button.theme-switcher {
   vertical-align: middle;
   padding-right: 1.5rem;
   cursor: pointer;
+}
+
+button.theme-switcher:hover {
+  color: var(--color-complementary);
 }
 
 .taxonomy-terms {
@@ -231,6 +236,7 @@ h1 > .material-symbols-outlined {
   color: var(--color-on-surface);
   background-color: var(--color-on-primary);
   z-index: 10;
+  align-content: center;
 }
 
 #primary-navigation .menu li {
@@ -245,6 +251,7 @@ h1 > .material-symbols-outlined {
 #primary-navigation .menu a:hover {
   border-bottom: 2px dashed var(--color-complementary);
   text-decoration: none;
+  color: var(--color-complementary);
 }
 
 #primary-navigation .menu a.active {
@@ -253,9 +260,7 @@ h1 > .material-symbols-outlined {
 }
 
 #primary-navigation .brand {
-  height: 4em;
   white-space: nowrap;
-  align-content: center;
 }
 
 #primary-navigation .brand a:any-link:hover {
@@ -263,12 +268,11 @@ h1 > .material-symbols-outlined {
 }
 
 #primary-navigation .brand img {
-  height: 2.5em;
-  border-radius: 5em;
-  padding: .25em;
+  max-height: 3em;
+  padding: 0;
   margin-left: .5em;
   margin-right: .5em;
-  background-color: var(--color-surface-tint-color);
+  vertical-align: middle;
 }
 
 #primary-navigation .brand .title span {
@@ -288,7 +292,7 @@ h1 > .material-symbols-outlined {
 
 #primary-navigation hgroup.title {
   display: inline-block;
-  align-content: center;
+  vertical-align: middle;
 }
 
 #primary-navigation .menu-icon button {
@@ -298,12 +302,10 @@ h1 > .material-symbols-outlined {
   margin: 0;
   font-size: 2em;
   display: inline-block;
-  width: 2.5em;
-  height: 2.5em;
   color: var(--color-on-surface);
   background-color: var(--color-on-primary);
   vertical-align: middle;
-  padding-right: 1.5rem;
+  padding-right: .5rem;
   cursor: pointer;
 }
 
@@ -323,17 +325,12 @@ only screen and (device-width <= 480px) {
     justify-content: center;
   }
 
-  #primary-navigation .brand {
-    font-size: 1em;
-  }
-
   nav.breadcrumb {
     padding: 1em .5em 0;
   }
 
   body>main {
     margin: .5rem;
-    overflow: scroll;
   }
 
   body>main h2 {
@@ -353,12 +350,19 @@ only screen and (device-width <= 480px) {
   #search {
     padding: .5rem .5rem 0;
   }
+
+  #primary-navigation hgroup.title {
+    font-size: 1rem;
+  }
+
+  #primary-navigation .brand img {
+    margin-left: .5em;
+  }
 }
 
 /* Tablets devices */
 
-@media only screen and (width <= 1024px),
-only screen and (device-width <= 1024px) {
+@media only screen and (width <= 1024px) {
   :root {
     --font-size: 1rem;
   }
@@ -370,6 +374,10 @@ only screen and (device-width <= 1024px) {
       "sidebar" auto
       "footer" auto;
     min-width: 100vw;
+  }
+
+  body>main {
+    overflow: scroll;
   }
 
   body>header nav.primary {
@@ -405,6 +413,7 @@ only screen and (device-width <= 1024px) {
   #primary-navigation.responsive .menu ul li:not(:last-child) {
     display: block;
     text-align: left;
+    margin: 0;
   }
 
   #primary-navigation.responsive .menu ul li .menu-icon {
@@ -419,8 +428,7 @@ only screen and (device-width <= 1024px) {
   }
 }
 
-@media only screen and (width > 1024px),
-only screen and (device-width > 1024px) {
+@media only screen and (width > 1024px) {
   body {
     grid-template:
       "header header" auto
