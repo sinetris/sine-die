@@ -606,6 +606,20 @@
   color: var(--color-outline);
 }
 
+body.theme-colors {
+    grid-template:
+      "header" auto
+      "content" 1fr
+      "sidebar" auto
+      "footer" auto;
+    min-width: 100vw;
+}
+
+body.theme-colors>aside.taxonomies {
+  border: none;
+  border-radius: unset;
+}
+
 @media print {
   .show-as-background-color {
     -webkit-print-color-adjust: exact !important;

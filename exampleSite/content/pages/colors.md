@@ -5,4 +5,6 @@ description: Example of colors in the theme
 layout: colors
 tags: ["Documentation", "Colors", "Palette"]
 categories: ["Examples"]
+params:
+  body_classes: ["theme-colors"]
 ---
