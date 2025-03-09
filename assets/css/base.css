@@ -147,7 +147,6 @@ body>main h1 {
 
 nav.primary {
   display: flex;
-  min-height: 5rem;
 }
 
 nav.primary .menu ul {
