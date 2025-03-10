@@ -15,6 +15,8 @@ description = """\
   sine-die minimalist CSS framework for Hugo example
   """
 
+showSearchUI = true
+
 # Author
 author = "Duilio Ruggiero"
 authorLink = "https://github.com/sinetris"

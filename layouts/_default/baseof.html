@@ -8,7 +8,7 @@
   <body class="{{ $body_classes }}">
     <header class="page-header">
       {{ partial "header.html" . }}
-      {{ partial "search.html" . }}
+      {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
       {{ partial "breadcrumbs.html" . }}
     </header>
     <main aria-role="main">

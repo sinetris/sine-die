@@ -36,6 +36,9 @@ description = """\
   sine-die a semantic HTML theme for Hugo
   """
 
+# Search UI
+showSearchUI = false
+
 # Author
 author = "Duilio Ruggiero"
 authorLink = "https://github.com/sinetris"

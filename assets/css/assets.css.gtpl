@@ -19,9 +19,11 @@
   {{- end }}
 }
 
+{{ if .Site.Params.showSearchUI -}}
 #search button.pagefind-ui__search-clear::before {
   {{ with resources.Get "images/clear-icon.svg" | resources.Fingerprint "sha512" -}}
     -webkit-mask-image: url({{ .RelPermalink }});
     mask-image: url({{ .RelPermalink }});
   {{- end }}
 }
+{{- end }}
