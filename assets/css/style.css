@@ -179,24 +179,18 @@ button.theme-switcher:hover {
 }
 
 .material-symbols-outlined {
-  float: inline-start;
-  font-size: 2em;
+  font-size: 1.2em;
+  vertical-align: text-bottom;
 }
 
 .material-symbols-outlined:has(+ time) {
-  font-size: 1.1em;
+  float: inline-start;
   padding-right: 0.2em;
   color: var(--color-outline);
 }
 
-h1 > .material-symbols-outlined {
-  font-size: 2rem;
-  padding-top: .6rem;
-}
-
-.breadcrumb .material-symbols-outlined {
-  line-height: .5em;
-  font-size: 1.5em;
+body>main h1 .material-symbols-outlined {
+  padding-right: 0.1em;
 }
 
 .taxonomies .material-symbols-outlined {
@@ -226,6 +220,16 @@ h1 > .material-symbols-outlined {
   position: sticky;
   top: 0;
   align-self: start;
+}
+
+/* stylelint-disable declaration-property-value-no-unknown */
+.pagination .disabled a {
+  color: hsl(from currentcolor h s l / 50%);
+}
+/* stylelint-enable declaration-property-value-no-unknown */
+
+.pagination .active a {
+  font-weight: bold;
 }
 
 #search {
@@ -311,8 +315,7 @@ h1 > .material-symbols-outlined {
 
 /* Mobile devices */
 
-@media only screen and (width <= 480px),
-only screen and (device-width <= 480px) {
+@media only screen and (width <= 480px) {
   nav,
   nav>.container {
     flex-direction: column;
