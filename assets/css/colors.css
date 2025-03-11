@@ -25,13 +25,13 @@
   Main colors 'chroma'
   Preferred values: between 10% and 70%)
   */
-  --colors-chroma: 20%;
+  --colors-chroma: 15%;
 
   /* Use vivid colors for events (e.g. successes, warnings, errors) */
   --color-event-chroma: 70%;
 
   /* Use less saturated colors for neutral palettes */
-  --color-neutral-chroma: 10%;
+  --color-neutral-chroma: 7%;
 
   /*
   Secondary colors angle (left and right from the primary)
@@ -389,11 +389,11 @@
   --palette-neutral10: oklch(
     10% var(--color-neutral-chroma) var(--color-primary-hue)
   );
-  --palette-neutral12: oklch(
-    12% var(--color-neutral-chroma) var(--color-primary-hue)
+  --palette-neutral14: oklch(
+    14% var(--color-neutral-chroma) var(--color-primary-hue)
   );
-  --palette-neutral17: oklch(
-    17% var(--color-neutral-chroma) var(--color-primary-hue)
+  --palette-neutral18: oklch(
+    18% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral20: oklch(
     20% var(--color-neutral-chroma) var(--color-primary-hue)
@@ -404,8 +404,8 @@
   --palette-neutral24: oklch(
     24% var(--color-neutral-chroma) var(--color-primary-hue)
   );
-  --palette-neutral87: oklch(
-    87% var(--color-neutral-chroma) var(--color-primary-hue)
+  --palette-neutral86: oklch(
+    86% var(--color-neutral-chroma) var(--color-primary-hue)
   );
   --palette-neutral90: oklch(
     90% var(--color-neutral-chroma) var(--color-primary-hue)
@@ -486,14 +486,14 @@
 
   /* Surface */
   --color-surface-tint-color: var(--palette-primary-main);
-  --color-surface-dim: var(--palette-neutral87);
+  --color-surface-dim: var(--palette-neutral86);
   --color-surface: var(--palette-neutral90);
   --color-surface-bright: var(--palette-neutral98);
   --color-surface-container-lowest: var(--palette-neutral100);
   --color-surface-container-low: var(--palette-neutral96);
   --color-surface-container: var(--palette-neutral94);
-  --color-surface-container-high: var(--palette-neutral92);
-  --color-surface-container-highest: var(--palette-neutral90);
+  --color-surface-container-high: var(--palette-neutral90);
+  --color-surface-container-highest: var(--palette-neutral86);
   --color-on-surface: var(--palette-neutral20);
   --color-on-surface-variant: var(--palette-neutral-variant10);
   --color-outline: var(--palette-neutral-variant50);
@@ -542,14 +542,14 @@
     --color-error-container: var(--palette-error-lighter);
     --color-on-error-container: var(--palette-error-darker);
     --color-surface-tint-color: var(--palette-primary-main);
-    --color-surface-dim: var(--palette-neutral87);
+    --color-surface-dim: var(--palette-neutral86);
     --color-surface: var(--palette-neutral90);
     --color-surface-bright: var(--palette-neutral98);
     --color-surface-container-lowest: var(--palette-neutral100);
     --color-surface-container-low: var(--palette-neutral96);
     --color-surface-container: var(--palette-neutral94);
-    --color-surface-container-high: var(--palette-neutral92);
-    --color-surface-container-highest: var(--palette-neutral90);
+    --color-surface-container-high: var(--palette-neutral90);
+    --color-surface-container-highest: var(--palette-neutral86);
     --color-on-surface: var(--palette-neutral20);
     --color-on-surface-variant: var(--palette-neutral-variant10);
     --color-outline: var(--palette-neutral-variant50);
@@ -601,10 +601,10 @@
   --color-surface-dim: var(--palette-neutral22);
   --color-surface: var(--palette-neutral10);
   --color-surface-bright: var(--palette-neutral24);
-  --color-surface-container-lowest: var(--palette-neutral6);
+  --color-surface-container-lowest: var(--palette-neutral0);
   --color-surface-container-low: var(--palette-neutral10);
-  --color-surface-container: var(--palette-neutral12);
-  --color-surface-container-high: var(--palette-neutral17);
+  --color-surface-container: var(--palette-neutral14);
+  --color-surface-container-high: var(--palette-neutral18);
   --color-surface-container-highest: var(--palette-neutral22);
   --color-on-surface: var(--palette-neutral90);
   --color-on-surface-variant: var(--palette-neutral-variant80);
@@ -657,10 +657,10 @@
     --color-surface-dim: var(--palette-neutral22);
     --color-surface: var(--palette-neutral10);
     --color-surface-bright: var(--palette-neutral24);
-    --color-surface-container-lowest: var(--palette-neutral6);
+    --color-surface-container-lowest: var(--palette-neutral0);
     --color-surface-container-low: var(--palette-neutral10);
-    --color-surface-container: var(--palette-neutral12);
-    --color-surface-container-high: var(--palette-neutral17);
+    --color-surface-container: var(--palette-neutral14);
+    --color-surface-container-high: var(--palette-neutral18);
     --color-surface-container-highest: var(--palette-neutral22);
     --color-on-surface: var(--palette-neutral90);
     --color-on-surface-variant: var(--palette-neutral-variant80);
