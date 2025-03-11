@@ -5,7 +5,7 @@ identifier: docs
 weight: 10
 description: Documentation for the sine-die theme
 categories: ["Examples", "Documentation"]
-tags: ["Documentation", "Colors", "Dark", "Light"]
+tags: []
 type: theme
 ---
 
