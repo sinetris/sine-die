@@ -44,8 +44,8 @@ author = "Duilio Ruggiero"
 authorLink = "https://github.com/sinetris"
 
 # License
-license = "CC BY 4.0"
-licenseLink = "http://creativecommons.org/licenses/by/4.0/"
+license = "MIT"
+licenselink = "https://github.com/sinetris/sine-die/blob/main/LICENSE"
 showLicenseInFooter = true
 
 # Copyright

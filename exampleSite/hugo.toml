@@ -9,7 +9,6 @@ home = ["HTML", "RSS", "PRINT"]
 
 [params]
 subTitle = "A semantic HTML theme for Hugo"
-contentSourceLink = "https://github.com/sinetris/sine-die"
 
 description = """\
   sine-die minimalist CSS framework for Hugo example

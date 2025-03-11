@@ -6,3 +6,4 @@ root_selector: "body>main"
 exclude_selectors:
   - "body>header"
   - "body>footer"
+  - ".material-symbols-outlined"

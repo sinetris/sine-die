@@ -51,8 +51,7 @@
   /* The image is added in assets.css.gtpl */
 }
 
-@media only screen and (width <= 480px),
-only screen and (device-width <= 480px) {
+@media only screen and (width <= 480px){
   .pagefind-ui__result-thumb {
     display: none;
   }

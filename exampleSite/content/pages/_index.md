@@ -1,14 +1,13 @@
 ---
 title: Documentation
+date: "2025-03-10"
 identifier: docs
 weight: 10
-description: Usage example for the sine-die theme
-tags: ["Documentation", "Colors", "Dark", "Light"]
-categories: ["Examples"]
+description: Documentation for the sine-die theme
+categories: ["Examples", "Documentation"]
+tags: []
 type: theme
 ---
-
-## Content
 
 Simple CSS framework usage example.
 

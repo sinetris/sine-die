@@ -22,7 +22,7 @@ features = [
   "search",
   "semantic-html",
 ]
-min_version = "0.115.0"
+min_version = "0.120.0"
 
 [author]
 name = "Duilio Ruggiero"
