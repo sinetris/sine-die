@@ -1,10 +1,10 @@
 ---
 title: 'Home'
-categories: [Homepage]
+date: "2025-03-10"
+description: Documentation and usage examples for the sine-die theme
+categories: [Documentation]
 tags: [Example, Documentation]
 ---
-
-## sine-die
 
 A semantic HTML theme for Hugo
 
