@@ -3,6 +3,8 @@ const getValidThemes = () => {
   return defaultIsDark ? ["theme-default", "theme-light", "theme-dark"] : ["theme-default", "theme-dark", "theme-light"];
 }
 
+const validThemes = getValidThemes();
+
 const setTheme = (themeMode, validThemes) => {
   var root = document.body;
   for (const theme of validThemes) {
@@ -14,16 +16,19 @@ const setTheme = (themeMode, validThemes) => {
   }
 }
 
-const refreshTheme = () => {
+const getTheme = () => {
   let themeMode = localStorage.getItem("theme-mode");
   if (themeMode === null) themeMode = "theme-default";
-  setTheme(themeMode, getValidThemes());
+  return themeMode;
+}
+
+const refreshTheme = () => {
+  let themeMode = getTheme();
+  setTheme(themeMode, validThemes);
 }
 
 const switchTheme = () => {
-  let themeMode = localStorage.getItem("theme-mode");
-  if (themeMode === null) themeMode = "theme-default";
-  const validThemes = getValidThemes();
+  let themeMode = getTheme();
   const nextThemeMode = validThemes.at((validThemes.indexOf(themeMode) + 1) % validThemes.length);
   setTheme(nextThemeMode, validThemes);
 }
