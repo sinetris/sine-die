@@ -1,6 +1,5 @@
 ---
 site: public
-output_subdir: ../static/_pagefind
 showEmptyFilters: true
 root_selector: "body>main"
 exclude_selectors:
