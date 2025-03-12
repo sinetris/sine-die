@@ -23,6 +23,7 @@ Table of Content
   - [Search functionality](#search-functionality)
     - [Installing and running Pagefind](#installing-and-running-pagefind)
 - [Credits](#credits)
+- [License](#license)
 
 ## Dependencies
 
@@ -144,6 +145,10 @@ python3 -m pagefind --site "public"
     was definitely a big help.
   - This theme also use [Material Symbols][material-symbols] for
     the icons.
+
+## License
+
+Licensed under the [MIT license](LICENSE).
 
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
 [git]: <https://git-scm.com/> "Git: distributed version control system"
