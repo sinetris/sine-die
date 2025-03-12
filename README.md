@@ -1,4 +1,4 @@
-# sine-die a semantic HTML theme for Hugo
+# sine-die
 
 <img
   src="assets/images/sine-die-logo.svg"
@@ -6,6 +6,16 @@
   style="max-width: 80%"
   alt="sine-die"
 />
+
+A simple and clean [Hugo][hugo] theme.
+
+- Semantic HTML
+- Responsive
+- Light/Dark mode
+- Minimal CSS
+- Generated color palette
+
+Table of Content
 
 - [Dependencies](#dependencies)
 - [Setup and run the example site locally](#setup-and-run-the-example-site-locally)
@@ -54,7 +64,7 @@ hugo server --buildDrafts --tlsAuto --disableFastRender --destination public
 Add the sine-die theme to your Hugo site as a git submodule:
 
 ```shell
-git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
+git submodule add https://github.com/sinetris/sine-die themes/sine-die
 ```
 
 Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
