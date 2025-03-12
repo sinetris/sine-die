@@ -48,7 +48,7 @@
   mask-repeat: no-repeat;
   vertical-align: middle;
 
-  /* The image is added in assets.css.gtpl */
+  /* The image is added in assets.gtpl.css */
 }
 
 @media only screen and (width <= 480px){

@@ -27,7 +27,7 @@
 {{ with resources.Get "css/colors.css" | resources.Minify | resources.Fingerprint "sha512" -}}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end }}
-{{- with resources.Get "css/assets.css.gtpl" | resources.ExecuteAsTemplate "css/assets.css" . | resources.Fingerprint "sha512" }}
+{{- with resources.Get "css/assets.gtpl.css" | resources.ExecuteAsTemplate "css/assets.css" . | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end -}}
 {{ with resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha512" -}}
@@ -41,6 +41,6 @@
 {{ with resources.Get "css/overrides.css" | resources.Minify | resources.Fingerprint "sha512" -}}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end }}
-{{- with resources.Get "css/override_assets.css.gtpl" | resources.ExecuteAsTemplate "css/override_assets.css" . | resources.Fingerprint "sha512" }}
+{{- with resources.Get "css/override_assets.gtpl.css" | resources.ExecuteAsTemplate "css/override_assets.css" . | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
 {{- end -}}
