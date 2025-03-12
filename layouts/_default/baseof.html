@@ -16,7 +16,7 @@
     <main aria-role="main">
       {{ block "main" . }}{{ end }}
     </main>
-    {{ partial "sidebar.html" . }}
+    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
     {{ partial "footer.html" . -}}
     {{ partial "footer-scripts.html" . }}
   </body>
