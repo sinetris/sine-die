@@ -1,10 +1,12 @@
-{{ $body_classes :=  (or .Params.body_classes slice) | append "theme-default" -}}
+{{- if not (.Page.Store.Get "body-classes") -}}
+  {{ .Page.Store.Set "body-classes" ((or .Params.body_classes slice) | append "theme-default") }}
+{{- end -}}
 <!DOCTYPE html>
 <html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
   <head>
     {{ partial "head.html" . }}
   </head>
-  {{ $body_classes := delimit $body_classes " " -}}
+  {{ $body_classes :=  delimit (.Page.Store.Get "body-classes") " " -}}
   <body class="{{ $body_classes }}">
     <header class="page-header">
       {{ partial "header.html" . }}
