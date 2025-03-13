@@ -2,6 +2,7 @@
   {{ with resources.Get "css/pages/palette.css" -}}
     {{ partial "head/css-link.html" . }}
   {{- end }}
+  {{- $.Page.Store.Add "body-classes" "theme-palette" -}}
 {{ end }}
 {{ define "main" }}
   {{- with .Params.Title -}}

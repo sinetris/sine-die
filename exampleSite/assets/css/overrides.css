@@ -3,7 +3,8 @@
   --colors-chroma: 15%;
 }
 
-body.theme-colors {
+body.theme-colors,
+body.theme-palette {
     grid-template:
       "header" auto
       "content" 1fr
@@ -12,7 +13,8 @@ body.theme-colors {
     min-width: 100vw;
 }
 
-body.theme-colors>aside.taxonomies {
+body.theme-colors>aside.taxonomies,
+body.theme-palette>aside.taxonomies {
   border: none;
   border-radius: unset;
 }
