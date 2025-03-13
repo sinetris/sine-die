@@ -1,5 +1,5 @@
 <span class="brand">
-  <a href="/">
+  <a href="{{ relURL "" }}">
     {{ with resources.Get "images/sine-die-logo.svg" | resources.Fingerprint "sha512" -}}
     <img src="{{- .RelPermalink -}}" />
     {{- end }}

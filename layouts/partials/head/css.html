@@ -1,5 +1,5 @@
 {{ if .Site.Params.showSearchUI -}}
-<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<link href="{{ relURL "_pagefind/pagefind-ui.css" }}" rel="stylesheet" />
 {{- end }}
 {{- $css_files := slice "css/normalize.css"  "css/base.css" "css/colors.css" "css/style.css" }}
 {{ range $css_files }}
