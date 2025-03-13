@@ -5,6 +5,4 @@ description: Example of generated color palette
 layout: palette
 categories: ["Examples", "Documentation"]
 tags: ["Documentation", "Colors", "Palette"]
-params:
-  body_classes: ["theme-colors"]
 ---

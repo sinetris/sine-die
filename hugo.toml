@@ -27,6 +27,9 @@ mediaType = 'text/html'
 permalinkable = false
 noUgly = true
 
+[markup]
+  [markup.highlight]
+    style = 'catppuccin-latte'
 
 [params]
 theme = "sine-die"

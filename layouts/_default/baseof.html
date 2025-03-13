@@ -1,10 +1,13 @@
-{{ $body_classes :=  (or .Params.body_classes slice) | append "theme-default" -}}
+{{- if not (.Page.Store.Get "body-classes") -}}
+  {{ .Page.Store.Set "body-classes" ((or .Params.body_classes slice) | append "theme-default") }}
+{{- end -}}
 <!DOCTYPE html>
 <html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
   <head>
     {{ partial "head.html" . }}
+    {{ block "head-addition" . }}{{ end }}
   </head>
-  {{ $body_classes := delimit $body_classes " " -}}
+  {{ $body_classes :=  delimit (.Page.Store.Get "body-classes") " " -}}
   <body class="{{ $body_classes }}">
     <header class="page-header">
       {{ partial "header.html" . }}
@@ -14,7 +17,7 @@
     <main aria-role="main">
       {{ block "main" . }}{{ end }}
     </main>
-    {{ partial "sidebar.html" . }}
+    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
     {{ partial "footer.html" . -}}
     {{ partial "footer-scripts.html" . }}
   </body>

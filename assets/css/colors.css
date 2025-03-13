@@ -377,6 +377,16 @@
   );
 
   /* Neutral */
+  --palette-neutral-main: oklch(var(--color-primary-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-lightest: oklch(var(--palette-lightest-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-lighter: oklch(var(--palette-lighter-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-light: oklch(var(--palette-light-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-medium-light: oklch(var(--palette-medium-light-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-medium: oklch(var(--palette-medium-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-medium-dark: oklch(var(--palette-medium-dark-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-dark: oklch(var(--palette-dark-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-darker: oklch(var(--palette-darker-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral-darkest: oklch(var(--palette-darkest-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral0: oklch(
     0% var(--color-neutral-chroma) var(--color-primary-hue)
   );

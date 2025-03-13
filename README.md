@@ -1,4 +1,4 @@
-# sine-die a semantic HTML theme for Hugo
+# sine-die
 
 <img
   src="assets/images/sine-die-logo.svg"
@@ -7,12 +7,23 @@
   alt="sine-die"
 />
 
+A simple and clean [Hugo][hugo] theme.
+
+- Semantic HTML
+- Responsive
+- Light/Dark mode
+- Minimal CSS
+- Generated color palette
+
+Table of Content
+
 - [Dependencies](#dependencies)
 - [Setup and run the example site locally](#setup-and-run-the-example-site-locally)
 - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
   - [Search functionality](#search-functionality)
     - [Installing and running Pagefind](#installing-and-running-pagefind)
 - [Credits](#credits)
+- [License](#license)
 
 ## Dependencies
 
@@ -54,7 +65,7 @@ hugo server --buildDrafts --tlsAuto --disableFastRender --destination public
 Add the sine-die theme to your Hugo site as a git submodule:
 
 ```shell
-git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
+git submodule add https://github.com/sinetris/sine-die themes/sine-die
 ```
 
 Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
@@ -134,6 +145,10 @@ python3 -m pagefind --site "public"
     was definitely a big help.
   - This theme also use [Material Symbols][material-symbols] for
     the icons.
+
+## License
+
+Licensed under the [MIT license](LICENSE).
 
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
 [git]: <https://git-scm.com/> "Git: distributed version control system"

@@ -1,3 +1,9 @@
+{{ define "head-addition" }}
+  {{ with resources.Get "css/pages/palette.css" -}}
+    {{ partial "head/css-link.html" . }}
+  {{- end }}
+  {{- $.Page.Store.Add "body-classes" "theme-palette" -}}
+{{ end }}
 {{ define "main" }}
   {{- with .Params.Title -}}
   <h1>{{ . }}</h1>
@@ -100,6 +106,19 @@
         </tr>
         <tr class="error">
           <th class="color-name">error</th>
+          <td class="color-main"></td>
+          <td class="color-lightest"></td>
+          <td class="color-lighter"></td>
+          <td class="color-light"></td>
+          <td class="color-medium-light"></td>
+          <td class="color-medium"></td>
+          <td class="color-medium-dark"></td>
+          <td class="color-dark"></td>
+          <td class="color-darker"></td>
+          <td class="color-darkest"></td>
+        </tr>
+        <tr class="neutral">
+          <th class="color-name">neutral</th>
           <td class="color-main"></td>
           <td class="color-lightest"></td>
           <td class="color-lighter"></td>

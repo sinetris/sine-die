@@ -1,0 +1,239 @@
+.theme-schema-example .primary-title th {
+  border-bottom-color: var(--color-primary);
+}
+
+.theme-schema-example .color-primary .show-as-background-color {
+  background-color: var(--color-primary);
+}
+
+.theme-schema-example .color-on-primary .show-as-background-color {
+  background-color: var(--color-on-primary);
+}
+
+.theme-schema-example .color-primary-container .show-as-background-color {
+  background-color: var(--color-primary-container);
+}
+
+.theme-schema-example .color-on-primary-container .show-as-background-color {
+  background-color: var(--color-on-primary-container);
+}
+
+.theme-schema-example .color-inverse-primary .show-as-background-color {
+  background-color: var(--color-inverse-primary);
+}
+
+.theme-schema-example .secondary-title th {
+  border-bottom-color: var(--color-secondary);
+}
+
+.theme-schema-example .color-secondary .show-as-background-color {
+  background-color: var(--color-secondary);
+}
+
+.theme-schema-example .color-on-secondary .show-as-background-color {
+  background-color: var(--color-on-secondary);
+}
+
+.theme-schema-example .color-secondary-container .show-as-background-color {
+  background-color: var(--color-secondary-container);
+}
+
+.theme-schema-example .color-on-secondary-container .show-as-background-color {
+  background-color: var(--color-on-secondary-container);
+}
+
+.theme-schema-example .tertiary-title th {
+  border-bottom-color: var(--color-tertiary);
+}
+
+.theme-schema-example .color-tertiary .show-as-background-color {
+  background-color: var(--color-tertiary);
+}
+
+.theme-schema-example .color-on-tertiary .show-as-background-color {
+  background-color: var(--color-on-tertiary);
+}
+
+.theme-schema-example .color-tertiary-container .show-as-background-color {
+  background-color: var(--color-tertiary-container);
+}
+
+.theme-schema-example .color-on-tertiary-container .show-as-background-color {
+  background-color: var(--color-on-tertiary-container);
+}
+
+.theme-schema-example .complementary-title th {
+  border-bottom-color: var(--color-complementary);
+}
+
+.theme-schema-example .color-complementary .show-as-background-color {
+  background-color: var(--color-complementary);
+}
+
+.theme-schema-example .color-on-complementary .show-as-background-color {
+  background-color: var(--color-on-complementary);
+}
+
+.theme-schema-example .color-complementary-container .show-as-background-color {
+  background-color: var(--color-complementary-container);
+}
+
+.theme-schema-example .color-on-complementary-container .show-as-background-color {
+  background-color: var(--color-on-complementary-container);
+}
+
+.theme-schema-example .success-title th {
+  border-bottom-color: var(--color-success);
+}
+
+.theme-schema-example .color-success .show-as-background-color {
+  background-color: var(--color-success);
+}
+
+.theme-schema-example .color-success-container .show-as-background-color {
+  background-color: var(--color-success-container);
+}
+
+.theme-schema-example .color-on-success .show-as-background-color {
+  background-color: var(--color-on-success);
+}
+
+.theme-schema-example .color-on-success-container .show-as-background-color {
+  background-color: var(--color-on-success-container);
+}
+
+.theme-schema-example .warning-title th {
+  border-bottom-color: var(--color-warning);
+}
+
+.theme-schema-example .color-warning .show-as-background-color {
+  background-color: var(--color-warning);
+}
+
+.theme-schema-example .color-warning-container .show-as-background-color {
+  background-color: var(--color-warning-container);
+}
+
+.theme-schema-example .color-on-warning .show-as-background-color {
+  background-color: var(--color-on-warning);
+}
+
+.theme-schema-example .color-on-warning-container .show-as-background-color {
+  background-color: var(--color-on-warning-container);
+}
+
+.theme-schema-example .error-title th {
+  border-bottom-color: var(--color-error);
+}
+
+.theme-schema-example .color-error .show-as-background-color {
+  background-color: var(--color-error);
+}
+
+.theme-schema-example .color-error-container .show-as-background-color {
+  background-color: var(--color-error-container);
+}
+
+.theme-schema-example .color-on-error .show-as-background-color {
+  background-color: var(--color-on-error);
+}
+
+.theme-schema-example .color-on-error-container .show-as-background-color {
+  background-color: var(--color-on-error-container);
+}
+
+.theme-schema-example .surface-title th {
+  border-bottom-color: var(--color-inverse-surface);
+}
+
+.theme-schema-example .color-surface-tint-color .show-as-background-color {
+  background-color: var(--color-surface-tint-color);
+}
+
+.theme-schema-example .color-surface-dim .show-as-background-color {
+  background-color: var(--color-surface-dim);
+}
+
+.theme-schema-example .color-surface .show-as-background-color {
+  background-color: var(--color-surface);
+}
+
+.theme-schema-example .color-surface-bright .show-as-background-color {
+  background-color: var(--color-surface-bright);
+}
+
+.theme-schema-example .color-surface-container-lowest .show-as-background-color {
+  background-color: var(--color-surface-container-lowest);
+}
+
+.theme-schema-example .color-surface-container-low .show-as-background-color {
+  background-color: var(--color-surface-container-low);
+}
+
+.theme-schema-example .color-surface-container .show-as-background-color {
+  background-color: var(--color-surface-container);
+}
+
+.theme-schema-example .color-surface-container-high .show-as-background-color {
+  background-color: var(--color-surface-container-high);
+}
+
+.theme-schema-example .color-surface-container-highest .show-as-background-color {
+  background-color: var(--color-surface-container-highest);
+}
+
+.theme-schema-example .color-on-surface .show-as-background-color {
+  background-color: var(--color-on-surface);
+}
+
+.theme-schema-example .color-on-surface-variant .show-as-background-color {
+  background-color: var(--color-on-surface-variant);
+}
+
+.theme-schema-example .color-outline .show-as-background-color {
+  background-color: var(--color-outline);
+}
+
+.theme-schema-example .color-outline-variant .show-as-background-color {
+  background-color: var(--color-outline-variant);
+}
+
+.theme-schema-example .color-shadow .show-as-background-color {
+  background-color: var(--color-shadow);
+}
+
+.theme-schema-example .color-scrim .show-as-background-color {
+  background-color: var(--color-scrim);
+}
+
+.theme-schema-example .color-surface-variant .show-as-background-color {
+  background-color: var(--color-surface-variant);
+}
+
+.theme-schema-example .color-inverse-surface .show-as-background-color {
+  background-color: var(--color-inverse-surface);
+}
+
+.theme-schema-example .color-inverse-on-surface .show-as-background-color {
+  background-color: var(--color-inverse-on-surface);
+}
+
+.theme-schema-example .color-background .show-as-background-color {
+  background-color: var(--color-background);
+}
+
+.theme-schema-example .color-on-background .show-as-background-color {
+  background-color: var(--color-on-background);
+}
+
+.theme-schema-example td {
+  white-space: nowrap;
+}
+
+.theme-schema-example tr.title th {
+  border-top: 0.2rem solid var(--color-outline-variant);
+  border-bottom-style: solid;
+  border-bottom-width: 0.1rem;
+  text-align: center;
+  color: var(--color-outline);
+}

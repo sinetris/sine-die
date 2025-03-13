@@ -12,35 +12,7 @@
     <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $title }}" />
   {{- end -}}
 {{ end -}}
-{{ partial "fonts-assets.html" . }}
-{{ if .Site.Params.showSearchUI -}}
-<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
-{{- end }}
 <link rel="canonical" href="{{ .Permalink }}" />
-{{ with resources.Get "css/normalize.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{ with resources.Get "css/base.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{ with resources.Get "css/colors.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{- with resources.Get "css/assets.css.gtpl" | resources.ExecuteAsTemplate "css/assets.css" . | resources.Fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end -}}
-{{ with resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{ if .Site.Params.showSearchUI -}}
-{{ with resources.Get "css/pagefind-overrides.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{- end }}
-{{ with resources.Get "css/overrides.css" | resources.Minify | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end }}
-{{- with resources.Get "css/override_assets.css.gtpl" | resources.ExecuteAsTemplate "css/override_assets.css" . | resources.Fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" type="text/css" />
-{{- end -}}
+{{ partial "fonts-assets.html" . }}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
