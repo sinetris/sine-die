@@ -5,6 +5,7 @@
 <html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
   <head>
     {{ partial "head.html" . }}
+    {{ block "head-addition" . }}{{ end }}
   </head>
   {{ $body_classes :=  delimit (.Page.Store.Get "body-classes") " " -}}
   <body class="{{ $body_classes }}">
