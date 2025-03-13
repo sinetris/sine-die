@@ -1,6 +1,6 @@
 :root {
-  --color-primary-hue: 220deg;
-  --color-primary-chroma: 0.1;
+  --color-primary-hue: 240deg;
+  --colors-chroma: 15%;
 }
 
 body.theme-colors {
