@@ -1,7 +1,7 @@
 <aside class="taxonomies">
   {{ with .Params.categories }}
   <dl class="categories">
-    <dt><a href="/categories"><span class="material-symbols-outlined">bookmark</span>Categories</a></dt>
+    <dt><a href="{{ relURL "categories" }}"><span class="material-symbols-outlined">bookmark</span>Categories</a></dt>
     {{ range . }}
     {{ $term := . }}
     {{ $taxonomy := index site.Taxonomies (lower .) -}}
@@ -17,7 +17,7 @@
   {{ end }}
   {{ with .Params.tags }}
   <dl class="tags">
-    <dt><a href="/tags"><span class="material-symbols-outlined">label</span>Tags</a></dt>
+    <dt><a href="{{ relURL "tags" }}"><span class="material-symbols-outlined">label</span>Tags</a></dt>
     {{ range . }}
     {{ $term := . }}
     {{ $taxonomy := index site.Taxonomies (lower .) -}}
