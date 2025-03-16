@@ -1,3 +1,10 @@
+button.theme-switcher {
+  {{ with resources.Get "images/theme-os-default.svg" | resources.Fingerprint "sha512" -}}
+
+    mask-image: url({{ .RelPermalink }});
+  {{- end }}
+}
+
 .theme-dark button.theme-switcher {
   {{ with resources.Get "images/theme-dark.svg" | resources.Fingerprint "sha512" -}}
 
@@ -7,13 +14,6 @@
 
 .theme-light button.theme-switcher {
   {{ with resources.Get "images/theme-light.svg" | resources.Fingerprint "sha512" -}}
-
-    mask-image: url({{ .RelPermalink }});
-  {{- end }}
-}
-
-.theme-default button.theme-switcher {
-  {{ with resources.Get "images/theme-os-default.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
   {{- end }}
