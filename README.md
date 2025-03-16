@@ -17,7 +17,7 @@ A simple and clean [Hugo][hugo] theme.
 
 Table of Content
 
-- [Dependencies](#dependencies)
+- [Prerequisites](#prerequisites)
 - [Setup and run the example site locally](#setup-and-run-the-example-site-locally)
 - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
   - [Search functionality](#search-functionality)
@@ -25,39 +25,36 @@ Table of Content
 - [Credits](#credits)
 - [License](#license)
 
-## Dependencies
+## Prerequisites
 
-- [Hugo][hugo]
-- [Git][git]
-- (optional) [Node.js][node-js] or [Python 3][python]
-  (used by Pagefind)
-- (optional) [Pagefind][pagefind] (see [Search functionality](#search-functionality))
+- A [Hugo site][hugo-quick-start]
+- [Git installed][git-getting-started]
+- (optional) For the [Search functionality](#search-functionality)
+  - [Node.js][node-js] or [Python 3][python] (used by Pagefind)
+  - [Pagefind][pagefind]
 
 ## Setup and run the example site locally
 
-Install required [dependencies](#dependencies).
+Install required [prerequisites](#prerequisites).
 
 Clone the [sine-die](https://github.com/sinetris/sine-die) repository and move
-to the project directory.
+to the `exampleSite` directory.
 
 ```shell
 git clone https://github.com/sinetris/sine-die.git sine-die-example
-cd sine-die-example
-```
-
-Change path to `exampleSite`.
-
-```shell
-cd exampleSite
+cd sine-die-example/exampleSite
 ```
 
 Install and run `pagefind` to generate the search indexes from the static files
-(see [Installing and running Pagefind](#installing-and-running-pagefind)).
+(see [Search functionality](#search-functionality)).
 
 Run the site locally
 
 ```shell
-hugo server --buildDrafts --tlsAuto --disableFastRender --destination public
+hugo server \
+  --buildDrafts \
+  --tlsAuto \
+  --disableFastRender
 ```
 
 ## Add the sine-die theme to your Hugo site
@@ -151,7 +148,8 @@ python3 -m pagefind --site "public"
 Licensed under the [MIT license](LICENSE).
 
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
-[git]: <https://git-scm.com/> "Git: distributed version control system"
+[git-getting-started]: <https://git-scm.com/book/en/Getting-Started-Installing-Git/> "Git: Getting Started"
+[hugo-quick-start]: <https://gohugo.io/getting-started/quick-start/> "Hugo: Quick start"
 [hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
 [material-design-color-system]: <https://m3.material.io/styles/color/the-color-system/key-colors-tones> "Material design color system"
 [material-design]: <https://m3.material.io> "Material Design"
