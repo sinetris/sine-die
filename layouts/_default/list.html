@@ -1,10 +1,10 @@
 {{ define "main" }}
-<div class="content">
+<article class="content">
   {{- with .Params.Title -}}
   <h1>{{ . }}</h1>
   {{- end -}}
   {{ .Content }}
-</div>
+</article>
 <ul class="pages-list">
   {{ $pages := .Pages.ByTitle }}
   {{ range (.Paginate $pages).Pages }}
