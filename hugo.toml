@@ -30,6 +30,10 @@ noUgly = true
 [markup]
   [markup.highlight]
     style = 'catppuccin-latte'
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 
 [params]
 theme = "sine-die"
