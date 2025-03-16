@@ -33,7 +33,7 @@ noUgly = true
 
 [params]
 theme = "sine-die"
-themeLink = "https://github.com/sinetris/sine-die"
+themeLink = "https://sinetris.github.io/sine-die/"
 
 description = """\
   sine-die a semantic HTML theme for Hugo
