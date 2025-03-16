@@ -27,9 +27,13 @@
   text-align: center;
 }
 
-.theme-palette-example th.palette-name {
+.theme-palette-example th.title {
   color: var(--color-inverse-surface);
   font-weight: bold;
+}
+
+.theme-palette-example th.name {
+  font-weight: normal;
 }
 
 /* primary */
@@ -153,47 +157,6 @@
 
 .theme-palette-example .secondary-right .color-darkest {
   background-color: var(--palette-secondary-right-darkest);
-}
-
-/* complementary */
-.theme-palette-example .complementary .color-main {
-  background-color: var(--palette-complementary-main);
-}
-
-.theme-palette-example .complementary .color-lightest {
-  background-color: var(--palette-complementary-lightest);
-}
-
-.theme-palette-example .complementary .color-lighter {
-  background-color: var(--palette-complementary-lighter);
-}
-
-.theme-palette-example .complementary .color-light {
-  background-color: var(--palette-complementary-light);
-}
-
-.theme-palette-example .complementary .color-medium-light {
-  background-color: var(--palette-complementary-medium-light);
-}
-
-.theme-palette-example .complementary .color-medium {
-  background-color: var(--palette-complementary-medium);
-}
-
-.theme-palette-example .complementary .color-medium-dark {
-  background-color: var(--palette-complementary-medium-dark);
-}
-
-.theme-palette-example .complementary .color-dark {
-  background-color: var(--palette-complementary-dark);
-}
-
-.theme-palette-example .complementary .color-darker {
-  background-color: var(--palette-complementary-darker);
-}
-
-.theme-palette-example .complementary .color-darkest {
-  background-color: var(--palette-complementary-darkest);
 }
 
 /* warning */
@@ -358,4 +321,112 @@
 
 .theme-palette-example .neutral .color-darkest {
   background-color: var(--palette-neutral-darkest);
+}
+
+.theme-palette-example.neutral-palette tbody th {
+  text-align: center;
+}
+
+.theme-palette-example.neutral-palette .neutral0 {
+  background-color: var(--palette-neutral0);
+}
+
+.theme-palette-example.neutral-palette .neutral5 {
+  background-color: var(--palette-neutral5);
+}
+
+.theme-palette-example.neutral-palette .neutral10 {
+  background-color: var(--palette-neutral10);
+}
+
+.theme-palette-example.neutral-palette .neutral13 {
+  background-color: var(--palette-neutral13);
+}
+
+.theme-palette-example.neutral-palette .neutral16 {
+  background-color: var(--palette-neutral16);
+}
+
+.theme-palette-example.neutral-palette .neutral19 {
+  background-color: var(--palette-neutral19);
+}
+
+.theme-palette-example.neutral-palette .neutral21 {
+  background-color: var(--palette-neutral21);
+}
+
+.theme-palette-example.neutral-palette .neutral24 {
+  background-color: var(--palette-neutral24);
+}
+
+.theme-palette-example.neutral-palette .neutral28 {
+  background-color: var(--palette-neutral28);
+}
+
+.theme-palette-example.neutral-palette .neutral32 {
+  background-color: var(--palette-neutral32);
+}
+
+.theme-palette-example.neutral-palette .neutral36 {
+  background-color: var(--palette-neutral36);
+}
+
+.theme-palette-example.neutral-palette .neutral40 {
+  background-color: var(--palette-neutral40);
+}
+
+.theme-palette-example.neutral-palette .neutral45 {
+  background-color: var(--palette-neutral45);
+}
+
+.theme-palette-example.neutral-palette .neutral50 {
+  background-color: var(--palette-neutral50);
+}
+
+.theme-palette-example.neutral-palette .neutral55 {
+  background-color: var(--palette-neutral55);
+}
+
+.theme-palette-example.neutral-palette .neutral60 {
+  background-color: var(--palette-neutral60);
+}
+
+.theme-palette-example.neutral-palette .neutral65 {
+  background-color: var(--palette-neutral65);
+}
+
+.theme-palette-example.neutral-palette .neutral70 {
+  background-color: var(--palette-neutral70);
+}
+
+.theme-palette-example.neutral-palette .neutral74 {
+  background-color: var(--palette-neutral74);
+}
+
+.theme-palette-example.neutral-palette .neutral78 {
+  background-color: var(--palette-neutral78);
+}
+
+.theme-palette-example.neutral-palette .neutral82 {
+  background-color: var(--palette-neutral82);
+}
+
+.theme-palette-example.neutral-palette .neutral86 {
+  background-color: var(--palette-neutral86);
+}
+
+.theme-palette-example.neutral-palette .neutral90 {
+  background-color: var(--palette-neutral90);
+}
+
+.theme-palette-example.neutral-palette .neutral94 {
+  background-color: var(--palette-neutral94);
+}
+
+.theme-palette-example.neutral-palette .neutral97 {
+  background-color: var(--palette-neutral97);
+}
+
+.theme-palette-example.neutral-palette .neutral100 {
+  background-color: var(--palette-neutral100);
 }

@@ -9,10 +9,11 @@
   <h1>{{ . }}</h1>
   {{- end -}}
   <article class="theme-palette-example">
+    <h2>Base Palette</h2>
     <table>
       <thead>
         <tr>
-          <th class="palette-name">name</th>
+          <th class="title">name</th>
           <th>main</th>
           <th>lightest</th>
           <th>lighter</th>
@@ -27,7 +28,7 @@
       </thead>
       <tbody>
         <tr class="primary">
-          <th class="color-name">primary</th>
+          <th class="name">primary</th>
           <td class="color-main"></td>
           <td class="color-lightest"></td>
           <td class="color-lighter"></td>
@@ -54,19 +55,6 @@
         </tr>
         <tr class="secondary-right">
           <th class="color-name">secondary-right</th>
-          <td class="color-main"></td>
-          <td class="color-lightest"></td>
-          <td class="color-lighter"></td>
-          <td class="color-light"></td>
-          <td class="color-medium-light"></td>
-          <td class="color-medium"></td>
-          <td class="color-medium-dark"></td>
-          <td class="color-dark"></td>
-          <td class="color-darker"></td>
-          <td class="color-darkest"></td>
-        </tr>
-        <tr class="complementary">
-          <th class="color-name">complementary</th>
           <td class="color-main"></td>
           <td class="color-lightest"></td>
           <td class="color-lighter"></td>
@@ -134,6 +122,127 @@
     </table>
     <div class="use">
       The CSS colors variables are defined as <code>--palette-[row name]-[column name]</code>, for example <code>--palette-complementary-medium-dark</code>.
+    </div>
+  </article>
+  <article class="theme-palette-example neutral-palette">
+    <h2>Neutral Palette Extended</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="title">name</th>
+          <th class="title">color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="name">neutral0</th>
+          <td class="neutral0"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral5</th>
+          <td class="neutral5"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral10</th>
+          <td class="neutral10"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral13</th>
+          <td class="neutral13"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral16</th>
+          <td class="neutral16"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral19</th>
+          <td class="neutral19"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral21</th>
+          <td class="neutral21"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral24</th>
+          <td class="neutral24"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral28</th>
+          <td class="neutral28"></td>
+        </tr>
+
+        <tr>
+          <th class="name">neutral32</th>
+          <td class="neutral32"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral36</th>
+          <td class="neutral36"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral40</th>
+          <td class="neutral40"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral45</th>
+          <td class="neutral45"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral50</th>
+          <td class="neutral50"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral55</th>
+          <td class="neutral55"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral60</th>
+          <td class="neutral60"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral65</th>
+          <td class="neutral65"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral70</th>
+          <td class="neutral70"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral74</th>
+          <td class="neutral74"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral78</th>
+          <td class="neutral78"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral82</th>
+          <td class="neutral82"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral86</th>
+          <td class="neutral86"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral90</th>
+          <td class="neutral90"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral94</th>
+          <td class="neutral94"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral97</th>
+          <td class="neutral97"></td>
+        </tr>
+        <tr>
+          <th class="name">neutral100</th>
+          <td class="neutral100"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="use">
+      The CSS colors variables are defined as <code>--palette-[row name]</code>, for example <code>--palette-neutral0</code>.
     </div>
   </article>
 {{ end }}
