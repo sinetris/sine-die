@@ -30,10 +30,14 @@ noUgly = true
 [markup]
   [markup.highlight]
     style = 'catppuccin-latte'
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 
 [params]
 theme = "sine-die"
-themeLink = "https://github.com/sinetris/sine-die"
+themeLink = "https://sinetris.github.io/sine-die/"
 
 description = """\
   sine-die a semantic HTML theme for Hugo

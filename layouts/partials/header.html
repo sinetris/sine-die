@@ -1,4 +1,4 @@
 <nav id="primary-navigation" class="primary" aria-label="Primary navigation">
   {{ partial "header_logo.html" . }}
-  {{ partial "menu.html" . }}
+  {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 </nav>

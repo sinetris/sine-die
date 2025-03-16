@@ -5,7 +5,7 @@
     {{- end }}
     <hgroup class="title">
       <span>{{ .Site.Title }}</span>
-      <p>{{ .Site.Params.SubTitle }}</p>
+      <p>{{ or .FirstSection.Params.SubTitle .Site.Params.SubTitle }}</p>
     </hgroup>
   </a>
 </span>

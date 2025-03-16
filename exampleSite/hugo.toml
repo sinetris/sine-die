@@ -2,7 +2,6 @@ theme = "sine-die"
 themesDir = "../.."
 defaultContentLanguage = "en"
 title = "sine-die"
-sectionPagesMenu = 'main'
 
 [outputs]
 home = ["HTML", "RSS", "PRINT"]

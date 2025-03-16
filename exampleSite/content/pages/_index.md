@@ -1,12 +1,14 @@
 ---
 title: Documentation
 date: "2025-03-10"
-identifier: docs
-weight: 10
 description: Documentation for the sine-die theme
 categories: ["Examples", "Documentation"]
 tags: []
-type: theme
+menus:
+  main:
+    name: Documentation
+    identifier: docs
+    weight: 10
 ---
 
 Simple CSS framework usage example.

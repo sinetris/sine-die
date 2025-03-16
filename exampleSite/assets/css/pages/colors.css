@@ -22,6 +22,10 @@
   background-color: var(--color-inverse-primary);
 }
 
+.theme-schema-example .color-on-inverse-primary .show-as-background-color {
+  background-color: var(--color-on-inverse-primary);
+}
+
 .theme-schema-example .secondary-title th {
   border-bottom-color: var(--color-secondary);
 }
@@ -40,6 +44,14 @@
 
 .theme-schema-example .color-on-secondary-container .show-as-background-color {
   background-color: var(--color-on-secondary-container);
+}
+
+.theme-schema-example .color-inverse-secondary .show-as-background-color {
+  background-color: var(--color-inverse-secondary);
+}
+
+.theme-schema-example .color-on-inverse-secondary .show-as-background-color {
+  background-color: var(--color-on-inverse-secondary);
 }
 
 .theme-schema-example .tertiary-title th {
@@ -62,24 +74,12 @@
   background-color: var(--color-on-tertiary-container);
 }
 
-.theme-schema-example .complementary-title th {
-  border-bottom-color: var(--color-complementary);
+.theme-schema-example .color-inverse-tertiary .show-as-background-color {
+  background-color: var(--color-inverse-tertiary);
 }
 
-.theme-schema-example .color-complementary .show-as-background-color {
-  background-color: var(--color-complementary);
-}
-
-.theme-schema-example .color-on-complementary .show-as-background-color {
-  background-color: var(--color-on-complementary);
-}
-
-.theme-schema-example .color-complementary-container .show-as-background-color {
-  background-color: var(--color-complementary-container);
-}
-
-.theme-schema-example .color-on-complementary-container .show-as-background-color {
-  background-color: var(--color-on-complementary-container);
+.theme-schema-example .color-on-inverse-tertiary .show-as-background-color {
+  background-color: var(--color-on-inverse-tertiary);
 }
 
 .theme-schema-example .success-title th {
@@ -102,6 +102,14 @@
   background-color: var(--color-on-success-container);
 }
 
+.theme-schema-example .color-inverse-success .show-as-background-color {
+  background-color: var(--color-inverse-success);
+}
+
+.theme-schema-example .color-on-inverse-success .show-as-background-color {
+  background-color: var(--color-on-inverse-success);
+}
+
 .theme-schema-example .warning-title th {
   border-bottom-color: var(--color-warning);
 }
@@ -120,6 +128,14 @@
 
 .theme-schema-example .color-on-warning-container .show-as-background-color {
   background-color: var(--color-on-warning-container);
+}
+
+.theme-schema-example .color-inverse-warning .show-as-background-color {
+  background-color: var(--color-inverse-warning);
+}
+
+.theme-schema-example .color-on-inverse-warning .show-as-background-color {
+  background-color: var(--color-on-inverse-warning);
 }
 
 .theme-schema-example .error-title th {
@@ -142,8 +158,16 @@
   background-color: var(--color-on-error-container);
 }
 
+.theme-schema-example .color-inverse-error .show-as-background-color {
+  background-color: var(--color-inverse-error);
+}
+
+.theme-schema-example .color-on-inverse-error .show-as-background-color {
+  background-color: var(--color-on-inverse-error);
+}
+
 .theme-schema-example .surface-title th {
-  border-bottom-color: var(--color-inverse-surface);
+  border-bottom-color: var(--color-surface);
 }
 
 .theme-schema-example .color-surface-tint-color .show-as-background-color {
@@ -190,12 +214,20 @@
   background-color: var(--color-on-surface-variant);
 }
 
+.theme-schema-example .extra-title th {
+  border-bottom-color: var(--color-background);
+}
+
 .theme-schema-example .color-outline .show-as-background-color {
   background-color: var(--color-outline);
 }
 
 .theme-schema-example .color-outline-variant .show-as-background-color {
   background-color: var(--color-outline-variant);
+}
+
+.theme-schema-example .color-light .show-as-background-color {
+  background-color: var(--color-light);
 }
 
 .theme-schema-example .color-shadow .show-as-background-color {
@@ -233,7 +265,13 @@
 .theme-schema-example tr.title th {
   border-top: 0.2rem solid var(--color-outline-variant);
   border-bottom-style: solid;
-  border-bottom-width: 0.1rem;
+  border-bottom-width: 0.4em;
   text-align: center;
-  color: var(--color-outline);
+  color: var(--color-on-surface);
+  background-color: var(--color-surface-dim);
+}
+
+:root:has(.theme-colors-override) {
+  --color-primary-hue: 180deg;
+  --colors-secondary-angle: 240deg;
 }

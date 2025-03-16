@@ -2,33 +2,22 @@
 /* stylelint-disable selector-class-pattern */
 :root {
   --pagefind-ui-scale: 0.8;
-  --pagefind-ui-border-width: 0.1rem;
-  --pagefind-ui-border-radius: 5rem;
-  --pagefind-ui-image-border-radius: 0.2rem;
+  --pagefind-ui-border-width: 0.1em;
+  --pagefind-ui-border-radius: 1em;
+  --pagefind-ui-image-border-radius: 0.2em;
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font: var(--font-family-sans);
 }
 
 :root,
 .theme-default,
-.theme-light {
-  --pagefind-ui-primary: var(--color-on-tertiary-container);
-  --pagefind-ui-text: var(--color-on-primary-container);
-  --pagefind-ui-background: var(--color-inverse-primary);
-  --pagefind-ui-border: var(--color-primary);
-  --pagefind-ui-tag: var(--color-secondary);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root,
-  .theme-default,
-  .theme-dark {
-    --pagefind-ui-primary: var(--color-on-tertiary-container);
-    --pagefind-ui-text: var(--color-on-primary-container);
-    --pagefind-ui-background: var(--color-inverse-primary);
-    --pagefind-ui-border: var(--color-primary);
-    --pagefind-ui-tag: var(--color-secondary);
-  }
+.theme-light,
+.theme-dark {
+  --pagefind-ui-primary: var(--color-inverse-secondary);
+  --pagefind-ui-text: var(--color-on-secondary);
+  --pagefind-ui-background: var(--color-secondary);
+  --pagefind-ui-border: var(--color-outline);
+  --pagefind-ui-tag: var(--color-on-secondary-container);
 }
 
 #search button.pagefind-ui__search-clear {
@@ -49,6 +38,12 @@
   vertical-align: middle;
 
   /* The image is added in assets.gtpl.css */
+}
+
+#search input.pagefind-ui__search-input::placeholder {
+    opacity: .5;
+    color: black;
+    font-weight: bold;
 }
 
 @media only screen and (width <= 480px){

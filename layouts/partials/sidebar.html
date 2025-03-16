@@ -1,4 +1,5 @@
-<aside class="taxonomies">
+<aside class="sidebar">
+  {{- partial "toc.html" . }}
   {{ with .Params.categories }}
   <dl class="categories">
     <dt><a href="{{ relURL "categories" }}"><span class="material-symbols-outlined">bookmark</span>Categories</a></dt>

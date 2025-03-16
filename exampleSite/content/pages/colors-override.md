@@ -1,5 +1,5 @@
 ---
-title: Theme Colors
+title: Theme Colors (override)
 date: "2023-07-20"
 description: Example of colors in the theme
 layout: colors
@@ -8,7 +8,7 @@ tags: ["Colors", "Palette"]
 menus:
   main:
     parent: docs
-    weight: 20
+    weight: 25
 params:
-  body_classes: ["theme-colors"]
+  body_classes: ["theme-colors", "theme-colors-override"]
 ---

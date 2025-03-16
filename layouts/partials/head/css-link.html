@@ -4,6 +4,6 @@
   {{- end }}
 {{- else }}
   {{- with . | resources.Minify | fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ .RelPermalink }}" type="text/css" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
   {{- end }}
 {{- end }}
