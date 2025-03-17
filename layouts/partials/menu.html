@@ -1,19 +1,19 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
-{{- with index site.Menus $menuID }}
-  <nav class="menu">
-    <ul>
+<nav class="menu">
+  <ul>
+    {{- with index site.Menus $menuID }}
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuID" $menuID "menuEntries" .) }}
-      <li>
-        <button type="button" class="theme-switcher"></button>
-      </li>
-      <li class="menu-icon">
-        <button type="button"><span class="material-symbols-outlined">menu</span></button>
-      </li>
-    </ul>
+    {{- end }}
+    <li>
+      <button type="button" class="theme-switcher"></button>
+    </li>
+    <li class="menu-icon">
+      <button type="button"><span class="material-symbols-outlined">menu</span></button>
+    </li>
+  </ul>
 </nav>
-{{- end }}
 
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
