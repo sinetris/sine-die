@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article class="homepage-content">
-  {{- with (or .Params.Title .Site.Title) -}}
+  {{- with .Site.Title -}}
   <h1>{{ . }}</h1>
   {{- end -}}
   {{ .Content }}
