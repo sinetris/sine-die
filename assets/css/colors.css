@@ -39,9 +39,13 @@
   /*
   Secondary colors angle (left and right from the primary)
   Preferred values:
-    - 120 degrees for triadic color scheme
-    - 240 degrees for triadic color scheme (left and right inverted)
-    - between 150 and 210 degrees for split-complementary color palette
+    - triadic color scheme
+      - 120 degrees
+      - 240 degrees (left and right inverted)
+    - split-complementary color scheme
+        - between 150 and 170 degrees
+        - 180 degrees (left and right are the same)
+        - between 190 and 210 degrees (left and right inverted)
   */
   --colors-secondary-angle: 120deg;
 
@@ -68,13 +72,13 @@
 
   /* Colors lightness variations */
   --palette-lightest-lightness: 98%;
-  --palette-lighter-lightness: 80%;
-  --palette-light-lightness: 68%;
-  --palette-medium-light-lightness: 57%;
+  --palette-lighter-lightness: 87%;
+  --palette-light-lightness: 73%;
+  --palette-medium-light-lightness: 60%;
   --palette-medium-lightness: 50%;
-  --palette-medium-dark-lightness: 43%;
-  --palette-dark-lightness: 28%;
-  --palette-darker-lightness: 20%;
+  --palette-medium-dark-lightness: 40%;
+  --palette-dark-lightness: 27%;
+  --palette-darker-lightness: 22%;
   --palette-darkest-lightness: 15%;
 
   /*
@@ -212,17 +216,17 @@
 
   /* Secondary */
   --color-secondary: var(--palette-secondary-left-medium-light);
-  --color-on-secondary: var(--palette-secondary-left-darker);
+  --color-on-secondary: var(--palette-secondary-left-dark);
   --color-secondary-container: var(--palette-secondary-left-light);
-  --color-on-secondary-container: var(--palette-secondary-left-dark);
+  --color-on-secondary-container: var(--palette-secondary-left-medium-dark);
   --color-inverse-secondary: var(--palette-secondary-left-darker);
   --color-on-inverse-secondary: var(--palette-secondary-left-medium-light);
 
   /* Tertiary */
   --color-tertiary: var(--palette-secondary-right-medium-light);
-  --color-on-tertiary: var(--palette-secondary-right-darker);
+  --color-on-tertiary: var(--palette-secondary-right-dark);
   --color-tertiary-container: var(--palette-secondary-right-light);
-  --color-on-tertiary-container: var(--palette-secondary-right-dark);
+  --color-on-tertiary-container: var(--palette-secondary-right-medium-dark);
   --color-inverse-tertiary: var(--palette-secondary-right-darker);
   --color-on-inverse-tertiary: var(--palette-secondary-right-medium-light);
 
@@ -267,7 +271,7 @@
   --color-inverse-on-surface: var(--palette-neutral86);
 
   /* Extra */
-  --color-background: var(--palette-neutral-lightest);
+  --color-background: var(--palette-neutral-lighter);
   --color-on-background: var(--palette-neutral16);
   --color-outline: var(--palette-neutral74);
   --color-outline-variant: var(--palette-neutral70);
