@@ -1,0 +1,18 @@
+{{- $attributes := .Params | default dict -}}
+{{- $u := urls.Parse (.Get "src") -}}
+{{- $src := $u.String -}}
+{{- if not $u.IsAbs -}}
+  {{- with (or (.Page.Resources.Get $u.Path) (resources.Get $u.Path)) | fingerprint -}}
+    {{- $src = .RelPermalink -}}
+  {{- else }}
+    {{- warnf "The %q shortcode was unable to find %s: see %s" $.Name $u.Path $.Position }}
+  {{- end }}
+  {{- with (.Get "fragment") -}}
+    {{- $src = printf "%s#%s" $src . -}}
+  {{- end }}
+{{- end -}}
+{{- $excludeAttributes := slice "src" "fragment" }}
+
+<svg {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
+    <use href="{{ $src }}"></use>
+</svg>
