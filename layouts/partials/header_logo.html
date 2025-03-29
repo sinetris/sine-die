@@ -1,11 +1,17 @@
+{{ $siteTitle := .Site.Title -}}
 <span class="brand">
-  <a href="{{ relURL "" }}">
-    {{ with resources.Get "images/sine-die-logo.svg" | resources.Fingerprint "sha512" -}}
-    <img src="{{- .RelPermalink -}}" />
+  <a href="{{ relURL "" }}" aria-label="{{ printf "%s homepage" $siteTitle }}">
+    {{ with .Site.Params.logo -}}
+      {{ with resources.Get . | resources.Fingerprint "sha512" -}}
+        <img src="{{- .RelPermalink -}}" alt="{{ printf "%s logo" $siteTitle }}" />
+      {{- end }}
     {{- end }}
     <hgroup class="title">
-      <span>{{ .Site.Title }}</span>
-      <p>{{ or .FirstSection.Params.SubTitle .Site.Params.SubTitle }}</p>
+      <span>{{ $siteTitle }}</span>
+      {{- $tagline := or .FirstSection.Params.Tagline .Site.Params.Tagline }}
+      {{ if $tagline -}}
+        <p>{{ $tagline }}</p>
+      {{- end }}
     </hgroup>
   </a>
 </span>
