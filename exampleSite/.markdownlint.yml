@@ -1,0 +1,7 @@
+---
+extends: ../.markdownlint.yml
+
+# Exclusions for Hugo shortcode in markdown violations
+
+# MD034/no-bare-urls - Bare URL used
+MD034: false
