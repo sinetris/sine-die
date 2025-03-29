@@ -1,3 +1,4 @@
+{{- partial "helpers/templates.html" -}}
 {{- if not (.Page.Store.Get "body-classes") -}}
   {{ .Page.Store.Set "body-classes" ((or .Params.body_classes slice) | append "theme-default") }}
 {{- end -}}
@@ -9,12 +10,12 @@
   </head>
   {{ $body_classes :=  delimit (.Page.Store.Get "body-classes") " " -}}
   <body class="{{ $body_classes }}">
-    <header class="page-header">
+    <header>
       {{ partial "header.html" . }}
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
       {{ partial "breadcrumbs.html" . }}
     </header>
-    <main aria-role="main">
+    <main aria-role="main" id="main-content">
       {{ block "main" . }}{{ end }}
     </main>
     {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}

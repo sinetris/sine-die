@@ -4,20 +4,20 @@
 {{- $css_files := slice "css/normalize.css"  "css/base.css" "css/colors.css" "css/style.css" }}
 {{ range $css_files }}
   {{- with resources.Get . }}
-    {{ partial "head/css-link.html" . }}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
   {{- end }}
 {{- end }}
 {{- with resources.Get "css/assets.gtpl.css" | resources.ExecuteAsTemplate "css/assets.css" . }}
-  {{ partial "head/css-link.html" . }}
+  {{ partial "helpers/css-link.html" (dict "resource" .) }}
 {{- end -}}
 {{ if .Site.Params.showSearchUI -}}
   {{ with resources.Get "css/pagefind-overrides.css" -}}
-    {{ partial "head/css-link.html" . }}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
   {{- end }}
 {{- end }}
 {{ with resources.Get "css/overrides.css" -}}
-  {{ partial "head/css-link.html" . }}
+  {{ partial "helpers/css-link.html" (dict "resource" .) }}
 {{- end }}
 {{- with resources.Get "css/override_assets.gtpl.css" | resources.ExecuteAsTemplate "css/override_assets.css" . }}
-  {{ partial "head/css-link.html" . }}
+  {{ partial "helpers/css-link.html" (dict "resource" .) }}
 {{- end -}}
