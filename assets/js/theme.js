@@ -1,3 +1,4 @@
+// -- (start) Dark/Light Theme switch --
 const getValidThemes = () => {
   const defaultIsDark = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   return defaultIsDark ? ["theme-default", "theme-light", "theme-dark"] : ["theme-default", "theme-dark", "theme-light"];
@@ -35,9 +36,11 @@ const switchTheme = () => {
 
 refreshTheme();
 
-const themeSwitchButton = document.querySelector("button.theme-switcher");
+const themeSwitchButton = document.querySelector(".theme-switcher button");
 themeSwitchButton.addEventListener("click", switchTheme);
+// -- (end) Dark/Light Theme switch --
 
+// -- (start) Mobile menu --
 function responsiveMenu() {
   const responsiveClass = "responsive";
   var menuElement = document.getElementById("primary-navigation");
@@ -48,5 +51,6 @@ function responsiveMenu() {
   }
 }
 
-const responsiveMenuButton = document.querySelector(".menu-icon>button");
+const responsiveMenuButton = document.querySelector(".menu-icon");
 responsiveMenuButton.addEventListener("click", responsiveMenu);
+// -- (end) Mobile menu --

@@ -1,18 +1,18 @@
-button.theme-switcher {
+.theme-switcher button {
   {{ with resources.Get "images/theme-os-default.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
   {{- end }}
 }
 
-.theme-dark button.theme-switcher {
+.theme-dark .theme-switcher button {
   {{ with resources.Get "images/theme-dark.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
   {{- end }}
 }
 
-.theme-light button.theme-switcher {
+.theme-light .theme-switcher button {
   {{ with resources.Get "images/theme-light.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
