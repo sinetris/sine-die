@@ -60,6 +60,10 @@ body.about-page>main .logos svg {
   border: 0.2em solid var(--color-primary);
 }
 
+body.about-page>aside.sidebar {
+  display: none;
+}
+
 @media print {
   .show-as-background-color {
     -webkit-print-color-adjust: exact !important;
