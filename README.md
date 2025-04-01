@@ -1,19 +1,33 @@
-# sine-die
+<!-- markdownlint-disable MD041 -->
 
+<p align="center">
 <img
-  src="assets/images/sine-die-logo.svg"
-  width="100"
-  style="max-width: 80%"
-  alt="sine-die"
+  src="assets/images/sine-die-logo-full.svg"
+  style="max-width: 50%"
+  alt="sine-die logo"
 />
-
+</p>
 A simple and clean [Hugo][hugo] theme.
 
 - Semantic HTML
-- Responsive
-- Light/Dark mode
-- Minimal CSS
-- Generated color palette
+- Minimalist CSS framework
+  - Lightweight
+  - Responsive Web Design
+  - Light or Dark Mode
+  - Easily customizable color palette
+  - Pure CSS (no transpiler required)
+- Accessibility friendly
+- Search functionality
+
+---
+
+<p align="center">
+<img
+  src="exampleSite/assets/images/responsive-previews.png"
+  style="width: 90%"
+  alt="Responsive Web Design Demo"
+/>
+</p>
 
 Table of Content
 
@@ -22,7 +36,7 @@ Table of Content
 - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
   - [Search functionality](#search-functionality)
     - [Installing and running Pagefind](#installing-and-running-pagefind)
-- [Credits](#credits)
+- [Credits and Acknowledgements](#credits-and-acknowledgements)
 - [License](#license)
 
 ## Prerequisites
@@ -83,8 +97,8 @@ Build the static files for your website, for example running:
 hugo
 ```
 
-You can install and run Pagefind using Node.js or Python3 (more info can be
-found in [Pagefind installation documentation][pagefind-installation]).
+You can install and run Pagefind using the Node.js or Python3 wrappers (more info
+can be found in [Pagefind installation documentation][pagefind-installation]).
 
 <details>
   <summary>
@@ -92,14 +106,14 @@ found in [Pagefind installation documentation][pagefind-installation]).
   </summary>
 
   If you want to use **Python 3** and are using [pyenv][pyenv], you can install
-  Python 3 running:
+  Python 3 version from [.python-version](exampleSite/.python-version) running:
 
   ```shell
   pyenv install
   ```
 
   If you want to use **Node.js** and are using [asdf][asdf], you can install
-  Node.js running:
+  the Node.js version from [.tool-versions](exampleSite/.tool-versions) running:
 
   ```shell
   # Install Node.js plugin for asdf
@@ -128,35 +142,54 @@ python3 -m pip install 'pagefind[extended]'
 python3 -m pagefind --site "public"
 ```
 
-## Credits
+You can use [Pagefind CLI config sources][pagefind-config-sources] instead of passing
+CLI flags. Check [exampleSite/pagefind.yaml](exampleSite/pagefind.yaml) for an example.
+
+## Credits and Acknowledgements
 
 - [Pagefind][pagefind]: highly configurable client-side search
   library with a script to index pages generated with any static site generator
   using as low bandwidth as possible. It also provides a UI component that
   supports searching, filtering, and metadata out of the box.
-- [MDN Accessibility][mdn-accessibility]:
-  web accessibility reference in MDN Web Docs
-- [Material Design][material-design]:
-  - The color scheme for this theme is inspired to the [Material design color system][material-design-color-system].
-    It's very similar to what I intended to use, and having a good reference
-    was definitely a big help.
-  - This theme also use [Material Symbols][material-symbols] for
-    the icons.
+- [MDN Accessibility][mdn-accessibility]: web accessibility reference in
+  [MDN Web Docs][mdn-web-docs]
+- [ARIA Authoring Practices Guide (APG)][aria-apg]: learn to use the accessibility
+  semantics defined by the [ARIA][aria] specification.
+- [Material Design][material-design]: Google’s open-source design system.
+  - The color scheme for this theme is inspired by the [Material design color system][material-design-color-system].\
+    Their color palette is very similar to what I intended to cerate, and having
+    a good reference was definitely a great help.
+  - This theme also use [Material Symbols][material-symbols] for the icons.
 
 ## License
 
 Licensed under the [MIT license](LICENSE).
 
+This software includes material copied from or derived from the example patterns
+provided in the [ARIA Authoring Practices Guide (APG)][aria-apg] and distributed
+under the [W3C<sup>®</sup> Software and Document License][w3c-software-license].
+
+Specifically:
+
+- [Breadcrumb Pattern][aria-apg-patterns-breadcrumb]
+- [Menu and Menubar Pattern][aria-apg-patterns-menubar]
+
+[aria-apg-patterns-breadcrumb]: <https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/> "APG - Breadcrumb Pattern"
+[aria-apg-patterns-menubar]: <https://www.w3.org/WAI/ARIA/apg/patterns/menubar/> "APG - Menu and Menubar Pattern"
+[aria-apg]: <https://www.w3.org/WAI/ARIA/apg/> "ARIA Authoring Practices Guide (APG)"
+[aria]: <https://www.w3.org/TR/wai-aria/> "Accessible Rich Internet Applications (WAI-ARIA)"
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
 [git-getting-started]: <https://git-scm.com/book/en/Getting-Started-Installing-Git/> "Git: Getting Started"
 [hugo-quick-start]: <https://gohugo.io/getting-started/quick-start/> "Hugo: Quick start"
-[hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
 [material-design-color-system]: <https://m3.material.io/styles/color/the-color-system/key-colors-tones> "Material design color system"
 [material-design]: <https://m3.material.io> "Material Design"
 [material-symbols]: <https://fonts.google.com/icons> "Material Symbols"
 [mdn-accessibility]: <https://developer.mozilla.org/en-US/docs/Web/Accessibility> "mdn - Accessibility"
+[mdn-web-docs]: <https://developer.mozilla.org/en/docs/Web> "mdn web docs"
 [node-js]: <https://nodejs.org> "Node.js"
+[pagefind-config-sources]: <https://pagefind.app/docs/config-sources/> "Pagefind CLI configuration sources"
 [pagefind-installation]: <https://pagefind.app/docs/installation/> "Pagefind installation"
 [pagefind]: <https://pagefind.app/> "Pagefind"
 [pyenv]: <https://github.com/pyenv/pyenv> "pyenv: Simple Python version management"
 [python]: <https://www.python.org/> "Python"
+[w3c-software-license]: <https://www.w3.org/copyright/software-license/> "W3C Software and Document License"
