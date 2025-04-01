@@ -8,7 +8,7 @@
   {{- end }}
 {{- else }}
   {{- with $resource | minify | fingerprint }}
-    {{- $attr = merge $attr (dict "href" .RelPermalink "integrity" .Data.Integrity "crossorigin" "anonymous") }}
+    {{- $attributes = merge $attributes (dict "href" .RelPermalink "integrity" .Data.Integrity "crossorigin" "anonymous") }}
     <link {{- template "render-attributes" (dict "attributes" $attributes) }}/>
   {{- end }}
 {{- end }}
