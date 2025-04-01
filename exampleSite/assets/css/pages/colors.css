@@ -273,5 +273,5 @@
 
 :root:has(.theme-colors-override) {
   --color-primary-hue: 180deg;
-  --colors-secondary-angle: 240deg;
+  --colors-secondary-hue-angle: 200deg;
 }
