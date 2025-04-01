@@ -386,15 +386,6 @@ nav.breadcrumb .material-symbols-outlined {
   vertical-align: bottom;
 }
 
-#search {
-  padding: 1rem 1rem 0;
-}
-
-#search input:focus{
-  outline: none;
-  border-color: var(--color-on-surface-variant);
-}
-
 /* Mobile devices */
 
 @media only screen and (width <= 480px) {
@@ -430,10 +421,6 @@ nav.breadcrumb .material-symbols-outlined {
   body>main .pages-list {
     margin: .1rem;
     padding: .1rem;
-  }
-
-  #search {
-    padding: .5rem .5rem 0;
   }
 }
 
