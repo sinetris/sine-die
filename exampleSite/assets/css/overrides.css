@@ -1,6 +1,11 @@
-:root {
-  --color-primary-hue: 240deg;
-  --colors-chroma: 15%;
+.responsive-previews {
+  width: 100%;
+  margin: auto;
+}
+
+.responsive-previews svg{
+  width: 90%;
+  margin: auto;
 }
 
 body.theme-colors,
@@ -19,9 +24,62 @@ body.theme-palette>aside.sidebar {
   border-radius: unset;
 }
 
+body.about-page {
+  grid-template:
+    "header" auto
+    "content" 1fr
+    "sidebar" auto
+    "footer" auto;
+  min-width: 100vw;
+}
+
+body.about-page>main .logos img {
+  width: 40%;
+  margin: auto;
+  display: block;
+}
+
+body.about-page>main .logos {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+body.about-page>main .logos svg {
+  width: 5em;
+  height: 5em;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+  padding: .2em;
+
+  --sinetris-color: #9499d0;
+  --color-primary: oklch(from var(--sinetris-color) var(--palette-medium-dark-lightness) c h);
+
+  background-color: oklch(from var(--sinetris-color) var(--palette-lighter-lightness) calc(c / 2) h);
+  border: 0.2em solid var(--color-primary);
+}
+
 @media print {
   .show-as-background-color {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+}
+
+@media only screen and (width <= 480px) {
+  body.about-page>main .logos svg {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  body.about-page>main .logos img {
+    width: 100%;
+  }
+}
+
+@media only screen and (width <= 1024px) {
+  body.about-page>main .logos img {
+    width: 80%;
   }
 }
