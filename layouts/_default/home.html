@@ -5,19 +5,4 @@
   {{- end -}}
   {{ .Content }}
 </article>
-<ul class="pages-list">
-  {{ $pages := .Site.RegularPages }}
-  {{ range (.Paginate $pages).Pages }}
-  <li>
-    {{- $short_date := .Date | time.Format (.Site.Params.dateFormat | default "2006-01-02" ) }}
-    {{- $long_date := .Date | time.Format (.Site.Params.dateFormat | default "02 Jan 2006" ) }}
-    <span class="material-symbols-outlined">
-      calendar_month
-    </span>
-    <time datetime="{{ $short_date }}">{{ $long_date }}</time>
-    <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-    <p>{{ .Description }}</p>
-  </li>
-  {{- end -}}
-</ul>
 {{ end }}
