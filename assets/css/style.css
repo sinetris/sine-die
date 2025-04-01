@@ -248,23 +248,23 @@ nav.primary [role="menubar"] a {
 
 nav.primary [role="menubar"] [aria-expanded="true"] {
   color: var(--color-on-tertiary-container);
-  border-bottom-color: var(--color-on-tertiary);
+  border-bottom-color: var(--color-on-tertiary-container);
   border-bottom-style: dashed;
 }
 
 nav.primary [role="menubar"] a:hover {
   color: var(--color-on-tertiary-container);
-  border-bottom-color: var(--color-on-tertiary);
+  border-bottom-color: var(--color-on-tertiary-container);
 }
 
 nav.primary [role="menubar"] .active {
   color: var(--color-on-secondary-container);
-  border-bottom-color: var(--color-on-secondary);
+  border-bottom-color: var(--color-on-secondary-container);
 }
 
 nav.primary [role="menubar"] .ancestor {
   border-bottom-style: dashed;
-  border-bottom-color: var(--color-on-secondary);
+  border-bottom-color: var(--color-on-secondary-container);
 }
 
 nav.primary [role="menubar"] ul {
