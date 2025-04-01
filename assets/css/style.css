@@ -579,5 +579,5 @@ body>header .skip-link:focus {
 /* (end) Skip to content link style */
 
 code {
-  background-color: var(--color-surface-container-high);
+  background-color: var(--color-surface-container);
 }
