@@ -2,7 +2,7 @@
   {{- partial "toc.html" . }}
   {{ with .Params.categories }}
   <dl class="categories">
-    <dt><a href="{{ relURL "categories" }}"><span class="material-symbols-outlined">bookmark</span>Categories</a></dt>
+    <dt><a href="{{ relURL "categories" }}"><span class="material-symbols-outlined">topic</span>Categories</a></dt>
     {{ range . }}
     {{ $term := . }}
     {{ $taxonomy := index site.Taxonomies (lower .) -}}

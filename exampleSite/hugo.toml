@@ -4,17 +4,8 @@ defaultContentLanguage = "en"
 title = "sine-die"
 
 [outputs]
-home = ["HTML", "RSS", "PRINT"]
+  home = ["HTML", "RSS"]
 
 [params]
-subTitle = "A semantic HTML theme for Hugo"
-
-description = """\
-  sine-die minimalist CSS framework for Hugo example
-  """
-
-showSearchUI = true
-
-# Author
-author = "Duilio Ruggiero"
-authorLink = "https://github.com/sinetris"
+  showSearchUI = true
+  logo = "images/sine-die-logo.svg"

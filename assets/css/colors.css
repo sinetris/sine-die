@@ -1,15 +1,15 @@
 :root {
   /****************************************************
-  Main Colors Definitions
+  Main Colors Definitions (simplified explanation)
   We will use 'oklch' to calculate the color variations.
   ****************************************************/
 
   /*
-  Primary color (simplified explanation)
+  Primary color
   */
 
   /* 'hue' is a value between 0 and 360 degrees and is the color itself */
-  --color-primary-hue: 222deg;
+  --color-primary-hue: 240deg;
 
   /* 'chroma' is a value between 0% and 100% and is the color vividity (saturation) */
   --colors-primary-chroma: 20%;
@@ -25,7 +25,7 @@
   Main colors 'chroma'
   Preferred values: between 10% and 70%)
   */
-  --colors-chroma: 15%;
+  --colors-chroma: var(--colors-primary-chroma);
 
   /* Use vivid colors for events (e.g. successes, warnings, errors) */
   --color-event-chroma: 40%;
@@ -37,13 +37,17 @@
   --color-neutral-chroma: 0%;
 
   /*
-  Secondary colors angle (left and right from the primary)
+  Secondary colors hue angle (left and right from the primary)
   Preferred values:
-    - 120 degrees for triadic color scheme
-    - 240 degrees for triadic color scheme (left and right inverted)
-    - between 150 and 210 degrees for split-complementary color palette
+    - triadic color scheme
+      - 120 degrees
+      - 240 degrees (left and right inverted)
+    - split-complementary color scheme
+        - between 150 and 170 degrees
+        - 180 degrees (left and right are the same)
+        - between 190 and 210 degrees (left and right inverted)
   */
-  --colors-secondary-angle: 120deg;
+  --colors-secondary-hue-angle: 120deg;
 
   /*
   We want the warning colors to be yellow-ish
@@ -68,13 +72,13 @@
 
   /* Colors lightness variations */
   --palette-lightest-lightness: 98%;
-  --palette-lighter-lightness: 80%;
-  --palette-light-lightness: 68%;
-  --palette-medium-light-lightness: 57%;
+  --palette-lighter-lightness: 87%;
+  --palette-light-lightness: 73%;
+  --palette-medium-light-lightness: 60%;
   --palette-medium-lightness: 50%;
-  --palette-medium-dark-lightness: 43%;
-  --palette-dark-lightness: 28%;
-  --palette-darker-lightness: 20%;
+  --palette-medium-dark-lightness: 40%;
+  --palette-dark-lightness: 27%;
+  --palette-darker-lightness: 22%;
   --palette-darkest-lightness: 15%;
 
   /*
@@ -82,8 +86,8 @@
   */
 
   /* Calculate Secondary left/right hue */
-  --color-secondary-left-hue: calc(var(--color-primary-hue) - var(--colors-secondary-angle));
-  --color-secondary-right-hue: calc(var(--color-primary-hue) + var(--colors-secondary-angle));
+  --color-secondary-left-hue: calc(var(--color-primary-hue) - var(--colors-secondary-hue-angle));
+  --color-secondary-right-hue: calc(var(--color-primary-hue) + var(--colors-secondary-hue-angle));
 
   /* Primary */
   --palette-primary-main: oklch(var(--color-primary-lightness) var(--colors-primary-chroma) var(--color-primary-hue));
@@ -200,7 +204,6 @@
 
 /* Light Theme (default if 'prefers-color-scheme' is not supported) */
 :root,
-.theme-default,
 .theme-light {
   /* Primary */
   --color-primary: var(--palette-primary-medium-light);
@@ -212,17 +215,17 @@
 
   /* Secondary */
   --color-secondary: var(--palette-secondary-left-medium-light);
-  --color-on-secondary: var(--palette-secondary-left-darker);
+  --color-on-secondary: var(--palette-secondary-left-dark);
   --color-secondary-container: var(--palette-secondary-left-light);
-  --color-on-secondary-container: var(--palette-secondary-left-dark);
+  --color-on-secondary-container: var(--palette-secondary-left-medium-dark);
   --color-inverse-secondary: var(--palette-secondary-left-darker);
   --color-on-inverse-secondary: var(--palette-secondary-left-medium-light);
 
   /* Tertiary */
   --color-tertiary: var(--palette-secondary-right-medium-light);
-  --color-on-tertiary: var(--palette-secondary-right-darker);
+  --color-on-tertiary: var(--palette-secondary-right-dark);
   --color-tertiary-container: var(--palette-secondary-right-light);
-  --color-on-tertiary-container: var(--palette-secondary-right-dark);
+  --color-on-tertiary-container: var(--palette-secondary-right-medium-dark);
   --color-inverse-tertiary: var(--palette-secondary-right-darker);
   --color-on-inverse-tertiary: var(--palette-secondary-right-medium-light);
 
@@ -262,12 +265,12 @@
   --color-surface-container-high: var(--palette-neutral-lighter);
   --color-surface-container-highest: var(--palette-neutral-lightest);
   --color-surface-variant: var(--palette-neutral78);
-  --color-on-surface-variant: var(--palette-neutral16);
+  --color-on-surface-variant: var(--palette-neutral28);
   --color-inverse-surface: var(--palette-neutral24);
   --color-inverse-on-surface: var(--palette-neutral86);
 
   /* Extra */
-  --color-background: var(--palette-neutral-lightest);
+  --color-background: var(--palette-neutral-lighter);
   --color-on-background: var(--palette-neutral16);
   --color-outline: var(--palette-neutral74);
   --color-outline-variant: var(--palette-neutral70);
@@ -357,9 +360,8 @@
 }
 
 @media (prefers-color-scheme: light) {
-  /* Set .theme-default same as .theme-light */
-  :root,
-  .theme-default {
+  /* Set :root same as .theme-light */
+  :root {
     /* Primary */
     --color-primary: var(--palette-primary-medium-light);
     --color-on-primary: var(--palette-primary-darker);
@@ -370,17 +372,17 @@
 
     /* Secondary */
     --color-secondary: var(--palette-secondary-left-medium-light);
-    --color-on-secondary: var(--palette-secondary-left-darker);
+    --color-on-secondary: var(--palette-secondary-left-dark);
     --color-secondary-container: var(--palette-secondary-left-light);
-    --color-on-secondary-container: var(--palette-secondary-left-dark);
+    --color-on-secondary-container: var(--palette-secondary-left-medium-dark);
     --color-inverse-secondary: var(--palette-secondary-left-darker);
     --color-on-inverse-secondary: var(--palette-secondary-left-medium-light);
 
     /* Tertiary */
     --color-tertiary: var(--palette-secondary-right-medium-light);
-    --color-on-tertiary: var(--palette-secondary-right-darker);
+    --color-on-tertiary: var(--palette-secondary-right-dark);
     --color-tertiary-container: var(--palette-secondary-right-light);
-    --color-on-tertiary-container: var(--palette-secondary-right-dark);
+    --color-on-tertiary-container: var(--palette-secondary-right-medium-dark);
     --color-inverse-tertiary: var(--palette-secondary-right-darker);
     --color-on-inverse-tertiary: var(--palette-secondary-right-medium-light);
 
@@ -420,17 +422,17 @@
     --color-surface-container-high: var(--palette-neutral-lighter);
     --color-surface-container-highest: var(--palette-neutral-lightest);
     --color-surface-variant: var(--palette-neutral78);
-    --color-on-surface-variant: var(--palette-neutral16);
+    --color-on-surface-variant: var(--palette-neutral28);
     --color-inverse-surface: var(--palette-neutral24);
     --color-inverse-on-surface: var(--palette-neutral86);
 
     /* Extra */
-    --color-background: var(--palette-neutral-lightest);
+    --color-background: var(--palette-neutral-lighter);
     --color-on-background: var(--palette-neutral16);
     --color-outline: var(--palette-neutral74);
     --color-outline-variant: var(--palette-neutral70);
-    --color-light: oklch(from var(--palette-neutral96) l c h / calc(alpha - 0.1));
-    --color-shadow: oklch(from var(--palette-neutral8) l c h / calc(alpha - 0.1));
+    --color-light: oklch(from var(--palette-neutral97) l c h / calc(alpha - 0.1));
+    --color-shadow: oklch(from var(--palette-neutral5) l c h / calc(alpha - 0.1));
     --color-scrim: var(--palette-neutral5);
 
     color-scheme: light;
@@ -438,9 +440,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  /* Set .theme-default same as .theme-dark */
-  :root,
-  .theme-default {
+  /* Set :root same as .theme-dark */
+  :root {
     /* Primary */
     --color-primary: var(--palette-primary-medium-dark);
     --color-on-primary: var(--palette-primary-lighter);

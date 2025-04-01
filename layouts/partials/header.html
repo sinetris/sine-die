@@ -1,4 +1,8 @@
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <nav id="primary-navigation" class="primary" aria-label="Primary navigation">
   {{ partial "header_logo.html" . }}
   {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  <button type="button" class="menu-icon" aria-label="Show Menu" aria-controls="menu">
+    <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+  </button>
 </nav>

@@ -1,13 +1,14 @@
 {{ define "head-addition" }}
   {{ with resources.Get "css/pages/colors.css" -}}
-    {{ partial "head/css-link.html" . }}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
   {{- end }}
 {{ end }}
 {{ define "main" }}
-{{- with .Params.Title -}}
-<h1>{{ . }}</h1>
-{{- end -}}
 <article class="theme-schema-example">
+  {{- with .Params.Title -}}
+  <h1>{{ . }}</h1>
+  {{- end -}}
+  {{ .Content }}
   <h2>Baseline color scheme</h2>
   <table>
     <thead>

@@ -5,11 +5,11 @@
     {{- if eq .Data.Singular "tag" -}}
     label
     {{- else if eq .Data.Singular "category" -}}
-    bookmark
+    topic
     {{- else if eq .Data.Singular "autor" -}}
     person
     {{- else -}}
-    settings
+    bookmark
     {{- end -}}
   </span>
   {{- .Title | singularize -}}

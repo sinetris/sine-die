@@ -1,24 +1,44 @@
 ---
-title: 'Home'
+title: 'Homepage'
 date: "2025-03-10"
 description: Documentation and usage examples for the sine-die theme
 categories: ["Documentation"]
 tags: ["Semantic HTML", "Responsive", "Dark mode", "Light mode", "Minimal CSS", "Generated color palette"]
 ---
 
-A semantic HTML theme for Hugo
+## Description
 
-## Add the sine-die theme to your Hugo site
+A simple and clean [Hugo][hugo] theme.
 
-Add the sine-die theme to your Hugo site as a git submodule:
+- Semantic HTML
+- Minimalist CSS framework
+  - Lightweight
+  - Responsive Web Design
+  - Light or Dark Mode
+  - Easily customizable color palette
+  - Pure CSS (no transpiler required)
+- Accessibility friendly
+- Search functionality
 
-```bash
-git submodule add https://github.com/sinetris/sine-die themes/sine-die
-```
+{{< figure-wrapper
+  class="logos"
+  description="Previews of the theme's responsive web design"
+  class="responsive-previews"
+>}}
+{{< img
+  src="images/responsive-previews.png"
+  alt="Responsive Design screenshots"
+>}}
+{{< /figure-wrapper >}}
 
-Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
+## Use sine-die theme
 
-{{< author-say >}}
-This is a work-in-progress.\
-Expect breaking changes.
-{{< /author-say >}}
+1. Add the sine-die theme to your Hugo site as a git submodule:
+
+    ```bash
+    git submodule add https://github.com/sinetris/sine-die themes/sine-die
+    ```
+
+2. Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
+
+[hugo]: <https://gohugo.io> "Hugo: open-source static site generators"

@@ -1,0 +1,14 @@
+{{ $resource := .resource }}
+{{ $attributes := .attributes | default dict }}
+
+{{- if hugo.IsDevelopment }}
+  {{- with $resource | fingerprint }}
+    {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) }}
+    <script {{ template "render-attributes" (dict "attributes" $attributes) }}></script>
+  {{- end }}
+{{- else }}
+  {{- with $resource | resources.Minify | fingerprint }}
+    {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity "crossorigin" "anonymous") }}
+    <script {{ template "render-attributes" (dict "attributes" $attributes) }}></script>
+  {{- end }}
+{{- end }}

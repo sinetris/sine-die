@@ -1,31 +1,8 @@
+defaultContentLanguage = "en"
+
 [module]
-[module.hugoVersion]
-min = "0.120.0"
-
-[outputFormats]
-[outputFormats.PRINT]
-name = "PRINT"
-baseName = "index.print"
-isHTML = true
-mediaType = 'text/html'
-permalinkable = false
-noUgly = true
-
-[outputFormats.SEARCH]
-name = "SEARCH"
-baseName = "index.search"
-isPlainText = true
-mediaType = 'text/javascript'
-permalinkable = false
-noUgly = true
-
-[outputFormats.SERCHPAGE]
-name = "SEARCHPAGE"
-baseName = "search"
-isHTML = true
-mediaType = 'text/html'
-permalinkable = false
-noUgly = true
+  [module.hugoVersion]
+    min = "0.120.0"
 
 [markup]
   [markup.highlight]
@@ -34,26 +11,32 @@ noUgly = true
     endLevel = 3
     ordered = false
     startLevel = 2
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
-theme = "sine-die"
-themeLink = "https://sinetris.github.io/sine-die/"
+  theme = "sine-die"
+  themeLink = "https://sinetris.github.io/sine-die/"
 
-description = """\
-  sine-die a semantic HTML theme for Hugo
-  """
+  tagline = "minimalist Hugo theme"
+  description = "sine-die a minimalist Hugo theme"
 
-# Search UI
-showSearchUI = false
+  # Search UI
+  showSearchUI = false
 
-# Author
-author = "Duilio Ruggiero"
-authorLink = "https://github.com/sinetris"
+  # Author
+  author = "Duilio Ruggiero"
+  authorLink = "https://sinetris.info"
 
-# License
-license = "MIT"
-licenselink = "https://github.com/sinetris/sine-die/blob/main/LICENSE"
-showLicenseInFooter = true
+  # License
+  license = "MIT"
+  licenselink = "https://github.com/sinetris/sine-die/blob/main/LICENSE"
+  showLicenseInFooter = true
 
-# Copyright
-copyrightStartYear = "2023"
+  # Copyright
+  copyrightStartYear = "2023"
