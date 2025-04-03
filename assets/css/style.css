@@ -492,11 +492,39 @@ nav.breadcrumb .material-symbols-outlined {
     grid-template-rows: minmax(auto, 1fr);;
   }
 
+  nav.primary.responsive [role="menubar"] a {
+    border-bottom: none;
+    border-left: thick solid transparent;
+  }
+
+  nav.primary.responsive [role="menubar"] [aria-expanded="true"] {
+    border-left-color: var(--color-on-tertiary-container);
+    border-left-style: dashed;
+  }
+
+  nav.primary.responsive [role="menubar"] a:hover {
+    border-left-color: var(--color-on-tertiary-container);
+  }
+
+  nav.primary.responsive [role="menubar"] .active {
+    border-left-color: var(--color-on-secondary-container);
+  }
+
+  nav.primary.responsive [role="menubar"] .ancestor {
+    border-left-style: dashed;
+    border-left-color: var(--color-on-secondary-container);
+  }
+
   nav.primary.responsive [role="menubar"]>li {
     display: block;
     text-align: center;
     padding: .5em;
     align-content: center;
+    border-top: 0.1em solid var(--color-outline);
+  }
+
+  nav.primary.responsive [role="menubar"] ul {
+    background-color: inherit;
   }
 
   nav.primary.responsive [role="menubar"] .theme-switcher button {
