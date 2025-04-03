@@ -3,8 +3,13 @@ title: Theme Colors (override)
 date: "2023-07-20"
 description: Example of colors in the theme
 layout: colors
-categories: ["Examples", "Documentation"]
-tags: ["Colors", "Palette"]
+categories:
+  - Examples
+  - Documentation
+tags:
+  - Colors
+  - Palette
+  - CSS
 menus:
   main:
     parent: docs
