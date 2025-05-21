@@ -62,7 +62,7 @@
   --color-surface-variant: var(--palette-neutral78);
   --color-on-surface-variant: var(--palette-neutral28);
   --color-inverse-surface: var(--palette-neutral24);
-  --color-inverse-on-surface: var(--palette-neutral86);
+  --color-on-inverse-surface: var(--palette-neutral86);
 
   /* Extra */
   --color-background: var(--palette-neutral-lighter);
@@ -140,7 +140,7 @@
   --color-surface-variant: var(--palette-neutral24);
   --color-on-surface-variant: var(--palette-neutral70);
   --color-inverse-surface: var(--palette-neutral78);
-  --color-inverse-on-surface: var(--palette-neutral21);
+  --color-on-inverse-surface: var(--palette-neutral21);
 
   /* Extra */
   --color-background: var(--palette-neutral-darkest);
@@ -155,26 +155,25 @@
 }
 
 /* Light Theme (default if 'prefers-color-scheme' is not supported) */
-:root,
-.theme-light {
+[data-color-scheme="light"] {
   @include theme-light;
 }
 
 @media (prefers-color-scheme: light) {
-  :root,
-  .theme-default {
+  :root:not([data-color-scheme="light"], [data-color-scheme="dark"]),
+  [data-color-scheme="default"] {
     @include theme-light;
   }
 }
 
 /* Dark Theme */
-.theme-dark {
+[data-color-scheme="dark"] {
   @include theme-dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root,
-  .theme-default {
+  :root:not([data-color-scheme="light"], [data-color-scheme="dark"]),
+  [data-color-scheme="default"] {
     @include theme-dark;
   }
 }

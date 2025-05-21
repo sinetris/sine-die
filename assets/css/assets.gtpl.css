@@ -5,14 +5,14 @@
   {{- end }}
 }
 
-.theme-dark .theme-switcher button {
+[data-color-scheme="dark"] .theme-switcher button {
   {{ with resources.Get "images/theme-dark.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
   {{- end }}
 }
 
-.theme-light .theme-switcher button {
+[data-color-scheme="light"] .theme-switcher button {
   {{ with resources.Get "images/theme-light.svg" | resources.Fingerprint "sha512" -}}
 
     mask-image: url({{ .RelPermalink }});
