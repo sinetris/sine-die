@@ -36,8 +36,10 @@
   mask-size: 1rem;
   mask-repeat: no-repeat;
   vertical-align: middle;
+  {{ with resources.Get "images/clear-icon.svg" | resources.Fingerprint "sha512" -}}
 
-  /* The image is added in assets.gtpl.css */
+    mask-image: url({{ .RelPermalink }});
+  {{- end }}
 }
 
 #search input.pagefind-ui__search-input::placeholder {

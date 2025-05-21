@@ -11,7 +11,7 @@
   {{ partial "helpers/css-link.html" (dict "resource" .) }}
 {{- end -}}
 {{ if .Site.Params.showSearchUI -}}
-  {{ with resources.Get "css/pagefind-overrides.css" -}}
+  {{ with resources.Get "css/pagefind-overrides.gtpl.css" | resources.ExecuteAsTemplate "css/pagefind-overrides.css" . -}}
     {{ partial "helpers/css-link.html" (dict "resource" .) }}
   {{- end }}
 {{- end }}

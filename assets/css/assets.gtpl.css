@@ -18,14 +18,3 @@
     mask-image: url({{ .RelPermalink }});
   {{- end }}
 }
-
-{{ if .Site.Params.showSearchUI -}}
-/* stylelint-disable selector-class-pattern */
-#search button.pagefind-ui__search-clear::before {
-  {{ with resources.Get "images/clear-icon.svg" | resources.Fingerprint "sha512" -}}
-
-    mask-image: url({{ .RelPermalink }});
-  {{- end }}
-}
-/* stylelint-enable selector-class-pattern */
-{{- end }}
