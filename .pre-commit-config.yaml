@@ -70,3 +70,4 @@ repos:
         additional_dependencies:
           - 'stylelint'
           - 'stylelint-config-standard'
+          - 'stylelint-config-standard-scss'

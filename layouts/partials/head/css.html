@@ -7,6 +7,16 @@
     {{ partial "helpers/css-link.html" (dict "resource" .) }}
   {{- end }}
 {{- end }}
+{{- $scss_files := slice "css/theme-colors.scss" }}
+{{ $scss_opts := dict
+  "enableSourceMap" hugo.IsDevelopment
+  "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+}}
+{{ range $scss_files }}
+  {{- with resources.Get . | toCSS $scss_opts}}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
+  {{- end }}
+{{- end }}
 {{- with resources.Get "css/assets.gtpl.css" | resources.ExecuteAsTemplate "css/assets.css" . }}
   {{ partial "helpers/css-link.html" (dict "resource" .) }}
 {{- end -}}
