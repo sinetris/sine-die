@@ -1,6 +1,7 @@
 {{- partial "helpers/templates.html" -}}
-{{- if not (.Page.Store.Get "body-classes") -}}
-  {{ .Page.Store.Set "body-classes" ((or .Params.body_classes slice) | append "theme-default") }}
+{{ $bodyClasses := (or .Params.body_classes slice) }}
+{{- if .Page.Store.Get "body-classes" -}}
+  {{ $bodyClasses = $bodyClasses | append (.Page.Store.Get "body-classes") }}
 {{- end -}}
 <!DOCTYPE html>
 <html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
@@ -8,8 +9,7 @@
     {{ partial "head.html" . }}
     {{ block "head-addition" . }}{{ end }}
   </head>
-  {{ $body_classes :=  delimit (.Page.Store.Get "body-classes") " " -}}
-  <body class="{{ $body_classes }}">
+  <body class="{{ delimit $bodyClasses " " }}">
     <header>
       {{ partial "header.html" . }}
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
