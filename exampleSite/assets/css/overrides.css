@@ -65,7 +65,7 @@ body.about-page>aside.sidebar {
 }
 
 @media print {
-  .show-as-background-color {
+  .print-background-color {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
