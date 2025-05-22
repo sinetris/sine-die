@@ -1,0 +1,64 @@
+/* Pagefind settings */
+/* stylelint-disable selector-class-pattern */
+
+:root {
+  --pagefind-ui-scale: 0.8;
+  --pagefind-ui-border-width: 0.1em;
+  --pagefind-ui-border-radius: 1em;
+  --pagefind-ui-image-border-radius: 0.2em;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--font-family-sans);
+  --pagefind-ui-primary: var(--color-inverse-secondary);
+  --pagefind-ui-text: var(--color-on-secondary);
+  --pagefind-ui-background: var(--color-secondary);
+  --pagefind-ui-border: var(--color-outline);
+  --pagefind-ui-tag: var(--color-on-secondary-container);
+}
+
+#search button.pagefind-ui__search-clear {
+  background: none;
+  border: none;
+}
+
+#search button.pagefind-ui__search-clear::before {
+  content: "";
+  font-size: 1rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  color: inherit;
+  background-color: currentcolor;
+  mask-size: 1rem;
+  mask-repeat: no-repeat;
+  vertical-align: middle;
+  {{ with resources.Get "images/clear-icon.svg" | resources.Fingerprint "sha512" -}}
+
+    mask-image: url({{ .RelPermalink }});
+  {{- end }}
+}
+
+#search input.pagefind-ui__search-input::placeholder {
+    opacity: .5;
+    color: black;
+    font-weight: bold;
+}
+
+#search {
+  padding: 1rem 1rem 0;
+}
+
+#search input:focus{
+  outline: none;
+  border-color: var(--color-on-secondary-container);
+}
+
+@media only screen and (width <= 480px){
+  .pagefind-ui__result-thumb {
+    display: none;
+  }
+
+  #search {
+    padding: .5rem .5rem 0;
+  }
+}
+/* stylelint-enable selector-class-pattern */
