@@ -1,0 +1,20 @@
+{{- with .related }}
+  <aside class="related">
+    <h2>Related</h2>
+    <ul>
+    {{ range . }}
+      {{- $title := "" }}
+      {{ with page.GetPage . }}
+        {{ if .Params.abbreviations }}
+          {{- $title = index .Params.abbreviations 0 -}}
+        {{ else }}
+          {{- $title = .Title -}}
+        {{ end }}
+        <li>
+          <a href="{{ .Params.externalLink | default .RelPermalink }}" role="doc-glossref">{{ $title }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+    </ul>
+  </aside>
+{{ end -}}

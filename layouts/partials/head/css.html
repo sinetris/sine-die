@@ -1,7 +1,7 @@
 {{ if .Site.Params.showSearchUI -}}
 <link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet" type="text/css" />
 {{- end }}
-{{- $css_files := slice "css/normalize.css" "css/base.css" "css/colors.css" "css/style.css" "css/menubar/style.css" }}
+{{- $css_files := slice "css/normalize.css" "css/base.css" "css/colors.css" "css/style.css" "css/glossary.css" "css/menubar/style.css" }}
 {{ range $css_files }}
   {{- with resources.Get . }}
     {{ partial "helpers/css-link.html" (dict "resource" .) }}

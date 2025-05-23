@@ -1,0 +1,11 @@
+{{- $term := (.Get "term") }}
+{{- $title := $term }}
+
+{{- with page.GetPage $term }}
+  {{ if .Params.abbreviations }}
+    {{- $title = index .Params.abbreviations 0 -}}
+  {{ else }}
+    {{- $title = .Title -}}
+  {{ end }}
+  <a href="{{ default .RelPermalink }}" role="doc-glossref">{{ $title }}</a>
+{{ end -}}

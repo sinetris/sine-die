@@ -1,0 +1,10 @@
+{{- with .synonyms }}
+  <aside aria-labelledby="term-synonyms" class="synonyms">
+    <h2 id="term-synonyms">Synonyms</h2>
+    <ul>
+    {{- range . }}
+      <li>{{ . }}</li>
+    {{ end -}}
+    </ul>
+  </aside>
+{{ end -}}

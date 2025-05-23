@@ -1,0 +1,12 @@
+{{- with .resources }}
+  <aside class="resources">
+    <h2>Resources</h2>
+    <ul>
+    {{ range . }}
+      <li>
+        <a href="{{ .link }}">{{ .title }}</a>
+      </li>
+    {{ end }}
+    </ul>
+  </aside>
+{{ end -}}

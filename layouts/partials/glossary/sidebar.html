@@ -1,0 +1,35 @@
+<section class="sidebar">
+  {{- partial "toc.html" . }}
+  {{ with .Params.categories }}
+  <dl class="categories">
+    <dt><a href="{{ relURL "categories" }}"><span class="material-symbols-outlined">topic</span>Categories</a></dt>
+    {{ range . }}
+    {{ $term := . }}
+    {{ $taxonomy := index site.Taxonomies (lower .) -}}
+    {{ with site.GetPage (printf "/categories/%s" $term) }}
+    <dd>
+      <a href="{{ .Permalink }}">
+      {{ .Title }}
+      </a>
+    </dd>
+    {{ end }}
+    {{ end }}
+  </dl>
+  {{ end }}
+  {{ with .Params.tags }}
+  <dl class="tags">
+    <dt><a href="{{ relURL "tags" }}"><span class="material-symbols-outlined">label</span>Tags</a></dt>
+    {{ range . }}
+    {{ $term := . }}
+    {{ $taxonomy := index site.Taxonomies (lower .) -}}
+    {{ with site.GetPage (printf "/tags/%s" $term) }}
+    <dd>
+      <a href="{{ .Permalink }}">
+      {{ .Title }}
+      </a>
+    </dd>
+    {{ end }}
+    {{ end }}
+  </dl>
+  {{ end }}
+</section>
