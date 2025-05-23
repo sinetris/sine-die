@@ -13,16 +13,16 @@ Accepts only named parameters.
     {{ $attributes := dict }}
     <!-- An attribute value can be an array of strings (elements will be delimited with a space) -->
     {{ $attributes := merge $attributes (dict "class" (slice "try-me" "centered")) }}
-    <!-- An attribute value can be a boolean -->
+    <!-- An attribute value can be a boolean (attributes a boolean false value are not rendered) -->
     {{ $attributes := merge $attributes (dict "inert" true "hidden" false) }}
     <!-- For boolean mandatory attributes you can use "true" and "false" as string -->
-    {{ $attributes := merge $attributes (dict "draggable" "true") }}
+    {{ $attributes := merge $attributes (dict "draggable" "false") }}
     <!-- We can add attributes that should be excluded them from rendering (we will exclude them later) -->
-    {{ $attributes := dict "src" "images/logo.png" "alt" "The Logo" "caption"Using [CommonMark](https://commonmark.org/)" }}
+    {{ $attributes := merge $attributes (dict "src" "images/logo.png" "alt" "The Logo" "caption" "Using [CommonMark](https://commonmark.org/)") }}
     <!-- ... this would likely be in a different template -->
-    <!-- Since we will use some attributes somewhere else, we exclude them from rendering -->
-    {{ $exclude := (slice "src" "alt" "caption") }}
-    <figure {{ template "render-attributes" (dict "attributes" $attributes "exclude" $exclude) }}>
+    <!-- Since we use some attributes somewhere else, we can exclude them from rendering -->
+    {{ $excludeAttributes := (slice "src" "alt" "caption") }}
+    <figure {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
       <img
         {{- with $attributes.src }} src="{{ . }}"{{ end }}
         {{- with $attributes.alt }} alt="{{ . }}"{{ end -}}
@@ -34,7 +34,7 @@ Accepts only named parameters.
     ```
   Will render:
     ```html
-    <figure class="try-me centered" draggable="true" inert>
+    <figure class="try-me centered" draggable="false" inert>
       <img src="images/logo.png" alt="The Logo"/>
       <figcaption>Using <a href="https://commonmark.org/">CommonMark</a></figcaption>
     </figure>
