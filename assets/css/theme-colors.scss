@@ -6,7 +6,7 @@
   --color-primary-container: var(--palette-primary-light);
   --color-on-primary-container: var(--palette-primary-dark);
   --color-inverse-primary: var(--palette-primary-darker);
-  --color-on-inverse-primary: var(--palette-primary-medium-light);
+  --color-inverse-on-primary: var(--palette-primary-medium-light);
 
   /* Secondary */
   --color-secondary: var(--palette-secondary-left-medium-light);
@@ -14,7 +14,7 @@
   --color-secondary-container: var(--palette-secondary-left-light);
   --color-on-secondary-container: var(--palette-secondary-left-medium-dark);
   --color-inverse-secondary: var(--palette-secondary-left-darker);
-  --color-on-inverse-secondary: var(--palette-secondary-left-medium-light);
+  --color-inverse-on-secondary: var(--palette-secondary-left-medium-light);
 
   /* Tertiary */
   --color-tertiary: var(--palette-secondary-right-medium-light);
@@ -22,7 +22,7 @@
   --color-tertiary-container: var(--palette-secondary-right-light);
   --color-on-tertiary-container: var(--palette-secondary-right-medium-dark);
   --color-inverse-tertiary: var(--palette-secondary-right-darker);
-  --color-on-inverse-tertiary: var(--palette-secondary-right-medium-light);
+  --color-inverse-on-tertiary: var(--palette-secondary-right-medium-light);
 
   /* Success */
   --color-success: var(--palette-success-medium-light);
@@ -30,7 +30,7 @@
   --color-success-container: var(--palette-success-light);
   --color-on-success-container: var(--palette-success-dark);
   --color-inverse-success: var(--palette-success-darker);
-  --color-on-inverse-success: var(--palette-success-medium-light);
+  --color-inverse-on-success: var(--palette-success-medium-light);
 
   /* Warning */
   --color-warning: var(--palette-warning-medium-light);
@@ -38,7 +38,7 @@
   --color-warning-container: var(--palette-warning-light);
   --color-on-warning-container: var(--palette-warning-dark);
   --color-inverse-warning: var(--palette-warning-darker);
-  --color-on-inverse-warning: var(--palette-warning-medium-light);
+  --color-inverse-on-warning: var(--palette-warning-medium-light);
 
   /* Error */
   --color-error: var(--palette-error-medium-light);
@@ -46,10 +46,10 @@
   --color-error-container: var(--palette-error-light);
   --color-on-error-container: var(--palette-error-dark);
   --color-inverse-error: var(--palette-error-darker);
-  --color-on-inverse-error: var(--palette-error-medium-light);
+  --color-inverse-on-error: var(--palette-error-medium-light);
 
   /* Surface */
-  --color-surface-tint-color: var(--palette-primary-main);
+  --color-primary-tint: var(--palette-primary-main);
   --color-surface: var(--palette-neutral86);
   --color-on-surface: var(--palette-neutral24);
   --color-surface-dim: var(--palette-neutral70);
@@ -62,11 +62,11 @@
   --color-surface-variant: var(--palette-neutral78);
   --color-on-surface-variant: var(--palette-neutral28);
   --color-inverse-surface: var(--palette-neutral24);
-  --color-on-inverse-surface: var(--palette-neutral86);
+  --color-inverse-on-surface: var(--palette-neutral86);
 
   /* Extra */
-  --color-background: var(--palette-neutral-lighter);
-  --color-on-background: var(--palette-neutral16);
+  --color-background: Canvas;
+  --color-on-background: CanvasText;
   --color-outline: var(--palette-neutral74);
   --color-outline-variant: var(--palette-neutral70);
   --color-light: oklch(from var(--palette-neutral97) l c h / calc(alpha - 0.1));
@@ -84,7 +84,7 @@
   --color-primary-container: var(--palette-primary-dark);
   --color-on-primary-container: var(--palette-primary-light);
   --color-inverse-primary: var(--palette-primary-lighter);
-  --color-on-inverse-primary: var(--palette-primary-medium-dark);
+  --color-inverse-on-primary: var(--palette-primary-medium-dark);
 
   /* Secondary */
   --color-secondary: var(--palette-secondary-left-medium-dark);
@@ -92,7 +92,7 @@
   --color-secondary-container: var(--palette-secondary-left-dark);
   --color-on-secondary-container: var(--palette-secondary-left-light);
   --color-inverse-secondary: var(--palette-secondary-left-lighter);
-  --color-on-inverse-secondary: var(--palette-secondary-left-medium-dark);
+  --color-inverse-on-secondary: var(--palette-secondary-left-medium-dark);
 
   /* Tertiary */
   --color-tertiary: var(--palette-secondary-right-medium-dark);
@@ -100,7 +100,7 @@
   --color-tertiary-container: var(--palette-secondary-right-dark);
   --color-on-tertiary-container: var(--palette-secondary-right-light);
   --color-inverse-tertiary: var(--palette-secondary-right-lighter);
-  --color-on-inverse-tertiary: var(--palette-secondary-right-medium-dark);
+  --color-inverse-on-tertiary: var(--palette-secondary-right-medium-dark);
 
   /* Success */
   --color-success: var(--palette-success-medium-dark);
@@ -108,7 +108,7 @@
   --color-success-container: var(--palette-success-dark);
   --color-on-success-container: var(--palette-success-light);
   --color-inverse-success: var(--palette-success-lighter);
-  --color-on-inverse-success: var(--palette-success-medium-dark);
+  --color-inverse-on-success: var(--palette-success-medium-dark);
 
   /* Warning */
   --color-warning: var(--palette-warning-medium-dark);
@@ -116,7 +116,7 @@
   --color-warning-container: var(--palette-warning-dark);
   --color-on-warning-container: var(--palette-warning-light);
   --color-inverse-warning: var(--palette-warning-lighter);
-  --color-on-inverse-warning: var(--palette-warning-medium-dark);
+  --color-inverse-on-warning: var(--palette-warning-medium-dark);
 
   /* Error */
   --color-error: var(--palette-error-medium-dark);
@@ -124,10 +124,10 @@
   --color-error-container: var(--palette-error-dark);
   --color-on-error-container: var(--palette-error-light);
   --color-inverse-error: var(--palette-error-lighter);
-  --color-on-inverse-error: var(--palette-error-medium-dark);
+  --color-inverse-on-error: var(--palette-error-medium-dark);
 
   /* Surface */
-  --color-surface-tint-color: var(--palette-primary-main);
+  --color-primary-tint: var(--palette-primary-main);
   --color-surface: var(--palette-neutral21);
   --color-on-surface: var(--palette-neutral78);
   --color-surface-dim: var(--palette-neutral13);
@@ -140,11 +140,11 @@
   --color-surface-variant: var(--palette-neutral24);
   --color-on-surface-variant: var(--palette-neutral70);
   --color-inverse-surface: var(--palette-neutral78);
-  --color-on-inverse-surface: var(--palette-neutral21);
+  --color-inverse-on-surface: var(--palette-neutral21);
 
   /* Extra */
-  --color-background: var(--palette-neutral-darkest);
-  --color-on-background: var(--palette-neutral86);
+  --color-background: Canvas;
+  --color-on-background: CanvasText;
   --color-outline: var(--palette-neutral24);
   --color-outline-variant: var(--palette-neutral28);
   --color-light: oklch(from var(--palette-neutral94) l c h / calc(alpha - 0.1));
