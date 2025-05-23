@@ -5,22 +5,20 @@
   {{- $attributes := dict "href" .URL "role" "menuitem" }}
   {{- $classes := slice }}
   {{- if $page.IsMenuCurrent $menuID . }}
-    {{- $attributes = merge $attributes (dict "class" "active" "aria-current" "page") }}
-  {{- else if $page.HasMenuCurrent $menuID .}}
-    {{- $attributes = merge $attributes (dict "class" "ancestor" "aria-current" "true") }}
+    {{- $attributes = merge $attributes (dict "aria-current" "page") }}
   {{- end }}
   {{- $name := .Name }}
   <li {{- with $classes }}{{ printf " class=%q" (delimit $classes " ") | safeHTMLAttr }}{{- end }} role="none">
     {{- if .HasChildren }}
-      <a {{ template "render-attributes" (dict "attributes" $attributes) }} aria-haspopup="true" aria-expanded="false">
+      {{- $ariaLabel := printf "%s submenu" $name }}
+      {{- $ariaSubmenuID := printf "%s-submenu" $name | anchorize }}
+      {{- $ariaButtonID := printf "%s-button" $name | anchorize }}
+      <a {{ template "render-attributes" (dict "attributes" $attributes) }}>
         {{ $name }}
-        <svg fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-        </svg>
       </a>
+      <button id="{{ $ariaButtonID }}" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="{{ $ariaSubmenuID }}" aria-label="{{ $ariaLabel }}"></button>
       {{- with .Children }}
-        {{ $ariaLabel := printf "%s submenu" $name -}}
-        <ul role="menu" aria-hidden="true" aria-label="{{ $ariaLabel }}">
+        <ul role="menu" aria-hidden="true" id="{{ $ariaSubmenuID }}" aria-labelledby="{{ $ariaButtonID }}">
           {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" (add $level 1) "menuEntries" .) }}
         </ul>
       {{- end }}

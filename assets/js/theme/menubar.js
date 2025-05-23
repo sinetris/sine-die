@@ -1,9 +1,10 @@
 /*
  *  This software or document includes material copied from or derived from the
- *  Navigation Menubar Example [1] from ARIA Authoring Practices Guide (APG) [2]
- *  and is licensed according to the W3C Software License [3].
- *  [1] https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/
- *  [2] https://www.w3.org/copyright/software-license/
+ *  Menu and Menubar Pattern Examples [1] from the ARIA Authoring Practices Guide
+ *  (APG) [2] and is licensed according to the W3C Software License [3].
+ *  [1] https://www.w3.org/WAI/ARIA/apg/patterns/menubar/
+ *  [2] https://www.w3.org/WAI/ARIA/apg/
+ *  [3] https://www.w3.org/copyright/software-license/
  */
 
 'use strict';
@@ -13,13 +14,11 @@ class MenubarNavigation {
     this.domNode = domNode;
 
     this.menuitems = [];
-    this.popups = [];
-    this.topPopups = [];
+    this.hasPopupMenu = [];
     this.menuitemGroups = {};
     this.menuOrientation = {};
-    this.isPopup = {};
-    this.isPopout = {};
-    this.openPopups = false;
+    this.isSubMenu = {};
+    this.isLinkMenuitem = {};
 
     this.firstChars = {}; // see Menubar init method
     this.firstMenuitem = {}; // see Menubar init method
@@ -36,28 +35,11 @@ class MenubarNavigation {
     domNode.querySelector('[role=menuitem]').tabIndex = 0;
   }
 
-  getParentMenuitem(menuitem) {
-    var node = menuitem.parentNode;
-    if (node) {
-      node = node.parentNode;
-      if (node) {
-        node = node.previousElementSibling;
-        if (node) {
-          if (node.getAttribute('role') === 'menuitem') {
-            return node;
-          }
-        }
-      }
-    }
-    return false;
-  }
-
   getMenuitems(domNode, depth) {
-    var nodes = [];
+    var menuitems = [];
 
     var initMenu = this.initMenu.bind(this);
-    var popups = this.popups;
-    var topPopups = this.topPopups;
+    var popups = this.hasPopupMenu;
 
     function findMenuitems(node) {
       var role, flag;
@@ -72,7 +54,6 @@ class MenubarNavigation {
 
         switch (role) {
           case 'menu':
-            node.tabIndex = -1;
             initMenu(node, depth + 1);
             flag = false;
             break;
@@ -80,29 +61,22 @@ class MenubarNavigation {
           case 'menuitem':
             if (node.getAttribute('aria-haspopup') === 'true') {
               popups.push(node);
-              if (depth === 0) {
-                topPopups.push(node)
-              }
             }
-            nodes.push(node);
+            menuitems.push(node);
             break;
 
           default:
             break;
         }
 
-        if (
-          flag &&
-          node.firstElementChild &&
-          node.firstElementChild.tagName !== 'svg'
-        ) {
+        if (flag && node.firstElementChild) {
           findMenuitems(node.firstElementChild);
         }
         node = node.nextElementSibling;
       }
     }
     findMenuitems(domNode.firstElementChild);
-    return nodes;
+    return menuitems;
   }
 
   initMenu(menu, depth) {
@@ -113,8 +87,7 @@ class MenubarNavigation {
     menuitems = this.getMenuitems(menu, depth);
     this.menuOrientation[menuId] = this.getMenuOrientation(menu);
 
-    this.isPopup[menuId] = menu.getAttribute('role') === 'menu' && depth === 0;
-    this.isPopout[menuId] = menu.getAttribute('role') === 'menu' && depth > 0;
+    this.isSubMenu[menuId] = menu.getAttribute('role') === 'menu' && depth > 0;
 
     this.menuitemGroups[menuId] = [];
     this.firstChars[menuId] = [];
@@ -142,7 +115,7 @@ class MenubarNavigation {
       });
 
       if (!this.firstMenuitem[menuId]) {
-        if (this.hasPopup(menuitem)) {
+        if (this.hasSubMenu(menuitem)) {
           menuitem.tabIndex = 0;
         }
         this.firstMenuitem[menuId] = menuitem;
@@ -152,7 +125,7 @@ class MenubarNavigation {
   }
 
   setFocusToMenuitem(menuId, newMenuitem) {
-    this.closePopupAll(newMenuitem);
+    this.closeSubMenuAll(newMenuitem);
 
     if (this.menuitemGroups[menuId]) {
       this.menuitemGroups[menuId].forEach(function (item) {
@@ -243,14 +216,6 @@ class MenubarNavigation {
     return str.length === 1 && str.match(/\S/);
   }
 
-  getIdFromAriaLabel(node) {
-    var id = node.getAttribute('aria-label');
-    if (id) {
-      id = id.trim().toLowerCase().replace(' ', '-').replace('/', '-');
-    }
-    return id;
-  }
-
   getMenuOrientation(node) {
     var orientation = node.getAttribute('aria-orientation');
 
@@ -274,21 +239,30 @@ class MenubarNavigation {
     return orientation;
   }
 
-  getMenuId(node) {
-    var id = false;
-    var role = node.getAttribute('role');
+  async hashData(data) {
+    const hash = await window.crypto.subtle.digest("SHA-256", data);
+    return hash;
+  }
 
+  getMenuId(element) {
+    var id;
+    var role = element.getAttribute('role');
+    var node = element;
     while (node && role !== 'menu' && role !== 'menubar') {
       node = node.parentNode;
       if (node) {
         role = node.getAttribute('role');
       }
     }
-
-    if (node) {
-      id = role + '-' + this.getIdFromAriaLabel(node);
+    if (node.id) {
+      id = node.id;
+    } else if (node.ariaLabel) {
+      id = role + '-' + node.ariaLabel.trim().toLowerCase().replace(' ', '-').replace('/', '-');
+    } else if (node.innerText) {
+      id = role + '-' + this.hashData(node.innerText);
+    } else {
+      id = role + '-' + this.hashData(node.outerHTML);
     }
-
     return id;
   }
 
@@ -309,38 +283,19 @@ class MenubarNavigation {
   // Popup menu methods
 
   isAnyPopupOpen() {
-    for (var i = 0; i < this.popups.length; i++) {
-      if (this.popups[i].getAttribute('aria-expanded') === 'true') {
+    for (var i = 0; i < this.hasPopupMenu.length; i++) {
+      if (this.hasPopupMenu[i].getAttribute('aria-expanded') === 'true') {
         return true;
       }
     }
     return false;
   }
 
-  openPopup(menuId, menuitem) {
-    // set sub-menu as visible
+  openPopup(menuitem) {
     var popupMenu = menuitem.nextElementSibling;
 
     if (popupMenu) {
-      var rect = menuitem.getBoundingClientRect();
-
-      // Set CSS properties
-      if (this.isPopout[menuId]) {
-        // popupMenu.style.display = 'contents';
-        popupMenu.classList.add('sub-menu');
-      }
-
-      // if (this.isPopout[menuId]) {
-      //   menuElement.classList.add('sub-menu');
-      // } else {
-      //   popupMenu.style.left = rect.left;
-      //   menuElement.classList.add('top-menu');
-      // }
-
-      popupMenu.style.zIndex = 100;
-      // popupMenu.style.position = 'absolute';
       popupMenu.setAttribute('aria-hidden', 'false');
-
       menuitem.setAttribute('aria-expanded', 'true');
       return this.getMenuId(popupMenu);
     }
@@ -351,40 +306,38 @@ class MenubarNavigation {
   closePopout(menuitem) {
     var menu,
       menuId = this.getMenuId(menuitem),
-      cmi = menuitem;
+      element = menuitem;
 
-    while (this.isPopup[menuId] || this.isPopout[menuId]) {
-      menu = this.getMenu(cmi);
-      cmi = menu.previousElementSibling;
-      menuId = this.getMenuId(cmi);
+    while (this.isSubMenu[menuId]) {
+      menu = this.getMenu(element);
+      element = menu.previousElementSibling;
+      menuId = this.getMenuId(element);
     }
-    cmi.focus();
-    return cmi;
+    element.focus();
+    return element;
   }
 
   closePopup(menuitem) {
     var popupMenu,
       menuId = this.getMenuId(menuitem),
-      cmi = menuitem;
+      element = menuitem;
 
     if (this.isMenubar(menuId)) {
-      if (this.isOpen(cmi)) {
-        // We are on top and menu open
-        popupMenu = cmi.nextElementSibling;
-        cmi.setAttribute('aria-expanded', 'false');
+      // We are on top and menu open
+      if (this.isOpen(element)) {
+        popupMenu = element.nextElementSibling;
+        element.setAttribute('aria-expanded', 'false');
         popupMenu.setAttribute('aria-hidden', 'true');
-      } else {
-        // We are on top and no menu open
       }
     } else {
       popupMenu = this.getMenu(menuitem);
-      cmi = popupMenu.previousElementSibling;
-      cmi.focus();
-      cmi.setAttribute('aria-expanded', 'false');
+      element = popupMenu.previousElementSibling;
+      element.focus();
+      element.setAttribute('aria-expanded', 'false');
       popupMenu.setAttribute('aria-hidden', 'true');
     }
 
-    return cmi;
+    return element;
   }
 
   doesNotContain(popup, menuitem) {
@@ -394,12 +347,12 @@ class MenubarNavigation {
     return true;
   }
 
-  closePopupAll(menuitem) {
+  closeSubMenuAll(menuitem) {
     if (typeof menuitem !== 'object') {
       menuitem = false;
     }
-    for (var i = 0; i < this.popups.length; i++) {
-      var popup = this.popups[i];
+    for (var i = 0; i < this.hasPopupMenu.length; i++) {
+      var popup = this.hasPopupMenu[i];
       if (this.doesNotContain(popup, menuitem)) {
         var popupMenu = popup.nextElementSibling;
         if (popupMenu) {
@@ -410,7 +363,7 @@ class MenubarNavigation {
     }
   }
 
-  hasPopup(menuitem) {
+  hasSubMenu(menuitem) {
     return menuitem.getAttribute('aria-haspopup') === 'true';
   }
 
@@ -419,7 +372,7 @@ class MenubarNavigation {
   }
 
   isMenubar(menuId) {
-    return !this.isPopup[menuId] && !this.isPopout[menuId];
+    return !this.isSubMenu[menuId];
   }
 
   isMenuHorizontal(menuitem) {
@@ -429,10 +382,10 @@ class MenubarNavigation {
   // Menu event handlers
 
   onKeydown(event) {
-    var tgt = event.currentTarget,
+    var target = event.currentTarget,
       key = event.key,
       flag = false,
-      menuId = this.getMenuId(tgt),
+      menuId = this.getMenuId(target),
       id,
       popupMenuId,
       mi;
@@ -440,27 +393,26 @@ class MenubarNavigation {
     switch (key) {
       case ' ':
       case 'Enter':
-        if (this.hasPopup(tgt)) {
-          if (!this.isOpen(tgt)) {
-            this.openPopups = true;
-            this.closePopupAll(tgt);
-            this.openPopup(menuId, tgt);
-            popupMenuId = this.openPopup(menuId, tgt);
+        if (this.hasSubMenu(target)) {
+          if (!this.isOpen(target)) {
+            this.closeSubMenuAll(target);
+            this.openPopup(target);
+            popupMenuId = this.openPopup(target);
             this.setFocusToFirstMenuitem(popupMenuId);
             flag = true;
           } else {
             flag = false;
           }
         } else {
+
           flag = false;
         }
         break;
 
       case 'Esc':
       case 'Escape':
-        this.openPopups = false;
-        this.closePopupAll(tgt);
-        mi = this.closePopup(tgt);
+        this.closeSubMenuAll(target);
+        mi = this.closePopup(target);
         id = this.getMenuId(mi);
         flag = true;
         break;
@@ -468,13 +420,12 @@ class MenubarNavigation {
       case 'Up':
       case 'ArrowUp':
         if (this.isMenuHorizontal(menuId)) {
-          if (this.hasPopup(tgt)) {
-            this.openPopups = true;
-            popupMenuId = this.openPopup(menuId, tgt);
+          if (this.hasSubMenu(target)) {
+            popupMenuId = this.openPopup(target);
             this.setFocusToLastMenuitem(popupMenuId);
           }
         } else {
-          this.setFocusToPreviousMenuitem(menuId, tgt);
+          this.setFocusToPreviousMenuitem(menuId, target);
         }
         flag = true;
         break;
@@ -482,13 +433,12 @@ class MenubarNavigation {
       case 'ArrowDown':
       case 'Down':
         if (this.isMenuHorizontal(menuId)) {
-          if (this.hasPopup(tgt)) {
-            this.openPopups = true;
-            popupMenuId = this.openPopup(menuId, tgt);
+          if (this.hasSubMenu(target)) {
+            popupMenuId = this.openPopup(target);
             this.setFocusToFirstMenuitem(popupMenuId);
           }
         } else {
-          this.setFocusToNextMenuitem(menuId, tgt);
+          this.setFocusToNextMenuitem(menuId, target);
         }
         flag = true;
         break;
@@ -496,17 +446,17 @@ class MenubarNavigation {
       case 'Left':
       case 'ArrowLeft':
         if (this.isMenuHorizontal(menuId)) {
-          mi = this.setFocusToPreviousMenuitem(menuId, tgt);
+          mi = this.setFocusToPreviousMenuitem(menuId, target);
           if (this.isAnyPopupOpen()) {
-            this.openPopup(menuId, mi);
+            this.openPopup(mi);
           }
         } else {
-          if (this.isPopout[menuId]) {
-            mi = this.closePopout(tgt);
-            id = this.getMenuId(mi);
-            mi = this.setFocusToMenuitem(id, mi);
+          if (this.isSubMenu[menuId]) {
+            this.closeSubMenuAll(target);
+            mi = this.closePopup(target);
+            flag = true;
           } else {
-            mi = this.closePopup(tgt);
+            mi = this.closePopup(target);
             id = this.getMenuId(mi);
             mi = this.setFocusToPreviousMenuitem(id, mi);
             this.openPopup(id, mi);
@@ -518,16 +468,16 @@ class MenubarNavigation {
       case 'Right':
       case 'ArrowRight':
         if (this.isMenuHorizontal(menuId)) {
-          mi = this.setFocusToNextMenuitem(menuId, tgt);
+          mi = this.setFocusToNextMenuitem(menuId, target);
           if (this.isAnyPopupOpen()) {
-            this.openPopup(menuId, mi);
+            this.openPopup(mi);
           }
         } else {
-          if (this.hasPopup(tgt)) {
-            popupMenuId = this.openPopup(menuId, tgt);
+          if (this.hasSubMenu(target)) {
+            popupMenuId = this.openPopup(target);
             this.setFocusToFirstMenuitem(popupMenuId);
           } else {
-            mi = this.closePopout(tgt);
+            mi = this.closePopout(target);
             id = this.getMenuId(mi);
             mi = this.setFocusToNextMenuitem(id, mi);
             this.openPopup(id, mi);
@@ -538,24 +488,23 @@ class MenubarNavigation {
 
       case 'Home':
       case 'PageUp':
-        this.setFocusToFirstMenuitem(menuId, tgt);
+        this.setFocusToFirstMenuitem(menuId, target);
         flag = true;
         break;
 
       case 'End':
       case 'PageDown':
-        this.setFocusToLastMenuitem(menuId, tgt);
+        this.setFocusToLastMenuitem(menuId, target);
         flag = true;
         break;
 
       case 'Tab':
-        this.openPopups = false;
-        this.closePopup(tgt);
+        this.closePopup(target);
         break;
 
       default:
         if (this.isPrintableCharacter(key)) {
-          this.setFocusByFirstCharacter(menuId, tgt, key);
+          this.setFocusByFirstCharacter(menuId, target, key);
           flag = true;
         }
         break;
@@ -568,31 +517,37 @@ class MenubarNavigation {
   }
 
   onMenuitemAction(event) {
-    var tgt = event.currentTarget;
-    var menuId = this.getMenuId(tgt);
+    var target = event.currentTarget;
+    var menuId = this.getMenuId(target);
     var flag = false;
 
-    if (this.hasPopup(tgt)) {
-      // On first click, open menu
-      if (!this.isOpen(tgt)) {
-        this.closePopupAll(tgt);
-        this.openPopup(menuId, tgt);
+    if (this.hasSubMenu(target)) {
+      if (!this.isOpen(target)) {
+        this.closeSubMenuAll(target);
+        this.openPopup(target);
         event.stopPropagation();
         event.preventDefault();
         flag = true;
+      } else {
+        this.closeSubMenuAll(target);
+        flag = true;
       }
+    }
+
+    if (flag) {
+      event.stopPropagation();
+      event.preventDefault();
     }
   }
 
   onBackgroundPointerdown(event) {
     if (!this.domNode.contains(event.target)) {
-      this.closePopupAll();
+      this.closeSubMenuAll();
     }
   }
 }
 
-// Initialize menubar editor
-
+// Initialize menubar
 window.addEventListener('load', function () {
   var menubarNavs = document.querySelectorAll('ul[role="menubar"]');
   for (var i = 0; i < menubarNavs.length; i++) {
