@@ -1,23 +1,44 @@
 {{ define "main" }}
-<article class="content">
-  {{- with .Params.Title -}}
-  <h1>{{ . }}</h1>
-  {{- end -}}
-  {{ .Content }}
-</article>
-<ul class="pages-list">
-  {{ range .Paginator.Pages }}
-  <li>
-    {{- $shortDate := .Date | time.Format (.Site.Params.shortDateFormat | default "2006-01-02" ) }}
-    {{- $longDate := .Date | time.Format (.Site.Params.longDateFormat | default "02 Jan 2006" ) }}
-    <span class="material-symbols-outlined">
-      calendar_month
-    </span>
-    <time datetime="{{ $shortDate }}">{{ $longDate }}</time>
-    <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-    <p>{{ .Description }}</p>
-  </li>
-  {{- end -}}
-</ul>
-{{ template "_internal/pagination.html" . }}
+  <article class="content">
+    {{- with .Params.Title -}}
+    <h1>{{ . }}</h1>
+    {{- end -}}
+    {{ .Content }}
+  </article>
+  {{ with .Sections }}
+  <aside class="sections-list">
+    <h2>Sections List</h2>
+    <ul>
+      {{ range .ByWeight }}
+      <li>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
+          <span class="material-symbols-outlined" aria-hidden="true">topic</span>
+          {{ .Title }}
+        </a>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{- end -}}
+      </li>
+      {{- end -}}
+    </ul>
+  </aside>
+  {{ end }}
+  <aside class="pages-list">
+    <h2>Pages List</h2>
+    <ul>
+      {{ range .Paginator.Pages }}
+      <li>
+        {{- $shortDate := .Date | time.Format (.Site.Params.shortDateFormat | default "2006-01-02" ) }}
+        {{- $longDate := .Date | time.Format (.Site.Params.longDateFormat | default "02 Jan 2006" ) }}
+        <span class="material-symbols-outlined">
+          calendar_month
+        </span>
+        <time datetime="{{ $shortDate }}">{{ $longDate }}</time>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+        <p>{{ .Description }}</p>
+      </li>
+      {{- end -}}
+    </ul>
+    {{ template "_internal/pagination.html" . }}
+  </aside>
 {{ end }}
