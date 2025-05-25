@@ -1,6 +1,6 @@
 ---
 title: Documentation
-date: "2025-03-10"
+date: '2023-07-20T08:07:24Z'
 description: Documentation for the sine-die theme
 categories: ["Examples", "Documentation"]
 tags: []

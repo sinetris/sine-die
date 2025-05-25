@@ -1,6 +1,6 @@
 ---
 title: 'Homepage'
-date: "2025-03-10"
+date: '2025-03-10T08:07:15Z'
 description: Documentation and usage examples for the sine-die theme
 categories: ["Documentation"]
 tags: ["Semantic HTML", "Responsive", "Dark mode", "Light mode", "Minimal CSS", "Generated color palette"]

@@ -1,6 +1,6 @@
 ---
 title: Theme Colors (override)
-date: "2023-07-20"
+date: '2023-07-20T08:07:24Z'
 description: Example of colors in the theme
 layout: colors
 categories:
