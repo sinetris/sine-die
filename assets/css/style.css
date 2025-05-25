@@ -58,12 +58,12 @@ img {
   color: var(--color-primary);
 }
 
-body>header {
+body > header {
   grid-area: header;
   min-width: 100vw;
 }
 
-body>main {
+body > main {
   margin: 1rem 2rem;
   grid-area: content;
   background-color: inherit;
@@ -86,13 +86,13 @@ h6 {
   text-decoration: none;
 }
 
-.pagination>li {
+.pagination > li {
   list-style: none;
   display: inline-block;
   padding: 1em;
 }
 
-body>aside.sidebar {
+body > .sidebar {
   grid-area: sidebar;
   color: var(--color-on-surface);
   background-color: var(--color-surface-container-high);
@@ -103,7 +103,7 @@ body>aside.sidebar {
   border-left: 0.1em solid var(--color-outline);
 }
 
-body>footer {
+body > footer {
   grid-area: footer;
   padding: 1.2rem;
   color: var(--color-on-surface-container);
@@ -139,7 +139,7 @@ nav.breadcrumb a {
   color: var(--color-on-tertiary);
 }
 
-body>aside.sidebar a {
+body > .sidebar a {
   color: var(--color-on-surface);
 }
 
@@ -153,40 +153,41 @@ body>aside.sidebar a {
 }
 /* stylelint-enable declaration-property-value-no-unknown */
 
-.pages-list > li {
+.pages-list ul > li {
   list-style: none;
 }
 
-.pages-list > li > a.title{
+.pages-list ul > li > a.title {
   font-weight: bold;
   text-decoration: none;
 }
 
-.pages-list > li>time {
+.pages-list ul > li > time {
   display: block;
   font-size: .8em;
   margin-left: 0.1em;
   color: var(--color-on-secondary);
 }
 
-body>main>article>figure {
+body > main > article > figure {
   margin: 0;
 }
 
-body>main ul>li > blockquote {
+body > main ul > li > blockquote {
   margin: 0;
 }
 
-body>main ul>li > blockquote>p {
+body > main ul > li > blockquote > p {
   margin: 0;
 }
 
-body>main ul.section-tree li,
-body>main ul.taxonomies li {
+body > main ul.section-tree li,
+body > main ul.taxonomies li {
   list-style: none;
 }
 
-body>main .pages-list {
+body > main .sections-list,
+body > main .pages-list {
   border-top: 0.35rem solid var(--color-secondary-container);
   padding-top: 2em;
 }
@@ -202,9 +203,8 @@ body>main .pages-list {
   color: var(--color-on-secondary);
 }
 
-body>main h1 .material-symbols-outlined {
+body > main h1 .material-symbols-outlined {
   padding-right: 0.1em;
-
 }
 
 .sidebar .material-symbols-outlined {
@@ -213,12 +213,12 @@ body>main h1 .material-symbols-outlined {
   margin-right: .1em;
 }
 
-.sidebar nav.toc>h2 {
+.sidebar nav.toc > h2 {
   font-size: 1.2em;
   margin-bottom: 0;
 }
 
-.sidebar nav.toc>ul {
+.sidebar nav.toc > ul {
   margin-top: 0;
 }
 
@@ -237,7 +237,7 @@ nav.primary .brand {
   white-space: nowrap;
   font-size: 1rem;
   margin: 0;
-  padding: 0;
+  padding: .5em;
   align-content: center;
 }
 
@@ -245,7 +245,8 @@ nav.primary .brand a:any-link:hover {
   text-decoration: none;
 }
 
-nav.primary .brand img {
+nav.primary .brand img,
+nav.primary .brand svg {
   max-height: 2.5em;
   height: fit-content;
   padding: 0;
@@ -254,7 +255,7 @@ nav.primary .brand img {
   vertical-align: middle;
 }
 
-nav.primary .brand .title span {
+nav.primary .brand hgroup span {
   color: var(--color-on-primary);
   text-transform: uppercase;
   white-space: nowrap;
@@ -262,19 +263,19 @@ nav.primary .brand .title span {
   display: inline-block;
 }
 
-nav.primary .brand .title p {
+nav.primary .brand hgroup p {
   text-align: right;
   font-size: .9em;
   color: var(--color-on-tertiary);
   margin: 0;
 }
 
-nav.primary hgroup.title {
+nav.primary .brand hgroup {
   display: inline-block;
   vertical-align: middle;
 }
 
-body>header nav.primary {
+body > header nav.primary {
   position: sticky;
   top: 0;
   align-self: start;
@@ -296,32 +297,24 @@ nav.breadcrumb .material-symbols-outlined {
     margin-bottom: .5em;
   }
 
-  nav,
-  nav>.container {
+  nav {
     flex-direction: column;
-  }
-
-  nav-center,
-  nav-left,
-  nav-right {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   nav.breadcrumb {
     display: none;
   }
 
-  body>main h2 {
+  body > main h2 {
     margin-top: 0;
     margin-bottom: .2em;
   }
 
-  body>main figure {
+  body > main figure {
     width: auto;
   }
 
-  body>main .pages-list {
+  body > main .pages-list {
     margin: .1rem;
     padding: .1rem;
   }
@@ -343,17 +336,17 @@ nav.breadcrumb .material-symbols-outlined {
     min-width: 100vw;
   }
 
-  body>main {
+  body > main {
     overflow: scroll;
     padding: .1rem .1rem 0;
     margin: 0 1rem;
   }
 
-  body>header nav.primary {
+  body > header nav.primary {
     display: flow-root;
   }
 
-  body>aside.sidebar {
+  body > .sidebar {
     border: none;
     border-radius: unset;
   }
@@ -410,15 +403,16 @@ nav.breadcrumb .material-symbols-outlined {
   }
 
   nav.primary .brand img ,
-  nav.primary .title {
+  nav.primary .brand svg ,
+  nav.primary .brand hgroup {
     padding: 0%;
     margin: 0%;
   }
 }
 
-/* (start) Skip to content link style */
+/* (start) Style for skip to content link */
 
-body>header .skip-link {
+body > header .skip-link {
   background: var(--color-background);
   padding: .5em;
   position: absolute;
@@ -427,11 +421,11 @@ body>header .skip-link {
   z-index: 20;
 }
 
-body>header .skip-link:focus {
+body > header .skip-link:focus {
   transform: translateY(0%);
 }
 
-/* (end) Skip to content link style */
+/* (end) Style for skip to content link */
 
 code {
   background-color: var(--color-surface-container);
