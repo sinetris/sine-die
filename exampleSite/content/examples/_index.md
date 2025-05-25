@@ -5,7 +5,6 @@ weight: 20
 description: Pagination example for the sine-die theme
 menus:
   main:
-    name: Examples
     identifier: examples
 ---
 
@@ -14,5 +13,5 @@ menus:
 Example for a section with pagination.
 
 > **Note:**\
-> Only **Simple page 01**, **Simple page 02** and the pages in **Subsection**
-> are included in the menu.
+> This section contains several pages and subsections, but only some of them
+> are displayed in the menubar.
