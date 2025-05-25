@@ -37,19 +37,28 @@
   {{- end }}
 }
 
+#search button.pagefind-ui__search-clear:focus {
+  outline: solid;
+}
+
 #search input.pagefind-ui__search-input::placeholder {
-    opacity: .5;
-    color: black;
-    font-weight: bold;
+  opacity: .5;
+  color: black;
+  font-weight: bold;
 }
 
 #search {
   padding: 1rem 1rem 0;
 }
 
+#search input {
+  color: var(--pagefind-ui-text);
+  margin-bottom: 0;
+}
+
 #search input:focus{
   outline: none;
-  border-color: var(--color-on-secondary-container);
+  border-color: var(--pagefind-ui-tag);
 }
 
 @media only screen and (width <= 480px){
