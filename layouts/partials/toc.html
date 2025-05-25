@@ -1,7 +1,7 @@
 {{ with .Fragments }}
   {{- with .Headings }}
-  <nav class="toc" aria-label="Table of Content">
-    <h2>Table of Content</h2>
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title">Table of Content</h2>
     {{- partial "inline/toc/walk.html" (dict "Headings" .) }}
   </nav>
   {{ end }}
