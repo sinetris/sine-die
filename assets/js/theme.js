@@ -5,7 +5,7 @@ class ManageColorScheme {
     this.root = root;
     this.switchButton = switchButton;
     this.switchButton.addEventListener("click", this.switchTheme.bind(this));
-    this.applyTheme(this.theme);
+    this.applyTheme(this.storedTheme);
   }
 
   get preferColorScheme() {
