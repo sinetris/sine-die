@@ -23,9 +23,7 @@
     </li>
     {{- end }}
     <li property="itemListElement" typeof="ListItem">
-      <a property="item" typeof="WebPage" href="{{.Permalink}}" aria-current="page">
-        <span property="name">{{ .LinkTitle }}</span>
-      </a>
+      <span property="name">{{ .LinkTitle }}</span>
       <meta property="position" content="{{ len .Ancestors | add 1 }}" />
     </li>
   </ol>
