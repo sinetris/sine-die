@@ -19,14 +19,14 @@
           {{- end }}
         </span>
       </a>
-      <meta property="position" content="{{ add 1 $index }}">
+      <meta property="position" content="{{ add 1 $index }}" />
     </li>
     {{- end }}
     <li property="itemListElement" typeof="ListItem">
       <a property="item" typeof="WebPage" href="{{.Permalink}}" aria-current="page">
         <span property="name">{{ .LinkTitle }}</span>
       </a>
-      <meta property="position" content="{{ len .Ancestors | add 1 }}">
+      <meta property="position" content="{{ len .Ancestors | add 1 }}" />
     </li>
   </ol>
 </nav>

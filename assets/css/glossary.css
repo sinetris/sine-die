@@ -20,16 +20,16 @@ body.glossary .glossary-term:has(:hover) {
   margin: .1em;
 }
 
-[role="doc-glossary"] header nav>h2 {
+[role="doc-glossary"] header nav > h2 {
   display: inline-block;
   font-size: 1.1em;
 }
 
-[role="doc-glossary"] header nav>ul>li {
+[role="doc-glossary"] header nav > ul > li {
   display: inline-block;
 }
 
-[role="doc-glossary"] header nav>ul {
+[role="doc-glossary"] header nav > ul {
   padding: .1em .1em .1em .5em;
   list-style: none;
   display: inline-block;
@@ -55,7 +55,7 @@ body.glossary .glossary-term h2 {
   font-size: 1.1em;
 }
 
-[role="doc-glossary"] header>p {
+[role="doc-glossary"] header > p {
   padding: 1em;
   border: thin solid var(--color-on-secondary-container);
 }

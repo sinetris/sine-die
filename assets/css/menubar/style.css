@@ -164,11 +164,11 @@ nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible
     border: none;
   }
 
-  nav.primary [role="menubar"]>li a {
+  nav.primary [role="menubar"] > li a {
     display: inline;
   }
 
-  nav.primary [role="menubar"]>li>[role="menu"] {
+  nav.primary [role="menubar"] > li > [role="menu"] {
     top: auto;
   }
 
@@ -206,30 +206,30 @@ nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible
     margin-left: auto;
   }
 
-  nav.primary [role="menubar"] > li:has(>[role="menuitem"]) {
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]) {
     border-bottom-style: solid;
     border-bottom-width: .2em;
   }
 
-  nav.primary [role="menubar"] [role="menu"] > li:has(>[role="menuitem"]) {
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]) {
     border-left-style: solid;
     border-left-width: .2em;
     padding: .5em;
   }
 
-  nav.primary [role="menubar"] > li:has(>[role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
     border-bottom-color: transparent;
   }
 
-  nav.primary [role="menubar"] [role="menu"] > li:has(>[role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
     border-left-color: transparent;
   }
 
-  nav.primary [role="menubar"] > li:has(>[role="menuitem"]):has(:hover) {
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]):has(:hover) {
     border-bottom-color: var(--color-on-tertiary-container);
   }
 
-  nav.primary [role="menubar"] [role="menu"] > li:has(>[role="menuitem"]):has(:hover) {
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]):has(:hover) {
     border-left-color: var(--color-on-tertiary-container);
   }
 
