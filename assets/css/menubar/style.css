@@ -98,11 +98,11 @@ nav.primary [role="menubar"] button[aria-haspopup="true"]:hover {
   mask-size: 2.5em;
 }
 
+.brand a:focus-visible,
 nav.primary [role="menubar"] a:focus-visible,
 nav.primary [role="menubar"] li.theme-switcher:has(:focus-visible),
 nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible) {
-  outline: var(--color-on-primary) solid .1rem;
-  outline-offset: -.1rem;
+  outline: .1rem solid var(--color-on-primary);
 }
 
 
