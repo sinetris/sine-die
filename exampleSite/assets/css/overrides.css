@@ -8,19 +8,19 @@
   margin: auto;
 }
 
-body.about-page > main .logos img {
+body.homepage > main .logos img {
   width: 40%;
   margin: auto;
   display: block;
 }
 
-body.about-page > main .logos {
+body.homepage > main .logos {
   width: 100%;
   margin: auto;
   text-align: center;
 }
 
-body.homepag > main .logos svg {
+body.homepage > main .logos svg {
   width: 5em;
   height: 5em;
   margin: auto;
@@ -43,18 +43,18 @@ body.homepag > main .logos svg {
 }
 
 @media only screen and (width <= 480px) {
-  body.about-page > main .logos svg {
+  body.homepage > main .logos svg {
     width: 2.5em;
     height: 2.5em;
   }
 
-  body.about-page > main .logos img {
+  body.homepage > main .logos img {
     width: 100%;
   }
 }
 
 @media only screen and (width <= 1024px) {
-  body.about-page > main .logos img {
+  body.homepage > main .logos img {
     width: 80%;
   }
 }
