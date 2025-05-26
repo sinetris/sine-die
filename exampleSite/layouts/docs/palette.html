@@ -5,10 +5,11 @@
   {{- $.Page.Store.Add "body-classes" "theme-palette" -}}
 {{ end }}
 {{ define "main" }}
-  {{- with .Params.Title -}}
-  <h1>{{ . }}</h1>
-  {{- end -}}
   <article class="theme-palette-example">
+    {{- with .Params.Title -}}
+    <h1>{{ . }}</h1>
+    {{- end -}}
+    {{ .Content }}
     <h2>Base Palette</h2>
     <table>
       <thead>
