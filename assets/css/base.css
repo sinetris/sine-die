@@ -125,6 +125,10 @@ pre code {
   padding: 0;
 }
 
+:not(pre) > code {
+  text-wrap: nowrap;
+}
+
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
