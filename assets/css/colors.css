@@ -24,14 +24,19 @@
   /*
   Main colors 'chroma'
   Preferred values: between 10% and 70%)
+  Default to: --colors-primary-chroma
   */
   --colors-chroma: var(--colors-primary-chroma);
 
-  /* Use vivid colors for events (e.g. successes, warnings, errors) */
+  /*
+  Use vivid colors for events (e.g. successes, warnings, errors)
+  Preferred values: between 30% and 80%
+  */
   --color-event-chroma: 40%;
 
   /*
   Use less saturated colors for neutral palettes
+  Preferred values: between 0% and 10%
   (0% gives us a gray scale neutral palette)
   */
   --color-neutral-chroma: 0%;
@@ -39,13 +44,17 @@
   /*
   Secondary colors hue angle (left and right from the primary)
   Preferred values:
-    - triadic color scheme
+    Analogous color scheme
+      - between 150 and 170 degrees
+      - between 190 and 210 degrees (left and right inverted)
+    Triadic color scheme
       - 120 degrees
       - 240 degrees (left and right inverted)
-    - split-complementary color scheme
-        - between 150 and 170 degrees
-        - 180 degrees (left and right are the same)
-        - between 190 and 210 degrees (left and right inverted)
+    Split-Complementary color scheme
+      - between 150 and 170 degrees
+      - between 190 and 210 degrees (left and right inverted)
+    Complementary color scheme
+      - 180 degrees (left and right are the same)
   */
   --colors-secondary-hue-angle: 120deg;
 
@@ -85,7 +94,7 @@
   Calculate Colors
   */
 
-  /* Calculate Secondary left/right hue */
+  /* Calculate hue for Secondary left and Secondary right */
   --color-secondary-left-hue: calc(var(--color-primary-hue) - var(--colors-secondary-hue-angle));
   --color-secondary-right-hue: calc(var(--color-primary-hue) + var(--colors-secondary-hue-angle));
 
