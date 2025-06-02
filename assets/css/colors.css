@@ -9,7 +9,7 @@
   */
 
   /* 'hue' is a value between 0 and 360 degrees and is the color itself */
-  --color-primary-hue: 240deg;
+  --color-primary-hue: 250deg;
 
   /* 'chroma' is a value between 0% and 100% and is the color vividity (saturation) */
   --colors-primary-chroma: 20%;
