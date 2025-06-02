@@ -65,8 +65,8 @@
   --color-on-inverse-surface: var(--palette-neutral86);
 
   /* Extra */
-  --color-background: Canvas;
-  --color-on-background: CanvasText;
+  --color-background: var(--palette-neutral97);
+  --color-on-background: var(--palette-neutral13);
   --color-outline: var(--palette-neutral74);
   --color-outline-variant: var(--palette-neutral70);
   --color-light: oklch(from var(--palette-neutral97) l c h / calc(alpha - 0.1));
@@ -143,8 +143,8 @@
   --color-on-inverse-surface: var(--palette-neutral21);
 
   /* Extra */
-  --color-background: Canvas;
-  --color-on-background: CanvasText;
+  --color-background: var(--palette-neutral19);
+  --color-on-background: var(--palette-neutral94);
   --color-outline: var(--palette-neutral24);
   --color-outline-variant: var(--palette-neutral28);
   --color-light: oklch(from var(--palette-neutral94) l c h / calc(alpha - 0.1));
