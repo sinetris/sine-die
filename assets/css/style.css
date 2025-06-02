@@ -235,8 +235,8 @@ nav.primary {
   position: sticky;
   top: 0;
   align-self: start;
-  color: var(--color-on-surface);
-  background-color: var(--color-primary);
+  color: var(--color-on-primary-container);
+  background-color: var(--color-primary-container);
   z-index: 10;
   align-content: center;
 }
