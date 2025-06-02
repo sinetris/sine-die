@@ -1,15 +1,12 @@
 {{- partial "helpers/templates.html" -}}
 {{ $bodyClasses := (or .Params.body_classes slice) }}
-{{- if .Page.Store.Get "body-classes" -}}
-  {{ $bodyClasses = $bodyClasses | append (.Page.Store.Get "body-classes") }}
-{{- end -}}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ $.Site.LanguageCode | default `it` }}">
+<html class="no-js" lang="{{ $.Site.LanguageCode | default `en` }}">
   <head>
     {{ partial "head.html" . }}
     {{ block "head-addition" . }}{{ end }}
   </head>
-  <body class="{{ delimit $bodyClasses " " }}">
+  <body {{- with $bodyClasses }} class="{{ delimit . " " }}"{{ end }}>
     <header>
       {{ partial "header.html" . }}
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
