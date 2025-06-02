@@ -20,6 +20,10 @@
   border: none;
 }
 
+#search button.pagefind-ui__search-clear:hover {
+  color: var(--color-on-secondary-container);
+}
+
 #search button.pagefind-ui__search-clear::before {
   content: "";
   font-size: 1rem;
