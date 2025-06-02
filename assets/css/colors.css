@@ -39,7 +39,7 @@
   Preferred values: between 0% and 10%
   (0% gives us a gray scale neutral palette)
   */
-  --color-neutral-chroma: 0%;
+  --color-neutral-chroma: 3%;
 
   /*
   Secondary colors hue angle (left and right from the primary)
