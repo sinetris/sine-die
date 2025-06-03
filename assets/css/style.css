@@ -1,3 +1,7 @@
+:root {
+  --footer-height: 5rem;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-on-background);
@@ -105,6 +109,8 @@ body > footer {
   background-color: var(--color-surface-container);
   margin: auto 0;
   text-align: center;
+  align-content: center;
+  height: var(--footer-height);
 }
 
 body > footer > span + span::before {
@@ -372,6 +378,14 @@ nav.primary .brand hgroup {
       "content sidebar" 1fr
       "footer footer" auto
       / 5fr 2fr;
+  }
+
+  body:not(.full-space) > .sidebar {
+    position: sticky;
+    top: 0;
+    min-height: min-content;
+    height: 100vh;
+    margin-bottom: var(--footer-height);
   }
 }
 
