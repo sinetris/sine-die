@@ -2,6 +2,21 @@
   --table-title-color-width: .4em;
 }
 
+.theme-schema-example thead th {
+  position: sticky;
+  top: 0;
+}
+
+.theme-schema-example th {
+  background-color: var(--color-surface-container-high);
+}
+
+.theme-schema-example td,
+.theme-schema-example th {
+  padding: 1rem;
+  border: .01rem solid oklch(from var(--color-shadow) l c h / 50%);
+}
+
 .theme-schema-example .primary-title th {
   box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
 }
@@ -267,8 +282,6 @@
 }
 
 .theme-schema-example tr.title th {
-  border-top: .1rem solid var(--color-outline);
-  border-bottom: .1rem solid var(--color-outline);
   text-align: center;
   color: var(--color-on-surface);
   background-color: var(--color-surface-dim);
