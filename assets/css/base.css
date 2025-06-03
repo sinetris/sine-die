@@ -182,6 +182,10 @@ textarea {
   padding: .5rem;
 }
 
+:is(button, input:not([type="range"],[type="image"]), select, textarea):focus-visible {
+  outline: .1rem solid var(--color-on-primary);
+}
+
 button[disabled],
 input:disabled,
 select:disabled,
