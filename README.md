@@ -37,9 +37,10 @@ A simple and clean [Hugo][hugo] theme.
 - Minimalist CSS framework
   - Lightweight
   - Responsive Web Design
-  - Light or Dark Mode
+  - Light/Dark Mode
   - Easily customizable color palette
-  - Pure CSS (no transpiler required)
+  - Menubar
+- Glossary templates
 - Accessibility friendly
 - Search functionality
 
@@ -59,8 +60,8 @@ Clone the [sine-die](https://github.com/sinetris/sine-die) repository and move
 to the `exampleSite` directory.
 
 ```shell
-git clone https://github.com/sinetris/sine-die.git sine-die-example
-cd sine-die-example/exampleSite
+git clone https://github.com/sinetris/sine-die.git sine-die
+cd sine-die/exampleSite
 ```
 
 Install and run `pagefind` to generate the search indexes from the static files
