@@ -1,5 +1,9 @@
+.theme-schema-example {
+  --table-title-color-width: .4em;
+}
+
 .theme-schema-example .primary-title th {
-  box-shadow: inset 0 -.25em var(--color-primary);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
 }
 
 .theme-schema-example .color-primary .print-background-color {
@@ -27,7 +31,7 @@
 }
 
 .theme-schema-example .secondary-title th {
-  box-shadow: inset 0 -.25em var(--color-secondary);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
 }
 
 .theme-schema-example .color-secondary .print-background-color {
@@ -55,7 +59,7 @@
 }
 
 .theme-schema-example .tertiary-title th {
-  box-shadow: inset 0 -.25em var(--color-tertiary);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
 }
 
 .theme-schema-example .color-tertiary .print-background-color {
@@ -83,7 +87,7 @@
 }
 
 .theme-schema-example .success-title th {
-  box-shadow: inset 0 -.25em var(--color-success);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
 }
 
 .theme-schema-example .color-success .print-background-color {
@@ -111,7 +115,7 @@
 }
 
 .theme-schema-example .warning-title th {
-  box-shadow: inset 0 -.25em var(--color-warning);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
 }
 
 .theme-schema-example .color-warning .print-background-color {
@@ -139,7 +143,7 @@
 }
 
 .theme-schema-example .error-title th {
-  box-shadow: inset 0 -.25em var(--color-error);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
 }
 
 .theme-schema-example .color-error .print-background-color {
@@ -167,7 +171,7 @@
 }
 
 .theme-schema-example .surface-title th {
-  box-shadow: inset 0 -.25em var(--color-surface);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
 }
 
 .theme-schema-example .color-primary-tint .print-background-color {
@@ -215,7 +219,7 @@
 }
 
 .theme-schema-example .extra-title th {
-  box-shadow: inset 0 -.25em var(--color-background);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
 }
 
 .theme-schema-example .color-outline .print-background-color {
@@ -263,8 +267,8 @@
 }
 
 .theme-schema-example tr.title th {
-  border-top: 0.2rem solid var(--color-outline-variant);
-  border-bottom: 0.2rem solid var(--color-outline-variant);
+  border-top: .1rem solid var(--color-outline);
+  border-bottom: .1rem solid var(--color-outline);
   text-align: center;
   color: var(--color-on-surface);
   background-color: var(--color-surface-dim);
