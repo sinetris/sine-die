@@ -179,7 +179,7 @@ body > .sidebar a {
 }
 
 body > main > article > figure {
-  margin: 0;
+  margin: 0 0 1em;
 }
 
 body > main ul > li > blockquote {
