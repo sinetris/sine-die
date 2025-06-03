@@ -4,7 +4,7 @@
   --grid-gutter: 2rem;
   --base-font-size: 100%;
   --font-size: 1rem;
-  --font-family-sans: -apple-system, "BlinkMacSystemFont", "Avenir",
+  --font-family-name: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
@@ -18,7 +18,7 @@ html {
   box-sizing: border-box;
   font-size: var(--base-font-size);
   text-size-adjust: 100%;
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-name);
   scroll-behavior: smooth;
   min-height: 100vh
 }
@@ -28,7 +28,7 @@ body {
   background-color: Canvas;
   line-height: var(--line-height);
   font-size: var(--font-size);
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-name);
   padding: 0;
   min-height: 100vh;
   max-width: 100vw;

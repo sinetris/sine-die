@@ -7,7 +7,7 @@
   --pagefind-ui-border-radius: 1em;
   --pagefind-ui-image-border-radius: 0.2em;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: var(--font-family-sans);
+  --pagefind-ui-font: var(--font-family-name);
   --pagefind-ui-primary: var(--color-inverse-secondary);
   --pagefind-ui-text: var(--color-on-secondary);
   --pagefind-ui-background: var(--color-secondary);
