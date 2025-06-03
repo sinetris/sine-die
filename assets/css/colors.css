@@ -32,7 +32,7 @@
   Use vivid colors for events (e.g. successes, warnings, errors)
   Preferred values: between 30% and 80%
   */
-  --color-event-chroma: 40%;
+  --color-event-chroma: 60%;
 
   /*
   Use less saturated colors for neutral palettes
@@ -81,14 +81,14 @@
 
   /* Colors lightness variations */
   --palette-lightest-lightness: 98%;
-  --palette-lighter-lightness: 87%;
-  --palette-light-lightness: 73%;
-  --palette-medium-light-lightness: 60%;
+  --palette-lighter-lightness: 91%;
+  --palette-light-lightness: 78%;
+  --palette-medium-light-lightness: 70%;
   --palette-medium-lightness: 50%;
-  --palette-medium-dark-lightness: 40%;
-  --palette-dark-lightness: 27%;
-  --palette-darker-lightness: 22%;
-  --palette-darkest-lightness: 15%;
+  --palette-medium-dark-lightness: 33%;
+  --palette-dark-lightness: 26%;
+  --palette-darker-lightness: 20%;
+  --palette-darkest-lightness: 14%;
 
   /*
   Calculate Colors
@@ -182,30 +182,23 @@
   --palette-neutral-darker: oklch(var(--palette-darker-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral-darkest: oklch(var(--palette-darkest-lightness) var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral0: oklch(0% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral5: oklch(5% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral10: oklch(10% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral13: oklch(13% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral16: oklch(16% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral19: oklch(19% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral21: oklch(21% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral24: oklch(24% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral28: oklch(28% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral32: oklch(32% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral36: oklch(36% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral40: oklch(40% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral45: oklch(45% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral5: oklch(12% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral10: oklch(14% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral15: oklch(16% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral20: oklch(18% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral25: oklch(20% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral30: oklch(24% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral35: oklch(30% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral40: oklch(37% var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral50: oklch(50% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral55: oklch(55% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral60: oklch(60% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral60: oklch(58% var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral65: oklch(65% var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral70: oklch(70% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral74: oklch(74% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral78: oklch(78% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral82: oklch(82% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral86: oklch(86% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral90: oklch(90% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral94: oklch(94% var(--color-neutral-chroma) var(--color-primary-hue));
-  --palette-neutral97: oklch(97% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral75: oklch(74% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral80: oklch(79% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral85: oklch(83% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral90: oklch(88% var(--color-neutral-chroma) var(--color-primary-hue));
+  --palette-neutral95: oklch(94% var(--color-neutral-chroma) var(--color-primary-hue));
   --palette-neutral100: oklch(100% var(--color-neutral-chroma) var(--color-primary-hue));
 
   color-scheme: light dark;

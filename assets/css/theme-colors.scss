@@ -50,28 +50,35 @@
 
   /* Surface */
   --color-primary-tint: var(--palette-primary-main);
-  --color-surface: var(--palette-neutral86);
-  --color-on-surface: var(--palette-neutral24);
+  --color-surface: var(--palette-neutral85);
+  --color-on-surface: var(--palette-neutral20);
   --color-surface-dim: var(--palette-neutral70);
+  --color-on-surface-dim: var(--palette-neutral70);
   --color-surface-bright: var(--palette-neutral90);
+  --color-on-surface-bright: var(--palette-neutral30);
   --color-surface-container-lowest: var(--palette-neutral-medium);
+  --color-on-surface-container-lowest: var(--palette-neutral-darkest);
   --color-surface-container-low: var(--palette-neutral-medium-light);
+  --color-on-surface-container-low: var(--palette-neutral-darker);
   --color-surface-container: var(--palette-neutral-light);
+  --color-on-surface-container: var(--palette-neutral-dark);
   --color-surface-container-high: var(--palette-neutral-lighter);
+  --color-on-surface-container-high: var(--palette-neutral-medium-dark);
   --color-surface-container-highest: var(--palette-neutral-lightest);
-  --color-surface-variant: var(--palette-neutral78);
-  --color-on-surface-variant: var(--palette-neutral28);
-  --color-inverse-surface: var(--palette-neutral24);
-  --color-on-inverse-surface: var(--palette-neutral86);
+  --color-on-surface-container-highest: var(--palette-neutral-medium);
+  --color-surface-variant: var(--palette-neutral75);
+  --color-on-surface-variant: var(--palette-neutral25);
+  --color-inverse-surface: var(--palette-neutral20);
+  --color-on-inverse-surface: var(--palette-neutral85);
 
   /* Extra */
-  --color-background: var(--palette-neutral97);
-  --color-on-background: var(--palette-neutral13);
-  --color-outline: var(--palette-neutral74);
+  --color-background: var(--palette-neutral90);
+  --color-on-background: var(--palette-neutral5);
+  --color-outline: var(--palette-neutral75);
   --color-outline-variant: var(--palette-neutral65);
-  --color-light: oklch(from var(--palette-neutral97) l c h / calc(alpha - 0.1));
-  --color-shadow: oklch(from var(--palette-neutral5) l c h / calc(alpha - 0.1));
-  --color-scrim: var(--palette-neutral5);
+  --color-light: oklch(from var(--palette-neutral95) l c h / calc(alpha - 0.2));
+  --color-shadow: oklch(from var(--palette-neutral10) l c h / calc(alpha - 0.2));
+  --color-scrim: var(--palette-neutral0);
 
   color-scheme: light;
 }
@@ -128,28 +135,34 @@
 
   /* Surface */
   --color-primary-tint: var(--palette-primary-main);
-  --color-surface: var(--palette-neutral21);
-  --color-on-surface: var(--palette-neutral78);
-  --color-surface-dim: var(--palette-neutral13);
-  --color-surface-bright: var(--palette-neutral32);
+  --color-surface: var(--palette-neutral20);
+  --color-on-surface: var(--palette-neutral80);
+  --color-surface-dim: var(--palette-neutral5);
+  --color-surface-bright: var(--palette-neutral30);
+  --color-on-surface-bright: var(--palette-neutral90);
   --color-surface-container-lowest: var(--palette-neutral-medium);
+  --color-on-surface-container-lowest: var(--palette-neutral-lightest);
   --color-surface-container-low: var(--palette-neutral-medium-dark);
+  --color-on-surface-container-low: var(--palette-neutral-lighter);
   --color-surface-container: var(--palette-neutral-dark);
+  --color-on-surface-container: var(--palette-neutral-light);
   --color-surface-container-high: var(--palette-neutral-darker);
+  --color-on-surface-container-high: var(--palette-neutral-medium-dark);
   --color-surface-container-highest: var(--palette-neutral-darkest);
-  --color-surface-variant: var(--palette-neutral24);
+  --color-on-surface-container-highest: var(--palette-neutral-medium);
+  --color-surface-variant: var(--palette-neutral20);
   --color-on-surface-variant: var(--palette-neutral70);
-  --color-inverse-surface: var(--palette-neutral78);
-  --color-on-inverse-surface: var(--palette-neutral21);
+  --color-inverse-surface: var(--palette-neutral80);
+  --color-on-inverse-surface: var(--palette-neutral20);
 
   /* Extra */
-  --color-background: var(--palette-neutral19);
-  --color-on-background: var(--palette-neutral94);
-  --color-outline: var(--palette-neutral24);
-  --color-outline-variant: var(--palette-neutral28);
-  --color-light: oklch(from var(--palette-neutral94) l c h / calc(alpha - 0.1));
-  --color-shadow: oklch(from var(--palette-neutral5) l c h / calc(alpha - 0.1));
-  --color-scrim: var(--palette-neutral5);
+  --color-background: var(--palette-neutral15);
+  --color-on-background: var(--palette-neutral95);
+  --color-outline: var(--palette-neutral20);
+  --color-outline-variant: var(--palette-neutral25);
+  --color-light: oklch(from var(--palette-neutral95) l c h / calc(alpha - 0.2));
+  --color-shadow: oklch(from var(--palette-neutral5) l c h / calc(alpha - 0.2));
+  --color-scrim: var(--palette-neutral0);
 
   color-scheme: dark;
 }
