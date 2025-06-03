@@ -1,14 +1,15 @@
 ---
 title: Documentation
-date: "2025-03-10"
-description: Documentation for the sine-die theme
-categories: ["Examples", "Documentation"]
-tags: []
+date: '2023-07-20T08:07:24Z'
+description: sine-die theme documentation
+categories:
+  - Documentation
 weight: 10
+cascade:
+  menus:
+    main:
+      parent: docs
 menus:
   main:
-    name: Documentation
     identifier: docs
 ---
-
-Usage examples.

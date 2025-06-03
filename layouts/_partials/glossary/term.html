@@ -1,0 +1,30 @@
+{{- $page := .page }}
+{{- $options := .options | default dict }}
+
+{{- $anchor := path.BaseName $page.Path | anchorize }}
+<article class="glossary-term" id="{{ $anchor }}">
+  <header>
+    {{ if $options.embedded }}
+      <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}"><h2>{{ $page.Title }}</h2></a>
+    {{ else }}
+      <h1>{{ $page.Title }}</h1>
+    {{ end }}
+  </header>
+  {{ if $options.embedded }}
+    <p>{{ $page.Description | markdownify }}</p>
+  {{ else }}
+    {{ if $page.Content -}}
+      {{ $page.Content }}
+    {{ else }}
+      <p>{{ $page.Description | markdownify }}</p>
+    {{ end }}
+  {{ end }}
+  <footer>
+    {{ partial "glossary/synonyms.html" (dict "synonyms" $page.Params.synonyms) }}
+    {{ partial "glossary/abbreviations.html" (dict "abbreviations" $page.Params.abbreviations) }}
+    {{ partial "glossary/related.html" (dict "related" $page.Params.related) }}
+    {{ if not $options.embedded }}
+      {{ partial "glossary/resources.html" (dict "resources" $page.Params.externalResources) }}
+    {{ end }}
+  </footer>
+</article>

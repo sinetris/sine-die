@@ -1,0 +1,44 @@
+{{- define "sidebar"}}<!-- hide sdebar -->{{ end -}}
+
+{{- define "main" }}
+  {{/* Build alphabetical index. */}}
+  {{/* TODO: group numbers and special characters */}}
+  {{- $glossary_index := dict }}
+  {{- range $p := .Pages.ByTitle }}
+    {{- $k := substr .Title 0 1 | strings.ToUpper }}
+    {{- if index $glossary_index $k }}
+      {{- continue }}
+    {{- end }}
+    {{- $anchor := path.BaseName .Path | anchorize }}
+    {{- $glossary_index = merge $glossary_index (dict $k $anchor) }}
+  {{- end }}
+  <section role="doc-glossary" aria-labelledby="glossary-title">
+    <header>
+    {{- with .Params.Title -}}
+      <h1 id="glossary-title">{{ . }}</h1>
+    {{- end -}}
+    {{- with .Description -}}
+      <p role="note">{{ . }}</p>
+    {{- end -}}
+    {{ if len $glossary_index }}
+      {{/* Render alphabetical index. */}}
+      <nav aria-labelledby="glossary-index">
+        <h2 id="glossary-index">Glossary Index</h2>
+        <ul>
+          {{- range $k, $v := $glossary_index }}
+            <li>
+              <a href="#{{ $v }}">{{ $k }}</a>
+            </li>
+          {{- end }}
+        </ul>
+      </nav>
+    {{- end }}
+    </header>
+    {{ .Content }}
+    <section class="glossary-terms">
+      {{ range .Pages.ByTitle }}
+        {{ partial "glossary/term.html" (dict "page" . "options" (dict "embedded" true)) }}
+      {{ end }}
+    </section>
+  </section>
+{{ end -}}

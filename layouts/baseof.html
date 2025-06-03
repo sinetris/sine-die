@@ -1,0 +1,24 @@
+{{- partial "helpers/templates.html" -}}
+{{ $bodyClasses := (or .Params.body_classes slice) }}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ $.Site.LanguageCode | default `en` }}">
+  <head>
+    {{ partial "head.html" . }}
+    {{ block "head-addition" . }}{{ end }}
+  </head>
+  <body {{- with $bodyClasses }} class="{{ delimit . " " }}"{{ end }}>
+    <header>
+      {{ partial "header.html" . }}
+      {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
+      {{ partial "breadcrumbs.html" . }}
+    </header>
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
+    <footer>
+      {{ partial "footer.html" . -}}
+      {{ partial "footer-scripts.html" . }}
+    </footer>
+  </body>
+</html>

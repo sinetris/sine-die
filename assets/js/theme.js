@@ -1,43 +1,54 @@
+'use strict';
 // -- (start) Dark/Light Theme switch --
-const getValidThemes = () => {
-  const defaultIsDark = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  return defaultIsDark ? ["theme-default", "theme-light", "theme-dark"] : ["theme-default", "theme-dark", "theme-light"];
-}
-
-const validThemes = getValidThemes();
-
-const setTheme = (themeMode, validThemes) => {
-  var root = document.body;
-  for (const theme of validThemes) {
-    root.classList.remove(theme);
+class ManageColorScheme {
+  constructor(root, switchButton) {
+    this.root = root;
+    this.switchButton = switchButton;
+    this.switchButton.addEventListener("click", this.switchTheme.bind(this));
+    this.applyTheme(this.storedTheme);
   }
-  if (validThemes.includes(themeMode)) {
-    localStorage.setItem("theme-mode", themeMode);
-    root.classList.add(themeMode);
+
+  get preferColorScheme() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark" : "light";
+  }
+
+  get storedTheme() {
+    let theme = localStorage.getItem("theme-mode");
+    return this.validateTheme(theme);
+  }
+
+  applyTheme(theme) {
+    let newTheme = this.validateTheme(theme);
+    localStorage.setItem("theme-mode", newTheme);
+    this.root.setAttribute("data-color-scheme", newTheme);
+  }
+
+  switchTheme() {
+    const nextTheme = this.nextTheme();
+    this.applyTheme(nextTheme);
+  }
+
+  nextTheme() {
+    const currentTheme = this.storedTheme;
+    const nextThemeIndex = (this.#validThemes.indexOf(currentTheme) + 1) % this.#validThemes.length;
+    const nextTheme = this.#validThemes.at(nextThemeIndex);
+    return nextTheme;
+  }
+
+  validateTheme(theme) {
+    return (theme === null || !this.#validThemes.includes(theme)) ? "default" : theme;
+  }
+
+  get #validThemes() {
+    return (this.preferColorScheme === "dark") ? ["default", "light", "dark"] : ["default", "dark", "light"];
   }
 }
 
-const getTheme = () => {
-  let themeMode = localStorage.getItem("theme-mode");
-  if (themeMode === null) themeMode = "theme-default";
-  return themeMode;
-}
-
-const refreshTheme = () => {
-  let themeMode = getTheme();
-  setTheme(themeMode, validThemes);
-}
-
-const switchTheme = () => {
-  let themeMode = getTheme();
-  const nextThemeMode = validThemes.at((validThemes.indexOf(themeMode) + 1) % validThemes.length);
-  setTheme(nextThemeMode, validThemes);
-}
-
-refreshTheme();
-
-const themeSwitchButton = document.querySelector(".theme-switcher button");
-themeSwitchButton.addEventListener("click", switchTheme);
+window.addEventListener('load', function () {
+  const root = document.documentElement;
+  const switchButton = document.querySelector(".theme-switcher button");
+  new ManageColorScheme(root, switchButton);
+});
 // -- (end) Dark/Light Theme switch --
 
 // -- (start) Mobile menu --

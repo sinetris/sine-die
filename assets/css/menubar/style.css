@@ -1,0 +1,257 @@
+/* Primary menubar */
+
+nav.primary [role="menubar"] a {
+  color: var(--color-on-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav.primary [role="menubar"] a:hover {
+  color: var(--color-on-tertiary-container);
+}
+
+nav.primary [role="menubar"] li:hover,
+nav.primary [role="menubar"] li:has(:hover) {
+  border-color: var(--color-on-tertiary-container);
+}
+
+nav.primary [role="menubar"] > li {
+  position: relative;
+  margin-left: 1rem;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav.primary [role="menubar"] > li > a {
+  height: 100%;
+  vertical-align: middle;
+  align-items: center;
+  padding: .2em;
+}
+
+nav.primary [role="menubar"] ul {
+  padding: .2em;
+  background-color: var(--color-surface-container-high);
+}
+
+nav.primary [role="menubar"] li {
+  border-width: 0;
+}
+
+nav.primary [role="menubar"] > li:nth-last-child(-n + 4) > ul {
+  right: 0;
+}
+
+nav.primary [role="menubar"] > li > [role="menu"] {
+  margin-top: .2em;
+  border: 0.1rem solid var(--color-outline-variant);
+  top: 100%;
+}
+
+nav.primary [role="menubar"] ul li {
+  padding: .2em;
+}
+
+nav.primary [role="menubar"] a[aria-current="page"] {
+  color: var(--color-on-secondary-container);
+}
+
+nav.primary [role="menubar"] [role="menu"][aria-hidden="false"] {
+  position: absolute;
+}
+
+nav.primary [role="menubar"] [role="menu"][aria-hidden="false"] ul {
+  position: relative;
+}
+
+nav.primary [role="menubar"] [role="menu"][aria-hidden="false"] li:has([aria-expanded="true"]) ul {
+  margin-top: .25em;
+}
+
+nav.primary [role="menubar"] [role="menu"][aria-hidden="false"] li:has([aria-expanded="true"]) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+nav.primary [role="menubar"] [role="menu"][aria-hidden="true"] {
+  display: none;
+}
+
+nav.primary [role="menubar"] button[aria-haspopup="true"] {
+  border: none;
+  margin: auto 0;
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 100%;
+  color: var(--color-on-primary);
+  background-color: currentcolor;
+  mask-size: 1.5em;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  vertical-align: middle;
+}
+
+nav.primary [role="menubar"] button[aria-haspopup="true"]:hover {
+  background-color: var(--color-on-tertiary-container);
+  mask-size: 2.5em;
+}
+
+.brand a:focus-visible,
+nav.primary [role="menubar"] a:focus-visible,
+nav.primary [role="menubar"] li.theme-switcher:has(:focus-visible),
+nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible) {
+  outline: .1rem solid var(--color-on-primary);
+}
+
+
+/* Small tablet devices and smaller */
+
+@media only screen and (width <= 1024px) {
+  nav.primary {
+    position: relative;
+  }
+
+  nav.primary .menu-icon {
+    position: absolute;
+    right: .1em;
+    top: .1em;
+    font-size: 2em;
+    aspect-ratio: 1 / 1;
+    border: none;
+  }
+
+  nav.primary [role="menubar"] {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav.primary [role="menubar"] li {
+    display: none;
+    margin: 0;
+    width: auto;
+  }
+
+  nav.primary.responsive [role="menubar"] {
+    display: grid;
+    grid-template-rows: minmax(auto, 1fr);;
+  }
+
+  nav.primary.responsive [role="menubar"] li {
+    align-content: center;
+    border-bottom: none;
+    border-left-style: solid;
+    border-left-width: .2em;
+    border-top: .1em solid var(--color-outline);
+    display: inline-table;
+    margin: 0;
+    padding: .5em;
+  }
+
+  nav.primary.responsive [role="menubar"] ul {
+    background-color: inherit;
+  }
+
+  nav.primary.responsive [role="menubar"] .theme-switcher button {
+    padding-bottom: 1em;
+  }
+
+  nav.primary.responsive [role="menubar"] [role="menu"][aria-hidden="false"] {
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(auto, 1fr);;
+    border: none;
+  }
+
+  nav.primary [role="menubar"] > li a {
+    display: inline;
+  }
+
+  nav.primary [role="menubar"] > li > [role="menu"] {
+    top: auto;
+  }
+
+  nav.primary [role="menubar"] button[aria-haspopup="true"] {
+    display: inline;
+  }
+
+  nav.primary [role="menubar"] li:where(:not([aria-current="page"]), :not(:hover)) {
+    border-left-color: transparent;
+  }
+
+  nav.primary [role="menubar"] li:has(:hover){
+    border-left-style: dotted;
+    border-left-color: var(--color-on-tertiary-container);
+  }
+
+  nav.primary [role="menubar"] li:has([aria-current="page"]) {
+    border-left-color: var(--color-on-secondary-container);
+  }
+
+  nav.primary [role="menubar"] [role="menu"] > li:has([aria-current="page"]) {
+    border-left-color: var(--color-on-secondary-container);
+  }
+}
+
+/* Bigger display devices */
+
+@media only screen and (width > 1024px) {
+  nav.primary .menu-icon {
+    display: none;
+  }
+
+  nav.primary [role="menubar"] {
+    align-content: center;
+    margin-left: auto;
+  }
+
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]) {
+    border-bottom-style: solid;
+    border-bottom-width: .2em;
+  }
+
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]) {
+    border-left-style: solid;
+    border-left-width: .2em;
+    padding: .5em;
+  }
+
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
+    border-bottom-color: transparent;
+  }
+
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]):where(:not([aria-current="page"]), :not(:hover)) {
+    border-left-color: transparent;
+  }
+
+  nav.primary [role="menubar"] > li:has(> [role="menuitem"]):has(:hover) {
+    border-bottom-color: var(--color-on-tertiary-container);
+  }
+
+  nav.primary [role="menubar"] [role="menu"] > li:has(> [role="menuitem"]):has(:hover) {
+    border-left-color: var(--color-on-tertiary-container);
+  }
+
+  nav.primary [role="menubar"] li:has([aria-current="page"]) {
+    border-bottom-color: var(--color-on-secondary-container);
+  }
+
+  nav.primary [role="menubar"] [role="menu"] > li:has([aria-current="page"]) {
+    border-left-color: var(--color-on-secondary-container);
+  }
+
+  nav.primary [role="menubar"] li:has([role="menuitem"]):hover {
+    border-style: double;
+  }
+
+  nav.primary [role="menubar"] [role="menu"] li:has(> button) {
+    width: max-content;
+  }
+}
+
+@media print {
+  [role="menubar"] {
+    display: none;
+  }
+}

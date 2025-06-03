@@ -1,0 +1,10 @@
+{{- with .abbreviations }}
+  <aside class="abbreviations">
+    <h2>Abbreviations</h2>
+    <ul>
+    {{ range . }}
+      <li>{{ . }}</li>
+    {{ end }}
+    </ul>
+  </aside>
+{{ end -}}

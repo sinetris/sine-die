@@ -9,3 +9,18 @@ title = "sine-die"
 [params]
   showSearchUI = true
   logo = "images/sine-die-logo.svg"
+
+[markup]
+  [markup.highlight]
+    style = 'catppuccin-macchiato'
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <article class="content">
+    {{- with .Params.Title -}}
+    <h1>{{ . }}</h1>
+    {{- end -}}
+    {{ .Content }}
+  </article>
+
+  {{ with .Sections }}
+  <aside class="sections-list">
+    <h2>Sections List</h2>
+    <ul>
+      {{ range .ByWeight }}
+      <li>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
+          <span class="material-symbols-outlined" aria-hidden="true">topic</span>
+          {{ .Title }}
+        </a>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{- end -}}
+      </li>
+      {{- end -}}
+    </ul>
+  </aside>
+  {{ end }}
+
+  {{ with .Paginator.Pages }}
+  <aside class="pages-list">
+    <h2>Pages List</h2>
+    <ul>
+      {{ range .ByWeight }}
+      <li>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          {{ .Title }}
+        </a>
+        {{ with .Description }}
+        <p>{{ . }}</p>
+        {{- end -}}
+      </li>
+      {{- end -}}
+    </ul>
+  </aside>
+  {{ end }}
+  {{ template "_internal/pagination.html" . }}
+{{ end }}

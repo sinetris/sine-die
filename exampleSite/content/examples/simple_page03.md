@@ -1,7 +1,8 @@
 ---
 title: Simple page 03
-date: "2025-03-10"
+date: '2025-05-25T08:07:24Z'
 description: Example 3 of a simple page
-tags: ["Tagging", "Structuring Content", "Labelling"]
-categories: ["Examples"]
+tags: []
+categories:
+  - Examples
 ---

@@ -1,260 +1,279 @@
-.theme-schema-example .primary-title th {
-  border-bottom-color: var(--color-primary);
+.theme-schema-example {
+  --table-title-color-width: .4em;
 }
 
-.theme-schema-example .color-primary .show-as-background-color {
+.theme-schema-example thead th {
+  position: sticky;
+  top: 0;
+}
+
+.theme-schema-example th {
+  background-color: var(--color-surface-container-high);
+}
+
+.theme-schema-example td,
+.theme-schema-example th {
+  padding: 1rem;
+  border: .01rem solid oklch(from var(--color-shadow) l c h / 50%);
+}
+
+.theme-schema-example .primary-title th {
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
+}
+
+.theme-schema-example .color-primary .print-background-color {
   background-color: var(--color-primary);
 }
 
-.theme-schema-example .color-on-primary .show-as-background-color {
+.theme-schema-example .color-on-primary .print-background-color {
   background-color: var(--color-on-primary);
 }
 
-.theme-schema-example .color-primary-container .show-as-background-color {
+.theme-schema-example .color-primary-container .print-background-color {
   background-color: var(--color-primary-container);
 }
 
-.theme-schema-example .color-on-primary-container .show-as-background-color {
+.theme-schema-example .color-on-primary-container .print-background-color {
   background-color: var(--color-on-primary-container);
 }
 
-.theme-schema-example .color-inverse-primary .show-as-background-color {
+.theme-schema-example .color-inverse-primary .print-background-color {
   background-color: var(--color-inverse-primary);
 }
 
-.theme-schema-example .color-on-inverse-primary .show-as-background-color {
+.theme-schema-example .color-on-inverse-primary .print-background-color {
   background-color: var(--color-on-inverse-primary);
 }
 
 .theme-schema-example .secondary-title th {
-  border-bottom-color: var(--color-secondary);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
 }
 
-.theme-schema-example .color-secondary .show-as-background-color {
+.theme-schema-example .color-secondary .print-background-color {
   background-color: var(--color-secondary);
 }
 
-.theme-schema-example .color-on-secondary .show-as-background-color {
+.theme-schema-example .color-on-secondary .print-background-color {
   background-color: var(--color-on-secondary);
 }
 
-.theme-schema-example .color-secondary-container .show-as-background-color {
+.theme-schema-example .color-secondary-container .print-background-color {
   background-color: var(--color-secondary-container);
 }
 
-.theme-schema-example .color-on-secondary-container .show-as-background-color {
+.theme-schema-example .color-on-secondary-container .print-background-color {
   background-color: var(--color-on-secondary-container);
 }
 
-.theme-schema-example .color-inverse-secondary .show-as-background-color {
+.theme-schema-example .color-inverse-secondary .print-background-color {
   background-color: var(--color-inverse-secondary);
 }
 
-.theme-schema-example .color-on-inverse-secondary .show-as-background-color {
+.theme-schema-example .color-on-inverse-secondary .print-background-color {
   background-color: var(--color-on-inverse-secondary);
 }
 
 .theme-schema-example .tertiary-title th {
-  border-bottom-color: var(--color-tertiary);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
 }
 
-.theme-schema-example .color-tertiary .show-as-background-color {
+.theme-schema-example .color-tertiary .print-background-color {
   background-color: var(--color-tertiary);
 }
 
-.theme-schema-example .color-on-tertiary .show-as-background-color {
+.theme-schema-example .color-on-tertiary .print-background-color {
   background-color: var(--color-on-tertiary);
 }
 
-.theme-schema-example .color-tertiary-container .show-as-background-color {
+.theme-schema-example .color-tertiary-container .print-background-color {
   background-color: var(--color-tertiary-container);
 }
 
-.theme-schema-example .color-on-tertiary-container .show-as-background-color {
+.theme-schema-example .color-on-tertiary-container .print-background-color {
   background-color: var(--color-on-tertiary-container);
 }
 
-.theme-schema-example .color-inverse-tertiary .show-as-background-color {
+.theme-schema-example .color-inverse-tertiary .print-background-color {
   background-color: var(--color-inverse-tertiary);
 }
 
-.theme-schema-example .color-on-inverse-tertiary .show-as-background-color {
+.theme-schema-example .color-on-inverse-tertiary .print-background-color {
   background-color: var(--color-on-inverse-tertiary);
 }
 
 .theme-schema-example .success-title th {
-  border-bottom-color: var(--color-success);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
 }
 
-.theme-schema-example .color-success .show-as-background-color {
+.theme-schema-example .color-success .print-background-color {
   background-color: var(--color-success);
 }
 
-.theme-schema-example .color-success-container .show-as-background-color {
+.theme-schema-example .color-success-container .print-background-color {
   background-color: var(--color-success-container);
 }
 
-.theme-schema-example .color-on-success .show-as-background-color {
+.theme-schema-example .color-on-success .print-background-color {
   background-color: var(--color-on-success);
 }
 
-.theme-schema-example .color-on-success-container .show-as-background-color {
+.theme-schema-example .color-on-success-container .print-background-color {
   background-color: var(--color-on-success-container);
 }
 
-.theme-schema-example .color-inverse-success .show-as-background-color {
+.theme-schema-example .color-inverse-success .print-background-color {
   background-color: var(--color-inverse-success);
 }
 
-.theme-schema-example .color-on-inverse-success .show-as-background-color {
+.theme-schema-example .color-on-inverse-success .print-background-color {
   background-color: var(--color-on-inverse-success);
 }
 
 .theme-schema-example .warning-title th {
-  border-bottom-color: var(--color-warning);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
 }
 
-.theme-schema-example .color-warning .show-as-background-color {
+.theme-schema-example .color-warning .print-background-color {
   background-color: var(--color-warning);
 }
 
-.theme-schema-example .color-warning-container .show-as-background-color {
+.theme-schema-example .color-warning-container .print-background-color {
   background-color: var(--color-warning-container);
 }
 
-.theme-schema-example .color-on-warning .show-as-background-color {
+.theme-schema-example .color-on-warning .print-background-color {
   background-color: var(--color-on-warning);
 }
 
-.theme-schema-example .color-on-warning-container .show-as-background-color {
+.theme-schema-example .color-on-warning-container .print-background-color {
   background-color: var(--color-on-warning-container);
 }
 
-.theme-schema-example .color-inverse-warning .show-as-background-color {
+.theme-schema-example .color-inverse-warning .print-background-color {
   background-color: var(--color-inverse-warning);
 }
 
-.theme-schema-example .color-on-inverse-warning .show-as-background-color {
+.theme-schema-example .color-on-inverse-warning .print-background-color {
   background-color: var(--color-on-inverse-warning);
 }
 
 .theme-schema-example .error-title th {
-  border-bottom-color: var(--color-error);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
 }
 
-.theme-schema-example .color-error .show-as-background-color {
+.theme-schema-example .color-error .print-background-color {
   background-color: var(--color-error);
 }
 
-.theme-schema-example .color-error-container .show-as-background-color {
+.theme-schema-example .color-error-container .print-background-color {
   background-color: var(--color-error-container);
 }
 
-.theme-schema-example .color-on-error .show-as-background-color {
+.theme-schema-example .color-on-error .print-background-color {
   background-color: var(--color-on-error);
 }
 
-.theme-schema-example .color-on-error-container .show-as-background-color {
+.theme-schema-example .color-on-error-container .print-background-color {
   background-color: var(--color-on-error-container);
 }
 
-.theme-schema-example .color-inverse-error .show-as-background-color {
+.theme-schema-example .color-inverse-error .print-background-color {
   background-color: var(--color-inverse-error);
 }
 
-.theme-schema-example .color-on-inverse-error .show-as-background-color {
+.theme-schema-example .color-on-inverse-error .print-background-color {
   background-color: var(--color-on-inverse-error);
 }
 
 .theme-schema-example .surface-title th {
-  border-bottom-color: var(--color-surface);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
 }
 
-.theme-schema-example .color-surface-tint-color .show-as-background-color {
-  background-color: var(--color-surface-tint-color);
+.theme-schema-example .color-primary-tint .print-background-color {
+  background-color: var(--color-primary-tint);
 }
 
-.theme-schema-example .color-surface-dim .show-as-background-color {
+.theme-schema-example .color-surface-dim .print-background-color {
   background-color: var(--color-surface-dim);
 }
 
-.theme-schema-example .color-surface .show-as-background-color {
+.theme-schema-example .color-surface .print-background-color {
   background-color: var(--color-surface);
 }
 
-.theme-schema-example .color-surface-bright .show-as-background-color {
+.theme-schema-example .color-surface-bright .print-background-color {
   background-color: var(--color-surface-bright);
 }
 
-.theme-schema-example .color-surface-container-lowest .show-as-background-color {
+.theme-schema-example .color-surface-container-lowest .print-background-color {
   background-color: var(--color-surface-container-lowest);
 }
 
-.theme-schema-example .color-surface-container-low .show-as-background-color {
+.theme-schema-example .color-surface-container-low .print-background-color {
   background-color: var(--color-surface-container-low);
 }
 
-.theme-schema-example .color-surface-container .show-as-background-color {
+.theme-schema-example .color-surface-container .print-background-color {
   background-color: var(--color-surface-container);
 }
 
-.theme-schema-example .color-surface-container-high .show-as-background-color {
+.theme-schema-example .color-surface-container-high .print-background-color {
   background-color: var(--color-surface-container-high);
 }
 
-.theme-schema-example .color-surface-container-highest .show-as-background-color {
+.theme-schema-example .color-surface-container-highest .print-background-color {
   background-color: var(--color-surface-container-highest);
 }
 
-.theme-schema-example .color-on-surface .show-as-background-color {
+.theme-schema-example .color-on-surface .print-background-color {
   background-color: var(--color-on-surface);
 }
 
-.theme-schema-example .color-on-surface-variant .show-as-background-color {
+.theme-schema-example .color-on-surface-variant .print-background-color {
   background-color: var(--color-on-surface-variant);
 }
 
 .theme-schema-example .extra-title th {
-  border-bottom-color: var(--color-background);
+  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
 }
 
-.theme-schema-example .color-outline .show-as-background-color {
+.theme-schema-example .color-outline .print-background-color {
   background-color: var(--color-outline);
 }
 
-.theme-schema-example .color-outline-variant .show-as-background-color {
+.theme-schema-example .color-outline-variant .print-background-color {
   background-color: var(--color-outline-variant);
 }
 
-.theme-schema-example .color-light .show-as-background-color {
+.theme-schema-example .color-light .print-background-color {
   background-color: var(--color-light);
 }
 
-.theme-schema-example .color-shadow .show-as-background-color {
+.theme-schema-example .color-shadow .print-background-color {
   background-color: var(--color-shadow);
 }
 
-.theme-schema-example .color-scrim .show-as-background-color {
+.theme-schema-example .color-scrim .print-background-color {
   background-color: var(--color-scrim);
 }
 
-.theme-schema-example .color-surface-variant .show-as-background-color {
+.theme-schema-example .color-surface-variant .print-background-color {
   background-color: var(--color-surface-variant);
 }
 
-.theme-schema-example .color-inverse-surface .show-as-background-color {
+.theme-schema-example .color-inverse-surface .print-background-color {
   background-color: var(--color-inverse-surface);
 }
 
-.theme-schema-example .color-inverse-on-surface .show-as-background-color {
-  background-color: var(--color-inverse-on-surface);
+.theme-schema-example .color-on-inverse-surface .print-background-color {
+  background-color: var(--color-on-inverse-surface);
 }
 
-.theme-schema-example .color-background .show-as-background-color {
+.theme-schema-example .color-background .print-background-color {
   background-color: var(--color-background);
 }
 
-.theme-schema-example .color-on-background .show-as-background-color {
+.theme-schema-example .color-on-background .print-background-color {
   background-color: var(--color-on-background);
 }
 
@@ -263,15 +282,12 @@
 }
 
 .theme-schema-example tr.title th {
-  border-top: 0.2rem solid var(--color-outline-variant);
-  border-bottom-style: solid;
-  border-bottom-width: 0.4em;
   text-align: center;
   color: var(--color-on-surface);
   background-color: var(--color-surface-dim);
 }
 
 :root:has(.theme-colors-override) {
-  --color-primary-hue: 180deg;
-  --colors-secondary-hue-angle: 200deg;
+  --color-primary-hue: 200deg;
+  --colors-secondary-hue-angle: 210deg;
 }

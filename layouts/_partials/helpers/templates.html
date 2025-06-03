@@ -1,0 +1,61 @@
+{{- /*
+Renders the given html entity attributes.
+
+Accepts only named parameters.
+
+@param {dict} attributes A Map of the attributes to render
+@param {slice} [exclude] A list of attributes keys to exclude from the rendering
+
+@example
+  This code:
+    ```go-html-template
+    <!-- The attributes must be a dict -->
+    {{ $attributes := dict }}
+    <!-- An attribute value can be an array of strings (elements will be delimited with a space) -->
+    {{ $attributes := merge $attributes (dict "class" (slice "try-me" "centered")) }}
+    <!-- An attribute value can be a boolean (attributes a boolean false value are not rendered) -->
+    {{ $attributes := merge $attributes (dict "inert" true "hidden" false) }}
+    <!-- For boolean mandatory attributes you can use "true" and "false" as string -->
+    {{ $attributes := merge $attributes (dict "draggable" "false") }}
+    <!-- We can add attributes that should be excluded them from rendering (we will exclude them later) -->
+    {{ $attributes := merge $attributes (dict "src" "images/logo.png" "alt" "The Logo" "caption" "Using [CommonMark](https://commonmark.org/)") }}
+    <!-- ... this would likely be in a different template -->
+    <!-- Since we use some attributes somewhere else, we can exclude them from rendering -->
+    {{ $excludeAttributes := (slice "src" "alt" "caption") }}
+    <figure {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
+      <img
+        {{- with $attributes.src }} src="{{ . }}"{{ end }}
+        {{- with $attributes.alt }} alt="{{ . }}"{{ end -}}
+      />
+      {{ with $attributes.caption -}}
+        <figcaption>{{ . | markdownify }}</figcaption>
+      {{- end }}
+    </figure>
+    ```
+  Will render:
+    ```html
+    <figure class="try-me centered" draggable="false" inert>
+      <img src="images/logo.png" alt="The Logo"/>
+      <figcaption>Using <a href="https://commonmark.org/">CommonMark</a></figcaption>
+    </figure>
+    ```
+*/ -}}
+{{ define "render-attributes" -}}
+  {{- with $attributes := .attributes -}}
+    {{- if reflect.IsMap $attributes -}}
+      {{- $excludeAttributes := .exclude | default dict }}
+      {{- range $key, $value := $attributes }}
+        {{- if and (not (in $excludeAttributes $key)) (not (eq $value false)) }}
+          {{- if eq $value true -}}
+            {{- printf " %s" $key | safeHTMLAttr -}}
+          {{- else -}}
+            {{- if reflect.IsSlice $value -}}
+              {{- $value = delimit $value " " -}}
+            {{- end -}}
+            {{- printf " %s=%q" $key $value | safeHTMLAttr -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

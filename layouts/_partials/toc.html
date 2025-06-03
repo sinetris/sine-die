@@ -1,0 +1,25 @@
+{{ with .Fragments }}
+  {{- with .Headings }}
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title">Table of Content</h2>
+    {{- partial "inline/toc/walk.html" (dict "Headings" .) }}
+  </nav>
+  {{ end }}
+{{ end }}
+
+{{- define "partials/inline/toc/walk.html" }}
+  {{- range .Headings }}
+    {{ if gt .Level 0 }}
+    <li class="toc-level-{{ .Level }}">
+      <a href="#{{ .ID }}">{{ .Title | htmlUnescape }}</a>
+    {{ end }}
+    {{- with .Headings }}
+      <ul>
+        {{- partial "inline/toc/walk.html" (dict "Headings" .) }}
+      </ul>
+    {{ end }}
+    {{ if gt .Level 0 }}
+    </li>
+    {{ end }}
+  {{ end }}
+{{- end }}

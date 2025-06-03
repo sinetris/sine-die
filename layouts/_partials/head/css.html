@@ -1,0 +1,36 @@
+{{ if .Site.Params.showSearchUI -}}
+<link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet" type="text/css" />
+{{- end }}
+{{- $css_files := slice "css/normalize.css" "css/base.css" "css/colors.css" "css/style.css" "css/glossary.css" "css/menubar/style.css" }}
+{{ range $css_files }}
+  {{- with resources.Get . }}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
+  {{- end }}
+{{- end }}
+{{- $scss_files := slice "css/theme-colors.scss" }}
+{{ $scss_opts := dict
+  "enableSourceMap" hugo.IsDevelopment
+  "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+}}
+{{ range $scss_files }}
+  {{- with resources.Get . | toCSS $scss_opts}}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
+  {{- end }}
+{{- end }}
+{{- $gtpl_css_files := slice "css/assets.gtpl.css" "css/menubar/assets.gtpl.css" }}
+{{ range $gtpl_css_files }}
+  {{- with resources.Get . | resources.ExecuteAsTemplate (printf "%s/%s.css" (path.Dir .) (path.BaseName .)) . }}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
+  {{- end -}}
+{{- end -}}
+{{ if .Site.Params.showSearchUI -}}
+  {{ with resources.Get "css/pagefind-overrides.gtpl.css" | resources.ExecuteAsTemplate "css/pagefind-overrides.css" . -}}
+    {{ partial "helpers/css-link.html" (dict "resource" .) }}
+  {{- end }}
+{{- end }}
+{{ with resources.Get "css/overrides.css" -}}
+  {{ partial "helpers/css-link.html" (dict "resource" .) }}
+{{- end }}
+{{- with resources.Get "css/override_assets.gtpl.css" | resources.ExecuteAsTemplate "css/override_assets.css" . }}
+  {{ partial "helpers/css-link.html" (dict "resource" .) }}
+{{- end -}}

@@ -1,0 +1,11 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+<ul id="menu" role="menubar">
+  {{- with index site.Menus $menuID }}
+    {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" 0 "menuEntries" .) }}
+  {{- end }}
+  <li class="theme-switcher" role="none">
+    <button type="button" aria-label="Theme Switch"></button>
+  </li>
+</ul>

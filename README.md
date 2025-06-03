@@ -3,23 +3,10 @@
 <p align="center">
 <img
   src="assets/images/sine-die-logo-full.svg"
-  style="max-width: 50%"
+  style="width: 80%;"
   alt="sine-die logo"
 />
 </p>
-A simple and clean [Hugo][hugo] theme.
-
-- Semantic HTML
-- Minimalist CSS framework
-  - Lightweight
-  - Responsive Web Design
-  - Light or Dark Mode
-  - Easily customizable color palette
-  - Pure CSS (no transpiler required)
-- Accessibility friendly
-- Search functionality
-
----
 
 <p align="center">
 <img
@@ -29,8 +16,11 @@ A simple and clean [Hugo][hugo] theme.
 />
 </p>
 
+---
+
 Table of Content
 
+- [Description](#description)
 - [Prerequisites](#prerequisites)
 - [Setup and run the example site locally](#setup-and-run-the-example-site-locally)
 - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
@@ -38,6 +28,21 @@ Table of Content
     - [Installing and running Pagefind](#installing-and-running-pagefind)
 - [Credits and Acknowledgements](#credits-and-acknowledgements)
 - [License](#license)
+
+## Description
+
+A simple and clean [Hugo][hugo] theme.
+
+- Semantic HTML
+- Minimalist CSS framework
+  - Lightweight
+  - Responsive Web Design
+  - Light/Dark Mode
+  - Easily customizable color palette
+  - Menubar
+- Glossary templates
+- Accessibility friendly
+- Search functionality
 
 ## Prerequisites
 
@@ -55,8 +60,8 @@ Clone the [sine-die](https://github.com/sinetris/sine-die) repository and move
 to the `exampleSite` directory.
 
 ```shell
-git clone https://github.com/sinetris/sine-die.git sine-die-example
-cd sine-die-example/exampleSite
+git clone https://github.com/sinetris/sine-die.git sine-die
+cd sine-die/exampleSite
 ```
 
 Install and run `pagefind` to generate the search indexes from the static files
@@ -181,6 +186,7 @@ Specifically:
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
 [git-getting-started]: <https://git-scm.com/book/en/Getting-Started-Installing-Git/> "Git: Getting Started"
 [hugo-quick-start]: <https://gohugo.io/getting-started/quick-start/> "Hugo: Quick start"
+[hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
 [material-design-color-system]: <https://m3.material.io/styles/color/the-color-system/key-colors-tones> "Material design color system"
 [material-design]: <https://m3.material.io> "Material Design"
 [material-symbols]: <https://fonts.google.com/icons> "Material Symbols"
