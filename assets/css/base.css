@@ -204,6 +204,10 @@ input[type="radio"] {
   position: relative;
 }
 
+input[type="checkbox"] {
+  appearance: auto;
+}
+
 input[type="radio"] {
   border-radius: 50%;
 }
