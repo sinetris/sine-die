@@ -2,7 +2,7 @@ defaultContentLanguage = "en"
 
 [module]
   [module.hugoVersion]
-    min = "0.120.0"
+    min = "0.146.0"
 
 [markup]
   [markup.highlight]
