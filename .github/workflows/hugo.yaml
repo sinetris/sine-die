@@ -61,20 +61,20 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Europe/Berlin
-        working-directory: exampleSite
+        working-directory: userguide
         run: |
           hugo \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Run Pagefind
-        working-directory: exampleSite
+        working-directory: userguide
         run: |
           python3 -m pagefind
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./exampleSite/public
+          path: ./userguide/public
 
   # Deployment job
   deploy:
