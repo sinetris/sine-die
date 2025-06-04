@@ -10,7 +10,7 @@
 
 <p align="center">
 <img
-  src="exampleSite/assets/images/responsive-previews.png"
+  src="userguide/assets/images/responsive-previews.png"
   style="width: 90%"
   alt="Responsive Web Design Demo"
 />
@@ -57,11 +57,11 @@ A simple and clean [Hugo][hugo] theme.
 Install required [prerequisites](#prerequisites).
 
 Clone the [sine-die](https://github.com/sinetris/sine-die) repository and move
-to the `exampleSite` directory.
+to the `userguide` directory.
 
 ```shell
 git clone https://github.com/sinetris/sine-die.git sine-die
-cd sine-die/exampleSite
+cd sine-die/userguide
 ```
 
 Install and run `pagefind` to generate the search indexes from the static files
@@ -111,14 +111,14 @@ can be found in [Pagefind installation documentation][pagefind-installation]).
   </summary>
 
   If you want to use **Python 3** and are using [pyenv][pyenv], you can install
-  Python 3 version from [.python-version](exampleSite/.python-version) running:
+  Python 3 version from [.python-version](userguide/.python-version) running:
 
   ```shell
   pyenv install
   ```
 
   If you want to use **Node.js** and are using [asdf][asdf], you can install
-  the Node.js version from [.tool-versions](exampleSite/.tool-versions) running:
+  the Node.js version from [.tool-versions](userguide/.tool-versions) running:
 
   ```shell
   # Install Node.js plugin for asdf
@@ -148,7 +148,7 @@ python3 -m pagefind --site "public"
 ```
 
 You can use [Pagefind CLI config sources][pagefind-config-sources] instead of passing
-CLI flags. Check [exampleSite/pagefind.yaml](exampleSite/pagefind.yaml) for an example.
+CLI flags. Check [userguide/pagefind.yaml](userguide/pagefind.yaml) for an example.
 
 ## Credits and Acknowledgements
 
