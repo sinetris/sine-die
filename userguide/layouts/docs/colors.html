@@ -1,7 +1,5 @@
 {{ define "head-addition" }}
-  {{ with resources.Get "css/docs/colors.css" -}}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end }}
+  {{ partial "helpers/css-link.html" (dict "asset" "css/docs/colors.css") }}
 {{ end }}
 {{ define "main" }}
 <article class="theme-schema-example">

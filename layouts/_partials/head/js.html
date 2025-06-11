@@ -1,3 +1,12 @@
 {{ if .Site.Params.showSearchUI -}}
 <script src="{{ relURL "pagefind/pagefind-ui.js" }}" type="text/javascript"></script>
 {{- end }}
+{{- $js_files := slice
+      "/sine-die/js/menubar.js"
+      "/sine-die/js/mobile-menu.js"
+      "/sine-die/js/theme-switch.js"
+      "/sine-die/js/app.js"
+-}}
+{{- range $js_files }}
+  {{ partial "helpers/js-link.html" (dict "asset" .) }}
+{{- end -}}

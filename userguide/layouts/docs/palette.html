@@ -1,7 +1,5 @@
 {{ define "head-addition" }}
-  {{ with resources.Get "css/docs/palette.css" -}}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end }}
+  {{ partial "helpers/css-link.html" (dict "asset" "css/docs/palette.css") }}
 {{ end }}
 {{ define "main" }}
   <article class="theme-palette-example">
