@@ -1,5 +1,5 @@
-'use strict';
-// -- (start) Dark/Light Theme switch --
+// Dark/Light Theme Switch button
+
 class ManageColorScheme {
   constructor(root, switchButton) {
     this.root = root;
@@ -43,25 +43,3 @@ class ManageColorScheme {
     return (this.preferColorScheme === "dark") ? ["default", "light", "dark"] : ["default", "dark", "light"];
   }
 }
-
-window.addEventListener('load', function () {
-  const root = document.documentElement;
-  const switchButton = document.querySelector(".theme-switcher button");
-  new ManageColorScheme(root, switchButton);
-});
-// -- (end) Dark/Light Theme switch --
-
-// -- (start) Mobile menu --
-function responsiveMenu() {
-  const responsiveClass = "responsive";
-  var menuElement = document.getElementById("primary-navigation");
-  if (menuElement.classList.contains(responsiveClass)) {
-    menuElement.classList.remove(responsiveClass);
-  } else {
-    menuElement.classList.add(responsiveClass);
-  }
-}
-
-const responsiveMenuButton = document.querySelector(".menu-icon");
-responsiveMenuButton.addEventListener("click", responsiveMenu);
-// -- (end) Mobile menu --

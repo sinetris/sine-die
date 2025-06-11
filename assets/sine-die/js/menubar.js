@@ -546,11 +546,3 @@ class MenubarNavigation {
     }
   }
 }
-
-// Initialize menubar
-window.addEventListener('load', function () {
-  var menubarNavs = document.querySelectorAll('ul[role="menubar"]');
-  for (var i = 0; i < menubarNavs.length; i++) {
-    new MenubarNavigation({element: menubarNavs[i]});
-  }
-});

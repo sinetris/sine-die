@@ -1,14 +1,32 @@
-{{ $resource := .resource }}
-{{ $attributes := .attributes | default (dict "rel" "stylesheet")}}
+{{ $asset := .asset }}
+{{ $resource := false }}
+{{ $attributes := .attributes | default dict }}
 
-{{- if hugo.IsDevelopment }}
+{{- with resources.Get $asset }}
+  {{ $attributes = $attributes | merge (dict "rel" "stylesheet") }}
+  {{ $resource = . }}
+  {{/* Files with extension ".gtpl.*" are considered templates */}}
+  {{ if hasSuffix (path.BaseName $asset) ".gtpl" }}
+    {{ $resource = $resource | resources.ExecuteAsTemplate $asset $asset }}
+  {{ end }}
+
+  {{/* Files with extension ".scss" are tranformed to CSS using Sass transpiler */}}
+  {{ if eq (path.Ext $asset) ".scss" }}
+    {{ $scss_opts := dict
+      "enableSourceMap" (not hugo.IsProduction)
+      "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
+    }}
+    {{ $resource = $resource | toCSS $scss_opts }}
+  {{ end }}
+
+  {{- if hugo.IsProduction }}
+    {{ $resource = $resource | resources.Minify }}
+    {{ $attributes = merge $attributes (dict "crossorigin" "anonymous") }}
+  {{- end }}
   {{- with $resource | fingerprint }}
     {{- $attributes = merge $attributes (dict "href" .RelPermalink "integrity" .Data.Integrity) }}
     <link {{ template "render-attributes" (dict "attributes" $attributes) }}/>
   {{- end }}
 {{- else }}
-  {{- with $resource | minify | fingerprint }}
-    {{- $attributes = merge $attributes (dict "href" .RelPermalink "integrity" .Data.Integrity "crossorigin" "anonymous") }}
-    <link {{- template "render-attributes" (dict "attributes" $attributes) }}/>
-  {{- end }}
+  {{ errorf "Asset %s is missing, source \"%s\", caller \"%s\"" . templates.Current.Filename templates.Current.Parent.Filename }}
 {{- end }}

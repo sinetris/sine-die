@@ -1,36 +1,21 @@
 {{ if .Site.Params.showSearchUI -}}
-<link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet" type="text/css" />
+<link href="{{ relURL "pagefind/pagefind-ui.css" }}" rel="stylesheet" />
 {{- end }}
-{{- $css_files := slice "css/normalize.css" "css/base.css" "css/colors.css" "css/style.css" "css/glossary.css" "css/menubar/style.css" }}
-{{ range $css_files }}
-  {{- with resources.Get . }}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end }}
+{{- $assets := slice
+      "css/normalize.css"
+      "sine-die/css/base.css"
+      "sine-die/css/color-palette.css"
+      "sine-die/css/style.css"
+      "sine-die/css/glossary/style.css"
+      "sine-die/css/menubar/style.css"
+      "sine-die/css/theme-colors.scss"
+      "sine-die/css/assets.gtpl.css"
+      "sine-die/css/menubar/assets.gtpl.css"
+-}}
+{{ range $assets }}
+  {{ partial "helpers/css-link.html" (dict "asset" .) }}
 {{- end }}
-{{- $scss_files := slice "css/theme-colors.scss" }}
-{{ $scss_opts := dict
-  "enableSourceMap" hugo.IsDevelopment
-  "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
-}}
-{{ range $scss_files }}
-  {{- with resources.Get . | toCSS $scss_opts}}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end }}
-{{- end }}
-{{- $gtpl_css_files := slice "css/assets.gtpl.css" "css/menubar/assets.gtpl.css" }}
-{{ range $gtpl_css_files }}
-  {{- with resources.Get . | resources.ExecuteAsTemplate (printf "%s/%s.css" (path.Dir .) (path.BaseName .)) . }}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end -}}
-{{- end -}}
 {{ if .Site.Params.showSearchUI -}}
-  {{ with resources.Get "css/pagefind-overrides.gtpl.css" | resources.ExecuteAsTemplate "css/pagefind-overrides.css" . -}}
-    {{ partial "helpers/css-link.html" (dict "resource" .) }}
-  {{- end }}
+  {{ partial "helpers/css-link.html" (dict "asset" "sine-die/css/pagefind-overrides.gtpl.css") }}
 {{- end }}
-{{ with resources.Get "css/overrides.css" -}}
-  {{ partial "helpers/css-link.html" (dict "resource" .) }}
-{{- end }}
-{{- with resources.Get "css/override_assets.gtpl.css" | resources.ExecuteAsTemplate "css/override_assets.css" . }}
-  {{ partial "helpers/css-link.html" (dict "resource" .) }}
-{{- end -}}
+{{ partial "helpers/css-link.html" (dict "asset" "css/overrides.css") }}

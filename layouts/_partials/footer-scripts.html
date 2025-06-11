@@ -1,6 +1,0 @@
-{{- $js_files := slice "js/theme/menubar.js" "js/theme.js" "js/app.js" -}}
-{{- range $js_files }}
-  {{- with resources.Get . }}
-    {{ partial "helpers/js-link.html" (dict "resource" .) }}
-  {{- end }}
-{{- end -}}
