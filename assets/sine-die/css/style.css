@@ -1,5 +1,6 @@
 :root {
   --footer-height: 5rem;
+  --sidebar-margin-top: 1rem;
 }
 
 body {
@@ -95,7 +96,7 @@ body > .sidebar {
   grid-area: sidebar;
   color: var(--color-on-surface);
   background-color: var(--color-surface-container-high);
-  margin-top: 1em;
+  margin-top: var(--sidebar-margin-top);
   padding-left: 1em;
   border-top-left-radius: 1em;
   border-top: 0.1em solid var(--color-outline);
@@ -375,7 +376,7 @@ nav.primary .brand hgroup {
   body {
     grid-template:
       "header header" auto
-      "content sidebar" 1fr
+      "content sidebar" minmax(min-content, 1fr)
       "footer footer" auto
       / 5fr 2fr;
   }
@@ -383,8 +384,7 @@ nav.primary .brand hgroup {
   body:not(.full-space) > .sidebar {
     position: sticky;
     top: 0;
-    min-height: min-content;
-    height: 100vh;
+    height: calc(100% - var(--sidebar-margin-top));
     margin-bottom: var(--footer-height);
   }
 }
