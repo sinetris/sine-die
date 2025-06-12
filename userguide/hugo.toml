@@ -12,7 +12,7 @@ title = "sine-die"
 
 [markup]
   [markup.highlight]
-    style = 'catppuccin-macchiato'
+    noClasses = false
   [markup.tableOfContents]
     endLevel = 3
     ordered = false

@@ -18,7 +18,7 @@
   margin-top: 2em;
 }
 
-.theme-palette-example code {
+.theme-palette-example code:not([data-lang]) {
   background-color: var(--color-surface-bright);
 }
 

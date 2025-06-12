@@ -1,0 +1,33 @@
+@use "sass:meta";
+
+@mixin theme-color-scheme($name) {
+  @include meta.load-css($name);
+
+  .chroma {
+    background-color: var(--color-surface-container-high);
+  }
+}
+
+/* Light Theme */
+[data-color-scheme="light"] {
+  @include theme-color-scheme("light");
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-scheme="light"], [data-color-scheme="dark"]),
+  [data-color-scheme="default"] {
+    @include theme-color-scheme("light");
+  }
+}
+
+/* Dark Theme */
+[data-color-scheme="dark"] {
+  @include theme-color-scheme("dark");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme="light"], [data-color-scheme="dark"]),
+  [data-color-scheme="default"] {
+    @include theme-color-scheme("dark");
+  }
+}

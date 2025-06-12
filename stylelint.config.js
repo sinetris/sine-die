@@ -10,4 +10,8 @@ export default {
       extends: ["stylelint-config-standard-scss"],
     },
   ],
+  ignoreFiles: [
+    "assets/sine-die/css/code-highlight/_dark.css",
+    "assets/sine-die/css/code-highlight/_light.css",
+  ],
 };
