@@ -100,7 +100,6 @@ nav.primary [role="menubar"] button[aria-haspopup="true"]:hover {
 
 .brand a:focus-visible,
 nav.primary [role="menubar"] a:focus-visible,
-nav.primary [role="menubar"] li.theme-switcher:has(:focus-visible),
 nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible) {
   outline: .1rem solid var(--color-on-primary);
 }
@@ -151,10 +150,6 @@ nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible
 
   nav.primary.responsive [role="menubar"] ul {
     background-color: inherit;
-  }
-
-  nav.primary.responsive [role="menubar"] .theme-switcher button {
-    padding-bottom: 1em;
   }
 
   nav.primary.responsive [role="menubar"] [role="menu"][aria-hidden="false"] {
