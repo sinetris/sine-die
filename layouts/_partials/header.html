@@ -2,7 +2,14 @@
 <nav id="primary-navigation" class="primary" aria-label="Primary navigation">
   {{ partial "header_logo.html" . }}
   {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-  <button type="button" class="menu-icon" aria-label="Show Menu" aria-controls="menu">
-    <span class="material-symbols-outlined" aria-hidden="true">menu</span>
-  </button>
+  <button
+    type="button"
+    class="menu-icon"
+    data-symbol
+    data-function="mobile-menu"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-label="Show Menu"
+    aria-controls="menu"
+  ></button>
 </nav>

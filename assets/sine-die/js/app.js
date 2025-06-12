@@ -12,5 +12,5 @@ const switchButton = document.querySelector('button[data-function="switch-color-
 new ManageColorScheme(root, switchButton);
 
 // Mobile menu button
-const responsiveMenuButton = document.querySelector(".menu-icon");
-responsiveMenuButton.addEventListener("click", responsiveMenu);
+const mobileMenuButton = document.querySelector('[data-function="mobile-menu"]');
+new MobileMenu(mobileMenuButton);
