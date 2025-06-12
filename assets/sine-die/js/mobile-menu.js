@@ -6,6 +6,7 @@ class MobileMenu {
   #button;
   #openLabel;
   #closeLabel;
+  #responsiveClass = "responsive";
   constructor(button, openLabel = 'Open main menu', closeLabel = 'Close main menu') {
     this.#button = button;
     this.#openLabel = openLabel;
@@ -25,6 +26,12 @@ class MobileMenu {
   }
 
   switchMenu() {
+    const primaryMenu = this.#button.parentNode;
+    if (primaryMenu.classList.contains(this.#responsiveClass)) {
+      primaryMenu.classList.remove(this.#responsiveClass);
+    } else {
+      primaryMenu.classList.add(this.#responsiveClass);
+    }
     let toggleExpanded = !(this.isExpanded);
     this.updateMenu(toggleExpanded);
   }

@@ -1,5 +1,28 @@
 /* Primary menubar */
 
+[data-function="mobile-menu"] {
+  aspect-ratio: 1 / 1;
+  border: none;
+  height: 1.8em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: .2em;
+  top: .2em;
+}
+
+[data-function="mobile-menu"]::before {
+  font-size: 1.5em;
+}
+
+[data-function="mobile-menu"][aria-expanded="false"]::before {
+  content: "menu";
+}
+
+[data-function="mobile-menu"][aria-expanded="true"]::before {
+  content: "close";
+}
+
 nav.primary [role="menubar"] a {
   color: var(--color-on-primary);
   text-decoration: none;
@@ -108,6 +131,11 @@ nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible
 /* Small tablet devices and smaller */
 
 @media only screen and (width <= 1024px) {
+  /* Show menu only on mobile-menu button click */
+  nav.primary [role="menubar"]:has(+ [data-function="mobile-menu"][aria-expanded="false"]) {
+    display: none;
+  }
+
   nav.primary {
     position: relative;
   }
@@ -127,7 +155,6 @@ nav.primary [role="menubar"] li:has(> button[aria-haspopup="true"]:focus-visible
   }
 
   nav.primary [role="menubar"] li {
-    display: none;
     margin: 0;
     width: auto;
   }
