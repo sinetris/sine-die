@@ -51,6 +51,7 @@ A simple and clean [Hugo][hugo] theme.
 - (optional) For the [Search functionality](#search-functionality)
   - [Node.js][node-js] or [Python 3][python] (used by Pagefind)
   - [Pagefind][pagefind]
+- [Dart Sass][hugo-dart-sass]
 
 ## Setup and run the example site locally
 
@@ -185,6 +186,7 @@ Specifically:
 [aria]: <https://www.w3.org/TR/wai-aria/> "Accessible Rich Internet Applications (WAI-ARIA)"
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
 [git-getting-started]: <https://git-scm.com/book/en/Getting-Started-Installing-Git/> "Git: Getting Started"
+[hugo-dart-sass]: <https://gohugo.io/functions/css/sass/#dart-sass> "Hugo: Install Dart Sass"
 [hugo-quick-start]: <https://gohugo.io/getting-started/quick-start/> "Hugo: Quick start"
 [hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
 [material-design-color-system]: <https://m3.material.io/styles/color/the-color-system/key-colors-tones> "Material design color system"

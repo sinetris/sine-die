@@ -13,6 +13,7 @@
   {{/* Files with extension ".scss" are tranformed to CSS using Sass transpiler */}}
   {{ if eq (path.Ext $asset) ".scss" }}
     {{ $scss_opts := dict
+      "transpiler" "dartsass"
       "enableSourceMap" (not hugo.IsProduction)
       "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
     }}
