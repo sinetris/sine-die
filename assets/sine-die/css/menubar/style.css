@@ -199,7 +199,7 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
     position: relative;
   }
 
-  nav.primary .menu-icon {
+  nav.primary [data-function="mobile-menu"] {
     position: absolute;
     right: .1em;
     top: .1em;
@@ -276,7 +276,7 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
     padding-left: 0;
   }
 
-  nav.primary .menu-icon {
+  nav.primary [data-function="mobile-menu"] {
     display: none;
   }
 
