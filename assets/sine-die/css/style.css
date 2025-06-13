@@ -225,7 +225,6 @@ nav.primary {
   color: var(--color-on-primary-container);
   background-color: var(--color-primary-container);
   z-index: 10;
-  align-content: center;
 }
 
 nav.primary .brand {

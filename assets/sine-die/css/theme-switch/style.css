@@ -4,12 +4,12 @@ li:has([data-function="switch-color-scheme"]) {
 }
 
 [data-function="switch-color-scheme"] {
-  aspect-ratio: 1/1;
-  background-color: transparent;
+  align-self: center;
+  aspect-ratio: 1 / 1;
   border: none;
-  cursor: pointer;
-  height: 90%;
-  margin: 0;
+  display: inline-block;
+  margin: .2em .2em .3em .25em;
+  min-width: 2.5em;
   padding: 0;
 }
 
@@ -45,7 +45,10 @@ li:has([data-function="switch-color-scheme"]) {
   [data-function="switch-color-scheme"] {
     aspect-ratio: auto;
     display: inline-block;
-    width: 100%;
+    margin: .25em;
+    max-width: 100%;
+    width: calc(100% - .5em);
+    height: 2.5em;
   }
 }
 

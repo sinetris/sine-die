@@ -5,12 +5,4 @@
   {{- with index site.Menus $menuID }}
     {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" 0 "menuEntries" .) }}
   {{- end }}
-  <li role="none">
-    <button
-      type="button"
-      data-symbol
-      data-function="switch-color-scheme"
-      aria-label="Theme Switch"
-    ></button>
-  </li>
 </ul>
