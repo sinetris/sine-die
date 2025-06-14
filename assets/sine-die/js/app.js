@@ -8,9 +8,9 @@ for (var i = 0; i < menubarNavs.length; i++) {
 
 // Light/Dark Theme Switcher button
 const root = document.documentElement;
-const switchButton = document.querySelector(".theme-switcher button");
+const switchButton = document.querySelector('button[data-function="switch-color-scheme"]');
 new ManageColorScheme(root, switchButton);
 
 // Mobile menu button
-const responsiveMenuButton = document.querySelector(".menu-icon");
-responsiveMenuButton.addEventListener("click", responsiveMenu);
+const mobileMenuButton = document.querySelector('[data-function="mobile-menu"]');
+new MobileMenu(mobileMenuButton);

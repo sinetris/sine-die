@@ -120,26 +120,6 @@ body > footer > span + span::before {
   content: "|";
 }
 
-.theme-switcher button {
-  align-items: center;
-  border: none;
-  margin: auto .5em;
-  content: "";
-  display: inline-block;
-  height: 100%;
-  color: var(--color-on-primary);
-  background-color: currentcolor;
-  mask-size: 1.25em;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  cursor: pointer;
-  padding-right: 1.5rem;
-}
-
-.theme-switcher button:hover {
-  color: var(--color-secondary);
-}
-
 nav.breadcrumb [property="name"] {
   color: var(--color-on-tertiary);
 }
@@ -245,7 +225,6 @@ nav.primary {
   color: var(--color-on-primary-container);
   background-color: var(--color-primary-container);
   z-index: 10;
-  align-content: center;
 }
 
 nav.primary .brand {
@@ -294,6 +273,11 @@ nav.primary .brand hgroup {
 [aria-haspopup="true"] svg {
   height: 1em;
   vertical-align: middle;
+}
+
+[data-symbol] {
+  font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  display: inline-block;
 }
 
 /* Mobile devices */
@@ -361,7 +345,7 @@ nav.primary .brand hgroup {
     padding: 0;
   }
 
-  nav.primary.responsive {
+  nav.primary {
     position: relative;
   }
 }

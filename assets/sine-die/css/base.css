@@ -448,8 +448,7 @@ body:not(:has(> .sidebar > *)) {
   }
 
   #search,
-  .breadcrumb,
-  .theme-switcher {
+  .breadcrumb {
     display: none;
   }
 

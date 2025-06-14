@@ -16,7 +16,15 @@
       <a {{ template "render-attributes" (dict "attributes" $attributes) }}>
         {{ $name }}
       </a>
-      <button id="{{ $ariaButtonID }}" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="{{ $ariaSubmenuID }}" aria-label="{{ $ariaLabel }}"></button>
+      <button
+        id="{{ $ariaButtonID }}"
+        role="menuitem"
+        data-symbol
+        aria-controls="{{ $ariaSubmenuID }}"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="{{ $ariaLabel }}"
+      ></button>
       {{- with .Children }}
         <ul role="menu" aria-hidden="true" id="{{ $ariaSubmenuID }}" aria-labelledby="{{ $ariaButtonID }}">
           {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" (add $level 1) "menuEntries" .) }}

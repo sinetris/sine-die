@@ -1,0 +1,59 @@
+li:has([data-function="switch-color-scheme"]) {
+  align-content: center;
+  width: 3em;
+}
+
+[data-function="switch-color-scheme"] {
+  align-self: center;
+  aspect-ratio: 1 / 1;
+  border: none;
+  display: inline-block;
+  margin: .2em .2em .3em .25em;
+  min-width: 2.5em;
+  padding: 0;
+}
+
+[data-function="switch-color-scheme"]::before {
+  aspect-ratio: 1/1;
+  content: "contrast";
+  font-size: 1.2rem;
+}
+
+[data-function="switch-color-scheme"]:enabled:hover::before {
+  font-size: 1.5rem;
+}
+
+[data-color-scheme="dark"] [data-function="switch-color-scheme"]::before {
+  content: "dark_mode";
+}
+
+[data-color-scheme="light"] [data-function="switch-color-scheme"]::before {
+  content: "light_mode";
+}
+
+[data-function="switch-color-scheme"]:enabled:hover {
+  background-color: var(--color-tertiary);
+  color: var(--color-on-tertiary);
+}
+
+@media only screen and (width <= 1024px) {
+  li:has([data-function="switch-color-scheme"]) {
+    min-height: 3rem;
+    text-align: center;
+  }
+
+  [data-function="switch-color-scheme"] {
+    aspect-ratio: auto;
+    display: inline-block;
+    margin: .25em;
+    max-width: 100%;
+    width: calc(100% - .5em);
+    height: 2.5em;
+  }
+}
+
+@media print {
+  [data-function="switch-color-scheme"] {
+    display: none;
+  }
+}
