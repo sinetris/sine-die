@@ -96,16 +96,12 @@
   color: var(--color-on-primary);
   white-space: nowrap;
   min-height: 2.5em;
+  width: 100%;
   margin: 0 .5em;
 }
 
 nav.primary [role="menubar"] a:hover {
   color: var(--color-on-tertiary-container);
-}
-
-nav.primary [role="menubar"] li:hover,
-nav.primary [role="menubar"] li:has(:hover) {
-  border-color: var(--color-on-tertiary-container);
 }
 
 nav.primary [role="menubar"] > li {
@@ -328,7 +324,11 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
   }
 
   nav.primary [role="menubar"] li:has([role="menuitem"]):hover {
-    border-style: double;
+    border-style: dotted;
+  }
+
+  nav.primary [role="menubar"] li:has(:hover) {
+    border-color: var(--color-on-tertiary-container);
   }
 }
 
