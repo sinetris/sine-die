@@ -345,7 +345,7 @@ nav.primary .brand hgroup {
     padding: 0;
   }
 
-  nav.primary.responsive {
+  nav.primary {
     position: relative;
   }
 }

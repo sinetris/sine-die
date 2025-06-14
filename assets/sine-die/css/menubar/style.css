@@ -207,15 +207,12 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
   nav.primary [role="menubar"] {
     padding: 0;
     margin: 0;
-    background-color: var(--color-surface-bright)
-  }
-
-  nav.primary.responsive [role="menubar"] {
+    background-color: var(--color-surface-bright);
     display: grid;
     grid-template-rows: minmax(auto, 1fr);;
   }
 
-  nav.primary.responsive [role="menubar"] li {
+  nav.primary [role="menubar"] li {
     align-content: center;
     border-bottom: none;
     border-left-style: solid;
@@ -224,11 +221,11 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
     margin: 0;
   }
 
-  nav.primary.responsive [role="menubar"] ul {
+  nav.primary [role="menubar"] ul {
     background-color: inherit;
   }
 
-  nav.primary.responsive [role="menubar"] [role="menu"][aria-hidden="false"] {
+  nav.primary [role="menubar"] [role="menu"][aria-hidden="false"] {
     position: relative;
     display: grid;
     grid-template-rows: minmax(auto, 1fr);;
