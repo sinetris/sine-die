@@ -6,6 +6,7 @@
   - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
   - [Search functionality](#search-functionality)
     - [Installing and running Pagefind](#installing-and-running-pagefind)
+  - [Favicons](#favicons)
 
 ## Development
 
@@ -109,7 +110,26 @@ python3 -m pagefind --site "public"
 You can use [Pagefind CLI config sources][pagefind-config-sources] instead of passing
 CLI flags. Check [userguide/pagefind.yaml](userguide/pagefind.yaml) for an example.
 
+### Favicons
+
+You need an SVG image to generate favicons for your website.
+
+- Generate favicons from the SVG image (e.g using [icongen])
+  - Icons to generate: **favicon.ico**, **apple touch icon**, **Android app**,
+  **OSX favicon.png**
+- Copy the SVG image to `static/favicons/favicon.svg`
+- Copy generated `favicon.ico` image to `static/favicon.ico`
+- Copy other generated images to `static/favicons/`
+- Set `enableFavicons` param to `true` in your Hugo website configuration
+  (e.g. `hugo.toml`)
+
+    ```toml
+    [params]
+      enableFavicons = true
+    ```
+
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
+[icongen]: <https://github.com/cthedot/icongen> "icongen: Generate Web and App icons and PNG favicons"
 [pagefind-config-sources]: <https://pagefind.app/docs/config-sources/> "Pagefind CLI configuration sources"
 [pagefind-installation]: <https://pagefind.app/docs/installation/> "Pagefind installation"
 [pagefind]: <https://pagefind.app/> "Pagefind"

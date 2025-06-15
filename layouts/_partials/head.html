@@ -16,3 +16,4 @@
 {{ partial "fonts-assets.html" . }}
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+{{ if .Site.Params.enableFavicons }}{{ partialCached "head/favicons.html" . }}{{ end }}
