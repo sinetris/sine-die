@@ -7,6 +7,7 @@ title = "sine-die"
   home = ["HTML", "RSS"]
 
 [params]
+  enableFavicons = true
   showSearchUI = true
   logo = "images/sine-die-logo.svg"
 
