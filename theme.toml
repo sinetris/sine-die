@@ -15,7 +15,7 @@ tags = [
   "search",
 ]
 features = [
-  "Accessibility frienly",
+  "Accessibility friendly",
   "Breadcrumbs",
   "Customizable color palette",
   "Light/Dark mode",
@@ -25,7 +25,6 @@ features = [
   "Semantic HTML",
   "Table of Contents",
 ]
-min_version = "0.146.0"
 
 [author]
 name = "Duilio Ruggiero"
