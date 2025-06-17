@@ -3,7 +3,10 @@
 - [Development](#development)
   - [Setup and run the example site locally](#setup-and-run-the-example-site-locally)
 - [Setup](#setup)
-  - [Add the sine-die theme to your Hugo site](#add-the-sine-die-theme-to-your-hugo-site)
+  - [Add theme as a Hugo Module](#add-theme-as-a-hugo-module)
+    - [Install module](#install-module)
+    - [Update your config file](#update-your-config-file)
+  - [Add theme as a Git submodule](#add-theme-as-a-git-submodule)
   - [Search functionality](#search-functionality)
     - [Installing and running Pagefind](#installing-and-running-pagefind)
   - [Favicons](#favicons)
@@ -36,15 +39,64 @@ hugo server \
 
 ## Setup
 
-### Add the sine-die theme to your Hugo site
+You can add the sine-die theme to your Hugo site in few ways.
 
-Add the sine-die theme to your Hugo site as a git submodule:
+### Add theme as a Hugo Module
+
+The recommended (and most versatile) way to add the a Hugo theme to your
+website is to use [Hugo modules][hugo-modules].
+
+To [use Hugo modules for a theme][hugo-modules-init] in a website, you
+need to initialize the Hugo module system, import the theme, and update
+the configuration.
+
+#### Install module
+
+Example for unix shell:
+
+```sh
+github_user=<your-github-user>
+website_repo=<your-hugo-repo>
+project_namespace=github.com/${github_user:?}/${website_repo:?}
+hugo mod init "${project_namespace:?}"
+hugo mod get github.com/sinetris/sine-die
+```
+
+#### Update your config file
+
+Update theme and modules setting in your configuration file (e.g., `hugo.toml`).
+
+```toml
+# Add the theme using the full module path (identity)
+theme = ["github.com/sinetris/sine-die"]
+# Configure the modules
+[module]
+  proxy = "direct"
+  # You can specify `replacements` to use local copies of modules (e.g., for local
+  # module development).
+  # Info on replacements: https://gohugo.io/configuration/module/#replacements
+  # Uncomment the line below for local development.
+  # replacements = 'github.com/sinetris/sine-die -> ../sine-die'
+  [module.hugoVersion]
+    extended = true
+    min = "0.146.0"
+  [[module.imports]]
+    path = "github.com/sinetris/sine-die"
+  # # You can add multiple modules
+  # [[module.imports]]
+  #   path = "github.com/gohugoio/hugo-mod-jslibs/instantpage"
+```
+
+### Add theme as a Git submodule
+
+To add the sine-die theme to your Hugo site as a git submodule, move to your
+website folder and run:
 
 ```shell
 git submodule add https://github.com/sinetris/sine-die themes/sine-die
 ```
 
-Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
+Edit `hugo.toml` and change (or add) the theme to `theme = ['sine-die']`.
 
 ### Search functionality
 
@@ -129,6 +181,8 @@ You need an SVG image to generate favicons for your website.
     ```
 
 [asdf]: <https://asdf-vm.com/> "asdf: The Multiple Runtime Version Manager"
+[hugo-modules]: <https://gohugo.io/hugo-modules/> "Hugo modules"
+[hugo-modules-init]: <https://gohugo.io/hugo-modules/use-modules/#use-a-module-for-a-theme> "Use Hugo modules for a theme"
 [icongen]: <https://github.com/cthedot/icongen> "icongen: Generate Web and App icons and PNG favicons"
 [pagefind-config-sources]: <https://pagefind.app/docs/config-sources/> "Pagefind CLI configuration sources"
 [pagefind-installation]: <https://pagefind.app/docs/installation/> "Pagefind installation"
