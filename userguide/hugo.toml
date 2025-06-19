@@ -10,6 +10,12 @@ title = "sine-die"
   enableFavicons = true
   showSearchUI = true
   logo = "images/sine-die-logo.svg"
+  # [params.logo]
+  #   asset = "images/sine-die-logo.svg"
+  #   imageTag = "img"
+  #   [params.logo.attributes]
+  #     fragment = "logo"
+  #     viewBox = "0 0 1024 1024"
 
 [markup]
   [markup.highlight]
