@@ -7,8 +7,8 @@
     <h1>{{ . }}</h1>
     {{- end -}}
     {{ .Content }}
-    <h2>Base Palette</h2>
-    <table>
+    <table class="base-palette">
+      <caption>Base Palette</caption>
       <thead>
         <tr>
           <th class="title">name</th>
@@ -121,10 +121,8 @@
     <div class="use">
       The CSS colors variables are defined as <code>--palette-[row name]-[column name]</code>, for example <code>--palette-secondary-left-medium-dark</code>.
     </div>
-  </article>
-  <article class="theme-palette-example neutral-palette">
-    <h2>Neutral Palette Extended</h2>
-    <table>
+    <table class="neutral-palette">
+      <caption>Neutral Palette Extended</caption>
       <thead>
         <tr>
           <th class="title">name</th>
