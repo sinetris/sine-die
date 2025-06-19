@@ -6,7 +6,6 @@ weight: 10
 layout: palette
 params:
   body_classes:
-    - full-space
     - theme-palette
 tags:
   - Colors
@@ -122,6 +121,8 @@ Example:
   --colors-secondary-hue-angle: 180deg;
 }
 ```
+
+## Palettes
 
 [mdn-css-oklch]: <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch> "oklch()"
 [mdn-css-hsl]: <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl> "hsl()"

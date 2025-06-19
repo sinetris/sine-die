@@ -2,13 +2,44 @@
 <span class="brand">
   <a href="{{ relURL "" }}" aria-label="{{ printf "%s homepage" $siteTitle }}">
     {{ with .Site.Params.logo -}}
-      {{ with resources.Get . | resources.Fingerprint "sha512" -}}
-        <img src="{{- .RelPermalink -}}" alt="{{ printf "%s logo" $siteTitle }}" />
+      {{ if reflect.IsMap . }}
+        {{- $asset := .asset }}
+        {{- $alt := .alt | default (printf "%s logo" $siteTitle) }}
+        {{- $attributes := .attributes | default dict | merge (dict "alt" $alt) }}
+        {{- $imageTag := "img" -}}
+        {{- if eq (path.Ext $asset) ".svg" }}
+          {{- $imageTag = .imageTag | default "svg" }}
+        {{- end }}
+        {{ with resources.Get $asset -}}
+          {{ with . | resources.Fingerprint "sha512" }}
+            {{- $src := .RelPermalink -}}
+            {{ with index $attributes "fragment" }}
+              {{ warnf "Asset: %s fragment %s, source \"%s\"" $src . templates.Current.Filename }}
+              {{- $src = printf "%s#%s" $src . -}}
+            {{ else }}
+              {{ warnf "Asset: %s missingfragment, source \"%s\"" $src templates.Current.Filename }}
+            {{- end }}
+            {{ if eq $imageTag "svg" }}
+              <svg {{ template "render-attributes" (dict "attributes" $attributes) }}>
+                <use href="{{ $src }}"></use>
+              </svg>
+            {{ else }}
+              {{- $attributes = merge $attributes (dict "src" $src "alt" $alt) }}
+              <img {{ template "render-attributes" (dict "attributes" $attributes) }}/>
+            {{- end }}
+          {{- end }}
+        {{ else }}
+          {{ errorf "Asset %s is a missing, source \"%s\"" $asset templates.Current.Filename }}
+        {{- end }}
+      {{ else }}
+        {{ with resources.Get . | resources.Fingerprint "sha512" -}}
+          <img src="{{- .RelPermalink -}}" alt="{{ printf "%s logo" $siteTitle }}" />
+        {{- end }}
       {{- end }}
     {{- end }}
     <hgroup class="title">
       <span>{{ $siteTitle }}</span>
-      {{- $tagline := or .FirstSection.Params.Tagline .Site.Params.Tagline }}
+      {{- $tagline := or .Params.Tagline .FirstSection.Params.Tagline .Site.Params.Tagline }}
       {{ if $tagline -}}
         <p>{{ $tagline }}</p>
       {{- end }}

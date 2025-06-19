@@ -31,7 +31,8 @@ body {
   font-family: var(--font-family-name);
   padding: 0;
   min-height: 100vh;
-  max-width: 100vw;
+  width: 100vw;
+  max-width: 100%;
 }
 
 main {
@@ -90,12 +91,15 @@ table {
   border: none;
   border-spacing: 0;
   text-align: left;
+  border-collapse: collapse;
 }
 
 td,
-th {
+th,
+table caption {
   vertical-align: middle;
   padding: 1.2rem 0.4rem;
+  border-collapse: collapse;
 }
 
 code,
@@ -400,6 +404,7 @@ body:not(:has(> .sidebar > *)) {
 @media only screen and (width <= 1024px) {
   body > main {
     overflow-x: auto;
+    height: 100%;
   }
 
   nav.breadcrumb {

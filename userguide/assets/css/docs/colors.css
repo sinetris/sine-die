@@ -1,290 +1,302 @@
 .theme-schema-example {
   --table-title-color-width: .4em;
-}
-
-.theme-schema-example thead th {
-  position: sticky;
-  top: 0;
-}
-
-.theme-schema-example th {
-  background-color: var(--color-surface-container-high);
-}
-
-.theme-schema-example td,
-.theme-schema-example th {
-  padding: 1rem;
-  border: .01rem solid oklch(from var(--color-shadow) l c h / 50%);
-}
-
-.theme-schema-example .primary-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
-}
-
-.theme-schema-example .color-primary .print-background-color {
-  background-color: var(--color-primary);
-}
-
-.theme-schema-example .color-on-primary .print-background-color {
-  background-color: var(--color-on-primary);
-}
-
-.theme-schema-example .color-primary-container .print-background-color {
-  background-color: var(--color-primary-container);
-}
-
-.theme-schema-example .color-on-primary-container .print-background-color {
-  background-color: var(--color-on-primary-container);
-}
-
-.theme-schema-example .color-inverse-primary .print-background-color {
-  background-color: var(--color-inverse-primary);
-}
-
-.theme-schema-example .color-on-inverse-primary .print-background-color {
-  background-color: var(--color-on-inverse-primary);
-}
-
-.theme-schema-example .secondary-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
-}
-
-.theme-schema-example .color-secondary .print-background-color {
-  background-color: var(--color-secondary);
-}
-
-.theme-schema-example .color-on-secondary .print-background-color {
-  background-color: var(--color-on-secondary);
-}
-
-.theme-schema-example .color-secondary-container .print-background-color {
-  background-color: var(--color-secondary-container);
-}
-
-.theme-schema-example .color-on-secondary-container .print-background-color {
-  background-color: var(--color-on-secondary-container);
-}
-
-.theme-schema-example .color-inverse-secondary .print-background-color {
-  background-color: var(--color-inverse-secondary);
-}
-
-.theme-schema-example .color-on-inverse-secondary .print-background-color {
-  background-color: var(--color-on-inverse-secondary);
-}
-
-.theme-schema-example .tertiary-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
-}
-
-.theme-schema-example .color-tertiary .print-background-color {
-  background-color: var(--color-tertiary);
-}
-
-.theme-schema-example .color-on-tertiary .print-background-color {
-  background-color: var(--color-on-tertiary);
-}
-
-.theme-schema-example .color-tertiary-container .print-background-color {
-  background-color: var(--color-tertiary-container);
-}
-
-.theme-schema-example .color-on-tertiary-container .print-background-color {
-  background-color: var(--color-on-tertiary-container);
-}
-
-.theme-schema-example .color-inverse-tertiary .print-background-color {
-  background-color: var(--color-inverse-tertiary);
-}
-
-.theme-schema-example .color-on-inverse-tertiary .print-background-color {
-  background-color: var(--color-on-inverse-tertiary);
-}
-
-.theme-schema-example .success-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
-}
 
-.theme-schema-example .color-success .print-background-color {
-  background-color: var(--color-success);
-}
+  table {
+    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
+  }
+
+  caption {
+    background-color: var(--color-surface-container-low);
+    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
+    border-bottom: none;
+    color: var(--color-on-surface);
+    font-size: 120%;
+    padding: .5em;
+  }
+
+  td,
+  th {
+    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
+    padding: 1rem;
+    white-space: nowrap;
+  }
+
+  th {
+    background-color: var(--color-surface-container-high);
+
+    thead & {
+      position: sticky;
+      top: 0;
+    }
+
+    .primary-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
+    }
+
+    .secondary-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
+    }
+
+    .tertiary-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
+    }
+
+    .success-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
+    }
+
+    .warning-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
+    }
+
+    .error-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
+    }
+
+    .surface-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
+    }
+
+    .extra-title & {
+      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
+    }
+
+    tr.title & {
+      background-color: var(--color-surface-dim);
+      color: var(--color-on-surface);
+      text-align: center;
+    }
+  }
+
+  .print-background-color {
+    .color-primary & {
+      background-color: var(--color-primary);
+    }
+
+    .color-on-primary & {
+      background-color: var(--color-on-primary);
+    }
+
+    .color-primary-container & {
+      background-color: var(--color-primary-container);
+    }
+
+    .color-on-primary-container & {
+      background-color: var(--color-on-primary-container);
+    }
+
+    .color-inverse-primary & {
+      background-color: var(--color-inverse-primary);
+    }
+
+    .color-on-inverse-primary & {
+      background-color: var(--color-on-inverse-primary);
+    }
+
+    .color-secondary & {
+      background-color: var(--color-secondary);
+    }
+
+    .color-on-secondary & {
+      background-color: var(--color-on-secondary);
+    }
+
+    .color-secondary-container & {
+      background-color: var(--color-secondary-container);
+    }
 
-.theme-schema-example .color-success-container .print-background-color {
-  background-color: var(--color-success-container);
-}
+    .color-on-secondary-container & {
+      background-color: var(--color-on-secondary-container);
+    }
 
-.theme-schema-example .color-on-success .print-background-color {
-  background-color: var(--color-on-success);
-}
+    .color-inverse-secondary & {
+      background-color: var(--color-inverse-secondary);
+    }
 
-.theme-schema-example .color-on-success-container .print-background-color {
-  background-color: var(--color-on-success-container);
-}
+    .color-on-inverse-secondary & {
+      background-color: var(--color-on-inverse-secondary);
+    }
 
-.theme-schema-example .color-inverse-success .print-background-color {
-  background-color: var(--color-inverse-success);
-}
+    .color-tertiary & {
+      background-color: var(--color-tertiary);
+    }
 
-.theme-schema-example .color-on-inverse-success .print-background-color {
-  background-color: var(--color-on-inverse-success);
-}
+    .color-on-tertiary & {
+      background-color: var(--color-on-tertiary);
+    }
 
-.theme-schema-example .warning-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
-}
+    .color-tertiary-container & {
+      background-color: var(--color-tertiary-container);
+    }
 
-.theme-schema-example .color-warning .print-background-color {
-  background-color: var(--color-warning);
-}
+    .color-on-tertiary-container & {
+      background-color: var(--color-on-tertiary-container);
+    }
 
-.theme-schema-example .color-warning-container .print-background-color {
-  background-color: var(--color-warning-container);
-}
+    .color-inverse-tertiary & {
+      background-color: var(--color-inverse-tertiary);
+    }
 
-.theme-schema-example .color-on-warning .print-background-color {
-  background-color: var(--color-on-warning);
-}
+    .color-on-inverse-tertiary & {
+      background-color: var(--color-on-inverse-tertiary);
+    }
 
-.theme-schema-example .color-on-warning-container .print-background-color {
-  background-color: var(--color-on-warning-container);
-}
+    .color-success & {
+      background-color: var(--color-success);
+    }
 
-.theme-schema-example .color-inverse-warning .print-background-color {
-  background-color: var(--color-inverse-warning);
-}
+    .color-success-container & {
+      background-color: var(--color-success-container);
+    }
 
-.theme-schema-example .color-on-inverse-warning .print-background-color {
-  background-color: var(--color-on-inverse-warning);
-}
+    .color-on-success & {
+      background-color: var(--color-on-success);
+    }
 
-.theme-schema-example .error-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
-}
+    .color-on-success-container & {
+      background-color: var(--color-on-success-container);
+    }
 
-.theme-schema-example .color-error .print-background-color {
-  background-color: var(--color-error);
-}
+    .color-inverse-success & {
+      background-color: var(--color-inverse-success);
+    }
 
-.theme-schema-example .color-error-container .print-background-color {
-  background-color: var(--color-error-container);
-}
+    .color-on-inverse-success & {
+      background-color: var(--color-on-inverse-success);
+    }
 
-.theme-schema-example .color-on-error .print-background-color {
-  background-color: var(--color-on-error);
-}
+    .color-warning & {
+      background-color: var(--color-warning);
+    }
 
-.theme-schema-example .color-on-error-container .print-background-color {
-  background-color: var(--color-on-error-container);
-}
+    .color-warning-container & {
+      background-color: var(--color-warning-container);
+    }
 
-.theme-schema-example .color-inverse-error .print-background-color {
-  background-color: var(--color-inverse-error);
-}
+    .color-on-warning & {
+      background-color: var(--color-on-warning);
+    }
 
-.theme-schema-example .color-on-inverse-error .print-background-color {
-  background-color: var(--color-on-inverse-error);
-}
+    .color-on-warning-container & {
+      background-color: var(--color-on-warning-container);
+    }
 
-.theme-schema-example .surface-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
-}
-
-.theme-schema-example .color-primary-tint .print-background-color {
-  background-color: var(--color-primary-tint);
-}
-
-.theme-schema-example .color-surface-dim .print-background-color {
-  background-color: var(--color-surface-dim);
-}
-
-.theme-schema-example .color-surface .print-background-color {
-  background-color: var(--color-surface);
-}
-
-.theme-schema-example .color-surface-bright .print-background-color {
-  background-color: var(--color-surface-bright);
-}
-
-.theme-schema-example .color-surface-container-lowest .print-background-color {
-  background-color: var(--color-surface-container-lowest);
-}
-
-.theme-schema-example .color-surface-container-low .print-background-color {
-  background-color: var(--color-surface-container-low);
-}
-
-.theme-schema-example .color-surface-container .print-background-color {
-  background-color: var(--color-surface-container);
-}
-
-.theme-schema-example .color-surface-container-high .print-background-color {
-  background-color: var(--color-surface-container-high);
-}
-
-.theme-schema-example .color-surface-container-highest .print-background-color {
-  background-color: var(--color-surface-container-highest);
-}
-
-.theme-schema-example .color-on-surface .print-background-color {
-  background-color: var(--color-on-surface);
-}
-
-.theme-schema-example .color-on-surface-variant .print-background-color {
-  background-color: var(--color-on-surface-variant);
-}
-
-.theme-schema-example .extra-title th {
-  box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
-}
-
-.theme-schema-example .color-outline .print-background-color {
-  background-color: var(--color-outline);
-}
-
-.theme-schema-example .color-outline-variant .print-background-color {
-  background-color: var(--color-outline-variant);
-}
-
-.theme-schema-example .color-light .print-background-color {
-  background-color: var(--color-light);
-}
-
-.theme-schema-example .color-shadow .print-background-color {
-  background-color: var(--color-shadow);
-}
-
-.theme-schema-example .color-scrim .print-background-color {
-  background-color: var(--color-scrim);
-}
-
-.theme-schema-example .color-surface-variant .print-background-color {
-  background-color: var(--color-surface-variant);
-}
-
-.theme-schema-example .color-inverse-surface .print-background-color {
-  background-color: var(--color-inverse-surface);
-}
-
-.theme-schema-example .color-on-inverse-surface .print-background-color {
-  background-color: var(--color-on-inverse-surface);
-}
-
-.theme-schema-example .color-background .print-background-color {
-  background-color: var(--color-background);
-}
-
-.theme-schema-example .color-on-background .print-background-color {
-  background-color: var(--color-on-background);
-}
-
-.theme-schema-example td {
-  white-space: nowrap;
-}
-
-.theme-schema-example tr.title th {
-  text-align: center;
-  color: var(--color-on-surface);
-  background-color: var(--color-surface-dim);
+    .color-inverse-warning & {
+      background-color: var(--color-inverse-warning);
+    }
+
+    .color-on-inverse-warning & {
+      background-color: var(--color-on-inverse-warning);
+    }
+
+    .color-error & {
+      background-color: var(--color-error);
+    }
+
+    .color-error-container & {
+      background-color: var(--color-error-container);
+    }
+
+    .color-on-error & {
+      background-color: var(--color-on-error);
+    }
+
+    .color-on-error-container & {
+      background-color: var(--color-on-error-container);
+    }
+
+    .color-inverse-error & {
+      background-color: var(--color-inverse-error);
+    }
+
+    .color-on-inverse-error & {
+      background-color: var(--color-on-inverse-error);
+    }
+
+    .color-primary-tint & {
+      background-color: var(--color-primary-tint);
+    }
+
+    .color-surface-dim & {
+      background-color: var(--color-surface-dim);
+    }
+
+    .color-surface & {
+      background-color: var(--color-surface);
+    }
+
+    .color-surface-bright & {
+      background-color: var(--color-surface-bright);
+    }
+
+    .color-surface-container-lowest & {
+      background-color: var(--color-surface-container-lowest);
+    }
+
+    .color-surface-container-low & {
+      background-color: var(--color-surface-container-low);
+    }
+
+    .color-surface-container & {
+      background-color: var(--color-surface-container);
+    }
+
+    .color-surface-container-high & {
+      background-color: var(--color-surface-container-high);
+    }
+
+    .color-surface-container-highest & {
+      background-color: var(--color-surface-container-highest);
+    }
+
+    .color-on-surface & {
+      background-color: var(--color-on-surface);
+    }
+
+    .color-on-surface-variant & {
+      background-color: var(--color-on-surface-variant);
+    }
+
+    .color-outline & {
+      background-color: var(--color-outline);
+    }
+
+    .color-outline-variant & {
+      background-color: var(--color-outline-variant);
+    }
+
+    .color-light & {
+      background-color: var(--color-light);
+    }
+
+    .color-shadow & {
+      background-color: var(--color-shadow);
+    }
+
+    .color-scrim & {
+      background-color: var(--color-scrim);
+    }
+
+    .color-surface-variant & {
+      background-color: var(--color-surface-variant);
+    }
+
+    .color-inverse-surface & {
+      background-color: var(--color-inverse-surface);
+    }
+
+    .color-on-inverse-surface & {
+      background-color: var(--color-on-inverse-surface);
+    }
+
+    .color-background & {
+      background-color: var(--color-background);
+    }
+
+    .color-on-background & {
+      background-color: var(--color-on-background);
+    }
+  }
 }
 
 :root:has(.theme-colors-override) {

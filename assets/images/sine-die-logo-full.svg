@@ -4,32 +4,57 @@
   stroke-miterlimit="10"
   style="clip-rule:evenodd;fill-rule:nonzero;stroke-linecap:round;stroke-linejoin:round"
   version="1.1"
-  viewBox="0 0 4096 1024"
   width="4096"
-  id="sine-die-logo-full"
+  x="0px"
+  y="0px"
+  viewBox="0 0 4096 1024"
+	enable-background="new 0 0 4096 1024"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:svg="http://www.w3.org/2000/svg"
 >
   <style>
-    #sine-die-logo-full {
+    .logo {
       font-family: -apple-system, "system-ui", Avenir, "Avenir Next", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       --color-primary: #34698c;
       --color-secondary: #5f6841;
       --color-tertiary: #805562;
+      --stroke-width: 20;
+      --fill-lightness: 1.2;
+      --stroke-lightness: .5;
     }
 
-    #sine-die-logo {
+    #logo {
       clip-path: rect(0, 0, 1024, 1024);
     }
 
-    #sine-die-logo .arrows path {
-      fill: oklch(from var(--color-secondary) calc(l * 1.4) c h);
+    @media (prefers-color-scheme: light) {
+      .logo {
+        --fill-lightness: 1.4;
+        --stroke-lightness: .75;
+      }
+
+      #brand-name,
+      #tagline {
+        --fill-lightness: .9;
+        --stroke-lightness: .75;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo {
+        --fill-lightness: 1.8;
+        --stroke-lightness: .8;
+      }
+    }
+
+    .arrows path {
+      fill: oklch(from var(--color-secondary) calc(l * var(--fill-lightness)) c h);
       fill-rule: "nonzero";
       opacity: 1;
-      stroke: oklch(from var(--color-secondary) calc(l * .75) c h);
+      stroke: oklch(from var(--color-secondary) calc(l * var(--stroke-lightness)) c h);
       stroke-linecap: butt;
       stroke-linejoin: round;
-      stroke-width: 10;
+      stroke-width: var(--stroke-width);
     }
 
     #hourglass .sand {
@@ -49,49 +74,43 @@
     }
 
     #hourglass .glass {
-      fill: oklch(from var(--color-primary) calc(l * 1.4) c h);
+      fill: oklch(from var(--color-primary) calc(l * var(--fill-lightness)) c h);
       fill-rule: nonzero;
       opacity: 1;
-      stroke: oklch(from var(--color-primary) calc(l * .75) c h);
+      stroke: oklch(from var(--color-primary) calc(l * var(--stroke-lightness)) c h);
       stroke-linecap: butt;
       stroke-linejoin: round;
-      stroke-width: 10;
+      stroke-width: var(--stroke-width);
     }
 
     #hourglass .base {
-      fill: oklch(from var(--color-tertiary) calc(l * 1.25) c h);
+      fill: oklch(from var(--color-tertiary) calc(l * var(--fill-lightness)) c h);
       fill-rule: nonzero;
       opacity: 1;
-      stroke: oklch(from var(--color-tertiary) calc(l * .75) c h);
+      stroke: oklch(from var(--color-tertiary) calc(l * var(--stroke-lightness)) c h);
       stroke-linecap: butt;
       stroke-linejoin: round;
-      stroke-width: 10;
+      stroke-width: var(--stroke-width);
     }
 
-    #sine-die-brand-name {
+    #brand-name {
       clip-path: rect(0, 0, 3000, 900);
-    }
-
-    .brand-name {
       font-size: 42em;
       text-align: start;
-      fill: oklch(from var(--color-primary) calc(l * 1.25) c h);
+      fill: oklch(from var(--color-primary) calc(l * var(--fill-lightness)) c h);
       fill-opacity: 1;
     }
 
-    #sine-die-tagline {
+    #tagline {
       clip-path: rect(0, 0, 3000, 300);
-    }
-
-    .tagline {
       font-size: 14em;
       text-align: center;
-      fill: oklch(from var(--color-tertiary) calc(l * 1.25) c h);
+      fill: oklch(from var(--color-tertiary) calc(l * var(--fill-lightness)) c h);
       fill-opacity: 1
       fill-rule: nonzero;
     }
   </style>
-  <symbol id="sine-die-logo" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <symbol id="logo" width="1024" height="1024" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid meet" class="logo">
     <g id="hourglass">
       <path
         d="
@@ -236,20 +255,20 @@
       />
       <path
         d="
-          m 347,232
+          m 345,220
           h 335
-          v 25
-          H 347
+          v 45
+          H 345
           Z
         "
         class="base"
       />
       <path
         d="
-          m 342,767
+          m 345,760
           h 335
-          v 25
-          H 342
+          v 45
+          H 345
           Z
         "
         class="base"
@@ -435,17 +454,17 @@
       />
     </g>
   </symbol>
-  <symbol id="sine-die-brand-name" width="3000" height="1024" viewBox="0 0 3000 800">
-    <text class="brand-name" textLength="3000" lengthAdjust="spacing">
+  <symbol id="brand-name" width="3000" height="1024" viewBox="0 0 3000 800" class="logo">
+    <text textLength="3000" lengthAdjust="spacing">
       <tspan x="0" y="400" textLength="3000">SINE-DIE</tspan>
     </text>
   </symbol>
-  <symbol id="sine-die-tagline" width="3000" height="200" viewBox="0 0 3000 200">
-    <text class="tagline" textLength="2950" lengthAdjust="spacing">
+  <symbol id="tagline" width="3000" height="200" viewBox="0 0 3000 200" class="logo">
+    <text textLength="2950" lengthAdjust="spacing">
       <tspan x="30" y="160" textLength="2950">minimalist Hugo theme</tspan>
     </text>
   </symbol>
-  <use href="#sine-die-logo" x="0" y="0" />
-  <use href="#sine-die-brand-name" x="1060" y="80" />
-  <use href="#sine-die-tagline" x="1060" y="700" />
+  <use href="#logo" x="0" y="0" />
+  <use href="#brand-name" x="1060" y="80" />
+  <use href="#tagline" x="1060" y="700" />
 </svg>

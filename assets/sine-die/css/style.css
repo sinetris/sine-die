@@ -21,8 +21,8 @@ hr {
 }
 
 blockquote {
-  margin: 2rem 0 2rem 2rem;
-  padding: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0.4em 0.8em;
   border-left: thick solid var(--color-on-secondary-container);
 }
 
@@ -59,14 +59,12 @@ figure:has(> img) {
 body > header {
   grid-area: header;
   background-color: var(--color-surface-container-high);
-  max-width: 100vw;
 }
 
 body > main {
   margin: 1rem 2rem;
   grid-area: content;
   background-color: inherit;
-  max-width: calc(100vw - 4rem);
 }
 
 h1 {
@@ -84,6 +82,11 @@ h6 {
 .categories a,
 .tags a {
   text-decoration: none;
+}
+
+.categories dd,
+.tags dd {
+  margin-inline-start: .5em;
 }
 
 .pagination > li {
@@ -126,6 +129,11 @@ nav.breadcrumb [property="name"] {
 
 body > .sidebar a {
   color: var(--color-on-surface);
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
 }
 
 .pagination a {
@@ -214,8 +222,14 @@ body > main h1 .material-symbols-outlined {
   margin-bottom: 0;
 }
 
+.sidebar nav.toc ul {
+  list-style: none;
+  padding-left: .75em;
+}
+
 .sidebar nav.toc > ul {
   margin-top: 0;
+  padding-left: .5em;
 }
 
 nav.primary {
@@ -276,13 +290,36 @@ nav.primary .brand hgroup {
 }
 
 [data-symbol] {
-  font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  aspect-ratio: 1;
+  align-self: center;
   display: inline-block;
+  font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  font-size: 1rem;
+  min-width: 2rem;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+[data-symbol]::before {
+  align-self: center;
+  display: flex;
+  font-size: 150%;
+  justify-content: center;
+  line-height: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
 }
 
 /* Mobile devices */
 
 @media only screen and (width <= 480px) {
+  :root {
+    --base-font-size: 110%;
+  }
+
   h1 {
     margin-bottom: .5em;
   }
@@ -325,7 +362,6 @@ nav.primary .brand hgroup {
   body > main {
     padding: .1rem .1rem 0;
     margin: 1rem;
-    max-width: calc(100vw - 2rem);
   }
 
   body > header nav.primary {
@@ -354,7 +390,7 @@ nav.primary .brand hgroup {
 
 @media only screen and (width > 1024px) {
   :root {
-    --font-size: 1.2rem;
+    --base-font-size: 120%;
   }
 
   body {
