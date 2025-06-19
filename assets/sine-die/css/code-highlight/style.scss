@@ -8,7 +8,23 @@
   }
 }
 
-/* Light Theme */
+// Copy code button
+.highlight  {
+  position: relative;
+}
+
+.highlight button {
+  position: absolute;
+  right: .5em;
+  top: .5em;
+}
+
+.highlight button[data-symbol="copied"] {
+  background-color: var(--color-success);
+  color: var(--color-on-success);
+}
+
+// Light Theme
 [data-color-scheme="light"] {
   @include theme-color-scheme("light");
 }
@@ -20,7 +36,7 @@
   }
 }
 
-/* Dark Theme */
+// Dark Theme
 [data-color-scheme="dark"] {
   @include theme-color-scheme("dark");
 }
