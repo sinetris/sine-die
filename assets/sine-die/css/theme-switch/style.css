@@ -5,22 +5,19 @@ li:has([data-function="switch-color-scheme"]) {
 
 [data-function="switch-color-scheme"] {
   align-self: center;
-  aspect-ratio: 1 / 1;
   border: none;
   display: inline-block;
   margin: .2em .2em .3em .25em;
-  min-width: 2.5em;
+  width: 3em;
   padding: 0;
 }
 
 [data-function="switch-color-scheme"]::before {
-  aspect-ratio: 1/1;
   content: "contrast";
-  font-size: 1.2rem;
 }
 
 [data-function="switch-color-scheme"]:enabled:hover::before {
-  font-size: 1.5rem;
+  font-size: 200%;
 }
 
 [data-color-scheme="dark"] [data-function="switch-color-scheme"]::before {
@@ -44,7 +41,6 @@ li:has([data-function="switch-color-scheme"]) {
 
   [data-function="switch-color-scheme"] {
     aspect-ratio: auto;
-    display: inline-block;
     margin: .25em;
     max-width: 100%;
     width: calc(100% - .5em);
