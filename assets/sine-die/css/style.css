@@ -184,6 +184,10 @@ body > main ul.taxonomies li {
   list-style: none;
 }
 
+body > main > .content {
+  padding-bottom: 1em;
+}
+
 body > main .sections-list,
 body > main .pages-list {
   border-top: 0.35rem solid var(--color-secondary-container);
@@ -311,6 +315,31 @@ nav.primary .brand hgroup {
   margin: 0;
   position: absolute;
   width: 100%;
+}
+
+ul.taxonomies {
+  padding: 0;
+
+  li {
+    padding: 1em;
+
+    .count::before {
+      content: "(";
+    }
+
+    .count::after {
+      content: ")";
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 120%;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /* Mobile devices */

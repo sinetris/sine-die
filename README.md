@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD041 -->
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sinetris/sine-die/main.svg)](https://results.pre-commit.ci/latest/github/sinetris/sine-die/main)
 
 <p align="center">
 <img

@@ -94,7 +94,6 @@
     }
 
     #brand-name {
-      clip-path: rect(0, 0, 3000, 900);
       font-size: 42em;
       text-align: start;
       fill: oklch(from var(--color-primary) calc(l * var(--fill-lightness)) c h);
@@ -102,7 +101,6 @@
     }
 
     #tagline {
-      clip-path: rect(0, 0, 3000, 300);
       font-size: 14em;
       text-align: center;
       fill: oklch(from var(--color-tertiary) calc(l * var(--fill-lightness)) c h);

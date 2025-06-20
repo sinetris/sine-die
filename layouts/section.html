@@ -6,7 +6,7 @@
     {{ .Content }}
   </article>
   {{ with .Sections }}
-  <aside class="sections-list">
+  <nav class="sections-list">
     <h2>Sections List</h2>
     <ul>
       {{ range .ByWeight }}
@@ -21,12 +21,15 @@
       </li>
       {{- end -}}
     </ul>
-  </aside>
+  </nav>
   {{ end }}
-  <aside class="pages-list">
+
+  {{ $context := .}}
+  {{ with .Paginator.Pages }}
+  <nav class="pages-list">
     <h2>Pages List</h2>
     <ul>
-      {{ range .Paginator.Pages }}
+      {{ range . }}
       <li>
         {{- $shortDate := .Date | time.Format (.Site.Params.shortDateFormat | default "2006-01-02" ) }}
         {{- $longDate := .Date | time.Format (.Site.Params.longDateFormat | default "02 Jan 2006" ) }}
@@ -39,6 +42,7 @@
       </li>
       {{- end -}}
     </ul>
-    {{ template "_internal/pagination.html" . }}
-  </aside>
+    {{ partial "pagination.html" $context }}
+  </nav>
+  {{- end -}}
 {{ end }}

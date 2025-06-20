@@ -82,7 +82,7 @@
   white-space: nowrap;
   min-height: 2.5em;
   width: 100%;
-  margin: 0 .5em;
+  padding: 0 .5em;
 }
 
 nav.primary [role="menubar"] a:hover {
@@ -148,7 +148,6 @@ nav.primary [role="menubar"] [aria-haspopup] {
   border: none;
   color: var(--color-on-primary);
   content: "";
-  height: 90%;
   margin: .25em;
 }
 
