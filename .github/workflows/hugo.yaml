@@ -54,21 +54,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Cache Snap Packages
-        id: snap-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            /snap
-            ~/.cache/snapd
-          key: ${{ runner.os }}-snap-${{ hashFiles('**/snapcraft.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-snap-
-      - name: Install Snap Packages
-        if: steps.snap-cache.outputs.cache-hit != 'true'
-        run: |
-          # Install Dart Sass
-          sudo snap install dart-sass
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
       - name: Install Pagefind
         run: "python3 -m pip install 'pagefind[extended]'"
       - name: Build with Hugo
