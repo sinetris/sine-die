@@ -1,27 +1,29 @@
 {{ define "sidebar"}}<!-- hide -->{{ end }}
 {{ define "main" }}
-<h1 class="title-header">
-  <span class="material-symbols-outlined">
-    {{- if eq .Data.Singular "tag" -}}
-    label
-    {{- else if eq .Data.Singular "category" -}}
-    topic
-    {{- else if eq .Data.Singular "autor" -}}
-    person
-    {{- else -}}
-    bookmark
-    {{- end -}}
-  </span>
-  {{- .Title | singularize -}}
-</h1>
-<ul class="taxonomies">
-  {{ range .Pages }}
-  <li>
-    <a href="{{ .Permalink }}">
-      <span class="material-symbols-outlined">label</span>
-      {{ .Title }}
-    </a>
-  </li>
+  {{ $taxonomy := index .Site.Taxonomies .Data.Plural }}
+  <h1 class="title-header">
+    <span class="material-symbols-outlined">
+      {{- if eq .Data.Singular "tag" -}}
+      label
+      {{- else if eq .Data.Singular "category" -}}
+      topic
+      {{- else if eq .Data.Singular "autor" -}}
+      person
+      {{- else -}}
+      bookmark
+      {{- end -}}
+    </span>
+    {{- .Title -}}
+  </h1>
+  {{- with .Pages }}
+  <ul class="taxonomies">
+    {{ range . }}
+    <li>
+      <a href="{{ .Permalink }}">
+        {{ .Title }} <span class="count">{{ $taxonomy.Count .Data.Term }}</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
   {{ end }}
-</ul>
 {{ end }}

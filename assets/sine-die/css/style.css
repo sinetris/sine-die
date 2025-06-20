@@ -317,6 +317,31 @@ nav.primary .brand hgroup {
   width: 100%;
 }
 
+ul.taxonomies {
+  padding: 0;
+
+  li {
+    padding: 1em;
+
+    .count::before {
+      content: "(";
+    }
+
+    .count::after {
+      content: ")";
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 120%;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 /* Mobile devices */
 
 @media only screen and (width <= 480px) {
