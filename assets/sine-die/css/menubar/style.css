@@ -148,7 +148,6 @@ nav.primary [role="menubar"] [aria-haspopup] {
   border: none;
   color: var(--color-on-primary);
   content: "";
-  height: 90%;
   margin: .25em;
 }
 
