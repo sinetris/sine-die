@@ -184,6 +184,10 @@ body > main ul.taxonomies li {
   list-style: none;
 }
 
+body > main > .content {
+  padding-bottom: 1em;
+}
+
 body > main .sections-list,
 body > main .pages-list {
   border-top: 0.35rem solid var(--color-secondary-container);
