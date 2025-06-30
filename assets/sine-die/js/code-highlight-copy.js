@@ -15,7 +15,7 @@ class CodeBlockCopyButton {
   }
 
   copyCode() {
-    let codeText = this.#preCodeBlock.querySelector("code[data-lang]").textContent;
+    let codeText = this.getCodeText();
     navigator.clipboard.writeText(codeText);
     setTimeout(this.setCopyButton.bind(this), 3.0 * 1000);
     this.setCopiedButton();
@@ -31,5 +31,12 @@ class CodeBlockCopyButton {
     this.#button.setAttribute('aria-label', this.#labelCopied);
     this.#button.setAttribute('data-symbol', 'copied');
     this.#button.textContent = this.#iconCopied;
+  }
+
+  getCodeText() {
+    let codeBlock = this.#preCodeBlock.querySelector("code[data-lang]");
+    let codeLines = codeBlock.querySelectorAll(".line > .cl");
+    let codeText = Array.from(codeLines, (elem) => elem.textContent).join("");
+    return codeText;
   }
 }
