@@ -12,10 +12,10 @@
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
       {{ partial "breadcrumbs.html" . }}
     </header>
+    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
     <main id="main-content">
       {{ block "main" . }}{{ end }}
     </main>
-    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
     <footer>
       {{ partial "footer.html" . -}}
     </footer>
