@@ -2,14 +2,14 @@
 
 [data-function="mobile-menu"] {
   border: none;
-  height: 3.8em;
+  height: 2.5em;
   position: absolute;
   right: .1em;
   top: .1em;
 }
 
 [data-function="mobile-menu"]::before {
-  font-size: 3.5em;
+  font-size: 2.5em;
 }
 
 [data-function="mobile-menu"][aria-expanded="false"]::before {
