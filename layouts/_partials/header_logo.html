@@ -14,10 +14,7 @@
           {{ with . | resources.Fingerprint "sha512" }}
             {{- $src := .RelPermalink -}}
             {{ with index $attributes "fragment" }}
-              {{ warnf "Asset: %s fragment %s, source \"%s\"" $src . templates.Current.Filename }}
               {{- $src = printf "%s#%s" $src . -}}
-            {{ else }}
-              {{ warnf "Asset: %s missingfragment, source \"%s\"" $src templates.Current.Filename }}
             {{- end }}
             {{ if eq $imageTag "svg" }}
               <svg {{ template "render-attributes" (dict "attributes" $attributes) }}>
