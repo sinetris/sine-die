@@ -31,17 +31,17 @@ advantage of the benefits that OKLCH provides.
 
 It's possible to generate the color palette for a variety of
 {{< glossary-term term="color-harmonies" >}} simply by modifying the variable
-`--secondary-colors-amgle`.
+`--secondary-colors-angle`.
 
 The default palette uses the **triadic color scheme** (*secondary colors angle*
-variable named `--secondary-colors-amgle` set to `120deg`).
+variable named `--secondary-colors-angle` set to `120deg`).
 
 It's possible to invert secondary left and secondary right by applying a simple formula.
 
-Given the `--secondary-colors-amgle` angle `a`, we can use the formula
+Given the `--secondary-colors-angle` angle `a`, we can use the formula
 `a + 2 x (180deg - a)` to invert secondary left and secondary right.
 
-For example, whith `--secondary-colors-amgle` set to `120deg`, to invert left and
+For example, whith `--secondary-colors-angle` set to `120deg`, to invert left and
 right we would use `240deg`.
 
 Example:
