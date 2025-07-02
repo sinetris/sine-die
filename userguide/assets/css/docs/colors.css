@@ -23,6 +23,7 @@
 
   th {
     background-color: var(--color-surface-container-high);
+    color: var(--color-on-surface-container);
 
     thead & {
       position: sticky;

@@ -515,20 +515,6 @@ ul.taxonomies {
   }
 }
 
-@media print {
-  .sidebar,
-  #theme-links {
-    display: none;
-  }
-
-  nav.primary .brand img ,
-  nav.primary .brand svg ,
-  nav.primary .brand hgroup {
-    padding: 0%;
-    margin: 0%;
-  }
-}
-
 /* (start) Style for skip to content link */
 
 body > header .skip-link {

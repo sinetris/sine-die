@@ -15,6 +15,7 @@
 {{ range $assets }}
   {{ partial "helpers/css-link.html" (dict "asset" .) }}
 {{- end }}
+{{ partial "helpers/css-link.html" (dict "asset" "sine-die/css/print.css" "attributes" (dict "media" "print")) }}
 {{ if .Site.Params.showSearchUI -}}
   {{ partial "helpers/css-link.html" (dict "asset" "sine-die/css/pagefind-overrides.gtpl.css") }}
 {{- end }}

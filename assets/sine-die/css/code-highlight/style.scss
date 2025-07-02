@@ -37,3 +37,16 @@
     @include theme-color-scheme("dark");
   }
 }
+
+@media print {
+  :root,
+  [data-color-scheme="light"],
+  [data-color-scheme="dark"],
+  [data-color-scheme="default"] {
+    @include  theme-color-scheme("light");
+  }
+
+  .chroma {
+    border: thin solid var(--color-outline-variant);
+  }
+}

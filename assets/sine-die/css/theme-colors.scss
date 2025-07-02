@@ -190,3 +190,12 @@
     @include theme-dark;
   }
 }
+
+@media print {
+  :root,
+  html[data-color-scheme="light"],
+  html[data-color-scheme="dark"],
+  html[data-color-scheme="default"] {
+    @include theme-light;
+  }
+}
