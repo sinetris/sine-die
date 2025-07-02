@@ -8,7 +8,7 @@ li:has([data-function="switch-color-scheme"]) {
   border: none;
   display: inline-block;
   margin: .2em .2em .3em .25em;
-  width: 3em;
+  width: 2em;
   padding: 0;
 }
 
