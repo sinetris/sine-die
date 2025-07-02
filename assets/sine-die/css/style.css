@@ -1,12 +1,104 @@
-:root {
-  --footer-height: 5rem;
-  --sidebar-margin-top: 1rem;
-}
-
 body {
   background-color: var(--color-background);
   color: var(--color-on-background);
-  display: grid;
+  transition: grid-template .5s allow-discrete;
+
+  &> .sidebar {
+    background-color: var(--color-surface-container-highest);
+    border-right: 0.15rem solid var(--color-outline-variant);
+    color: var(--color-on-surface);
+
+    label[for="sidebar-switch"] {
+      opacity: 0;
+      position: absolute;
+
+      &::before {
+        content: "close sidebar";
+      }
+
+      &:has(+ [data-symbol="sidebar-switch"]:checked) {
+        &::before {
+          content: "open sidebar";
+        }
+      }
+    }
+
+    [data-symbol="sidebar-switch"] {
+      appearance: none;
+      aspect-ratio: 1;
+      background-color: transparent;
+      border: none;
+      color: var(--color-on-secondary-container);
+      margin: 0;
+      padding: .2em;
+      position: absolute;
+      right: -.75em;
+      top: 0.75em;
+      min-height: 1.5em;
+      min-width: 1.5em;
+
+      & + label {
+        visibility: hidden;
+      }
+
+      &:checked {
+        &::after {
+          content: "left_panel_open";
+        }
+      }
+
+      &::after {
+        content: "left_panel_close";
+      }
+
+      &::before {
+        content: "";
+        background-color: var(--color-surface-container-highest);
+        display: block;
+        height: 1.5em;
+        border-bottom: solid;
+        border-left: none;
+        border-right: solid;
+        border-top: solid;
+        border-radius: 0 .10em .10em 0;
+        border-width: .1em;
+        border-color: var(--color-outline-variant);
+        width: .75em;
+        position: absolute;
+        top: 50%;
+        left: 1.12em;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        &::after {
+          font-size: 125%;
+          color: var(--color-on-secondary);
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+
+        &::after {
+          outline: .1rem solid var(--color-on-primary);
+          outline-offset: .15rem;
+        }
+      }
+    }
+  }
+
+  &:has([data-symbol="sidebar-switch"]:checked) {
+    --sidebar-size: var(--sidebar-size-collapsed);
+
+    .sidebar {
+      nav,
+      dl {
+        opacity: 0;
+        display: none;
+      }
+    }
+  }
 }
 
 /* stylelint-disable declaration-property-value-no-unknown */
@@ -57,13 +149,11 @@ figure:has(> img) {
 }
 
 body > header {
-  grid-area: header;
   background-color: var(--color-surface-container-high);
 }
 
 body > main {
   margin: 1rem 2rem;
-  grid-area: content;
   background-color: inherit;
 }
 
@@ -95,19 +185,7 @@ h6 {
   padding: 1em;
 }
 
-body > .sidebar {
-  grid-area: sidebar;
-  color: var(--color-on-surface);
-  background-color: var(--color-surface-container-high);
-  margin-top: var(--sidebar-margin-top);
-  padding-left: 1em;
-  border-top-left-radius: 1em;
-  border-top: 0.1em solid var(--color-outline);
-  border-left: 0.1em solid var(--color-outline);
-}
-
 body > footer {
-  grid-area: footer;
   padding: 1.2rem;
   color: var(--color-on-surface-container);
   background-color: var(--color-surface-container);
@@ -125,15 +203,6 @@ body > footer > span + span::before {
 
 nav.breadcrumb [property="name"] {
   color: var(--color-on-tertiary);
-}
-
-body > .sidebar a {
-  color: var(--color-on-surface);
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
 }
 
 .pagination a {
@@ -215,12 +284,6 @@ body > main h1 .material-symbols-outlined {
   padding-right: 0.1em;
 }
 
-.sidebar .material-symbols-outlined {
-  line-height: 1em;
-  font-size: 1.5em;
-  margin-right: .1em;
-}
-
 .sidebar nav.toc > h2 {
   font-size: 1.2em;
   margin-bottom: 0;
@@ -295,26 +358,21 @@ nav.primary .brand hgroup {
 
 [data-symbol] {
   aspect-ratio: 1;
-  align-self: center;
-  display: inline-block;
   font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
-  font-size: 1rem;
-  min-width: 2rem;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
+  font-size: 1.5em;
   position: relative;
-}
-
-[data-symbol]::before {
-  align-self: center;
-  display: flex;
-  font-size: 150%;
-  justify-content: center;
-  line-height: 0;
   margin: 0;
-  position: absolute;
-  width: 100%;
+  padding: 0;
+
+  &::before,
+  &::after {
+    font-size: 100%;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 ul.taxonomies {
@@ -381,11 +439,44 @@ ul.taxonomies {
 
 @media only screen and (width <= 1024px) {
   body {
-    grid-template:
-      "header" auto
-      "content" 1fr
-      "sidebar" auto
-      "footer" auto;
+    &> .sidebar {
+      border-top: 0.15rem solid var(--color-outline-variant);
+      position: relative;
+      max-height: var(--sidebar-size);
+      transition: max-heigh 1s allow-discrete;
+
+      [data-symbol="sidebar-switch"] {
+        left: 50%;
+        right: 50%;
+        top: -0.75em;
+
+        &:checked {
+          &::after {
+            content: "bottom_panel_open";
+          }
+        }
+
+        &::after {
+          content: "bottom_panel_close";
+        }
+
+        &::before {
+          border-bottom: none;
+          border-left: solid;
+          border-right: solid;
+          border-top: solid;
+          border-radius: 0 .10em .10em 0;
+          border-width: .1em;
+          border-color: var(--color-outline-variant);
+          height: .75em;
+          width: 1.5em;
+          position: absolute;
+          top: .375em;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
   }
 
   body > main {
@@ -395,11 +486,6 @@ ul.taxonomies {
 
   body > header nav.primary {
     display: flow-root;
-  }
-
-  body > .sidebar {
-    border: none;
-    border-radius: unset;
   }
 
   nav.primary .brand {
@@ -422,19 +508,10 @@ ul.taxonomies {
     --base-font-size: 120%;
   }
 
-  body {
-    grid-template:
-      "header header" auto
-      "content sidebar" minmax(min-content, 1fr)
-      "footer footer" auto
-      / 5fr 2fr;
-  }
-
   body:not(.full-space) > .sidebar {
     position: sticky;
     top: 0;
-    height: calc(100% - var(--sidebar-margin-top));
-    margin-bottom: var(--footer-height);
+    height: 100%;
   }
 }
 

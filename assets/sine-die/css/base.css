@@ -12,6 +12,9 @@
   --line-height: 1.6;
   --spacing: 1rem;
   --standard-border-radius: 3px;
+  --footer-height: 5rem;
+  --sidebar-size-collapsed: 1.5em;
+  --sidebar-size: 20em;
 }
 
 html {
@@ -33,10 +36,32 @@ body {
   min-height: 100vh;
   width: 100vw;
   max-width: 100%;
+  display: grid;
+  grid-template:
+    "header header" auto
+    "sidebar content" minmax(min-content, 1fr)
+    "footer footer" auto
+    / var(--sidebar-size) 1fr;
+}
+
+body > header {
+  grid-area: header;
+  line-height: 1;
+  top: 0;
+}
+
+body > .sidebar {
+  grid-area: sidebar;
+  padding: .75em;
 }
 
 main {
+  grid-area: content;
   margin: 2.7rem;
+}
+
+body > footer {
+  grid-area: footer;
 }
 
 h1,
@@ -60,7 +85,6 @@ a:hover {
 }
 
 button {
-  font-family: inherit;
   font-size: 1rem;
 }
 
@@ -168,10 +192,12 @@ textarea {
   width: 100%;
 }
 
-button,
-input:not([type="range"],[type="image"]),
-select,
-textarea {
+:where(
+  button,
+  input:not([type="range"],[type="image"]),
+  select,
+  textarea
+) {
   appearance: none;
   background-color: var(--color-surface-bright);
   border-radius: .5rem;
@@ -275,11 +301,6 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -.75em;
 }
 
-body > header {
-  line-height: 1;
-  top: 0;
-}
-
 body > main h1 {
   margin-top: 0;
 }
@@ -373,12 +394,12 @@ body.full-space > .sidebar {
 /* (start) Hide sidebar and change grid-template if the sidebar has no content */
 
 /* Hide the sidebas if it's empty */
-body > .sidebar:not(:has(*)) {
+body > .sidebar:not(:has(*:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
   display: none;
 }
 
 /* Remove sidebar from grid-template */
-body:not(:has(> .sidebar > *)) {
+body:not(:has(> .sidebar > *:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
   grid-template:
     "header" auto
     "content" 1fr
@@ -402,6 +423,18 @@ body:not(:has(> .sidebar > *)) {
 /* Small tablet devices and smaller */
 
 @media only screen and (width <= 1024px) {
+  :root {
+    --sidebar-size: auto;
+  }
+
+  body {
+    grid-template:
+      "header" auto
+      "content" 1fr
+      "sidebar" auto
+      "footer" auto;
+  }
+
   body > main {
     overflow-x: auto;
     height: 100%;

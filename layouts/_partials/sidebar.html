@@ -1,4 +1,12 @@
 <aside class="sidebar">
+  <label for="sidebar-switch"></label>
+  <input
+    id="sidebar-switch"
+    data-symbol="sidebar-switch"
+    type="checkbox"
+    title="sidebar toggle"
+    {{ with .Params.CollapsedSidebar }}checked{{ end }}
+  />
   {{- partial "toc.html" . }}
   {{ with .Params.categories }}
   <dl class="categories">
