@@ -1,301 +1,300 @@
 .theme-schema-example {
   --table-title-color-width: .4em;
 
-  table {
-    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
-  }
+  table.baseline-colors {
+    border: .1rem solid oklch(from var(--color-shadow) l c h / 100%);
 
-  caption {
-    background-color: var(--color-surface-container-low);
-    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
-    border-bottom: none;
-    color: var(--color-on-surface);
-    font-size: 120%;
-    padding: .5em;
-  }
-
-  td,
-  th {
-    border: .05rem solid oklch(from var(--color-shadow) l c h / 100%);
-    padding: 1rem;
-    white-space: nowrap;
-  }
-
-  th {
-    background-color: var(--color-surface-container-high);
-    color: var(--color-on-surface-container);
-
-    thead & {
-      position: sticky;
-      top: 0;
-    }
-
-    .primary-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
-    }
-
-    .secondary-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
-    }
-
-    .tertiary-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
-    }
-
-    .success-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
-    }
-
-    .warning-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
-    }
-
-    .error-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
-    }
-
-    .surface-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
-    }
-
-    .extra-title & {
-      box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
-    }
-
-    tr.title & {
-      background-color: var(--color-surface-dim);
-      color: var(--color-on-surface);
-      text-align: center;
-    }
-  }
-
-  .print-background-color {
-    .color-primary & {
-      background-color: var(--color-primary);
-    }
-
-    .color-on-primary & {
-      background-color: var(--color-on-primary);
-    }
-
-    .color-primary-container & {
-      background-color: var(--color-primary-container);
-    }
-
-    .color-on-primary-container & {
-      background-color: var(--color-on-primary-container);
-    }
-
-    .color-inverse-primary & {
-      background-color: var(--color-inverse-primary);
-    }
-
-    .color-on-inverse-primary & {
-      background-color: var(--color-on-inverse-primary);
-    }
-
-    .color-secondary & {
-      background-color: var(--color-secondary);
-    }
-
-    .color-on-secondary & {
-      background-color: var(--color-on-secondary);
-    }
-
-    .color-secondary-container & {
-      background-color: var(--color-secondary-container);
-    }
-
-    .color-on-secondary-container & {
-      background-color: var(--color-on-secondary-container);
-    }
-
-    .color-inverse-secondary & {
-      background-color: var(--color-inverse-secondary);
-    }
-
-    .color-on-inverse-secondary & {
-      background-color: var(--color-on-inverse-secondary);
-    }
-
-    .color-tertiary & {
-      background-color: var(--color-tertiary);
-    }
-
-    .color-on-tertiary & {
-      background-color: var(--color-on-tertiary);
-    }
-
-    .color-tertiary-container & {
-      background-color: var(--color-tertiary-container);
-    }
-
-    .color-on-tertiary-container & {
-      background-color: var(--color-on-tertiary-container);
-    }
-
-    .color-inverse-tertiary & {
-      background-color: var(--color-inverse-tertiary);
-    }
-
-    .color-on-inverse-tertiary & {
-      background-color: var(--color-on-inverse-tertiary);
-    }
-
-    .color-success & {
-      background-color: var(--color-success);
-    }
-
-    .color-success-container & {
-      background-color: var(--color-success-container);
-    }
-
-    .color-on-success & {
-      background-color: var(--color-on-success);
-    }
-
-    .color-on-success-container & {
-      background-color: var(--color-on-success-container);
-    }
-
-    .color-inverse-success & {
-      background-color: var(--color-inverse-success);
-    }
-
-    .color-on-inverse-success & {
-      background-color: var(--color-on-inverse-success);
-    }
-
-    .color-warning & {
-      background-color: var(--color-warning);
-    }
-
-    .color-warning-container & {
-      background-color: var(--color-warning-container);
-    }
-
-    .color-on-warning & {
-      background-color: var(--color-on-warning);
-    }
-
-    .color-on-warning-container & {
-      background-color: var(--color-on-warning-container);
-    }
-
-    .color-inverse-warning & {
-      background-color: var(--color-inverse-warning);
-    }
-
-    .color-on-inverse-warning & {
-      background-color: var(--color-on-inverse-warning);
-    }
-
-    .color-error & {
-      background-color: var(--color-error);
-    }
-
-    .color-error-container & {
-      background-color: var(--color-error-container);
-    }
-
-    .color-on-error & {
-      background-color: var(--color-on-error);
-    }
-
-    .color-on-error-container & {
-      background-color: var(--color-on-error-container);
-    }
-
-    .color-inverse-error & {
-      background-color: var(--color-inverse-error);
-    }
-
-    .color-on-inverse-error & {
-      background-color: var(--color-on-inverse-error);
-    }
-
-    .color-primary-tint & {
-      background-color: var(--color-primary-tint);
-    }
-
-    .color-surface-dim & {
-      background-color: var(--color-surface-dim);
-    }
-
-    .color-surface & {
-      background-color: var(--color-surface);
-    }
-
-    .color-surface-bright & {
-      background-color: var(--color-surface-bright);
-    }
-
-    .color-surface-container-lowest & {
-      background-color: var(--color-surface-container-lowest);
-    }
-
-    .color-surface-container-low & {
+    caption {
       background-color: var(--color-surface-container-low);
+      border: .1rem solid oklch(from var(--color-shadow) l c h / 100%);
+      border-bottom: none;
+      color: var(--color-on-surface);
+      font-size: 120%;
+      padding: .5em;
     }
 
-    .color-surface-container & {
-      background-color: var(--color-surface-container);
+    td,
+    th {
+      border: .1rem solid oklch(from var(--color-shadow) l c h / 100%);
+      padding: 1rem;
+      white-space: nowrap;
     }
 
-    .color-surface-container-high & {
+    th {
       background-color: var(--color-surface-container-high);
+
+      thead & {
+        position: sticky;
+        top: 0;
+      }
+
+      .primary-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-primary);
+      }
+
+      .secondary-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-secondary);
+      }
+
+      .tertiary-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-tertiary);
+      }
+
+      .success-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-success);
+      }
+
+      .warning-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-warning);
+      }
+
+      .error-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-error);
+      }
+
+      .surface-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-surface);
+      }
+
+      .extra-title & {
+        box-shadow: inset 0 calc(-1 * var(--table-title-color-width)) var(--color-background);
+      }
+
+      tr.title & {
+        background-color: var(--color-surface-dim);
+        color: var(--color-on-surface);
+        text-align: center;
+      }
     }
 
-    .color-surface-container-highest & {
-      background-color: var(--color-surface-container-highest);
-    }
+    .print-background-color {
+      .color-primary & {
+        background-color: var(--color-primary);
+      }
 
-    .color-on-surface & {
-      background-color: var(--color-on-surface);
-    }
+      .color-on-primary & {
+        background-color: var(--color-on-primary);
+      }
 
-    .color-on-surface-variant & {
-      background-color: var(--color-on-surface-variant);
-    }
+      .color-primary-container & {
+        background-color: var(--color-primary-container);
+      }
 
-    .color-outline & {
-      background-color: var(--color-outline);
-    }
+      .color-on-primary-container & {
+        background-color: var(--color-on-primary-container);
+      }
 
-    .color-outline-variant & {
-      background-color: var(--color-outline-variant);
-    }
+      .color-inverse-primary & {
+        background-color: var(--color-inverse-primary);
+      }
 
-    .color-light & {
-      background-color: var(--color-light);
-    }
+      .color-on-inverse-primary & {
+        background-color: var(--color-on-inverse-primary);
+      }
 
-    .color-shadow & {
-      background-color: var(--color-shadow);
-    }
+      .color-secondary & {
+        background-color: var(--color-secondary);
+      }
 
-    .color-scrim & {
-      background-color: var(--color-scrim);
-    }
+      .color-on-secondary & {
+        background-color: var(--color-on-secondary);
+      }
 
-    .color-surface-variant & {
-      background-color: var(--color-surface-variant);
-    }
+      .color-secondary-container & {
+        background-color: var(--color-secondary-container);
+      }
 
-    .color-inverse-surface & {
-      background-color: var(--color-inverse-surface);
-    }
+      .color-on-secondary-container & {
+        background-color: var(--color-on-secondary-container);
+      }
 
-    .color-on-inverse-surface & {
-      background-color: var(--color-on-inverse-surface);
-    }
+      .color-inverse-secondary & {
+        background-color: var(--color-inverse-secondary);
+      }
 
-    .color-background & {
-      background-color: var(--color-background);
-    }
+      .color-on-inverse-secondary & {
+        background-color: var(--color-on-inverse-secondary);
+      }
 
-    .color-on-background & {
-      background-color: var(--color-on-background);
+      .color-tertiary & {
+        background-color: var(--color-tertiary);
+      }
+
+      .color-on-tertiary & {
+        background-color: var(--color-on-tertiary);
+      }
+
+      .color-tertiary-container & {
+        background-color: var(--color-tertiary-container);
+      }
+
+      .color-on-tertiary-container & {
+        background-color: var(--color-on-tertiary-container);
+      }
+
+      .color-inverse-tertiary & {
+        background-color: var(--color-inverse-tertiary);
+      }
+
+      .color-on-inverse-tertiary & {
+        background-color: var(--color-on-inverse-tertiary);
+      }
+
+      .color-success & {
+        background-color: var(--color-success);
+      }
+
+      .color-success-container & {
+        background-color: var(--color-success-container);
+      }
+
+      .color-on-success & {
+        background-color: var(--color-on-success);
+      }
+
+      .color-on-success-container & {
+        background-color: var(--color-on-success-container);
+      }
+
+      .color-inverse-success & {
+        background-color: var(--color-inverse-success);
+      }
+
+      .color-on-inverse-success & {
+        background-color: var(--color-on-inverse-success);
+      }
+
+      .color-warning & {
+        background-color: var(--color-warning);
+      }
+
+      .color-warning-container & {
+        background-color: var(--color-warning-container);
+      }
+
+      .color-on-warning & {
+        background-color: var(--color-on-warning);
+      }
+
+      .color-on-warning-container & {
+        background-color: var(--color-on-warning-container);
+      }
+
+      .color-inverse-warning & {
+        background-color: var(--color-inverse-warning);
+      }
+
+      .color-on-inverse-warning & {
+        background-color: var(--color-on-inverse-warning);
+      }
+
+      .color-error & {
+        background-color: var(--color-error);
+      }
+
+      .color-error-container & {
+        background-color: var(--color-error-container);
+      }
+
+      .color-on-error & {
+        background-color: var(--color-on-error);
+      }
+
+      .color-on-error-container & {
+        background-color: var(--color-on-error-container);
+      }
+
+      .color-inverse-error & {
+        background-color: var(--color-inverse-error);
+      }
+
+      .color-on-inverse-error & {
+        background-color: var(--color-on-inverse-error);
+      }
+
+      .color-primary-tint & {
+        background-color: var(--color-primary-tint);
+      }
+
+      .color-surface-dim & {
+        background-color: var(--color-surface-dim);
+      }
+
+      .color-surface & {
+        background-color: var(--color-surface);
+      }
+
+      .color-surface-bright & {
+        background-color: var(--color-surface-bright);
+      }
+
+      .color-surface-container-lowest & {
+        background-color: var(--color-surface-container-lowest);
+      }
+
+      .color-surface-container-low & {
+        background-color: var(--color-surface-container-low);
+      }
+
+      .color-surface-container & {
+        background-color: var(--color-surface-container);
+      }
+
+      .color-surface-container-high & {
+        background-color: var(--color-surface-container-high);
+      }
+
+      .color-surface-container-highest & {
+        background-color: var(--color-surface-container-highest);
+      }
+
+      .color-on-surface & {
+        background-color: var(--color-on-surface);
+      }
+
+      .color-on-surface-variant & {
+        background-color: var(--color-on-surface-variant);
+      }
+
+      .color-outline & {
+        background-color: var(--color-outline);
+      }
+
+      .color-outline-variant & {
+        background-color: var(--color-outline-variant);
+      }
+
+      .color-light & {
+        background-color: var(--color-light);
+      }
+
+      .color-shadow & {
+        background-color: var(--color-shadow);
+      }
+
+      .color-scrim & {
+        background-color: var(--color-scrim);
+      }
+
+      .color-surface-variant & {
+        background-color: var(--color-surface-variant);
+      }
+
+      .color-inverse-surface & {
+        background-color: var(--color-inverse-surface);
+      }
+
+      .color-on-inverse-surface & {
+        background-color: var(--color-on-inverse-surface);
+      }
+
+      .color-background & {
+        background-color: var(--color-background);
+      }
+
+      .color-on-background & {
+        background-color: var(--color-on-background);
+      }
     }
   }
 }
