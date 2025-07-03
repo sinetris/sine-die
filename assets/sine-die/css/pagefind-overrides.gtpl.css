@@ -45,6 +45,10 @@
   outline: solid;
 }
 
+#search button.pagefind-ui__search-clear.pagefind-ui__suppressed {
+  display: none;
+}
+
 #search input.pagefind-ui__search-input::placeholder {
   opacity: .5;
   color: black;

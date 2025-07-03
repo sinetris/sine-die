@@ -1,0 +1,106 @@
+/* Print */
+:root {
+  --footer-height: 3rem;
+}
+
+/* stylelint-disable declaration-property-value-no-unknown */
+a {
+  text-decoration-color: hsl(from currentcolor h s l / 50%);
+}
+/* stylelint-enable declaration-property-value-no-unknown */
+
+/* Uncomment the following to print URLs after links */
+
+/*
+a::after {
+  content: " (" attr(href) ")";
+  text-decoration: none;
+}
+*/
+
+body {
+  grid-template:
+    "header" auto
+    "content" auto
+    "sidebar" auto
+    "footer" auto;
+  padding: .2rem;
+}
+
+header+main {
+  break-before: avoid-page;
+}
+
+h2 {
+  break-before: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  break-after: avoid-page;
+}
+
+h1+h2 {
+  break-before: avoid-page;
+}
+
+blockquote,
+img,
+pre,
+svg {
+  break-inside: avoid-page;
+}
+
+menu,
+ol,
+ul,
+li {
+  break-inside: avoid-page;
+}
+
+th,
+td {
+  break-inside: avoid-page;
+}
+
+h3~ :is(p, menu, ul, ol) {
+  break-before: avoid-page;
+}
+
+p:has(+ :is(menu, ul, ol)) {
+  break-after: avoid-page;
+}
+
+#search,
+.breadcrumb,
+.highlight button,
+.skip-link,
+body > .sidebar,
+body > footer #theme-links,
+nav.primary :is([role="menubar"], button) {
+  display: none;
+}
+
+.brand,
+.print-background-color {
+  print-color-adjust: exact;
+}
+
+body>header .primary {
+  justify-content: center;
+}
+
+body>main {
+  margin-bottom: 2rem;
+}
+
+body>footer {
+  height: var(--footer-height);
+  width: 100%;
+  position: relative;
+  font-size: 1rem;
+}

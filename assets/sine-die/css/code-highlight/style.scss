@@ -8,21 +8,11 @@
   }
 }
 
-// Copy code button
 .highlight  {
-  position: relative;
+  margin: 1em 0 2em;
 }
 
-.highlight button {
-  position: absolute;
-  right: .5em;
-  top: .5em;
-}
-
-.highlight button[data-symbol="copied"] {
-  background-color: var(--color-success);
-  color: var(--color-on-success);
-}
+@include theme-color-scheme("copy-code-button");
 
 // Light Theme
 [data-color-scheme="light"] {
@@ -45,5 +35,18 @@
   :root:not([data-color-scheme="light"], [data-color-scheme="dark"]),
   [data-color-scheme="default"] {
     @include theme-color-scheme("dark");
+  }
+}
+
+@media print {
+  :root,
+  [data-color-scheme="light"],
+  [data-color-scheme="dark"],
+  [data-color-scheme="default"] {
+    @include  theme-color-scheme("light");
+  }
+
+  .chroma {
+    border: thin solid var(--color-outline-variant);
   }
 }

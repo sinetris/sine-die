@@ -1,8 +1,8 @@
-{{ define "sidebar"}}<!-- hide -->{{ end }}
+{{ define "sidebar"}}<!-- hide sdebar -->{{ end }}
 {{ define "main" }}
   {{ $taxonomy := index .Site.Taxonomies .Data.Plural }}
   <h1 class="title-header">
-    <span class="material-symbols-outlined">
+    <span data-symbol aria-hidden="true">
       {{- if eq .Data.Singular "tag" -}}
       label
       {{- else if eq .Data.Singular "category" -}}

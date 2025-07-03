@@ -12,8 +12,8 @@ tags:
   - Generated color palette
 params:
   body_classes:
-    - full-space
     - homepage
+  collapsedSidebar: true
 ---
 
 {{< figure-wrapper

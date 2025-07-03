@@ -1,0 +1,17 @@
+.highlight  {
+  position: relative;
+}
+
+.highlight button {
+  border-radius: 25%;
+  font-size: 1em;
+  height: 2em;
+  position: absolute;
+  right: .5em;
+  top: .5em;
+}
+
+.highlight button[data-symbol="copied"] {
+  background-color: var(--color-success);
+  color: var(--color-on-success);
+}
