@@ -1,20 +1,20 @@
 /* base theme properties */
 
 :root {
-  --grid-gutter: 2rem;
   --base-font-size: 100%;
   --font-size: 1rem;
+  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
   --font-family-name: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+  --footer-height: 5rem;
+  --grid-gutter: 2rem;
   --headers-font-weight: 500;
   --line-height: 1.6;
-  --spacing: 1rem;
-  --standard-border-radius: 3px;
-  --footer-height: 5rem;
   --sidebar-size-collapsed: 1.5em;
   --sidebar-size: 20em;
+  --spacing: 1rem;
+  --standard-border-radius: 3px;
 }
 
 html {
@@ -27,21 +27,21 @@ html {
 }
 
 body {
-  color: CanvasText;
   background-color: Canvas;
-  line-height: var(--line-height);
-  font-size: var(--font-size);
-  font-family: var(--font-family-name);
-  padding: 0;
-  min-height: 100vh;
-  width: 100vw;
-  max-width: 100%;
+  color: CanvasText;
   display: grid;
+  font-family: var(--font-family-name);
+  font-size: var(--font-size);
   grid-template:
     "header header" auto
     "sidebar content" minmax(min-content, 1fr)
     "footer footer" auto
     / var(--sidebar-size) 1fr;
+  line-height: var(--line-height);
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  width: 100vw;
 }
 
 body > header {
@@ -55,13 +55,18 @@ body > .sidebar {
   padding: .75em;
 }
 
-main {
+body > main {
+  background-color: inherit;
   grid-area: content;
-  margin: 2.7rem;
+  margin: 1rem 2rem 2.7rem;
+  overflow-x: auto;
 }
 
 body > footer {
+  align-content: center;
   grid-area: footer;
+  margin: auto 0;
+  text-align: center;
 }
 
 h1,
@@ -72,6 +77,7 @@ h5,
 h6 {
   padding: 0;
   font-weight: var(--headers-font-weight);
+  margin-block: 0.8em 0.7em;
 }
 
 a {
@@ -85,6 +91,7 @@ a:hover {
 }
 
 button {
+  font-family: inherit;
   font-size: 1rem;
 }
 
@@ -142,6 +149,17 @@ kbd {
   padding: 0.2rem 0.4rem;
 }
 
+kbd {
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgray;
+  box-shadow: 0 2px 2px black, 0 2px 0 0 white inset;
+  background-color: gray;
+  border-bottom: 3px solid darkgray;
+  border-radius: var(--standard-border-radius);
+  color: white;
+}
+
 pre {
   font-size: 1rem;
   padding: 1rem;
@@ -192,28 +210,24 @@ textarea {
   width: 100%;
 }
 
-:where(
-  button,
-  input:not([type="range"],[type="image"]),
-  select,
-  textarea
-) {
+button,
+input:not(:is([type="range"],[type="image"])),
+select,
+textarea {
   appearance: none;
   background-color: var(--color-surface-bright);
   border-radius: .5rem;
   border: thin solid var(--color-inverse-surface);
   box-shadow: none;
   color: var(--color-on-surface-variant);
-  font-family: inherit;
-  font-size: inherit;
   margin-bottom: var(--spacing);
   max-width: 100%;
-  outline: 0;
   padding: .5rem;
 }
 
-:is(button, input:not([type="range"],[type="image"]), select, textarea):focus-visible {
+:is(a, button, input:not(:is([type="range"],[type="image"])), select, textarea):focus-visible {
   outline: .1rem solid var(--color-on-primary);
+  outline-offset: .15rem;
 }
 
 button[disabled],
@@ -361,7 +375,8 @@ nav.breadcrumb ol {
 }
 
 nav.breadcrumb li {
-  display: inline;
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 nav.breadcrumb li + li::before {
@@ -389,6 +404,18 @@ body.full-space {
 body.full-space > .sidebar {
   border-radius: unset;
   border-left: none;
+}
+
+.skip-link {
+  padding: .5em;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 20;
+}
+
+.skip-link:focus {
+  transform: translateY(0%);
 }
 
 /* (start) Hide sidebar and change grid-template if the sidebar has no content */
@@ -433,11 +460,6 @@ body:not(:has(> .sidebar > *:not([for="sidebar-switch"],[id="sidebar-switch"])))
       "content" 1fr
       "sidebar" auto
       "footer" auto;
-  }
-
-  body > main {
-    overflow-x: auto;
-    height: 100%;
   }
 
   nav.breadcrumb {

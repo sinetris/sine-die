@@ -1,6 +1,5 @@
 li:has([data-function="switch-color-scheme"]) {
   align-content: center;
-  width: 3em;
 }
 
 [data-function="switch-color-scheme"] {
@@ -17,7 +16,7 @@ li:has([data-function="switch-color-scheme"]) {
 }
 
 [data-function="switch-color-scheme"]:enabled:hover::before {
-  font-size: 200%;
+  font-size: 150%;
 }
 
 [data-color-scheme="dark"] [data-function="switch-color-scheme"]::before {
@@ -34,17 +33,12 @@ li:has([data-function="switch-color-scheme"]) {
 }
 
 @media only screen and (width <= 1024px) {
-  li:has([data-function="switch-color-scheme"]) {
-    min-height: 3rem;
-    text-align: center;
-  }
-
   [data-function="switch-color-scheme"] {
     aspect-ratio: auto;
-    margin: .25em;
+    margin: 0;
     max-width: 100%;
-    width: calc(100% - .5em);
-    height: 2.5em;
+    width: 100%;
+    height: 1.5em;
   }
 }
 

@@ -31,12 +31,14 @@
 
 [role="menubar"] button[aria-expanded] {
   border: none;
-  height: 2em;
+  align-self: center;
+  height: 1.25em;
+  width: 1.25em;
 }
 
 [role="menubar"] button[aria-expanded]:enabled:hover::before {
   color: var(--color-on-tertiary);
-  font-size: 250%;
+  font-size: 175%;
 }
 
 [role="menubar"] button[aria-expanded="false"]::before {
@@ -250,6 +252,11 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
     grid-template:
         "link button" auto
         / 1fr auto;
+  }
+
+  nav.primary [role="menubar"] > li > [aria-haspopup] {
+    height: 2em;
+    width: 2em;
   }
 
   nav.primary [role="menubar"] > li:has(> [role="menuitem"]) {
