@@ -13,7 +13,7 @@
       <a property="item" typeof="WebPage" href="{{.Permalink}}">
         <span property="name">
           {{- if eq $index 0 }}
-          <span class="material-symbols-outlined">home</span>
+          <span data-symbol>home</span>
           {{- else }}
           {{ .LinkTitle }}
           {{- end }}

@@ -1,7 +1,7 @@
 {{ define "sidebar"}}<!-- hide sdebar -->{{ end }}
 {{ define "main" }}
 <h1>
-  <span class="material-symbols-outlined">
+  <span data-symbol aria-hidden="true">
     {{- if eq .Data.Singular "tag" -}}
     label
     {{- else if eq .Data.Singular "category" -}}
@@ -18,7 +18,7 @@
   {{ range .Pages -}}
   <li>
     <a href="{{ .Permalink }}">
-      <span class="material-symbols-outlined">article</span>
+      <span data-symbol aria-hidden="true">article</span>
       {{ .Title }}
     </a>
     <p>{{ .Description }}</p>

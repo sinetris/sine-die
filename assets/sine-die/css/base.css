@@ -327,10 +327,6 @@ nav.breadcrumb li:not(:first-child) a:hover {
   text-decoration: underline;
 }
 
-nav.breadcrumb .material-symbols-outlined {
-  vertical-align: bottom;
-}
-
 nav.primary ul {
   list-style: none;
 }
@@ -372,6 +368,10 @@ nav.breadcrumb li + li::before {
   display: inline-block;
   margin: 0 0.25em;
   content: ">";
+}
+
+nav.breadcrumb li:first-child [data-symbol] {
+  padding-right: 0;
 }
 
 nav.breadcrumb li:last-child {

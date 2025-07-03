@@ -108,6 +108,17 @@ a {
 }
 /* stylelint-enable declaration-property-value-no-unknown */
 
+:where(a, h1, h2, h3, h4, h5, h6) {
+  &:has([data-symbol]) {
+    display: inline-flex;
+    align-items: center;
+
+    [data-symbol] {
+      padding-right: .25em;
+    }
+  }
+}
+
 hr {
   border-color: var(--color-outline-variant);
 }
@@ -269,20 +280,6 @@ body > main .pages-list h2 {
   font-size: 1.2em;
 }
 
-.material-symbols-outlined {
-  font-size: 1.2em;
-  vertical-align: middle;
-}
-
-.material-symbols-outlined:has(+ time) {
-  float: inline-start;
-  padding-right: 0.2em;
-  color: var(--color-on-secondary);
-}
-
-body > main h1 .material-symbols-outlined {
-  padding-right: 0.1em;
-}
 
 .sidebar nav.toc > h2 {
   font-size: 1.2em;
@@ -373,6 +370,24 @@ nav.primary .brand hgroup {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+[data-symbol="calendar"] {
+  &:has(+ time) {
+    vertical-align: middle;
+    font-size: 1.1em;
+    color: var(--color-on-primary-container);
+
+    &+ time {
+      vertical-align: middle;
+      font-size: .9em;
+      color: var(--color-on-primary-container);
+    }
+  }
+}
+
+a:has(+ [data-symbol="calendar"]) {
+  display: block;
 }
 
 ul.taxonomies {
