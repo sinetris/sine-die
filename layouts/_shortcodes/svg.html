@@ -13,6 +13,6 @@
 {{- end -}}
 {{- $excludeAttributes := slice "src" "fragment" }}
 
-<svg {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
+<svg {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
     <use href="{{ $src }}"></use>
 </svg>

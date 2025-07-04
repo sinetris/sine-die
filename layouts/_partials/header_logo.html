@@ -17,12 +17,12 @@
               {{- $src = printf "%s#%s" $src . -}}
             {{- end }}
             {{ if eq $imageTag "svg" }}
-              <svg {{ template "render-attributes" (dict "attributes" $attributes) }}>
+              <svg {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>
                 <use href="{{ $src }}"></use>
               </svg>
             {{ else }}
               {{- $attributes = merge $attributes (dict "src" $src "alt" $alt) }}
-              <img {{ template "render-attributes" (dict "attributes" $attributes) }}/>
+              <img {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}/>
             {{- end }}
           {{- end }}
         {{ else }}

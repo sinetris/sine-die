@@ -1,7 +1,7 @@
 {{- $attributes := .Params | default dict -}}
 {{- $excludeAttributes := slice "description" -}}
 
-<figure {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
+<figure {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
   {{- .Inner -}}
   {{ with .Get "description" }}
     <figcaption>{{ . | markdownify }}</figcaption>
