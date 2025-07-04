@@ -10,4 +10,4 @@
 {{- end -}}
 {{- $attributes = merge $attributes (dict "src" $src) }}
 
-<img {{ template "render-attributes" (dict "attributes" $attributes) }}/>
+<img {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}/>

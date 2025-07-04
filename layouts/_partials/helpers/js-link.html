@@ -10,7 +10,7 @@
   {{- end }}
   {{- with $resource | fingerprint }}
     {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) }}
-    <script {{ template "render-attributes" (dict "attributes" $attributes) }}></script>
+    <script {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}></script>
   {{- end }}
 {{- else }}
   {{ errorf "Asset %s is missing, source \"%s\", caller \"%s\"" . templates.Current.Filename templates.Current.Parent.Filename }}

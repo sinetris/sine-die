@@ -22,7 +22,7 @@ Accepts only named parameters.
     <!-- ... this would likely be in a different template -->
     <!-- Since we use some attributes somewhere else, we can exclude them from rendering -->
     {{ $excludeAttributes := (slice "src" "alt" "caption") }}
-    <figure {{ template "render-attributes" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
+    <figure {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
       <img
         {{- with $attributes.src }} src="{{ . }}"{{ end }}
         {{- with $attributes.alt }} alt="{{ . }}"{{ end -}}
@@ -40,22 +40,22 @@ Accepts only named parameters.
     </figure>
     ```
 */ -}}
-{{ define "render-attributes" -}}
-  {{- with $attributes := .attributes -}}
-    {{- if reflect.IsMap $attributes -}}
-      {{- $excludeAttributes := .exclude | default dict }}
-      {{- range $key, $value := $attributes }}
-        {{- if and (not (in $excludeAttributes $key)) (not (eq $value false)) }}
-          {{- if eq $value true -}}
-            {{- printf " %s" $key | safeHTMLAttr -}}
-          {{- else -}}
-            {{- if reflect.IsSlice $value -}}
-              {{- $value = delimit $value " " -}}
-            {{- end -}}
-            {{- printf " %s=%q" $key $value | safeHTMLAttr -}}
-          {{- end -}}
+{{ $result := slice }}
+{{ with $attributes := .attributes }}
+  {{ if reflect.IsMap $attributes }}
+    {{ $excludeAttributes := .exclude | default dict }}
+    {{ range $key, $value := $attributes }}
+      {{ if and (not (in $excludeAttributes $key)) (not (eq $value false)) }}
+        {{ if eq $value true }}
+          {{ $result = $result | append (printf "%s" $key | safeHTMLAttr) }}
+        {{ else }}
+          {{ if reflect.IsSlice $value }}
+            {{ $value = delimit $value " " }}
+          {{ end }}
+          {{ $result =  $result | append (printf "%s=%q" $key ($value | htmlEscape) | safeHTMLAttr) }}
         {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
+{{ return (delimit $result " " | safeHTMLAttr) }}

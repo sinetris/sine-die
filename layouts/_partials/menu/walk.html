@@ -13,7 +13,7 @@
       {{- $ariaLabel := printf "%s submenu" $name }}
       {{- $ariaSubmenuID := printf "%s-submenu" $name | anchorize }}
       {{- $ariaButtonID := printf "%s-button" $name | anchorize }}
-      <a {{ template "render-attributes" (dict "attributes" $attributes) }}>
+      <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>
         {{ $name }}
       </a>
       <button
@@ -31,7 +31,7 @@
         </ul>
       {{- end }}
     {{- else }}
-      <a {{ template "render-attributes" (dict "attributes" $attributes) }}>{{ $name }}</a>
+      <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $name }}</a>
     {{- end }}
   </li>
 {{- end }}
