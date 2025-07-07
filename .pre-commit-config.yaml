@@ -62,7 +62,7 @@ repos:
         args: [-conf, .yamlfmt]
   # CSS linter
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
-    rev: v16.21.0
+    rev: v16.21.1
     hooks:
       - id: stylelint
         files: \.(css|scss|sass)$
