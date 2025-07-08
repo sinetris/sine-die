@@ -32,7 +32,10 @@ class MenubarNavigation {
       true
     );
 
-    domNode.querySelector('[role=menuitem]').tabIndex = 0;
+    let menubar = domNode.querySelector('[role=menuitem]');
+    if (menubar) {
+      menubar.tabIndex = 0;
+    }
   }
 
   getMenuitems(domNode, depth) {

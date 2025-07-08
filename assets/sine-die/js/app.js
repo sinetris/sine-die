@@ -1,22 +1,38 @@
 'use strict';
 
 // Menubar
-var menubarNavs = document.querySelectorAll('[role="menubar"]');
-for (var i = 0; i < menubarNavs.length; i++) {
-  new MenubarNavigation({element: menubarNavs[i]});
+try {
+  var menubarNavs = document.querySelectorAll('[role="menubar"]');
+  for (var i = 0; i < menubarNavs.length; i++) {
+    new MenubarNavigation({element: menubarNavs[i]});
+  }
+} catch (e) {
+  console.error(`${e.name}: ${e.message}`);
 }
 
 // Light/Dark Theme Switcher button
-const root = document.documentElement;
-const switchButton = document.querySelector('button[data-function="switch-color-scheme"]');
-new ManageColorScheme(root, switchButton);
+try {
+  const root = document.documentElement;
+  const switchButton = document.querySelector('button[data-function="switch-color-scheme"]');
+  new ManageColorScheme(root, switchButton);
+} catch (e) {
+  console.error(`${e.name}: ${e.message}`);
+}
 
 // Mobile menu button
-const mobileMenuButton = document.querySelector('[data-function="mobile-menu"]');
-new MobileMenu(mobileMenuButton);
+try {
+  const mobileMenuButton = document.querySelector('[data-function="mobile-menu"]');
+  new MobileMenu(mobileMenuButton);
+} catch (e) {
+  console.error(`${e.name}: ${e.message}`);
+}
 
 // Copy code button
-var preCodeBlocks = document.querySelectorAll('.highlight pre:has(code[data-lang])');
-for (var i = 0; i < preCodeBlocks.length; i++) {
-  new CodeBlockCopyButton(preCodeBlocks[i]);
+try {
+  var preCodeBlocks = document.querySelectorAll('.highlight pre:has(code[data-lang])');
+  for (var i = 0; i < preCodeBlocks.length; i++) {
+    new CodeBlockCopyButton(preCodeBlocks[i]);
+  }
+} catch (e) {
+  console.error(`${e.name}: ${e.message}`);
 }
