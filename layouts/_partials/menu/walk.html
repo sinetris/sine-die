@@ -9,13 +9,15 @@
   {{- end }}
   {{- $name := .Name }}
   <li {{- with $classes }}{{ printf " class=%q" (delimit $classes " ") | safeHTMLAttr }}{{- end }} role="none">
+    {{- $innerLinkText := $name }}
+    {{- if .Params.isExternalLink }}
+      {{- $attributes = merge $attributes (dict "rel" "external noreferrer" "target" "_blank") }}
+    {{- end }}
+    <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $innerLinkText }}</a>
     {{- if .HasChildren }}
       {{- $ariaLabel := printf "%s submenu" $name }}
       {{- $ariaSubmenuID := printf "%s-submenu" $name | anchorize }}
       {{- $ariaButtonID := printf "%s-button" $name | anchorize }}
-      <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>
-        {{ $name }}
-      </a>
       <button
         id="{{ $ariaButtonID }}"
         role="menuitem"
@@ -30,8 +32,6 @@
           {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" (add $level 1) "menuEntries" .) }}
         </ul>
       {{- end }}
-    {{- else }}
-      <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $name }}</a>
     {{- end }}
   </li>
 {{- end }}

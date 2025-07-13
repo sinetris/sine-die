@@ -39,3 +39,13 @@ markup:
         title: true
     renderer:
       unsafe: true
+
+menus:
+  main:
+    - name: Example Domain
+      # External link text (no visual sign)
+      url: 'https://example.com/'
+      parent: first-subsection
+      weight: 80
+      params:
+        isExternalLink: true
