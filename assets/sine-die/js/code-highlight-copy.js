@@ -23,13 +23,13 @@ class CodeBlockCopyButton {
 
   setCopyButton() {
     this.#button.setAttribute('aria-label', this.#labelCopy);
-    this.#button.setAttribute('data-symbol', 'copy');
+    this.#button.setAttribute('data-visual-sign', 'copy');
     this.#button.textContent = this.#iconCopy;
   }
 
   setCopiedButton() {
     this.#button.setAttribute('aria-label', this.#labelCopied);
-    this.#button.setAttribute('data-symbol', 'copied');
+    this.#button.setAttribute('data-visual-sign', 'copied');
     this.#button.textContent = this.#iconCopied;
   }
 

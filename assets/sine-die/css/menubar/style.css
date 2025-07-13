@@ -29,7 +29,7 @@
   padding-left: 1em;
 }
 
-[role="menubar"] button[aria-expanded] {
+[role="menubar"] [data-visual-sign] {
   border: none;
   align-self: center;
   height: 1.25em;

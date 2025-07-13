@@ -385,7 +385,7 @@ nav.breadcrumb li + li::before {
   content: ">";
 }
 
-nav.breadcrumb li:first-child [data-symbol] {
+nav.breadcrumb li:first-child [data-visual-sign] {
   padding-right: 0;
 }
 
