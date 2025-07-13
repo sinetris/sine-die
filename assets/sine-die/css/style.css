@@ -52,14 +52,14 @@ body {
         content: "close sidebar";
       }
 
-      &:has(+ [data-symbol="sidebar-switch"]:checked) {
+      &:has(+ [data-visual-sign="sidebar-switch"]:checked) {
         &::before {
           content: "open sidebar";
         }
       }
     }
 
-    [data-symbol="sidebar-switch"] {
+    [data-visual-sign="sidebar-switch"] {
       appearance: none;
       aspect-ratio: 1;
       background-color: transparent;
@@ -190,7 +190,7 @@ body {
     }
   }
 
-  &:has([data-symbol="sidebar-switch"]:checked) {
+  &:has([data-visual-sign="sidebar-switch"]:checked) {
     --sidebar-size: var(--sidebar-size-collapsed);
 
     .sidebar {
@@ -211,11 +211,11 @@ a {
 /* stylelint-enable declaration-property-value-no-unknown */
 
 :where(a, h1, h2, h3, h4, h5, h6) {
-  &:has([data-symbol]) {
+  &:has([data-visual-sign]) {
     display: inline-flex;
     align-items: center;
 
-    [data-symbol] {
+    [data-visual-sign] {
       padding-right: .25em;
     }
   }
@@ -372,7 +372,7 @@ nav.primary {
   vertical-align: middle;
 }
 
-[data-symbol] {
+[data-visual-sign] {
   aspect-ratio: 1;
   font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
   font-size: 1.5em;
@@ -391,7 +391,7 @@ nav.primary {
   }
 }
 
-[data-symbol="calendar"] {
+[data-visual-sign="calendar"] {
   &:has(+ time) {
     vertical-align: middle;
     font-size: 1.1em;
@@ -405,7 +405,7 @@ nav.primary {
   }
 }
 
-a:has(+ [data-symbol="calendar"]) {
+a:has(+ [data-visual-sign="calendar"]) {
   display: block;
 }
 
@@ -479,7 +479,7 @@ ul.taxonomies {
       max-height: var(--sidebar-size);
       transition: max-heigh 1s allow-discrete;
 
-      [data-symbol="sidebar-switch"] {
+      [data-visual-sign="sidebar-switch"] {
         left: 50%;
         right: 50%;
         top: -0.75em;

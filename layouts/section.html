@@ -12,7 +12,7 @@
       {{ range .ByWeight }}
       <li>
         <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
-          <span data-symbol aria-hidden="true">topic</span>
+          <span data-visual-sign aria-hidden="true">topic</span>
           {{ .Title }}
         </a>
         {{ with .Description }}
@@ -34,7 +34,7 @@
         {{- $shortDate := .Date | time.Format (.Site.Params.shortDateFormat | default "2006-01-02" ) }}
         {{- $longDate := .Date | time.Format (.Site.Params.longDateFormat | default "02 Jan 2006" ) }}
         <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-        <span data-symbol="calendar" aria-hidden="true">calendar_month</span>
+        <span data-visual-sign="calendar" aria-hidden="true">calendar_month</span>
         <time datetime="{{ $shortDate }}">{{ $longDate }}</time>
         <p>{{ .Description }}</p>
       </li>

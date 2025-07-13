@@ -11,7 +11,7 @@
   top: .5em;
 }
 
-.highlight button[data-symbol="copied"] {
+.highlight button[data-visual-sign="copied"] {
   background-color: var(--color-success);
   color: var(--color-on-success);
 }

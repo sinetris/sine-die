@@ -13,7 +13,7 @@
       {{ range .ByWeight }}
       <li>
         <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
-          <span data-symbol aria-hidden="true">topic</span>
+          <span data-visual-sign aria-hidden="true">topic</span>
           {{ .Title }}
         </a>
         {{ with .Description }}
@@ -33,7 +33,7 @@
       {{ range .ByWeight }}
       <li>
         <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
-          <span data-symbol aria-hidden="true">description</span>
+          <span data-visual-sign aria-hidden="true">description</span>
           {{ .Title }}
         </a>
         {{ with .Description }}

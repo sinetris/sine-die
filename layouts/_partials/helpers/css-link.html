@@ -1,33 +1,33 @@
-{{ $asset := .asset }}
-{{ $resource := false }}
-{{ $attributes := .attributes | default dict }}
+{{- $asset := .asset -}}
+{{- $resource := false -}}
+{{- $attributes := .attributes | default dict -}}
 
-{{- with resources.Get $asset }}
-  {{ $attributes = $attributes | merge (dict "rel" "stylesheet") }}
-  {{ $resource = . }}
+{{- with resources.Get $asset -}}
+  {{- $attributes = $attributes | merge (dict "rel" "stylesheet") -}}
+  {{- $resource = . -}}
   {{/* Files with extension ".gtpl.*" are considered templates */}}
-  {{ if hasSuffix (path.BaseName $asset) ".gtpl" }}
-    {{ $resource = $resource | resources.ExecuteAsTemplate $asset $asset }}
-  {{ end }}
+  {{- if hasSuffix (path.BaseName $asset) ".gtpl" -}}
+    {{- $resource = $resource | resources.ExecuteAsTemplate $asset $asset -}}
+  {{- end -}}
 
   {{/* Files with extension ".scss" are tranformed to CSS using Sass transpiler */}}
-  {{ if eq (path.Ext $asset) ".scss" }}
-    {{ $scss_opts := dict
+  {{- if eq (path.Ext $asset) ".scss" -}}
+    {{- $scss_opts := dict
       "transpiler" "dartsass"
       "enableSourceMap" (not hugo.IsProduction)
       "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
-    }}
-    {{ $resource = $resource | toCSS $scss_opts }}
-  {{ end }}
+    -}}
+    {{- $resource = $resource | toCSS $scss_opts -}}
+  {{- end -}}
 
-  {{- if hugo.IsProduction }}
-    {{ $resource = $resource | resources.Minify }}
-    {{ $attributes = merge $attributes (dict "crossorigin" "anonymous") }}
-  {{- end }}
-  {{- with $resource | fingerprint }}
-    {{- $attributes = merge $attributes (dict "href" .RelPermalink "integrity" .Data.Integrity) }}
+  {{- if hugo.IsProduction -}}
+    {{- $resource = $resource | resources.Minify -}}
+    {{- $attributes = merge $attributes (dict "crossorigin" "anonymous") -}}
+  {{- end -}}
+  {{- with $resource | fingerprint -}}
+    {{- $attributes = merge $attributes (dict "href" .RelPermalink "integrity" .Data.Integrity) -}}
     <link {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}/>
-  {{- end }}
-{{- else }}
+  {{- end -}}
+{{- else -}}
   {{ errorf "Asset %s is missing, source \"%s\", caller \"%s\"" . templates.Current.Filename templates.Current.Parent.Filename }}
-{{- end }}
+{{- end -}}

@@ -1,17 +1,17 @@
-{{ $asset := .asset }}
-{{ $resource := false }}
-{{ $attributes := .attributes | default (dict "defer" true) }}
+{{- $asset := .asset -}}
+{{- $resource := false -}}
+{{- $attributes := .attributes | default (dict "defer" true) -}}
 
-{{- with resources.Get $asset }}
-  {{ $resource = . }}
-  {{- if hugo.IsProduction }}
-    {{ $resource = $resource | resources.Minify }}
-    {{ $attributes = merge $attributes (dict "crossorigin" "anonymous") }}
-  {{- end }}
-  {{- with $resource | fingerprint }}
-    {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) }}
+{{- with resources.Get $asset -}}
+  {{- $resource = . -}}
+  {{- if hugo.IsProduction -}}
+    {{- $resource = $resource | resources.Minify -}}
+    {{- $attributes = merge $attributes (dict "crossorigin" "anonymous") -}}
+  {{- end -}}
+  {{- with $resource | fingerprint -}}
+    {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) -}}
     <script {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}></script>
-  {{- end }}
-{{- else }}
+  {{- end -}}
+{{- else -}}
   {{ errorf "Asset %s is missing, source \"%s\", caller \"%s\"" . templates.Current.Filename templates.Current.Parent.Filename }}
-{{- end }}
+{{- end -}}
