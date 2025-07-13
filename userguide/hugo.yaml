@@ -56,3 +56,11 @@ menus:
       weight: 90
       params:
         visualSign: dictionary
+    - name: Same Glossary
+      # Internal link with only icon
+      ref: '/glossary'
+      parent: first-subsection
+      weight: 90
+      params:
+        visualSign: dictionary
+        onlyVisualSign: true

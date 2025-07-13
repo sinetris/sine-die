@@ -16,7 +16,12 @@
     {{- end }}
     {{- if .Params.visualSign }}
       {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign }}
-      {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-hidden" "true") }}
+      {{- if .Params.onlyVisualSign }}
+        {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-label" $name) }}
+        {{- $innerLinkText = "" }}
+      {{- else }}
+        {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-hidden" "true") }}
+      {{- end }}
       {{- $renderedAttributes := partial "helpers/render-attributes.html" (dict "attributes" $preInnerLinkAttributes) }}
       {{- $preInnerLink = printf "<span %s /></span>" $renderedAttributes }}
     {{- end }}
