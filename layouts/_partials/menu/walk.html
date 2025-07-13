@@ -10,10 +10,17 @@
   {{- $name := .Name }}
   <li {{- with $classes }}{{ printf " class=%q" (delimit $classes " ") | safeHTMLAttr }}{{- end }} role="none">
     {{- $innerLinkText := $name }}
+    {{- $preInnerLink := "" }}
     {{- if .Params.isExternalLink }}
       {{- $attributes = merge $attributes (dict "rel" "external noreferrer" "target" "_blank") }}
     {{- end }}
-    <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $innerLinkText }}</a>
+    {{- if .Params.visualSign }}
+      {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign }}
+      {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-hidden" "true") }}
+      {{- $renderedAttributes := partial "helpers/render-attributes.html" (dict "attributes" $preInnerLinkAttributes) }}
+      {{- $preInnerLink = printf "<span %s /></span>" $renderedAttributes }}
+    {{- end }}
+    <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $preInnerLink | safeHTML }}{{ $innerLinkText }}</a>
     {{- if .HasChildren }}
       {{- $ariaLabel := printf "%s submenu" $name }}
       {{- $ariaSubmenuID := printf "%s-submenu" $name | anchorize }}

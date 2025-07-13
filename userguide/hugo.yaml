@@ -49,3 +49,10 @@ menus:
       weight: 80
       params:
         isExternalLink: true
+    - name: Glossary
+      # Internal link with text and icon
+      ref: '/glossary'
+      parent: first-subsection
+      weight: 90
+      params:
+        visualSign: dictionary
