@@ -42,6 +42,14 @@ markup:
 
 menus:
   main:
+    - name: GitHub
+      url: 'https://github.com/sinetris/sine-die'
+      weight: 60
+      params:
+        isExternalLink: true
+        onlyVisualSign: true
+        visualSign: github
+        visualSignType: brand
     - name: Example Domain
       # External link text (no visual sign)
       url: 'https://example.com/'
@@ -49,18 +57,27 @@ menus:
       weight: 80
       params:
         isExternalLink: true
+    - name: The Octocat
+      # External link with text and brand image
+      url: 'https://github.com/octocat'
+      parent: first-subsection
+      weight: 82
+      params:
+        isExternalLink: true
+        visualSign: github
+        visualSignType: brand
     - name: Glossary
       # Internal link with text and icon
-      ref: '/glossary'
+      pageRef: '/glossary'
       parent: first-subsection
       weight: 90
       params:
-        visualSign: dictionary
+        visualSign: glossary
     - name: Same Glossary
       # Internal link with only icon
-      ref: '/glossary'
+      pageRef: '/glossary'
       parent: first-subsection
       weight: 90
       params:
-        visualSign: dictionary
+        visualSign: glossary
         onlyVisualSign: true
