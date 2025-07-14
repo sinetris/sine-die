@@ -6,10 +6,11 @@
   position: absolute;
   right: .1em;
   top: .1em;
+  font-size: 1.5em;
 }
 
 [data-function="mobile-menu"]::before {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 [data-function="mobile-menu"][aria-expanded="false"]::before {
@@ -32,13 +33,29 @@
 [role="menubar"] [data-visual-sign] {
   border: none;
   align-self: center;
-  height: 1.25em;
-  width: 1.25em;
+  height: 1.9em;
+  width: 1.9em;
+  display: inline-block;
 }
 
 [role="menubar"] button[aria-expanded]:enabled:hover::before {
   color: var(--color-on-tertiary);
-  font-size: 175%;
+  font-size: 150%;
+}
+
+nav.primary :has(>span[data-visual-sign]):hover {
+  &> span[data-visual-sign] {
+    border-color: var(--color-tertiary);
+    color: var(--color-on-tertiary);
+
+    &::before {
+      font-size: 125%;
+    }
+  }
+}
+
+[role="menubar"] a:has(>span[data-visual-sign]):has([data-visual-sign][aria-hidden="true"]) > span[data-visual-sign] {
+  margin-right: .25em;
 }
 
 [role="menubar"] button[aria-expanded="false"]::before {
@@ -85,6 +102,7 @@
   min-height: 2.5em;
   width: 100%;
   padding: 0 .5em;
+  position: relative;
 }
 
 nav.primary [role="menubar"] a:hover {
@@ -147,10 +165,19 @@ nav.primary [role="menubar"] [role="menu"][aria-hidden="true"] {
 
 nav.primary [role="menubar"] [aria-haspopup] {
   background-color: var(--color-primary);
-  border: none;
   color: var(--color-on-primary);
   content: "";
   margin: .25em;
+  vertical-align: middle;
+}
+
+nav.primary [role="menubar"] span[data-visual-sign] {
+  border: thin solid var(--color-primary);
+  border-radius: .25em;
+  color: var(--color-on-primary);
+  content: "";
+  margin: var(--icon-container-margin);
+  vertical-align: middle;
 }
 
 nav.primary [role="menubar"] [aria-haspopup]:hover {
@@ -254,9 +281,9 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
         / 1fr auto;
   }
 
+  nav.primary [role="menubar"] > li > a > span,
   nav.primary [role="menubar"] > li > [aria-haspopup] {
-    height: 2em;
-    width: 2em;
+    font-size: 1.5em;
   }
 
   nav.primary [role="menubar"] > li:has(> [role="menuitem"]) {

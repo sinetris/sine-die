@@ -59,7 +59,6 @@ body > main {
   background-color: inherit;
   grid-area: content;
   margin: 1rem 2rem 2.7rem;
-  overflow-x: auto;
 }
 
 body > footer {
@@ -216,13 +215,13 @@ select,
 textarea {
   appearance: none;
   background-color: var(--color-surface-bright);
-  border-radius: .5rem;
+  border-radius: .25em;
   border: thin solid var(--color-inverse-surface);
   box-shadow: none;
   color: var(--color-on-surface-variant);
   margin-bottom: var(--spacing);
   max-width: 100%;
-  padding: .5rem;
+  padding: .5em;
 }
 
 :is(a, button, input:not(:is([type="range"],[type="image"])), select, textarea):focus-visible {
@@ -387,6 +386,7 @@ nav.breadcrumb li + li::before {
 
 nav.breadcrumb li:first-child [data-visual-sign] {
   padding-right: 0;
+  font-size: 1.5em;
 }
 
 nav.breadcrumb li:last-child {
@@ -460,6 +460,10 @@ body:not(:has(> .sidebar > *:not([for="sidebar-switch"],[id="sidebar-switch"])))
       "content" 1fr
       "sidebar" auto
       "footer" auto;
+  }
+
+  body > main {
+    overflow-x: auto;
   }
 
   nav.breadcrumb {
