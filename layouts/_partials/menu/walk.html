@@ -17,7 +17,7 @@
     {{- if .Params.visualSign }}
       {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign }}
       {{- if .Params.onlyVisualSign }}
-        {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-label" $name) }}
+        {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-label" $name "title" $name) }}
         {{- $innerLinkText = "" }}
       {{- else }}
         {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-hidden" "true") }}
