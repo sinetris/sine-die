@@ -3,8 +3,9 @@
     <h2>External Resources</h2>
     <ul>
     {{ range . }}
+      {{- $attributes := dict "href" .link "rel" "external noreferrer" "target" "_blank" }}
       <li>
-        <a href="{{ .link }}">{{ .title }}</a>
+        <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ .title }}</a>
       </li>
     {{ end }}
     </ul>
