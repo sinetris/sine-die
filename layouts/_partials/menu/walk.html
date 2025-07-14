@@ -15,7 +15,7 @@
       {{- $attributes = merge $attributes (dict "rel" "external noreferrer" "target" "_blank") }}
     {{- end }}
     {{- if .Params.visualSign }}
-      {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign }}
+      {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign "data-visual-sign-type" (.Params.visualSignType | default false) }}
       {{- if .Params.onlyVisualSign }}
         {{- $preInnerLinkAttributes = merge $preInnerLinkAttributes (dict "aria-label" $name "title" $name) }}
         {{- $innerLinkText = "" }}
