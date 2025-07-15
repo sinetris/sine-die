@@ -72,6 +72,7 @@ body {
       top: 0.75em;
       min-height: 1.5em;
       min-width: 1.5em;
+      font-size: 1.5em;
 
       & + label {
         visibility: hidden;
@@ -157,11 +158,13 @@ body {
       }
 
       &> li > blockquote {
-      margin: 0;
-
-      &> p {
         margin: 0;
-      }
+        padding: 0 .5em;
+
+        &> p {
+          margin: 0;
+          margin-block-end: .5em;
+        }
       }
 
       .sections-list,
@@ -209,6 +212,20 @@ a {
   text-decoration-color: oklch(from currentcolor l c h / 75%);
 }
 /* stylelint-enable declaration-property-value-no-unknown */
+
+/* Show "open_in_new" symbol for external links (excluding footer) */
+a[target="_blank"]:not(body > footer a) {
+  &::after {
+    --icon-size: .75em;
+
+    content: "open_in_new" / "";
+    display: inline-block;
+    font-family: var(--font-family-icons);
+    font-size: var(--icon-size);
+    position: relative;
+    vertical-align: top;
+  }
+}
 
 :where(a, h1, h2, h3, h4, h5, h6) {
   &:has([data-visual-sign]) {
@@ -372,26 +389,11 @@ nav.primary {
   vertical-align: middle;
 }
 
-[data-visual-sign] {
-  aspect-ratio: 1;
-  font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
-  font-size: 1.5em;
-  position: relative;
-  margin: 0;
-  padding: 0;
-
-  &::before,
-  &::after {
-    font-size: 100%;
-    line-height: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
 [data-visual-sign="calendar"] {
+  &::before {
+    position: relative;
+  }
+
   &:has(+ time) {
     vertical-align: middle;
     font-size: 1.1em;

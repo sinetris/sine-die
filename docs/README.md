@@ -166,9 +166,9 @@ CLI flags. Check [userguide/pagefind.yaml](userguide/pagefind.yaml) for an examp
 
 You need an SVG image to generate favicons for your website.
 
-- Generate favicons from the SVG image (e.g using [icongen])
-  - Icons to generate: **favicon.ico**, **apple touch icon**, **Android app**,
-  **OSX favicon.png**
+- Generate favicons from the SVG image
+  - (e.g using [icongen]) Icons to generate: **favicon.ico**,
+    **apple touch icon**, **Android app**, **OSX favicon.png**
 - Copy the SVG image to `static/favicons/favicon.svg`
 - Copy generated `favicon.ico` image to `static/favicon.ico`
 - Copy other generated images to `static/favicons/`

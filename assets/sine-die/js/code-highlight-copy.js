@@ -3,8 +3,8 @@ class CodeBlockCopyButton {
   #preCodeBlock
   #labelCopy = 'Copy'
   #labelCopied = 'Copied!'
-  #iconCopy = 'content_copy'
-  #iconCopied = 'done_outline'
+  #iconCopy = 'copy'
+  #iconCopied = 'copied'
   constructor(preCodeBlock) {
     let button = document.createElement('button');
     button.addEventListener("click", this.copyCode.bind(this));
@@ -23,14 +23,12 @@ class CodeBlockCopyButton {
 
   setCopyButton() {
     this.#button.setAttribute('aria-label', this.#labelCopy);
-    this.#button.setAttribute('data-visual-sign', 'copy');
-    this.#button.textContent = this.#iconCopy;
+    this.#button.setAttribute('data-visual-sign', this.#iconCopy);
   }
 
   setCopiedButton() {
     this.#button.setAttribute('aria-label', this.#labelCopied);
-    this.#button.setAttribute('data-visual-sign', 'copied');
-    this.#button.textContent = this.#iconCopied;
+    this.#button.setAttribute('data-visual-sign', this.#iconCopied);
   }
 
   getCodeText() {
