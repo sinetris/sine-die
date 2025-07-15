@@ -59,14 +59,11 @@ A simple and clean [Hugo][hugo] theme.
 >}}
 {{< /figure-wrapper >}}
 
-## Use sine-die theme
+## Setup
 
-1. Add the sine-die theme to your Hugo site as a git submodule:
-
-    ```bash
-    git submodule add https://github.com/sinetris/sine-die themes/sine-die
-    ```
-
-2. Edit `hugo.toml` and change the theme to `theme = 'sine-die'`.
+To use the `sine-sie` theme, refer to the [setup][sine-die-docs-setup] section
+in the [documentation][sine-die-docs].
 
 [hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
+[sine-die-docs]: <https://github.com/sinetris/sine-die/tree/main/docs> "sine-die: documentation"
+[sine-die-docs-setup]: <https://github.com/sinetris/sine-die/tree/main/docs#setup> "sine-die: setup"
