@@ -2,7 +2,7 @@
   aspect-ratio: 1;
   direction: ltr;
   display: inline-block;
-  font-family: 'Material Symbols Outlined'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  font-family: var(--font-family-icons, 'Material Symbols Outlined');
   font-feature-settings: 'liga';
   font-size: 1em;
   font-style: normal;

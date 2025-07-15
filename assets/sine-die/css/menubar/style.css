@@ -38,6 +38,18 @@
   display: inline-block;
 }
 
+[role="menubar"] a[target="_blank"] {
+  &::after {
+    position: absolute;
+    top: .5rem;
+    right: .25rem;
+  }
+
+  &:hover::after {
+    --icon-size: 1em;
+  }
+}
+
 [role="menubar"] button[aria-expanded]:enabled:hover::before {
   color: var(--color-on-tertiary);
   font-size: 150%;
@@ -194,6 +206,12 @@ nav.primary [role="menubar"] li:has(> [aria-haspopup]:focus-visible) {
 /* Small tablet devices and smaller */
 
 @media only screen and (width <= 1024px) {
+  nav.primary [role="menubar"] a[target="_blank"] {
+    &::after {
+      top: .25rem;
+    }
+  }
+
   /* Show menu and theme switch only on mobile-menu button click */
   [data-function="switch-color-scheme"]:has(~ [data-function="mobile-menu"][aria-expanded="false"]),
   nav.primary [role="menubar"]:has(~ [data-function="mobile-menu"][aria-expanded="false"]) {

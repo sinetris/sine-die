@@ -213,6 +213,20 @@ a {
 }
 /* stylelint-enable declaration-property-value-no-unknown */
 
+/* Show "open_in_new" symbol for external links (excluding footer) */
+a[target="_blank"]:not(body > footer a) {
+  &::after {
+    --icon-size: .75em;
+
+    content: "open_in_new" / "";
+    display: inline-block;
+    font-family: var(--font-family-icons);
+    font-size: var(--icon-size);
+    position: relative;
+    vertical-align: top;
+  }
+}
+
 :where(a, h1, h2, h3, h4, h5, h6) {
   &:has([data-visual-sign]) {
     display: inline-flex;
