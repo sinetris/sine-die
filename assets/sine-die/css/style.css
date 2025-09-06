@@ -207,7 +207,8 @@ body {
 }
 
 /* stylelint-disable declaration-property-value-no-unknown */
-a {
+a,
+a :is(h1, h2, h3, h4, h5, h6) {
   color: var(--color-on-secondary-container);
   text-decoration-color: oklch(from currentcolor l c h / 75%);
 }
