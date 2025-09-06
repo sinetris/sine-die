@@ -14,7 +14,7 @@ try {
 try {
   const root = document.documentElement;
   const switchButton = document.querySelector('button[data-function="switch-color-scheme"]');
-  new ManageColorScheme(root, switchButton);
+  window.colorSchemaManager = new ColorSchemaManager(root, switchButton);
 } catch (e) {
   console.error(`${e.name}: ${e.message}`);
 }

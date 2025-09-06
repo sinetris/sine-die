@@ -2,6 +2,6 @@
 
 var theme = false;
 
-if (theme = localStorage.getItem("theme-mode")) {
+if (theme = localStorage.getItem("theme-color-scheme")) {
   document.documentElement.setAttribute("data-color-scheme", theme);
 }

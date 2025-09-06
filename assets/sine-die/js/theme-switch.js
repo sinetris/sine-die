@@ -1,6 +1,20 @@
 // Dark/Light Theme Switch button
 
-class ManageColorScheme {
+class ColorSchemeChangedEvent extends Event {
+  #isDarkMode;
+
+  constructor(isDarkMode) {
+    super("ColorSchemeChanged");
+    this.#isDarkMode = isDarkMode;
+  }
+
+  get isDarkMode() {
+    return this.#isDarkMode;
+  }
+}
+
+class ColorSchemaManager {
+  #registeredHandlers = [];
   constructor(root, switchButton) {
     this.root = root;
     this.switchButton = switchButton;
@@ -13,14 +27,32 @@ class ManageColorScheme {
   }
 
   get storedTheme() {
-    let theme = localStorage.getItem("theme-mode");
+    let theme = localStorage.getItem("theme-color-scheme");
     return this.validateTheme(theme);
+  }
+
+  get isDarkMode() {
+    const theme = this.storedTheme;
+    return theme === "dark" || (theme === "default" && this.preferColorScheme === "dark");
   }
 
   applyTheme(theme) {
     let newTheme = this.validateTheme(theme);
-    localStorage.setItem("theme-mode", newTheme);
+    localStorage.setItem("theme-color-scheme", newTheme);
     this.root.setAttribute("data-color-scheme", newTheme);
+    this.#registeredHandlers.forEach(
+      (element) => element.dispatchEvent(
+        new ColorSchemeChangedEvent(this.isDarkMode),
+      )
+    );
+  }
+
+  registerEventHandler(element, funCallback) {
+    this.#registeredHandlers.push(element);
+    element.addEventListener(
+      "ColorSchemeChanged",
+      (event) => funCallback(event)
+    );
   }
 
   switchTheme() {
