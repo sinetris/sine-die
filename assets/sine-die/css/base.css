@@ -455,15 +455,15 @@ body.full-space > .sidebar {
   transform: translateY(0%);
 }
 
-/* (start) Hide sidebar and change grid-template if the sidebar has no content */
+/* (start) Hide sidebar if it has no content other than the sidebar-switch */
 
 /* Hide the sidebas if it's empty */
-body > .sidebar:not(:has(*:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
+body > .sidebar:not(:has(*:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
   display: none;
 }
 
 /* Remove sidebar from grid-template */
-body:not(:has(> .sidebar > *:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
+body:not(:has(> .sidebar > *:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
   grid-template:
     "header" auto
     "content" 1fr
