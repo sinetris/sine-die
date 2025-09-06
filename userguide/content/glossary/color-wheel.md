@@ -5,7 +5,8 @@ draft: true
 description: |
    A circular diagram used to show the relationships between colors.
 params:
-  context: graphic-design
+  contexts:
+    - graphic-design
   synonyms:
     - color circle
   related:
