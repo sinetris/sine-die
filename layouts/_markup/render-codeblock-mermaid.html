@@ -1,0 +1,6 @@
+{{ page.Store.Set "hasMermaid" true -}}
+<pre class="mermaid" data-base64src="{{ .Inner | base64Encode }}">
+  <code>
+    {{ .Inner }}
+  </code>
+</pre>
