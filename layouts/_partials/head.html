@@ -16,4 +16,12 @@
 {{ partial "fonts-assets.html" . }}
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+
+{{/* Adding templates.Defer to be able to use page.Store.Get in 'html>head' */}}
+{{ $pageData := dict "page" . -}}
+{{ with (templates.Defer (dict "data" $pageData)) -}}
+  {{ if page.Store.Get "hasMermaid" -}}
+    {{ partialCached "head/mermaid.html" . }}
+  {{- end }}
+{{ end }}
 {{- if .Site.Params.enableFavicons }}{{ partialCached "head/favicons.html" . }}{{ end -}}

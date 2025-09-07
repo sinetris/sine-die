@@ -1,0 +1,10 @@
+{{- with .contexts }}
+  <section class="contexts">
+    <h2>Contexts</h2>
+    <ul>
+    {{ range . }}
+      <li data-context="{{ . }}" data-pagefind-filter="Glossary Context">{{ . }}</li>
+    {{ end }}
+    </ul>
+  </section>
+{{ end -}}

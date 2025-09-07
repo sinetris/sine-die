@@ -3,15 +3,16 @@
     <h2>Related</h2>
     <ul>
     {{ range . }}
-      {{- $title := "" }}
       {{ with page.GetPage . }}
+        {{- $title := .Title }}
+        {{- $attributes := dict "href" .RelPermalink }}
         {{ if .Params.abbreviations }}
-          {{- $title = index .Params.abbreviations 0 -}}
-        {{ else }}
-          {{- $title = .Title -}}
+          {{- $abbrAttributes := dict "title" .Title }}
+          {{- $renderedAbbrAttributes := partial "helpers/render-attributes.html" (dict "attributes" $abbrAttributes) }}
+          {{- $title = printf "<abbr %s />%s</span>" $renderedAbbrAttributes (index .Params.abbreviations 0) }}
         {{ end }}
         <li>
-          <a href="{{ .Params.externalLink | default .RelPermalink }}" role="doc-glossref">{{ $title }}</a>
+          <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $title | safeHTML }}</a>
         </li>
       {{ end }}
     {{ end }}

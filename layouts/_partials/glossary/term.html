@@ -9,6 +9,7 @@
     {{ else }}
       <h1>{{ $page.Title }}</h1>
     {{ end }}
+    {{ partial "glossary/contexts.html" (dict "contexts" $page.Params.contexts) }}
   </header>
   {{ if $options.embedded }}
     <p>{{ $page.Description | markdownify }}</p>

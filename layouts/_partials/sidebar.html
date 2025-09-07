@@ -1,10 +1,12 @@
 <aside class="sidebar">
-  <label for="sidebar-switch"></label>
+  <label for="sidebar-switch">
+    <span>Close Sidebar</span>
+    <span>Open Sidebar</span>
+  </label>
   <input
     id="sidebar-switch"
     data-visual-sign="sidebar-switch"
     type="checkbox"
-    title="sidebar toggle"
     {{ with .Params.CollapsedSidebar }}checked{{ end }}
   />
   {{- partial "toc.html" . }}

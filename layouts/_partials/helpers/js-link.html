@@ -1,17 +1,74 @@
-{{- $asset := .asset -}}
-{{- $resource := false -}}
 {{- $attributes := .attributes | default (dict "defer" true) -}}
+{{- $scriptLink := .scriptLink | default true -}}
 
-{{- with resources.Get $asset -}}
-  {{- $resource = . -}}
-  {{- if hugo.IsProduction -}}
-    {{- $resource = $resource | resources.Minify -}}
-    {{- $attributes = merge $attributes (dict "crossorigin" "anonymous") -}}
-  {{- end -}}
-  {{- with $resource | fingerprint -}}
-    {{- $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) -}}
-    <script {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}></script>
-  {{- end -}}
+{{- $resource := false -}}
+{{- $moduleImports := dict -}}
+
+{{- if $.remoteResouceURL -}}
+  {{ with try (resources.GetRemote $.remoteResouceURL) -}}
+    {{ with .Err -}}
+      {{
+        errorf "Could not retrieve remote resource \"%s\". Reason: \"%s\". Source: \"%s\". Caller \"%s\""
+          $.remoteResouceURL . templates.Current.Filename templates.Current.Parent.Filename
+      -}}
+    {{- else with .Value -}}
+      {{- if $.localCache -}}
+        {{ $resource = resources.Copy (printf "/assets-cache/%s" $.localCache) . }}
+        {{- $attributes = merge $attributes (dict "crossorigin" "anonymous") -}}
+      {{- else -}}
+        {{ $resource = . }}
+      {{ end -}}
+    {{ end -}}
+  {{- else -}}
+    {{
+      errorf "Invalid asset \"%s\" for remote resource: \"%s\". Source: \"%s\". Caller \"%s\""
+        $.asset $.remoteResouceURL templates.Current.Filename templates.Current.Parent.Filename
+    -}}
+  {{ end -}}
 {{- else -}}
-  {{ errorf "Asset %s is missing, source \"%s\", caller \"%s\"" . templates.Current.Filename templates.Current.Parent.Filename }}
-{{- end -}}
+  {{ with try (resources.Get $.asset) -}}
+    {{ with .Err -}}
+      {{
+        errorf "Could not load local resource '%s'. Reason: %s. Source: \"%s\". Caller \"%s\""
+          $.asset . templates.Current.Filename templates.Current.Parent.Filename
+      -}}
+    {{- else with .Value -}}
+      {{- $resource = . -}}
+    {{ end -}}
+  {{- else -}}
+    {{
+      errorf "Invalid local resource: '%s'. Source: \"%s\". Caller \"%s\""
+        $.remoteResouceURL templates.Current.Filename templates.Current.Parent.Filename
+    -}}
+  {{ end -}}
+{{ end -}}
+
+{{ with $resource -}}
+  {{ if hugo.IsProduction -}}
+    {{ $resource = $resource | resources.Minify -}}
+    {{ $attributes = merge $attributes (dict "crossorigin" "anonymous") -}}
+  {{ end -}}
+  {{ with $resource | fingerprint -}}
+    {{- if $.isModule -}}
+      {{- $attributes = merge $attributes (dict "type" "module") -}}
+      {{- $moduleImports = merge $moduleImports (dict $.asset .RelPermalink) -}}
+      {{- if and $.remoteResouceURL (not $.localCache) -}}
+        {{- $moduleImports = merge $moduleImports (dict $.asset $.remoteResouceURL) -}}
+      {{ end -}}
+      <script type="importmap">
+        {
+          "imports": {{ $moduleImports | jsonify }}
+        }
+        </script>
+    {{ end -}}
+    {{ if $scriptLink -}}
+      {{ $attributes = merge $attributes (dict "src" .RelPermalink "integrity" .Data.Integrity) -}}
+      <script {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}></script>
+    {{ end -}}
+  {{ end -}}
+{{ else -}}
+  {{
+    errorf "Asset %s is missing. Source: \"%s\". Caller \"%s\""
+      . templates.Current.Filename templates.Current.Parent.Filename
+  -}}
+{{ end -}}

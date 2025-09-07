@@ -1,0 +1,29 @@
+{{
+  partial "helpers/js-link.html" (
+    dict
+      "asset" "js/core-js.js"
+      "remoteResouceURL" "https://cdn.jsdelivr.net/npm/core-js-bundle@3/minified.min.js"
+      "attributes" (dict "defer" true)
+  )
+-}}
+{{
+  partial "helpers/css-link.html" (
+    dict "asset" "sine-die/css/mermaid/style.css"
+  )
+-}}
+{{
+  partial "helpers/js-link.html" (
+    dict
+      "asset" "mermaid"
+      "remoteResouceURL" "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs"
+      "isModule" true
+      "scriptLink" false
+  )
+-}}
+{{-
+  partial "helpers/js-link.html" (
+    dict
+      "asset" "/sine-die/js/mermaid.js"
+      "isModule" true
+  )
+-}}

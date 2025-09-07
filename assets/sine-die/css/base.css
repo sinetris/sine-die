@@ -107,6 +107,10 @@ blockquote {
   padding: 1.5rem 2rem;
 }
 
+blockquote > ul {
+  list-style-type: disc;
+}
+
 dl dt {
   font-weight: bold;
 }
@@ -261,11 +265,43 @@ input[type="radio"] {
 }
 
 [type="checkbox"][role="switch"] {
-  width: 2.25em;
+  width: 2.5em;
   height: 1.25em;
   border-radius: 1.25em;
   background-color: var(--color-surface-bright);
   line-height: 1.25em;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+
+  &::after {
+    content: "Off";
+    position: relative;
+    left: 3em;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.12em;
+    height: 1.12em;
+    border-radius: 50%;
+    background-color: var(--color-on-surface-variant);
+  }
+
+  &:checked {
+    &::after {
+      content: "On";
+    }
+
+    &::before {
+      background-color: var(--color-on-primary);
+      left: 1.25em;
+    }
+  }
 }
 
 button,
@@ -419,15 +455,15 @@ body.full-space > .sidebar {
   transform: translateY(0%);
 }
 
-/* (start) Hide sidebar and change grid-template if the sidebar has no content */
+/* (start) Hide sidebar if it has no content other than the sidebar-switch */
 
 /* Hide the sidebas if it's empty */
-body > .sidebar:not(:has(*:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
+body > .sidebar:not(:has(*:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
   display: none;
 }
 
 /* Remove sidebar from grid-template */
-body:not(:has(> .sidebar > *:not([for="sidebar-switch"],[id="sidebar-switch"]))) {
+body:not(:has(> .sidebar > *:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
   grid-template:
     "header" auto
     "content" 1fr

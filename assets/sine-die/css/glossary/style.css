@@ -7,19 +7,6 @@ body.glossary .glossary-term:has(:hover) {
   border-left-color: var(--color-on-secondary-container)
 }
 
-.glossary-term footer h2 {
-  font-size: 1.1em;
-  margin: .1em;
-}
-
-.glossary-term footer {
-  padding-left: 1em;
-}
-
-.glossary-term footer ul {
-  margin: .1em;
-}
-
 [role="doc-glossary"] header nav > h2 {
   display: inline-block;
   font-size: 1.1em;
@@ -35,20 +22,44 @@ body.glossary .glossary-term:has(:hover) {
   display: inline-block;
 }
 
-.glossary-term footer .abbreviations ul,
-.glossary-term footer .synonyms ul {
-  padding: 0 .5em;
+.glossary-term {
+  header {
+    h2 {
+      font-size: 1.4em;
+      margin-block: .8em 0.4em;
+    }
+  }
+
+  header .contexts,
+  footer {
+    font-size: 90%;
+
+    h2 {
+      font-size: 1.1em;
+      margin: .1em;
+      display: inline-block;
+    }
+
+    ul {
+      display: inline-block;
+      padding: 0 .5em;
+      margin: .1em .5em 1em;
+
+      li {
+        display: inline-block;
+
+        + li::before {
+          content: " | ";
+          padding: 0 .5em;
+        }
+      }
+    }
+  }
 }
 
-.glossary-term footer .abbreviations li,
-.glossary-term footer .synonyms li {
-  display: inline-block;
-}
-
-.glossary-term footer .abbreviations li + li::before,
-.glossary-term footer .synonyms li + li::before {
-  content: " | ";
-  padding: 0 .5em;
+.glossary-term footer {
+  margin-top: 1em;
+  border-top: .2em solid var(--color-outline-variant);
 }
 
 body.glossary .glossary-term h2 {
