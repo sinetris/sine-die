@@ -144,12 +144,6 @@ can be found in [Pagefind installation documentation][pagefind-installation]).
 
 #### Installing and running Pagefind
 
-To install and run Pagefind with Node.js, run:
-
-```shell
-npx pagefind --site "public"
-```
-
 To install and run Pagefind with Python 3, run:
 
 ```shell
@@ -157,6 +151,12 @@ To install and run Pagefind with Python 3, run:
 python3 -m pip install 'pagefind[extended]'
 # Run pagefind
 python3 -m pagefind --site "public"
+```
+
+To install and run Pagefind with Node.js, run:
+
+```shell
+npx pagefind --site "public"
 ```
 
 You can use [Pagefind CLI config sources][pagefind-config-sources] instead of passing
