@@ -1,0 +1,10 @@
+<label for="sidebar-switch">
+  <span>Close Sidebar</span>
+  <span>Open Sidebar</span>
+</label>
+<input
+  id="sidebar-switch"
+  data-visual-sign="sidebar-switch"
+  type="checkbox"
+  {{ with .Params.CollapsedSidebar }}checked{{ end }}
+/>

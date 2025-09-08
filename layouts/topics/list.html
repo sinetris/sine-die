@@ -1,3 +1,4 @@
+{{ define "sidebar" }}{{ partial "list/sidebar.html" . }}{{ end }}
 {{ define "main" }}
   <article class="content">
     {{- with .Params.Title -}}
@@ -5,44 +6,4 @@
     {{- end -}}
     {{ .Content }}
   </article>
-
-  {{ with .Sections }}
-  <nav class="sections-list">
-    <h2>Sections List</h2>
-    <ul>
-      {{ range .ByWeight }}
-      <li>
-        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
-          <span data-visual-sign aria-hidden="true">topic</span>
-          {{ .Title }}
-        </a>
-        {{ with .Description }}
-          <p>{{ . }}</p>
-        {{- end -}}
-      </li>
-      {{- end -}}
-    </ul>
-  </nav>
-  {{ end }}
-
-  {{ $context := .}}
-  {{ with .Paginator.Pages }}
-  <nav class="pages-list">
-    <h2>Pages List</h2>
-    <ul>
-      {{ range .ByWeight }}
-      <li>
-        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">
-          <span data-visual-sign aria-hidden="true">description</span>
-          {{ .Title }}
-        </a>
-        {{ with .Description }}
-        <p>{{ . }}</p>
-        {{- end -}}
-      </li>
-      {{- end -}}
-    </ul>
-    {{ partial "pagination.html" $context }}
-  </nav>
-  {{ end }}
 {{ end }}

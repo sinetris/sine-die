@@ -1,0 +1,20 @@
+{{ $context := .}}
+{{ with .Paginator.Pages }}
+<nav class="pages-list">
+  <h2>Pages List</h2>
+  <ul>
+    {{ range . }}
+    <li>
+      <a
+        class="title"
+        href="{{ .Params.externalLink | default .RelPermalink }}"
+        title="{{ .Description | strings.TrimSpace | safeHTMLAttr }}"
+      >
+        {{ .Title }}
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+  {{ partial "pagination.html" $context }}
+</nav>
+{{- end -}}

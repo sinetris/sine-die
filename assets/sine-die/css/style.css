@@ -17,6 +17,7 @@ body {
     color: var(--color-on-surface);
 
     nav.toc {
+      border-bottom: 0.25rem solid var(--color-secondary-container);
       white-space: nowrap;
 
       &> h2 {
@@ -139,6 +140,31 @@ body {
         display .3s allow-discrete;
       overflow: hidden;
       padding: .2em;
+    }
+
+    .sections-list,
+    .pages-list {
+      border-bottom: 0.25rem solid var(--color-secondary-container);
+
+      h2 {
+        font-size: 1.2em;
+        margin-block: .5em;
+      }
+
+      &> ul {
+        padding-left: .5em;
+      }
+
+      .pagination {
+        padding: 0;
+        margin: 0;
+
+        .page-item {
+          padding: .3em;
+          margin: 0;
+
+        }
+      }
     }
   }
 
