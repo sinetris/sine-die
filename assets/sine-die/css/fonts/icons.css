@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%);
   }
 
-  &:not(:where([data-visual-sign-type]))::before {
+  &::after {
     content: attr(data-visual-sign);
   }
 }

@@ -11,38 +11,38 @@
   font-family: 'Font Awesome 6 Brands'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="app-store"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="app-store"]::after {
   content: "\f36f";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="aws"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="aws"]::after {
   content: "\f375";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="discord"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="discord"]::after {
   content: "\f392";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="github"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="github"]::after {
   content: "\f09b";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="gitlab"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="gitlab"]::after {
   content: "\f296";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="linkedin"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="linkedin"]::after {
   content: "\f08c";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="openid"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="openid"]::after {
   content: "\f19b";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="steam"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="steam"]::after {
   content: "\f1b6";
 }
 
-[data-visual-sign-type="brand"][data-visual-sign="xing"]::before {
+[data-visual-sign-type="brand"][data-visual-sign="xing"]::after {
   content: "\f168";
 }
