@@ -333,6 +333,8 @@ h6 {
 }
 
 .pagination {
+  justify-self: center;
+
   &> li {
     display: inline-block;
     list-style: none;
@@ -345,16 +347,17 @@ h6 {
     .active & {
       font-weight: bold;
     }
+
     /* stylelint-disable declaration-property-value-no-unknown */
     .disabled & {
       color: hsl(from currentcolor h s l / 50%);
       text-decoration: none;
     }
     /* stylelint-enable declaration-property-value-no-unknown */
-  }
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -506,6 +509,14 @@ ul.taxonomies {
   }
 }
 
+[data-visual-sign="author"]::after {
+  content: "person";
+}
+
+[data-visual-sign="tag"]::after {
+  content: "label";
+}
+
 /* Small tablet devices and smaller */
 
 @media only screen and (width <= 1024px) {
@@ -593,8 +604,8 @@ ul.taxonomies {
     display: none;
   }
 
-  nav.primary .brand img ,
-  nav.primary .brand svg ,
+  nav.primary .brand img,
+  nav.primary .brand svg,
   nav.primary .brand hgroup {
     padding: 0%;
     margin: 0%;
