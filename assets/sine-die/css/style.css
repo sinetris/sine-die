@@ -17,6 +17,7 @@ body {
     color: var(--color-on-surface);
 
     nav.toc {
+      border-bottom: 0.25rem solid var(--color-secondary-container);
       white-space: nowrap;
 
       &> h2 {
@@ -139,6 +140,31 @@ body {
         display .3s allow-discrete;
       overflow: hidden;
       padding: .2em;
+    }
+
+    .sections-list,
+    .pages-list {
+      border-bottom: 0.25rem solid var(--color-secondary-container);
+
+      h2 {
+        font-size: 1.2em;
+        margin-block: .5em;
+      }
+
+      &> ul {
+        padding-left: .5em;
+      }
+
+      .pagination {
+        padding: 0;
+        margin: 0;
+
+        .page-item {
+          padding: .3em;
+          margin: 0;
+
+        }
+      }
     }
   }
 
@@ -307,6 +333,8 @@ h6 {
 }
 
 .pagination {
+  justify-self: center;
+
   &> li {
     display: inline-block;
     list-style: none;
@@ -319,16 +347,17 @@ h6 {
     .active & {
       font-weight: bold;
     }
+
     /* stylelint-disable declaration-property-value-no-unknown */
     .disabled & {
       color: hsl(from currentcolor h s l / 50%);
       text-decoration: none;
     }
     /* stylelint-enable declaration-property-value-no-unknown */
-  }
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -480,6 +509,14 @@ ul.taxonomies {
   }
 }
 
+[data-visual-sign="author"]::after {
+  content: "person";
+}
+
+[data-visual-sign="tag"]::after {
+  content: "label";
+}
+
 /* Small tablet devices and smaller */
 
 @media only screen and (width <= 1024px) {
@@ -567,8 +604,8 @@ ul.taxonomies {
     display: none;
   }
 
-  nav.primary .brand img ,
-  nav.primary .brand svg ,
+  nav.primary .brand img,
+  nav.primary .brand svg,
   nav.primary .brand hgroup {
     padding: 0%;
     margin: 0%;

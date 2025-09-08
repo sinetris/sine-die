@@ -1,0 +1,21 @@
+{{ with .Params.categories }}
+<dl class="categories">
+  <dt>
+    <a href="{{ relURL "categories" }}">
+      <span data-visual-sign="category" aria-hidden="true"></span>
+      Categories
+    </a>
+  </dt>
+  {{ range . }}
+  {{ $term := . }}
+  {{ $taxonomy := index site.Taxonomies (lower .) -}}
+  {{ with site.GetPage (printf "/categories/%s" $term) }}
+  <dd>
+    <a href="{{ .Permalink }}">
+    {{ .Title }}
+    </a>
+  </dd>
+  {{ end }}
+  {{ end }}
+</dl>
+{{ end }}

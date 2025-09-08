@@ -1,0 +1,19 @@
+{{ with .Sections }}
+<nav class="sections-list">
+  <h2>Sections List</h2>
+  <ul>
+    {{ range .ByWeight }}
+    <li>
+      <a
+        class="title"
+        href="{{ .Params.externalLink | default .RelPermalink }}"
+        title="{{ .Description | strings.TrimSpace | safeHTMLAttr }}"
+      >
+        <span data-visual-sign aria-hidden="true">topic</span>
+        {{ .Title }}
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</nav>
+{{ end }}

@@ -16,19 +16,22 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  &::before,
   &::after {
     display: inline-block;
     white-space: nowrap;
     line-height: 1;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    content: attr(data-visual-sign);
   }
 
-  &:not(:where([data-visual-sign-type]))::before {
-    content: attr(data-visual-sign);
+  button&,
+  [role="menuitem"] & {
+    &::after {
+      position: absolute;
+    }
   }
 }
 
