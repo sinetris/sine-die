@@ -45,7 +45,7 @@ repos:
           - -x
   # Markdown/CommonMark Linter
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+    rev: v0.46.0
     hooks:
       - id: markdownlint
         # Makefile Linter
@@ -62,7 +62,7 @@ repos:
         args: [-conf, .yamlfmt]
   # CSS linter
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
-    rev: v16.25.0
+    rev: v16.26.0
     hooks:
       - id: stylelint
         files: \.(css|scss|sass)$
