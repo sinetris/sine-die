@@ -1,5 +1,13 @@
 'use strict';
 
+// Remove 'no-js' class when Javascript is enabled
+try {
+  const root = document.documentElement;
+  root.classList.remove('no-js');
+} catch (e) {
+  console.error(`${e.name}: ${e.message}`);
+}
+
 // Menubar
 try {
   var menubarNavs = document.querySelectorAll('[role="menubar"]');
