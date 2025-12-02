@@ -13,18 +13,18 @@ Accepts only named parameters.
     {{ $attributes := dict }}
     <!-- An attribute value can be an array of strings (elements will be delimited with a space) -->
     {{ $attributes := merge $attributes (dict "class" (slice "try-me" "centered")) }}
-    <!-- An attribute value can be a boolean (attributes a boolean false value are not rendered) -->
+    <!-- An attribute value can be a boolean (values with a boolean false are not rendered) -->
     {{ $attributes := merge $attributes (dict "inert" true "hidden" false) }}
     <!-- For boolean mandatory attributes you can use "true" and "false" as string -->
     {{ $attributes := merge $attributes (dict "draggable" "false") }}
-    <!-- We can add attributes that should be excluded them from rendering (we will exclude them later) -->
+    <!-- Let's add some attributes that will be excluded from rendering using 'exclude' -->
+    <!-- (useful, for example, when we want to pass all attributes to a partial template) -->
     {{ $attributes := merge $attributes (dict "src" "images/logo.png" "alt" "The Logo" "caption" "Using [CommonMark](https://commonmark.org/)") }}
-    <!-- ... this would likely be in a different template -->
-    <!-- Since we use some attributes somewhere else, we can exclude them from rendering -->
+    <!-- Finally, let's use render-attributes in a template, and exclude attributes used elsewhere -->
     {{ $excludeAttributes := (slice "src" "alt" "caption") }}
     <figure {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes "exclude" $excludeAttributes) }}>
       <img
-        {{- with $attributes.src }} src="{{ . }}"{{ end }}
+        {{- with resources.Get $attributes.src }} src="{{ .RelPermalink }}"{{ end }}
         {{- with $attributes.alt }} alt="{{ . }}"{{ end -}}
       />
       {{ with $attributes.caption -}}
@@ -53,9 +53,9 @@ Accepts only named parameters.
             {{ $value = delimit $value " " }}
           {{ end }}
           {{ $result =  $result | append (printf "%s=%q" $key ($value | htmlEscape) | safeHTMLAttr) }}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{ return (delimit $result " " | safeHTMLAttr) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{- end }}
+{{ end }}
+{{- return (delimit $result " " | safeHTMLAttr) -}}
