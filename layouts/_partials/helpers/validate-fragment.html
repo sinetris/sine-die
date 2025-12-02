@@ -1,0 +1,53 @@
+{{- /*
+  Validates the fragment portion of a link destination in a page.
+
+  Return true if the fragment is found and false otherwise.
+
+  @context {page} page A reference to the page containing the link fragment
+  @context {string} fragment URI fragment (without the #) linking to an header ID in the page
+  @context {string} errorLevel The error level for invalid page fragments (one of: ignore, warning (default), error)
+  @context {string} caller The file initiating the call (default to 'page.File.Filename' or 'templates.Current.Parent.Name')
+
+  @returns {bool}
+*/}}
+
+{{- /* Initialize. */}}
+{{- $page := .page }}
+{{- $fragment := .fragment }}
+{{- $errorLevel := .errorLevel | default "warning" }}
+{{- $caller := .caller }}
+
+{{- /* Validate. */}}
+{{- $fragmentFound := false }}
+{{- $msg := "" }}
+{{- with $fragment }}
+  {{- if not $caller }}
+    {{- $caller := templates.Current.Parent.Name }}
+    {{- if eq page.Kind "page" }}
+      {{ with page.File }}{{ $caller = .Filename }}{{ end }}
+    {{- end }}
+  {{- end }}
+  {{- $targetPath := "" }}
+  {{- with $page.File }}
+    {{- $targetPath = .Path }}
+  {{- else }}
+    {{- $targetPath = .Path }}
+  {{- end }}
+  {{- if $page.Fragments.Identifiers.Contains . }}
+    {{- $fragmentFound = true }}
+    {{- if gt ($page.Fragments.Identifiers.Count .) 1 }}
+      {{- $msg = printf "Detected duplicate heading IDs %q in %s. Caller: %s" . $targetPath $caller }}
+    {{- end }}
+  {{- else }}
+    {{- $msg = printf "Unable to find heading ID %q in %s. Caller: %s" . $targetPath $caller }}
+  {{- end }}
+{{- end }}
+{{- with $msg }}
+  {{- /* Throw warning or error. */}}
+  {{- if eq $errorLevel "warning" }}
+    {{- warnf . }}
+  {{- else if eq $errorLevel "error" }}
+    {{- errorf . }}
+  {{- end }}
+{{- end }}
+{{- return $fragmentFound -}}
