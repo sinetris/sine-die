@@ -35,18 +35,18 @@
   }
 }
 
-[data-visual-sign="calendar"]::before {
+[data-visual-sign="calendar"]::after {
   content: "calendar_month";
 }
 
-[data-visual-sign="copy"]::before {
+[data-visual-sign="copy"]::after {
   content: "content_copy";
 }
 
-[data-visual-sign="copied"]::before {
+[data-visual-sign="copied"]::after {
   content: "done";
 }
 
-[data-visual-sign="glossary"]::before {
+[data-visual-sign="glossary"]::after {
   content: "dictionary";
 }
