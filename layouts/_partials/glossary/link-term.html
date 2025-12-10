@@ -1,0 +1,36 @@
+{{- /*
+  Link to a glossary term.
+
+  @context {page} page The term page
+  @context {string} linkTitle The text to show in the term link (default to '.page.LinkTitle')
+  @context {string} fragment An URI fragment (without the #) linking to an header ID in the term page (optional)
+  @context {bool} linkAsAbbreviation Show the term link as abbreviation, if available (default: true)
+  @context {string} errorLevel The error level for invalid page fragments (one of: ignore, warning (default), error)
+  @context {string} caller The file initiating the call (default to 'templates.Current.Parent.Name')
+*/ -}}
+
+{{- /* Initialize. */ -}}
+{{- $page := .page -}}
+{{- $linkTitle := .linkTitle -}}
+{{- $fragment := .fragment -}}
+{{- $linkAsAbbreviation := .linkAsAbbreviation | default true -}}
+{{- $errorLevel := .errorLevel | default "warning" -}}
+{{- $caller := .caller | default templates.Current.Parent.Name -}}
+
+{{- $result := "" -}}
+{{- with $page -}}
+  {{- $href := .RelPermalink -}}
+  {{- if partial "helpers/validate-fragment.html" (dict "page" . "fragment" $fragment "errorLevel" $errorLevel) -}}
+    {{- $href = printf "%s#%s" $href $fragment -}}
+  {{- end -}}
+  {{- $attributes := dict "href" $href -}}
+  {{- if not $linkTitle -}}
+    {{- $linkTitle = .LinkTitle -}}
+    {{- if and $linkAsAbbreviation .Params.abbreviations -}}
+      {{- $abbrAttributes := dict "title" .Title -}}
+      {{- $renderedAbbrAttributes := partial "helpers/render-attributes.html" (dict "attributes" $abbrAttributes) -}}
+      {{- $linkTitle = (printf "<abbr %s>%s</abbr>" $renderedAbbrAttributes (index .Params.abbreviations 0)) | safeHTML -}}
+    {{- end -}}
+  {{- end -}}
+  <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $linkTitle }}</a>
+{{- end -}}
