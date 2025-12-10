@@ -1,0 +1,61 @@
+{{- /*
+  Find a glossary term.
+
+  @context {string} title The term title.
+  @context {string} context The term context (One of the 'contexts' associated with the term).
+  @context {string} errorLevel The error level for missing/duplicated terms (one of: ignore, warning (default), error).
+  @context {string} caller The file initiating the call  (default to 'templates.Current.Parent.Name').
+*/ -}}
+
+{{- /* Initialize. */ -}}
+{{- $title := .title -}}
+{{- $context := .context -}}
+{{- $errorLevel := .errorLevel | default "warning" -}}
+{{- $caller := .caller | default templates.Current.Parent.Name -}}
+
+{{- $page := false -}}
+{{- $error := false -}}
+
+{{- $pages := where site.RegularPages "Section" "glossary" -}}
+{{- $pages = where $pages "Title" $title -}}
+{{- if $context -}}
+  {{- $pages = where $pages "Params.contexts" "intersect" (slice $context) -}}
+{{- end -}}
+
+{{- if ge $pages.Len 1 -}}
+  {{- if gt $pages.Len 1 -}}
+    {{- $glossaryTermsFiles := slice -}}
+    {{- range $pages -}}
+      {{- if .File -}}
+        {{- $glossaryTermsFiles = $glossaryTermsFiles | append (
+          printf "{Path: \"%s\", Contexts: [%s]}" .File.Filename (delimit .Params.contexts ", ")
+        ) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $error = printf "Glossary term \"%s\"" $title -}}
+    {{- if $context -}}
+      {{- $error = printf "%s with context \"%s\" is defined multiple times, please fix it" $error $context -}}
+    {{- else -}}
+      {{- $error = printf "%s is defined in multiple contexts, please specify a 'context'" $error -}}
+    {{- end -}}
+    {{- $error = printf "%s. Terms: [%s]. Caller: \"%s\"." $error (delimit $glossaryTermsFiles ", ") $caller -}}
+  {{- end -}}
+  {{- with index $pages 0 -}}
+    {{- $page = . -}}
+  {{- end -}}
+{{- else -}}
+  {{- $error = printf "Glossary term \"%s\"" $title -}}
+  {{- if $context -}}
+    {{- $error = printf "%s in context \"%s\"" $error $context -}}
+  {{- end -}}
+  {{- $error = printf "%s is missing. Caller \"%s\"" $error $caller -}}
+{{- end -}}
+{{- with $error -}}
+  {{- /* Throw warning or error. */ -}}
+  {{- if eq $errorLevel "warning" -}}
+    {{- warnf . -}}
+  {{- else if eq $errorLevel "error" -}}
+    {{- errorf . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $page -}}
