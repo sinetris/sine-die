@@ -3,7 +3,7 @@
     <h2>Contexts</h2>
     <ul>
     {{ range . }}
-      <li data-context="{{ . }}" data-pagefind-filter="Glossary Context">{{ . }}</li>
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
     {{ end }}
     </ul>
   </section>
