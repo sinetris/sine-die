@@ -28,8 +28,8 @@
   <footer>
     {{ partial "glossary/synonyms.html" (dict "synonyms" $page.Params.synonyms) }}
     {{ partial "glossary/abbreviations.html" (dict "abbreviations" $page.Params.abbreviations) }}
-    {{ partial "glossary/related.html" (dict "related" $page.Params.related) }}
     {{ if not $options.embedded }}
+      {{ partial "glossary/related.html" (dict "related" $page.Params.related "page" $page) }}
       {{ partial "glossary/resources.html" (dict "resources" $page.Params.externalResources) }}
     {{ end }}
   </footer>
