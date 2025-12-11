@@ -24,13 +24,13 @@ adding and subtractinf from the primary hue angle).
 
 The hue angle is based on the [hsl][mdn-css-hsl] color space but the color
 palette is generated using [oklch][mdn-css-oklch], this make it easier to select
-a color hue from the HSL {{< glossary-term term="color-wheel" >}} while still taking
+a color hue from the HSL {{< glossary-term title="Color Wheel" >}} while still taking
 advantage of the benefits that OKLCH provides.
 
 ## Color Harmonies
 
 It's possible to generate the color palette for a variety of
-{{< glossary-term term="color-harmonies" >}} simply by modifying the variable
+{{< glossary-term title="Color Harmonies" >}} simply by modifying the variable
 `--secondary-colors-angle`.
 
 The default palette uses the **triadic color scheme** (*secondary colors angle*
