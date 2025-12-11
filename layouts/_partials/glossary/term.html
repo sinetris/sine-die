@@ -28,7 +28,7 @@
     {{ partial "glossary/abbreviations.html" (dict "abbreviations" $page.Params.abbreviations) }}
     {{ if not $options.embedded }}
       {{ partial "glossary/related.html" (dict "related" $page.Params.related "page" $page) }}
-      {{ partial "glossary/external-resources.html" (dict "resources" $page.Params.externalResources) }}
+      {{ partial "glossary/external-resources.html" (dict "externalResources" $page.Params.externalResources) }}
     {{ end }}
   </footer>
 </article>
