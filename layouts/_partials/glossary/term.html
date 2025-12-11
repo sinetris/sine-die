@@ -10,21 +10,19 @@
 <article {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>
   <header >
     {{ if $options.embedded }}
-      <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}"><h2>{{ $page.Title }}</h2></a>
+      <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}"><h2>{{ $page.LinkTitle }}</h2></a>
     {{ else }}
       <h1>{{ $page.Title }}</h1>
     {{ end }}
-    {{ partial "glossary/contexts.html" (dict "contexts" $page.Params.contexts) }}
+    {{ partial "glossary/contexts.html" (dict "contexts" ($page.Page.GetTerms "contexts") "embedded" $options.embedded) }}
   </header>
-  {{ if $options.embedded }}
-    <p>{{ $page.Description | markdownify }}</p>
-  {{ else }}
-    {{ if $page.Content -}}
-      {{ $page.Content }}
+  <p>
+    {{ if $options.embedded }}
+      {{ $page.Description | markdownify }}
     {{ else }}
-      <p>{{ $page.Description | markdownify }}</p>
+      {{ $page.Content | default $page.Description | markdownify }}
     {{ end }}
-  {{ end }}
+  </p>
   <footer>
     {{ partial "glossary/synonyms.html" (dict "synonyms" $page.Params.synonyms) }}
     {{ partial "glossary/abbreviations.html" (dict "abbreviations" $page.Params.abbreviations) }}

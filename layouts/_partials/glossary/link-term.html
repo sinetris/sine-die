@@ -1,8 +1,15 @@
 {{- /*
   Link to a glossary term.
 
+  The link text will be (first matching apply):
+
+  - 'linkTitle' if provided
+  - the fragment title if 'fragment' is provided and found
+  - first abbreviation if found and 'linkAsAbbreviation' is true
+  - 'page.LinkTitle'
+
   @context {page} page The term page
-  @context {string} linkTitle The text to show in the term link (default to '.page.LinkTitle')
+  @context {string} linkTitle The text to show in the term link (optional)
   @context {string} fragment An URI fragment (without the #) linking to an header ID in the term page (optional)
   @context {bool} linkAsAbbreviation Show the term link as abbreviation, if available (default: true)
   @context {string} errorLevel The error level for invalid page fragments (one of: ignore, warning (default), error)
@@ -20,8 +27,11 @@
 {{- $result := "" -}}
 {{- with $page -}}
   {{- $href := .RelPermalink -}}
-  {{- if partial "helpers/validate-fragment.html" (dict "page" . "fragment" $fragment "errorLevel" $errorLevel) -}}
+  {{- with partial "helpers/get-page-fragment.html" (dict "page" . "fragment" $fragment "errorLevel" $errorLevel) -}}
     {{- $href = printf "%s#%s" $href $fragment -}}
+    {{- if not $linkTitle -}}
+      {{- $linkTitle = .Title -}}
+    {{- end -}}
   {{- end -}}
   {{- $attributes := dict "href" $href -}}
   {{- if not $linkTitle -}}

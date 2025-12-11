@@ -1,21 +1,34 @@
+{{- $caller := templates.Current.Parent.Name -}}
+{{ $page := .page | default page }}
+{{- with $page.File }}{{ $caller = .Filename }}{{ end }}
 {{- with .related }}
   <aside class="related">
     <h2>Related</h2>
     <ul>
-    {{ range . }}
-      {{ with page.GetPage . }}
-        {{- $title := .Title }}
-        {{- $attributes := dict "href" .RelPermalink }}
-        {{ if .Params.abbreviations }}
-          {{- $abbrAttributes := dict "title" .Title }}
-          {{- $renderedAbbrAttributes := partial "helpers/render-attributes.html" (dict "attributes" $abbrAttributes) }}
-          {{- $title = printf "<abbr %s />%s</span>" $renderedAbbrAttributes (index .Params.abbreviations 0) }}
-        {{ end }}
-        <li>
-          <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $title | safeHTML }}</a>
-        </li>
-      {{ end }}
-    {{ end }}
+    {{- range . }}
+      {{- $attributes := dict }}
+      {{- if reflect.IsMap . -}}
+        {{- $attributes =
+              dict
+                "title" .title
+                "context" .context
+                "linkTitle" .linkTitle
+                "linkAsAbbreviation" .linkAsAbbreviation
+                "errorLevel" .errorLevel
+                "caller" $caller
+        }}
+      {{- else }}
+        {{- $attributes = dict "title" . "caller" $caller }}
+      {{- end }}
+      <li>
+        {{- with partial "glossary/helpers/find-term.html" $attributes }}
+          {{- $attributes := merge $attributes (dict "page" .) }}
+          {{- partial "glossary/link-term.html" $attributes }}
+        {{- else }}
+          {{- $attributes.linkTitle | default $attributes.title }}
+        {{- end -}}
+      </li>
+    {{- end }}
     </ul>
   </aside>
 {{ end -}}
