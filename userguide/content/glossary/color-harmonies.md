@@ -7,5 +7,5 @@ params:
   contexts:
     - graphic-design
   related:
-    - color-theory
+    - Color Theory
 ---

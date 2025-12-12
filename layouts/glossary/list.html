@@ -17,16 +17,14 @@
     {{- with .Params.Title -}}
       <h1 id="glossary-title">{{ . }}</h1>
     {{- end -}}
-    {{- if .Description -}}
+    <p role="note">
       {{- with .Description -}}
-        <p role="note">{{ . }}</p>
-      {{- end -}}
-    {{- else -}}
-      <p role="note">
+        {{ . | markdownify }}
+      {{- else -}}
         A glossary is a list of terms, abbreviations, or expressions in a particular
         context or field of knowledge with their respective definitions.
-      </p>
-    {{- end -}}
+      {{- end -}}
+    </p>
     {{ if len $pagesList }}
       {{/* Render alphabetical index. */}}
       <nav aria-labelledby="glossary-index">

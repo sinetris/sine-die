@@ -1,0 +1,50 @@
+{{- with .internalResources }}
+  {{- $thisTemplate := templates.Current.Name }}
+  {{- $error := "" -}}
+  {{- $errorLevel := "warning" }}
+  {{- $caller := templates.Current.Parent.Name }}
+  {{- if eq page.Kind "page" }}
+    {{ with page.File }}{{ $caller = .Path }}{{ end }}
+  {{- end }}
+  <aside class="internal-resources">
+    <h2>Internal Resources</h2>
+    <ul>
+    {{- range . }}
+      {{- $linkTitle := "" -}}
+      {{- $fragment := "" -}}
+      {{- $path := "" -}}
+      {{- if reflect.IsMap . -}}
+        {{- $path = .path -}}
+        {{- $linkTitle = .linkTitle -}}
+        {{- $fragment = .fragment -}}
+      {{- else }}
+        {{- $path = . -}}
+      {{- end }}
+      {{- with site.GetPage $path }}
+        <li>
+          {{- $href := .RelPermalink -}}
+          {{- if $fragment -}}
+            {{- with partial "helpers/get-page-fragment.html" (dict "page" . "fragment" $fragment) -}}
+              {{- $href = printf "%s#%s" $href $fragment -}}
+              {{- if not $linkTitle }}{{ $linkTitle = .Title }}{{ end -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $attributes := dict "href" $href -}}
+          <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $linkTitle | default .LinkTitle }}</a>
+        </li>
+      {{- else }}
+        {{- $error = printf "Could not find internal resource at path \"%s\"" $path -}}
+      {{- end }}
+    {{ end }}
+    </ul>
+  </aside>
+  {{- if $error }}
+    {{- $error = printf "%s. Caller: \"%s\". Template: \"%s\"" $error $caller $thisTemplate }}
+    {{- /* Throw warning or error. */}}
+    {{- if eq $errorLevel "warning" }}
+      {{- warnf $error }}
+    {{- else if eq $errorLevel "error" }}
+      {{- errorf $error }}
+    {{- end }}
+  {{- end }}
+{{ end -}}

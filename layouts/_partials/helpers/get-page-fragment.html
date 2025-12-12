@@ -1,0 +1,35 @@
+{{- /*
+  Validates the fragment portion of a link destination in a page and return either false
+  if missing or a map with ID and Title for a valid fragment.
+
+  @context {page} page A reference to the page containing the link fragment
+  @context {string} fragment URI fragment (without the #) linking to an header ID in the page
+  @context {string} errorLevel The error level for invalid page fragments (one of: ignore, warning (default), error)
+  @context {string} caller The file initiating the call (default to 'page.File.Filename' or 'templates.Current.Parent.Name')
+
+  @returns {dict}
+*/}}
+
+{{- /* Initialize. */}}
+{{- $page := .page }}
+{{- $fragmentID := .fragment }}
+{{- $errorLevel := .errorLevel | default "warning" }}
+{{- $caller := .caller }}
+
+{{- /* Execute. */}}
+{{- if not $caller }}
+  {{- $caller := templates.Current.Parent.Name }}
+  {{- if eq page.Kind "page" }}
+    {{ with page.File }}{{ $caller = .Filename }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- $fragment := false }}
+{{- $headings := $page.Fragments.HeadingsMap }}
+
+{{- if partial "helpers/validate-fragment.html" (
+  dict "page" $page "fragment" $fragmentID "errorLevel" $errorLevel "caller" $caller
+) -}}
+  {{- $fragment = index $headings $fragmentID -}}
+{{- end -}}
+
+{{- return $fragment -}}
