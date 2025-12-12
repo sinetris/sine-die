@@ -43,30 +43,47 @@ body {
   min-height: 100vh;
   padding: 0;
   width: 100vw;
-}
 
-body > header {
-  grid-area: header;
-  line-height: 1;
-  top: 0;
-}
+  &> header {
+    grid-area: header;
+    line-height: 1;
+    top: 0;
+  }
 
-body > .sidebar {
-  grid-area: sidebar;
-  padding: .75em;
-}
+  &> .sidebar {
+    grid-area: sidebar;
+    padding: .75em;
 
-body > main {
-  background-color: inherit;
-  grid-area: content;
-  margin: 1rem 2rem 2.7rem;
-}
+    /* Hide the sidebas if it's empty */
+    &:not(:has(*:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
+      display: none;
+    }
+  }
 
-body > footer {
-  align-content: center;
-  grid-area: footer;
-  margin: auto 0;
-  text-align: center;
+  &> main {
+    background-color: inherit;
+    grid-area: content;
+    margin: 1rem 2rem 2.7rem;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  &> footer {
+    align-content: center;
+    grid-area: footer;
+    margin: auto 0;
+    text-align: center;
+  }
+
+  /* Remove sidebar from grid-template */
+  &:not(:has(> .sidebar > *:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
+    grid-template:
+      "header" auto
+      "content" 1fr
+      "footer" auto;
+  }
 }
 
 h1,
@@ -82,12 +99,22 @@ h6 {
 
 a {
   text-decoration: underline;
-}
 
-a:focus,
-a:hover {
-  opacity: 0.75;
-  text-decoration: none;
+  &:focus,
+  &:hover {
+    opacity: 0.75;
+    text-decoration: none;
+  }
+
+  &.title {
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 button {
@@ -105,10 +132,10 @@ figure {
 
 blockquote {
   padding: 1.5rem 2rem;
-}
 
-blockquote > ul {
-  list-style-type: disc;
+  &> ul {
+    list-style-type: disc;
+  }
 }
 
 dl dt {
@@ -127,14 +154,14 @@ table {
   border-spacing: 0;
   text-align: left;
   border-collapse: collapse;
-}
 
-td,
-th,
-table caption {
-  vertical-align: middle;
-  padding: 1.2rem 0.4rem;
-  border-collapse: collapse;
+  td,
+  th,
+  caption {
+    vertical-align: middle;
+    padding: 1.2rem 0.4rem;
+    border-collapse: collapse;
+  }
 }
 
 code,
@@ -168,11 +195,11 @@ pre {
   font-size: 1rem;
   padding: 1rem;
   overflow-x: auto;
-}
 
-pre code {
-  background: none;
-  padding: 0;
+  code {
+    background: none;
+    padding: 0;
+  }
 }
 
 :not(pre) > code {
@@ -351,83 +378,79 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -.75em;
 }
 
-body > main h1 {
-  margin-top: 0;
-}
-
-a.title {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a.title:hover {
-  text-decoration: underline;
-}
-
 nav.primary {
   display: flex;
-}
 
-nav.breadcrumb a,
-nav.primary a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-nav.breadcrumb li:not(:first-child) a:hover {
-  text-decoration: underline;
-}
+  ul {
+    list-style: none;
+  }
 
-nav.primary ul {
-  list-style: none;
-}
+  [role="menubar"] {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
 
-nav.primary [role="menubar"] {
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
+  .brand,
+  [role="menubar"] {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      align-items: center;
+      align-content: center;
+    }
+  }
 
-nav.primary > .container {
-  display: flex;
-}
-
-nav.primary .brand a,
-nav.primary [role="menubar"] a {
-  text-decoration: none;
-  display: inline-block;
-  align-items: center;
-  align-content: center;
+  > .container {
+    display: flex;
+  }
 }
 
 nav.breadcrumb {
   padding: 1em;
-}
 
-nav.breadcrumb ol {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
-  font-size: 1em;
-}
+  a {
+    text-decoration: none;
+  }
 
-nav.breadcrumb li {
-  display: inline-flex;
-  vertical-align: middle;
-}
+  li {
+    display: inline-flex;
+    vertical-align: middle;
 
-nav.breadcrumb li + li::before {
-  display: inline-block;
-  margin: 0 0.25em;
-  content: ">";
-}
+    &:not(:first-child) {
+      a:hover {
+        text-decoration: underline;
+      }
+    }
 
-nav.breadcrumb li:first-child [data-visual-sign] {
-  padding-right: 0;
-  font-size: 1.5em;
-}
+    &+ li::before {
+      display: inline-block;
+      margin: 0 0.25em;
+      content: ">";
+    }
 
-nav.breadcrumb li:last-child {
-  font-weight: bold;
+    &:first-child {
+      [data-visual-sign] {
+        padding-right: 0;
+        font-size: 1.5em;
+      }
+    }
+
+    &:last-child {
+      font-weight: bold;
+    }
+  }
+
+  ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    font-size: 1em;
+  }
 }
 
 body.full-space {
@@ -454,23 +477,6 @@ body.full-space > .sidebar {
 .skip-link:focus {
   transform: translateY(0%);
 }
-
-/* (start) Hide sidebar if it has no content other than the sidebar-switch */
-
-/* Hide the sidebas if it's empty */
-body > .sidebar:not(:has(*:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
-  display: none;
-}
-
-/* Remove sidebar from grid-template */
-body:not(:has(> .sidebar > *:not([for="sidebar-switch"], [for="sidebar-switch"] *,[id="sidebar-switch"]))) {
-  grid-template:
-    "header" auto
-    "content" 1fr
-    "footer" auto;
-}
-
-/* (end) Hide sidebar if it has no content */
 
 /* Mobile devices */
 
