@@ -1,15 +1,20 @@
 ---
-theme: sine-die
-themesDir: ../..
-defaultContentLanguage: en
 title: sine-die
+baseURL: https://sinetris.github.io/sine-die/
+defaultContentLanguage: en
+theme:
+  - sine-die
+themesDir: ../..
 
-outputs:
-  home:
-    - HTML
-    - RSS
+module:
+  hugoVersion:
+    extended: true
+    min: "0.146.0"
 
 params:
+  author:
+    email: duilio@sinetris.info
+    name: Duilio Ruggiero
   enableFavicons: true
   showSearchUI: true
   logo: images/sine-die-logo.svg
@@ -19,6 +24,8 @@ params:
   #   attributes:
   #     fragment: logo
   #     viewBox: 0 0 1024 1024
+  license: CC-BY-4.0
+  licenselink: https://github.com/sinetris/sinetris-website/blob/main/LICENSE-DOCS
 
 markup:
   highlight:
@@ -81,3 +88,20 @@ menus:
       params:
         visualSign: glossary
         onlyVisualSign: true
+
+languages:
+  en:
+    params:
+      tagline: minimalist Hugo theme
+      description: sine-die a minimalist Hugo theme
+
+taxonomies:
+  category: categories
+  context: contexts
+  tag: tags
+
+permalinks:
+  taxonomy:
+    contexts: /glossary-contexts/
+  term:
+    contexts: /glossary-contexts/:slug/

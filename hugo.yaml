@@ -3,7 +3,24 @@ defaultContentLanguage: en
 
 module:
   hugoVersion:
-    min: 0.146.0
+    extended: true
+    min: "0.146.0"
+
+outputs:
+  home:
+    - html
+    - rss
+  page:
+    - html
+  sections:
+    - html
+    - rss
+  taxonomy:
+    - html
+    - rss
+  term:
+    - html
+    - rss
 
 markup:
   highlight:
@@ -24,8 +41,8 @@ params:
   theme: sine-die
   themeLink: 'https://sinetris.github.io/sine-die/'
 
-  tagline: minimalist Hugo theme
-  description: sine-die a minimalist Hugo theme
+  # Favicons (check README.md)
+  enableFavicons: false
 
   # Search UI
   showSearchUI: false
