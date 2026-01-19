@@ -39,7 +39,7 @@ hugo server \
 
 ## Setup
 
-You can add the sine-die theme to your Hugo site in few ways.
+You can add the **Sine Die** theme to your Hugo site in few ways.
 
 ### Add theme as a Hugo Module
 
@@ -89,7 +89,7 @@ theme = ["github.com/sinetris/sine-die"]
 
 ### Add theme as a Git submodule
 
-To add the sine-die theme to your Hugo site as a git submodule, move to your
+To add the Sine Die theme to your Hugo site as a git submodule, move to your
 website folder and run:
 
 ```shell

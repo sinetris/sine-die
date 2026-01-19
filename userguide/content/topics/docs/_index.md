@@ -1,7 +1,7 @@
 ---
 title: Documentation
 date: '2023-07-20T08:07:24Z'
-description: sine-die theme documentation
+description: Sine Die theme documentation
 categories:
   - Documentation
 weight: 10

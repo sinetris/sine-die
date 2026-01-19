@@ -1,7 +1,8 @@
 ---
-title: Homepage
+title: Sine Die
+linkTitle: Homepage
 date: '2025-03-10T08:07:15Z'
-description: Documentation and usage examples for the sine-die theme
+description: Documentation and usage examples for the Sine Die theme
 tags:
   - Hugo Theme
   - Semantic HTML
@@ -22,7 +23,7 @@ params:
 >}}
 {{< img
   src="images/sine-die-logo-full.svg"
-  alt="sine-die logo"
+  alt="Sine Die logo"
   class="sine-die"
 >}}
 {{< svg
@@ -65,5 +66,5 @@ To use the `sine-sie` theme, refer to the [setup][sine-die-docs-setup] section
 in the [documentation][sine-die-docs].
 
 [hugo]: <https://gohugo.io> "Hugo: open-source static site generators"
-[sine-die-docs]: <https://github.com/sinetris/sine-die/tree/main/docs> "sine-die: documentation"
-[sine-die-docs-setup]: <https://github.com/sinetris/sine-die/tree/main/docs#setup> "sine-die: setup"
+[sine-die-docs]: <https://github.com/sinetris/sine-die/tree/main/docs> "Sine Die: documentation"
+[sine-die-docs-setup]: <https://github.com/sinetris/sine-die/tree/main/docs#setup> "Sine Die: setup"

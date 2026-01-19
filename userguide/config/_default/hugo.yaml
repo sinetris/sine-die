@@ -91,9 +91,10 @@ menus:
 
 languages:
   en:
+    title: Sine Die
     params:
-      tagline: minimalist Hugo theme
-      description: sine-die a minimalist Hugo theme
+      tagline: Semantic HTML theme for Hugo
+      description: Sine Die a semantic HTML theme for Hugo
 
 taxonomies:
   category: categories

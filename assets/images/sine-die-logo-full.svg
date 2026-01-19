@@ -459,7 +459,7 @@
   </symbol>
   <symbol id="tagline" width="3000" height="200" viewBox="0 0 3000 200" class="logo">
     <text textLength="2950" lengthAdjust="spacing">
-      <tspan x="30" y="160" textLength="2950">minimalist Hugo theme</tspan>
+      <tspan x="30" y="160" textLength="2950">Semantic HTML theme for Hugo</tspan>
     </text>
   </symbol>
   <use href="#logo" x="0" y="0" />
