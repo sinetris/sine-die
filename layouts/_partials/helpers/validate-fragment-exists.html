@@ -19,12 +19,13 @@
 
 {{- /* Validate. */}}
 {{- $fragmentFound := false }}
-{{- $msg := "" }}
+{{- $thisTemplate := templates.Current.Name }}
+{{- $error := "" }}
 {{- with $fragment }}
   {{- if not $caller }}
-    {{- $caller := templates.Current.Parent.Name }}
+    {{- $caller = templates.Current.Parent.Name }}
     {{- if eq page.Kind "page" }}
-      {{ with page.File }}{{ $caller = .Filename }}{{ end }}
+      {{ with page.File }}{{ $caller = .Path }}{{ end }}
     {{- end }}
   {{- end }}
   {{- $targetPath := "" }}
@@ -36,18 +37,19 @@
   {{- if $page.Fragments.Identifiers.Contains . }}
     {{- $fragmentFound = true }}
     {{- if gt ($page.Fragments.Identifiers.Count .) 1 }}
-      {{- $msg = printf "Detected duplicate heading IDs %q in %s. Caller: %s" . $targetPath $caller }}
+      {{- $error = printf "Detected duplicate heading IDs %q in \"%s\"" . $targetPath }}
     {{- end }}
   {{- else }}
-    {{- $msg = printf "Unable to find heading ID %q in %s. Caller: %s" . $targetPath $caller }}
+    {{- $error = printf "Unable to find heading ID %q in \"%s\"" . $targetPath }}
   {{- end }}
 {{- end }}
-{{- with $msg }}
+{{- if $error }}
+  {{- $error = printf "%s. Caller: \"%s\". Template: \"%s\"" $error $caller $thisTemplate }}
   {{- /* Throw warning or error. */}}
   {{- if eq $errorLevel "warning" }}
-    {{- warnf . }}
+    {{- warnf $error }}
   {{- else if eq $errorLevel "error" }}
-    {{- errorf . }}
+    {{- errorf $error }}
   {{- end }}
 {{- end }}
 {{- return $fragmentFound -}}
