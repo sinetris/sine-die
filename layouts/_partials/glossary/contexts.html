@@ -3,7 +3,12 @@
     <h2>Contexts</h2>
     <ul>
     {{ range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <span data-visual-sign="glossary-context"></span>
+          {{ .LinkTitle }}
+        </a>
+      </li>
     {{ end }}
     </ul>
   </section>
