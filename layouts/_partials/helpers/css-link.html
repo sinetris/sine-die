@@ -1,11 +1,10 @@
 {{- $asset := .asset -}}
-{{- $resource := false -}}
-{{- $attributes := .attributes | default dict -}}
+{{- $resource := "" -}}
+{{- $attributes := .attributes | default dict | merge (dict "rel" "stylesheet") -}}
 
-{{- with resources.Get $asset -}}
-  {{- $attributes = $attributes | merge (dict "rel" "stylesheet") -}}
-  {{- $resource = . -}}
-  {{/* Files with extension ".gtpl.*" are considered templates */}}
+{{- with resources.Get $asset }}
+  {{- $resource = . }}
+  {{- /* Files with extension ".gtpl.*" are considered templates */}}
   {{- if hasSuffix (path.BaseName $asset) ".gtpl" -}}
     {{- $resource = $resource | resources.ExecuteAsTemplate $asset $asset -}}
   {{- end -}}
