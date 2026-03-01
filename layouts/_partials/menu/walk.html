@@ -12,7 +12,7 @@
     {{- $innerLinkText := $name }}
     {{- $preInnerLink := "" }}
     {{- if .Params.isExternalLink }}
-      {{- $attributes = merge $attributes (dict "rel" "external noreferrer" "target" "_blank") }}
+      {{- $attributes = merge $attributes (dict "rel" "external") }}
     {{- end }}
     {{- if .Params.visualSign }}
       {{- $preInnerLinkAttributes := dict "data-visual-sign" .Params.visualSign "data-visual-sign-type" (.Params.visualSignType | default false) }}
