@@ -1,0 +1,14 @@
+{{ define "sidebar" }}{{ partial "list/sidebar.html" . }}{{ end }}
+{{ define "main" }}
+  <article class="content">
+    {{- with .Params.Title -}}
+    <h1>{{ . }}</h1>
+    {{- end -}}
+    {{ if not .Content }}
+      {{- partial "sections-list.html" . }}
+      {{- partial "pages-list.html" . }}
+    {{- else }}
+      {{- .Content }}
+    {{- end }}
+  </article>
+{{ end }}
