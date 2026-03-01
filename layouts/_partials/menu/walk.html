@@ -28,8 +28,9 @@
     <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $preInnerLink | safeHTML }}{{ $innerLinkText }}</a>
     {{- if .HasChildren }}
       {{- $ariaLabel := printf "%s submenu" $name }}
-      {{- $ariaSubmenuID := printf "%s-submenu" $name | anchorize }}
-      {{- $ariaButtonID := printf "%s-button" $name | anchorize }}
+      {{- $baseID := printf "%s-%s" ($menuID | anchorize) ($name | anchorize) }}
+      {{- $ariaSubmenuID := printf "%s-submenu" $baseID }}
+      {{- $ariaButtonID := printf "%s-button" $baseID }}
       <button
         id="{{ $ariaButtonID }}"
         role="menuitem"
