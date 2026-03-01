@@ -1,0 +1,7 @@
+---
+application/atom+xml:
+  suffixes:
+    - xml
+application/rss+xml:
+  suffixes:
+    - xml
