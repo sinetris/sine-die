@@ -45,7 +45,7 @@ repos:
           - -x
   # Markdown/CommonMark Linter
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.46.0
+    rev: v0.47.0
     hooks:
       - id: markdownlint
         # Makefile Linter
@@ -53,7 +53,7 @@ repos:
         pass_filenames: false
   # YAML Formatter
   - repo: https://github.com/google/yamlfmt
-    rev: v0.20.0
+    rev: v0.21.0
     hooks:
       # Generic
       - id: yamlfmt
@@ -62,10 +62,14 @@ repos:
         args: [-conf, .yamlfmt]
   # CSS linter
   - repo: https://github.com/thibaudcolas/pre-commit-stylelint
-    rev: v16.26.1
+    rev: v17.4.0
     hooks:
       - id: stylelint
         files: \.(css|scss|sass)$
+        exclude: |
+          (?x)^(
+            .+\.(gtpl|go)\.css
+          )$
         args: [--fix]
         additional_dependencies:
           - 'stylelint'
