@@ -1,10 +1,12 @@
 {{- /*
-  Find a glossary term.
+Find a page for a glossary term.
 
-  @context {string} title The term title.
-  @context {string} context The term context (One of the 'contexts' associated with the term).
-  @context {string} errorLevel The error level for missing/duplicated terms (one of: ignore, warning (default), error).
-  @context {string} caller The file initiating the call  (default to 'templates.Current.Parent.Name').
+@context {string} title The term title.
+@context {string} context The term context (One of the 'contexts' associated with the term).
+@context {string} errorLevel The error level for missing/duplicated terms (one of: ignore, warning (default), error).
+@context {string} caller The file initiating the call  (default to 'templates.Current.Parent.Name').
+
+@returns {page}
 */ -}}
 
 {{- /* Initialize. */ -}}
@@ -15,6 +17,7 @@
 
 {{- $page := false -}}
 {{- $error := false -}}
+{{- $thisTemplate := templates.Current.Name }}
 
 {{- $pages := where site.RegularPages "Section" "glossary" -}}
 {{- $pages = where $pages "Title" $title -}}
@@ -38,7 +41,7 @@
     {{- else -}}
       {{- $error = printf "%s is defined in multiple contexts, please specify a 'context'" $error -}}
     {{- end -}}
-    {{- $error = printf "%s. Terms: [%s]. Caller: \"%s\"." $error (delimit $glossaryTermsFiles ", ") $caller -}}
+    {{- $error = printf "%s. Terms: [%s]" $error (delimit $glossaryTermsFiles ", ") -}}
   {{- end -}}
   {{- with index $pages 0 -}}
     {{- $page = . -}}
@@ -48,14 +51,15 @@
   {{- if $context -}}
     {{- $error = printf "%s in context \"%s\"" $error $context -}}
   {{- end -}}
-  {{- $error = printf "%s is missing. Caller \"%s\"" $error $caller -}}
+  {{- $error = printf "%s is missing" $error -}}
 {{- end -}}
-{{- with $error -}}
-  {{- /* Throw warning or error. */ -}}
-  {{- if eq $errorLevel "warning" -}}
-    {{- warnf . -}}
-  {{- else if eq $errorLevel "error" -}}
-    {{- errorf . -}}
-  {{- end -}}
-{{- end -}}
+{{- if $error }}
+  {{- $error = printf "%s. Caller: \"%s\". Template: \"%s\"" $error $caller $thisTemplate }}
+  {{- /* Throw warning or error. */}}
+  {{- if eq $errorLevel "warning" }}
+    {{- warnf $error }}
+  {{- else if eq $errorLevel "error" }}
+    {{- errorf $error }}
+  {{- end }}
+{{- end }}
 {{- return $page -}}
