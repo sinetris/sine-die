@@ -1,0 +1,47 @@
+{{- $name := .name -}}
+{{- $type := .type -}}
+{{- $iconsConfig := index site.Params.sineDie.icons $type | default dict -}}
+{{- $errors := slice }}
+{{- if not $iconsConfig }}
+  {{- $errors = $errors | append "Missing config" }}
+{{- end -}}
+{{- $errorLevel := $iconsConfig.errorLevel | default site.Params.sineDie.icons.errorLevel -}}
+{{- $useDefaultIcon := $iconsConfig.useDefaultIcon -}}
+
+{{- $defaultVisualSign := "" -}}
+{{- if eq $useDefaultIcon "icon" -}}
+  {{- $defaultVisualSign = $iconsConfig.defaultIcon -}}
+{{- else if eq $useDefaultIcon "name" -}}
+  {{- $defaultVisualSign = $name -}}
+{{- end -}}
+
+{{- $visualSign := "" -}}
+{{- if reflect.IsMap $iconsConfig.entries -}}
+  {{- $visualSign = index $iconsConfig.entries $name -}}
+{{- else if in ($iconsConfig.entries | default slice) $name -}}
+  {{- $visualSign = $name -}}
+{{- end -}}
+
+{{- if and (not $visualSign) (in (slice "icon" "name") $useDefaultIcon) }}
+  {{- $errors = $errors | append "Missing icon" }}
+{{- end }}
+
+{{- if $errors | len }}
+  {{- $caller := templates.Current.Parent.Name }}
+  {{- if eq page.Kind "page" }}
+    {{ with page.File }}{{ $caller = .Path }}{{ end }}
+  {{- end }}
+  {{- if $iconsConfig }}
+    {{- $errors = $errors | append (printf "Config: %v" $iconsConfig) }}
+  {{- end -}}
+  {{- $errors = $errors | append (printf "Caller: %v" $caller) }}
+  {{- $error := delimit $errors "\n  " }}
+  {{- $error = printf "Icon name '%v' type '%v'\n  %s" $name $type $error -}}
+  {{- if eq $errorLevel "error" }}
+    {{- errorf $error }}
+  {{- else if or (eq $errorLevel "warning") site.Params.sineDie.debug }}
+    {{- warnf $error }}
+  {{- end }}
+{{- end }}
+
+{{- return $visualSign -}}
