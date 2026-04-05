@@ -1,8 +1,9 @@
 <aside class="sidebar">
   {{- partial "sidebar/switch.html" . }}
   {{- partial "toc.html" . }}
-  {{- partial "sections-list.html" . }}
-  {{- partial "pages-list.html" . }}
-  {{- partial "sidebar/categories.html" . }}
-  {{- partial "sidebar/tags.html" . }}
+  {{- if .Content }}
+    {{- partial "sections-menu.html" (dict "page" .) }}
+  {{- end }}
+  {{- partial "sidebar/taxonomy.html" (dict "page" . "taxonomy" "categories") }}
+  {{- partial "sidebar/taxonomy.html" (dict "page" . "taxonomy" "tags") }}
 </aside>

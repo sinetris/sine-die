@@ -1,0 +1,44 @@
+{{- $page := .page }}
+{{- $level := 0 }}
+{{- $sectionMenuID := .sectionMenuID | default "section-menu" }}
+{{- $sidebarRootSubmenu := $page.FirstSection }}
+{{- $maxLevels := site.Params.sineDie.sidebarMenu.maxLevels | default 3 }}
+
+{{- /* Check self and ancestors for IsRootSubmenu params */ -}}
+{{ if and $page.IsSection $page.Params.IsRootSubmenu -}}
+  {{- $msg := printf "Page %q is menu root" $page.Path }}
+  {{- warnf $msg }}
+  {{ $sidebarRootSubmenu = $page -}}
+{{ else -}}
+  {{ range $page.Ancestors.Reverse -}}
+    {{ if not .IsSection -}}
+      {{ continue -}}
+    {{ end -}}
+    {{ $isRootSubmenu := .Params.IsRootSubmenu -}}
+    {{ if not $isRootSubmenu -}}
+      {{ continue -}}
+    {{ end -}}
+    {{ $sidebarRootSubmenu = . -}}
+    {{- $msg := printf "Menu root for page %q is %q" $page.Path $sidebarRootSubmenu.Path }}
+    {{- warnf $msg }}
+    {{ break -}}
+  {{ end -}}
+{{ end -}}
+
+{{- if $sidebarRootSubmenu.Pages }}
+<nav class="sections-menu">
+  <h2>Section Menu</h2>
+  <ul id="{{ $sectionMenuID }}" role="menubar">
+    {{- range $sidebarRootSubmenu.Pages.ByWeight.Limit 20 }}
+      {{- partial "sidebar/submenu-walk.html" (
+        dict
+          "page" $page
+          "subpage" .
+          "level" 0
+          "maxLevels" $maxLevels
+          "sectionMenuID" $sectionMenuID
+      ) }}
+    {{- end }}
+  </ul>
+</nav>
+{{- end }}

@@ -1,0 +1,44 @@
+{{- $page := .page }}
+{{- $subpage := .subpage }}
+{{- $level := .level }}
+{{- $maxLevels := .maxLevels }}
+{{- $sectionMenuID := .sectionMenuID }}
+
+{{- $attributes := dict "href" $subpage.RelPermalink "role" "menuitem" }}
+{{- $classes := slice }}
+{{- if eq $page $subpage }}
+  {{- $attributes = merge $attributes (dict "aria-current" "page") }}
+{{- end }}
+{{- with $subpage }}
+  {{- $name := .LinkTitle }}
+  <li {{- with $classes }}{{ printf " class=%q" (delimit $classes " ") | safeHTMLAttr }}{{- end }} role="none">
+    {{- if and .IsSection .Pages (lt $level $maxLevels)}}
+      {{- $ariaLabel := printf "%s submenu" $name }}
+      {{- $baseID := printf "%s-%s" ($sectionMenuID | anchorize) ($name | anchorize) }}
+      {{- $ariaSubmenuID := printf "%s-submenu" $baseID }}
+      {{- $ariaButtonID := printf "%s-button" $baseID }}
+      <button
+        id="{{ $ariaButtonID }}"
+        role="menuitem"
+        data-visual-sign
+        aria-controls="{{ $ariaSubmenuID }}"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="{{ $ariaLabel }}"
+      ></button>
+      <ul role="menu" aria-hidden="true" id="{{ $ariaSubmenuID }}" aria-labelledby="{{ $ariaButtonID }}">
+        {{- range .Pages }}
+          {{- partial "sidebar/submenu-walk.html" (
+            dict
+              "page" $page
+              "subpage" .
+              "level" (add $level 1)
+              "maxLevels" $maxLevels
+              "sectionMenuID" $sectionMenuID
+          ) }}
+        {{- end }}
+      </ul>
+    {{- end }}
+    <a {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>{{ $name }}</a>
+  </li>
+{{- end }}
