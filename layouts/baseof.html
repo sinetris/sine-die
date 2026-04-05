@@ -1,6 +1,6 @@
 {{ $bodyClasses := (or .Params.body_classes slice) }}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ $.Site.LanguageCode | default `en` }}">
+<html class="no-js" lang="{{ site.Language.LanguageCode | default `en-US` }}">
   <head>
     {{ partial "head.html" . }}
     {{ block "head-addition" . }}{{ end }}
@@ -11,7 +11,9 @@
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
       {{ partial "breadcrumbs.html" . }}
     </header>
-    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
+    {{ block "sidebar" . -}}
+    {{ if not .Params.hideSidebar }}{{ partial "sidebar.html" . }}{{ end }}
+    {{- end }}
     <main id="main-content">
       {{ block "main" . }}{{ end }}
     </main>
