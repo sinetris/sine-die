@@ -31,8 +31,7 @@
       "caller" $caller
   }}
 
-  {{- $page := partial "glossary/helpers/find-term.html" $attributes }}
-  {{- with $page }}
+  {{- with partial "glossary/helpers/find-term.html" $attributes }}
     {{- $attributes := merge $attributes (dict "page" .) }}
     {{- partial "glossary/link-term.html" $attributes -}}
   {{- else }}
