@@ -8,9 +8,9 @@
       <a
         class="title"
         href="{{ .Params.externalLink | default .RelPermalink }}"
-        title="{{ .Description | strings.TrimSpace | safeHTMLAttr }}"
+        title="{{ .Title | strings.TrimSpace | safeHTMLAttr }}"
       >
-        {{ .Title }}
+        {{ .LinkTitle }}
       </a>
     </li>
     {{- end -}}
