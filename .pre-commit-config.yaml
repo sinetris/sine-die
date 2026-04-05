@@ -1,4 +1,8 @@
 ---
+ci:
+  skip:
+    - stylelint
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -71,3 +75,7 @@ repos:
             .+\.(gtpl|go)\.css
           )$
         args: [--fix]
+        additional_dependencies:
+          - stylelint
+          - stylelint-config-standard
+          - stylelint-config-standard-scss
