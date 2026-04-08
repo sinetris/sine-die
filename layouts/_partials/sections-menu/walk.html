@@ -13,6 +13,24 @@
   {{- $name := .LinkTitle }}
   <li {{- with $classes }}{{ printf " class=%q" (delimit $classes " ") | safeHTMLAttr }}{{- end }} role="none">
     {{- if and .IsSection .Pages (lt $level $maxLevels)}}
+      {{- $pages := .Pages }}
+      {{- $limit := or .Params.SineDie.SidebarMenu.Limit site.Params.SineDie.SidebarMenu.Limit }}
+      {{- if ge $limit 1 }}
+        {{- $pages = $pages.Limit $limit }}
+      {{- end }}
+      {{-
+        $pagesSortBy := or
+          .Params.SineDie.SidebarMenu.PagesSortBy
+          site.Params.SineDie.SidebarMenu.PagesSortBy
+          "Weight"
+      }}
+      {{-
+        $pagesSortOrder := or
+          .Params.SineDie.SidebarMenu.PagesSortOrder
+          site.Params.SineDie.SidebarMenu.PagesSortOrder
+          "asc"
+      }}
+      {{- $pages = sort $pages $pagesSortBy $pagesSortOrder }}
       {{- $ariaLabel := printf "%s submenu" $name }}
       {{- $baseID := printf "%s-%s" ($sectionMenuID | anchorize) ($name | anchorize) }}
       {{- $ariaSubmenuID := printf "%s-submenu" $baseID }}
@@ -27,8 +45,8 @@
         aria-label="{{ $ariaLabel }}"
       ></button>
       <ul role="menu" aria-hidden="true" id="{{ $ariaSubmenuID }}" aria-labelledby="{{ $ariaButtonID }}">
-        {{- range .Pages }}
-          {{- partial "sidebar/submenu-walk.html" (
+        {{- range $pages }}
+          {{- partial "sections-menu/walk.html" (
             dict
               "page" $page
               "subpage" .
