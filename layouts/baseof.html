@@ -1,6 +1,6 @@
 {{ $bodyClasses := (or .Params.body_classes slice) }}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ site.Language.Locale | default `en-US` }}">
+<html class="no-js" lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
   <head>
     {{ partial "head.html" . }}
     {{ block "head-addition" . }}{{ end }}
