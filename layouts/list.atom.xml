@@ -40,7 +40,7 @@
   {{- with $.OutputFormats.Get "atom" }}
   {{
     printf `<link href=%q rel="self" type=%q hreflang=%q title=%q />`
-      .Permalink .MediaType.Type $pctx.Language.LanguageCode $pageTitle
+      .Permalink .MediaType.Type $pctx.Language.Locale $pageTitle
     | safeHTML
   }}
   {{- end }}
@@ -57,7 +57,7 @@
       {{- if eq $linkRel "canonical" }}{{ $linkRel = "alternate" }}{{ end }}
       {{
         printf `<link href=%q rel=%q type=%q hreflang=%q title=%q />`
-          .Permalink $linkRel .MediaType.Type $page.Language.LanguageCode $linkPageTitle
+          .Permalink $linkRel .MediaType.Type $page.Language.Locale $linkPageTitle
         | safeHTML
       }}
     {{- end }}
@@ -106,7 +106,7 @@
     {{- with .OutputFormats.Get "html" }}
     {{
       printf `<link href=%q rel="alternate" type=%q hreflang=%q title=%q />`
-        .Permalink .MediaType.Type $pctx.Language.LanguageCode $pageTitle
+        .Permalink .MediaType.Type $pctx.Language.Locale $pageTitle
       | safeHTML
     }}
     {{- end }}

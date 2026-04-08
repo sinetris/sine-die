@@ -53,7 +53,7 @@
     </link>
     <description>Recent content {{ if not $pctx.IsHome }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
     <generator>Sine Die theme for Hugo</generator>
-    <language>{{ site.Language.LanguageCode }}</language>
+    <language>{{ site.Language.Locale }}</language>
     {{- with $managingEditor }}
     <managingEditor>
       {{- if .email }}
