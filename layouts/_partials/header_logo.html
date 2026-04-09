@@ -34,12 +34,12 @@
         {{- end }}
       {{- end }}
     {{- end }}
-    <hgroup class="title">
+    <div class="title">
       <span>{{ $siteTitle }}</span>
       {{- $tagline := or .Params.Tagline .FirstSection.Params.Tagline .Site.Params.Tagline }}
       {{ if $tagline -}}
         <p>{{ $tagline }}</p>
       {{- end }}
-    </hgroup>
+    </div>
   </a>
 </span>

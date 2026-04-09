@@ -1,0 +1,123 @@
+{{- $author := dict }}
+{{- if reflect.IsMap site.Params.author }}
+  {{- $author = site.Params.author }}
+{{- else if site.Params.author }}
+  {{- warnf "The parameter 'site.Params.author' should be a map with 'name' and 'email' keys." }}
+  {{- $author = dict "email" site.Params.author }}
+{{- end }}
+
+{{- $webMaster := dict }}
+{{- if reflect.IsMap site.Params.SineDie.WebMaster }}
+  {{- $webMaster = site.Params.SineDie.WebMaster }}
+{{- else }}
+  {{- if site.Params.SineDie.WebMaster }}
+    {{- warnf "The parameter '.SineDie.WebMaster' should be a map with 'Name' and 'Email' keys." }}
+  {{- end }}
+  {{- $webMaster = $author }}
+{{- end }}
+
+{{- $managingEditor := dict }}
+{{- if reflect.IsMap site.Params.SineDie.managingEditor }}
+  {{- $managingEditor = site.Params.SineDie.ManagingEditor }}
+{{- else if site.Params.SineDie.ManagingEditor }}
+  {{- warnf "The parameter '.SineDie.ManagingEditor' should be a map with 'Name' and 'Email' keys." }}
+{{- end }}
+
+{{- $pctx := . }}
+{{- $pages := slice }}
+{{- if or $.IsHome $.IsSection }}
+  {{- $pages = $pctx.RegularPagesRecursive }}
+{{- else }}
+  {{- $pages = $pctx.Pages }}
+{{- end }}
+{{- $limit := or site.Params.SineDie.Feeds.Limit site.Config.Services.RSS.Limit }}
+{{- if ge $limit 1 }}
+  {{- $pages = $pages.Limit $limit }}
+{{- end }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    {{- $pageTitle := "" }}
+    {{- if $pctx.IsHome }}
+      {{- $pageTitle = site.Title }}
+    {{- else }}
+      {{- $pageTitle = printf "%s on %s" $pctx.Title site.Title }}
+    {{ end }}
+    <title>{{ $pageTitle }}</title>
+    <link>
+      {{- with .OutputFormats.Get "HTML" -}}
+        {{- .Permalink -}}
+      {{- else -}}
+        {{- .Permalink -}}
+      {{- end -}}
+    </link>
+    <description>Recent content {{ if not $pctx.IsHome }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
+    <generator>Sine Die theme for Hugo</generator>
+    <language>{{ site.Language.Locale }}</language>
+    {{- with $managingEditor }}
+    <managingEditor>
+      {{- if .email }}
+        {{- .email }}{{ with .name }} ({{ . }}){{ end }}
+      {{- else }}
+        {{- with .name }}{{ . }}{{ end }}
+      {{- end }}
+    </managingEditor>
+    {{- end }}
+    {{- with $webMaster }}
+    <webMaster>
+      {{- if .email }}
+        {{- .email }}{{ with .name }} ({{ . }}){{ end }}
+      {{- else }}
+        {{- with .name }}{{ . }}{{ end }}
+      {{- end }}
+    </webMaster>
+    {{- end }}
+    {{- with site.Copyright }}
+    <copyright>{{ . }}</copyright>
+    {{- end }}
+    {{- if not .Date.IsZero }}
+    <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 GMT" | safeHTML }}</lastBuildDate>
+    {{- end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      {{- $page := . }}
+      {{- $entryAuthor := dict }}
+      {{- if reflect.IsMap .Params.author }}
+        {{- $entryAuthor = .Params.author }}
+      {{- else if .Params.author }}
+        {{- $entryAuthor = dict "name" .Params.author }}
+      {{- end }}
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 GMT" | safeHTML }}</pubDate>
+      {{- with $entryAuthor }}
+      <author>
+        {{- if .email }}
+          {{- .email }}{{ with .name }} ({{ . }}){{ end }}
+        {{- else }}
+          {{- with .name }}{{ . }}{{ end }}
+        {{- end }}
+      </author>
+      {{- end }}
+      <guid>{{ .Permalink }}</guid>
+      {{- $description := .Summary | default (.Description | markdownify) | safeHTML}}
+      {{- if .Truncated }}
+        {{ with try ($description | transform.HTMLToMarkdown | markdownify) -}}
+          {{ with .Err -}}
+            {{- errorf "Error in Atom feed. Unable to parse truncated summary for page %q\n\tSummary: %s" $page.Path $description -}}}
+          {{- else with .Value -}}
+            {{- $description = . }}
+          {{ end -}}
+        {{- end -}}
+        {{- $description = printf "%s<div>[Truncated]</div>" $description }}
+      {{- end }}
+      {{- with $description }}
+      <description>{{ $description | transform.XMLEscape | safeHTML }}</description>
+      {{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

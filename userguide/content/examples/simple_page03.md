@@ -5,4 +5,7 @@ description: Example 3 of a simple page
 tags: []
 categories:
   - Examples
+menus:
+  main:
+    parent: examples
 ---

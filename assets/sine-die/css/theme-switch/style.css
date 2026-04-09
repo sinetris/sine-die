@@ -12,25 +12,25 @@ li:has([data-function="switch-color-scheme"]) {
   font-size: 1.5em;
 }
 
-[data-function="switch-color-scheme"]::before {
+[data-function="switch-color-scheme"]::after {
   content: "contrast";
-}
-
-[data-function="switch-color-scheme"]:enabled:hover::before {
-  font-size: 150%;
-}
-
-[data-color-scheme="dark"] [data-function="switch-color-scheme"]::before {
-  content: "dark_mode";
-}
-
-[data-color-scheme="light"] [data-function="switch-color-scheme"]::before {
-  content: "light_mode";
 }
 
 [data-function="switch-color-scheme"]:enabled:hover {
   background-color: var(--color-tertiary);
   color: var(--color-on-tertiary);
+}
+
+[data-function="switch-color-scheme"]:enabled:hover::after {
+  font-size: 150%;
+}
+
+[data-color-scheme="dark"] [data-function="switch-color-scheme"]::after {
+  content: "dark_mode";
+}
+
+[data-color-scheme="light"] [data-function="switch-color-scheme"]::after {
+  content: "light_mode";
 }
 
 @media only screen and (width <= 1024px) {

@@ -10,7 +10,14 @@
 <article {{ partial "helpers/render-attributes.html" (dict "attributes" $attributes) }}>
   <header >
     {{ if $options.embedded }}
-      <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}"><h2>{{ $page.LinkTitle }}</h2></a>
+      <a class="title" href="{{ $page.Params.externalLink | default $page.RelPermalink }}">
+        <h2>
+          {{ with partial "helpers/get-icon.html" (dict "type" "symbols" "name" "glossary-term") -}}
+            <span data-visual-sign="{{ . }}"></span>
+          {{- end }}
+          {{ $page.LinkTitle }}
+        </h2>
+      </a>
     {{ else }}
       <h1>{{ $page.Title }}</h1>
     {{ end }}

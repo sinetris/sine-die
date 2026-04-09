@@ -18,9 +18,9 @@ categories:
 
 This theme uses [CSS cascading variables][mdn-css-variables].
 
-The color palette uses a three-color combination and allow to set the primary
+The color palette uses a three-color combination and allows to set the primary
 color hue angle and the left and right secondary colors hue angle (respectively
-adding and subtractinf from the primary hue angle).
+adding and subtracting from the primary hue angle).
 
 The hue angle is based on the [hsl][mdn-css-hsl] color space but the color
 palette is generated using [oklch][mdn-css-oklch], this make it easier to select
@@ -30,13 +30,14 @@ advantage of the benefits that OKLCH provides.
 ## Color Harmonies
 
 It's possible to generate the color palette for a variety of
-{{< glossary-term title="Color Harmonies" >}} simply by modifying the variable
-`--secondary-colors-angle`.
+{{< glossary-term title="Color Harmonies" >}} simply by modifying the *secondary
+colors angle* variable named `--secondary-colors-angle`.
 
-The default palette uses the **triadic color scheme** (*secondary colors angle*
-variable named `--secondary-colors-angle` set to `120deg`).
+The default palette uses the **triadic color scheme** (`--secondary-colors-angle`
+set to `120deg`).
 
-It's possible to invert secondary left and secondary right by applying a simple formula.
+It's possible to invert secondary left and secondary right by applying a simple
+formula.
 
 Given the `--secondary-colors-angle` angle `a`, we can use the formula
 `a + 2 x (180deg - a)` to invert secondary left and secondary right.

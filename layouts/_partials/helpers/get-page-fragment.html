@@ -7,7 +7,7 @@
   @context {string} errorLevel The error level for invalid page fragments (one of: ignore, warning (default), error)
   @context {string} caller The file initiating the call (default to 'page.File.Filename' or 'templates.Current.Parent.Name')
 
-  @returns {dict}
+  @returns {dict} Keys: ID, Title, Level
 */}}
 
 {{- /* Initialize. */}}
@@ -26,7 +26,7 @@
 {{- $fragment := false }}
 {{- $headings := $page.Fragments.HeadingsMap }}
 
-{{- if partial "helpers/validate-fragment.html" (
+{{- if partial "helpers/validate-fragment-exists.html" (
   dict "page" $page "fragment" $fragmentID "errorLevel" $errorLevel "caller" $caller
 ) -}}
   {{- $fragment = index $headings $fragmentID -}}

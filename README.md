@@ -6,7 +6,7 @@
 <img
   src="https://raw.githubusercontent.com/sinetris/sine-die/main/assets/images/sine-die-logo-full.svg"
   style="width: 80%;"
-  alt="sine-die logo"
+  alt="Sine Die logo"
 />
 </p>
 
@@ -57,7 +57,7 @@ A simple and clean [Hugo][hugo] theme.
 Basic configuration instructions are available in the [documentation README][sine-die-documentation]
 file.
 
-More details are available on the [sine-die website][sine-die-website].
+More details are available on the [Sine Die website][sine-die-website].
 
 ## Credits and Acknowledgements
 

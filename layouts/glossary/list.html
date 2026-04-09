@@ -6,8 +6,8 @@
   {{- $pagesList := slice }}
   {{- range $p := .Pages }}
     {{- $key := substr .Title 0 1 | upper }}
-    {{ if or (eq $key "0") (lt $key "A") (gt $key "Z") }}
-      {{- $key = "#" }}
+    {{ if or (lt $key "A") (gt $key "Z") }}
+      {{- $key = "!" }}
     {{- end }}
     {{ $titleSort := printf "%s %s" $key (upper .Title) }}
     {{ $pagesList = $pagesList | append (dict "key" $key "titleSort" $titleSort "page" .) }}

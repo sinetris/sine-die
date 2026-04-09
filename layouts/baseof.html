@@ -1,17 +1,22 @@
-{{ $bodyClasses := (or .Params.body_classes slice) }}
+{{- $bodyAttributes := dict }}
+{{- with .Params.body_classes }}
+  {{- $bodyAttributes = merge $bodyAttributes (dict "class" .) }}
+{{- end }}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ $.Site.LanguageCode | default `en` }}">
+<html class="no-js" lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
   <head>
     {{ partial "head.html" . }}
     {{ block "head-addition" . }}{{ end }}
   </head>
-  <body {{- with $bodyClasses }} class="{{ delimit . " " }}"{{ end }}>
+  <body {{ partial "helpers/render-attributes.html" (dict "attributes" $bodyAttributes) }}>
     <header>
       {{ partial "header.html" . }}
       {{ if .Site.Params.showSearchUI }}{{ partial "search.html" . }}{{ end }}
       {{ partial "breadcrumbs.html" . }}
     </header>
-    {{ block "sidebar" . }}{{ partial "sidebar.html" . }}{{ end }}
+    {{ block "sidebar" . -}}
+    {{ if not .Params.hideSidebar }}{{ partial "sidebar.html" . }}{{ end }}
+    {{- end }}
     <main id="main-content">
       {{ block "main" . }}{{ end }}
     </main>

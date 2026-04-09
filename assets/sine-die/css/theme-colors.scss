@@ -158,8 +158,8 @@
   /* Extra */
   --color-background: var(--palette-neutral15);
   --color-on-background: var(--palette-neutral95);
-  --color-outline: var(--palette-neutral20);
-  --color-outline-variant: var(--palette-neutral25);
+  --color-outline: var(--palette-neutral30);
+  --color-outline-variant: var(--palette-neutral40);
   --color-light: oklch(from var(--palette-neutral95) l c h / calc(alpha - 0.2));
   --color-shadow: oklch(from var(--palette-neutral5) l c h / calc(alpha - 0.2));
   --color-scrim: var(--palette-neutral0);

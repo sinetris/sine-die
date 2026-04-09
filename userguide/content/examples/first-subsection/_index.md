@@ -2,7 +2,7 @@
 title: First Subsection
 date: '2025-05-08T17:36:29Z'
 weight: 20
-description: Subsection example for the sine-die theme
+description: Subsection example for the Sine Die theme
 menus:
   main:
     identifier: first-subsection

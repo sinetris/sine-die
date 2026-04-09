@@ -1,0 +1,7 @@
+---
+atom:
+  baseName: index.atom
+  mediaType: application/atom+xml
+  noUgly: true
+rss:
+  baseName: index.rss

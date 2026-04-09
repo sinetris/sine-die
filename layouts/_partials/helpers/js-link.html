@@ -1,11 +1,12 @@
-{{- $attributes := .attributes | default (dict "defer" true) -}}
+{{- $attributes := .attributes | default dict | merge (dict "defer" true) -}}
 {{- $scriptLink := .scriptLink | default true -}}
+{{- $remoteResouceURL := .remoteResouceURL | default false -}}
 
-{{- $resource := false -}}
+{{- $resource := "" -}}
 {{- $moduleImports := dict -}}
 
-{{- if $.remoteResouceURL -}}
-  {{ with try (resources.GetRemote $.remoteResouceURL) -}}
+{{- if $remoteResouceURL -}}
+  {{ with try (resources.GetRemote $remoteResouceURL) -}}
     {{ with .Err -}}
       {{
         errorf "Could not retrieve remote resource \"%s\". Reason: \"%s\". Source: \"%s\". Caller \"%s\""

@@ -1,0 +1,63 @@
+{{- $page := .page }}
+{{- $level := 0 }}
+{{- $sectionMenuID := .sectionMenuID | default "section-menu" }}
+{{- $sidebarRootSubmenu := $page.FirstSection }}
+{{- $pagesSortBy := $page.Params.SineDie.SidebarMenu.PagesSortBy }}
+{{- $pagesSortOrder := $page.Params.SineDie.SidebarMenu.PagesSortOrder }}
+{{- $limit := or $page.Params.SineDie.SidebarMenu.Limit site.Params.SineDie.SidebarMenu.Limit }}
+{{- $maxLevels := site.Params.SineDie.SidebarMenu.MaxLevels | default 3 }}
+
+{{- /* Check self and ancestors for IsRootSubmenu params */ -}}
+{{ if and $page.IsSection $page.Params.IsRootSubmenu -}}
+  {{- if site.Params.SineDie.Debug }}
+    {{- $msg := printf "Page %q is menu root" $page.Path }}
+    {{- warnf $msg }}
+  {{- end }}
+  {{ $sidebarRootSubmenu = $page -}}
+{{ else -}}
+  {{ range $page.Ancestors.Reverse -}}
+    {{ $pagesSortBy = or $pagesSortBy .Params.SineDie.SidebarMenu.PagesSortBy -}}
+    {{ $pagesSortOrder = or $pagesSortOrder .Params.SineDie.SidebarMenu.PagesSortOrder -}}
+    {{ if not .IsSection -}}
+      {{ continue -}}
+    {{ end -}}
+    {{ $isRootSubmenu := .Params.IsRootSubmenu -}}
+    {{ if not $isRootSubmenu -}}
+      {{ continue -}}
+    {{ end -}}
+    {{ $sidebarRootSubmenu = . -}}
+    {{- if site.Params.SineDie.Debug }}
+      {{- $msg := printf "Menu root for page %q is %q" $page.Path $sidebarRootSubmenu.Path }}
+      {{- warnf $msg }}
+    {{- end }}
+    {{ break -}}
+  {{ end -}}
+{{ end -}}
+{{- $pagesSortBy := or $pagesSortBy site.Params.SineDie.SidebarMenu.PagesSortBy "Weight" }}
+{{- $pagesSortOrder := or $pagesSortOrder site.Params.SineDie.SidebarMenu.PagesSortOrder "asc" }}
+{{- $sidebarMenuPages := $sidebarRootSubmenu.Pages -}}
+{{- if $sidebarMenuPages }}
+<nav class="sections-menu">
+  <h2>Section Menu</h2>
+  <ul id="{{ $sectionMenuID }}" role="menubar">
+    {{- $sidebarMenuPages = sort $sidebarMenuPages $pagesSortBy $pagesSortOrder }}
+    {{- if site.Params.SineDie.Debug }}
+      {{- $msg := printf "Using order %q for page %q" $pagesSortBy $page.Path }}
+      {{- warnf $msg }}
+    {{- end }}
+    {{- if ge $limit 1 }}
+      {{- $sidebarMenuPages = $sidebarMenuPages.Limit $limit }}
+    {{- end }}
+    {{- range $sidebarMenuPages }}
+      {{- partial "sections-menu/walk.html" (
+        dict
+          "page" $page
+          "subpage" .
+          "level" 0
+          "maxLevels" $maxLevels
+          "sectionMenuID" $sectionMenuID
+      ) }}
+    {{- end }}
+  </ul>
+</nav>
+{{- end }}

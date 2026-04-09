@@ -1,0 +1,22 @@
+{{- $page := .page -}}
+{{- $taxonomyName := .taxonomy -}}
+{{- $taxonomy := index site.Taxonomies $taxonomyName -}}
+{{ with index $page.Params $taxonomyName }}
+  <dl data-taxonomy="{{ $taxonomyName }}">
+    <dt>
+      <a href="{{ relURL $taxonomy.Page.Permalink }}">
+        {{ with partial "helpers/get-icon.html" (dict "type" "taxonomies" "name" ($taxonomyName | pluralize)) -}}
+          <span data-visual-sign="{{ . }}"></span>
+        {{- end }}
+        {{ $taxonomy.Page.LinkTitle }}
+      </a>
+    </dt>
+    {{- range $page.Page.GetTerms $taxonomyName }}
+        <dd>
+          <a href="{{ .Page.Permalink }}">
+            {{ .Page.LinkTitle }}
+          </a>
+        </dd>
+    {{- end }}
+  </dl>
+{{ end }}

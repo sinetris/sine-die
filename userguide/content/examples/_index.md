@@ -2,10 +2,14 @@
 title: Examples Pages
 date: '2025-05-25T08:07:24Z'
 weight: 20
-description: Pagination example for the sine-die theme
+description: Pagination example for the Sine Die theme
 menus:
   main:
     identifier: examples
+params:
+  SineDie:
+    SidebarMenu:
+      PagesSortBy: Title
 ---
 
 ## Content

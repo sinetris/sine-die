@@ -1,13 +1,10 @@
 {{ define "sidebar"}}<!-- hide sdebar -->{{ end }}
 {{ define "main" }}
-  {{ $taxonomy := index .Site.Taxonomies .Data.Plural }}
+  {{ $taxonomy := index site.Taxonomies .Data.Plural }}
   <h1 class="title-header">
-    {{- $visualSign := "bookmark" -}}
-    {{- $taxonomiesWithIcons := slice "autor" "category" "tag" -}}
-    {{- if in $taxonomiesWithIcons .Data.Singular -}}
-      {{ $visualSign = .Data.Singular }}
-    {{- end -}}
-    <span data-visual-sign="{{ $visualSign }}" data-visual-sign-type="def" aria-hidden="true"></span>
+    {{ with partial "helpers/get-icon.html" (dict "type" "taxonomies" "name" .Data.Plural) -}}
+      <span data-visual-sign="{{ . }}"></span>
+    {{- end }}
     {{- .Title -}}
   </h1>
   {{- with .Pages }}
@@ -15,6 +12,9 @@
     {{ range . }}
     <li>
       <a href="{{ .Permalink }}">
+        {{ with partial "helpers/get-icon.html" (dict "type" "terms" "name" .Data.Singular) -}}
+          <span data-visual-sign="{{ . }}"></span>
+        {{- end }}
         {{ .Title }} <span class="count">{{ $taxonomy.Count .Data.Term }}</span>
       </a>
     </li>

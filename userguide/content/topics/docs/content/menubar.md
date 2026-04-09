@@ -2,7 +2,6 @@
 title: Menubar
 date: '2025-05-17T09:10:25Z'
 description: Menubar usage example
-weight: 80
 tags:
   - Menu
   - Menubar
@@ -10,7 +9,7 @@ categories:
   - Documentation
 ---
 
-## Add menu entries
+## Menu entries
 
 You can define entries for the primary navigation menu in the front matter block.
 
@@ -33,7 +32,7 @@ menus:
     parent: documentation
 ```
 
-## Add menu entries for a section and all subpages
+## Sections and subpages
 
 To define menu entries for an entire section, you can use [cascade][hugo-cascade].
 

@@ -1,7 +1,7 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
-<ul id="menu" role="menubar">
+<ul id={{ $menuID }} role="menubar">
   {{- with index site.Menus $menuID }}
     {{- partial "menu/walk.html" (dict "page" $page "menuID" $menuID "indentLevel" 0 "menuEntries" .) }}
   {{- end }}

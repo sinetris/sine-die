@@ -30,7 +30,17 @@ params:
   #     fragment: an-header-id  # An URI fragment (without the #) linking to an header ID in the term page
   #     linkTitle: Some text  # Text to show in the link (override 'linkAsAbbreviation')
   #     linkAsAbbreviation: true  # Show link as abbreviation, if available (default to true, unused if 'linkTitle' is present)
-  #     errorLevel: error  # The error level for missing/duplicated terms and invalid page fragments (one of: ignore, warning, error; default to warning)
+  #     errorLevel: error  # Error level for missing/duplicated terms and invalid page fragments (one of: ignore, warning, error; default to warning)
+
+  # Links to internal resources
+  internalResources: []
+  #   # Can use a string
+  #   - /example/  # The page path
+  #   # or a map
+  #   - path: /example/  # The page path
+  #     fragment: an-header-id  # URI fragment linking to an header ID in the page (optional)
+  #     linkTitle: Some text  # Text to show in the link (optional)
+
   # Links to external resources
   externalResources: []
   #   - title: A phoney term  # The text used for the link

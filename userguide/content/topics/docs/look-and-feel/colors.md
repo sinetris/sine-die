@@ -11,6 +11,10 @@ tags:
 categories:
   - Examples
   - Documentation
+menus:
+  main:
+    parent: lookandfeel
+    identifier: laf-color
 params:
   body_classes:
     - theme-colors

@@ -4,6 +4,10 @@
     {{- with .Params.Title -}}
     <h1>{{ . }}</h1>
     {{- end -}}
-    {{ .Content }}
+    {{ if not .Content }}
+      {{- partial "sections-menu.html" (dict "page" .) }}
+    {{- else }}
+      {{- .Content }}
+    {{- end }}
   </article>
 {{ end }}
