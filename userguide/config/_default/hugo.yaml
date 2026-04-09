@@ -5,11 +5,12 @@ defaultContentLanguage: en
 theme:
   - sine-die
 themesDir: ../..
+enableGitInfo: true
 
 module:
   hugoVersion:
     extended: true
-    min: "0.146.0"
+    min: '0.158.0'
 
 params:
   author:
@@ -26,7 +27,11 @@ params:
   #     viewBox: 0 0 1024 1024
   license: CC-BY-4.0
   licenselink: https://github.com/sinetris/sinetris-website/blob/main/LICENSE-DOCS
-
+  # Theme configuration
+  SineDie:
+    SidebarMenu:
+      PagesSortBy: Weight
+      PagesSortOrder: asc
 markup:
   highlight:
     # We need classes to be able to have different colors for Light/Dark mode
@@ -57,17 +62,21 @@ menus:
         onlyVisualSign: true
         visualSign: github
         visualSignType: brand
+    - name: Special subsection
+      parent: examples
+      identifier: special-subsection
+      weight: 1
     - name: Example Domain
       # External link text (no visual sign)
       url: 'https://example.com/'
-      parent: first-subsection
+      parent: special-subsection
       weight: 80
       params:
         isExternalLink: true
     - name: The Octocat
       # External link with text and brand image
       url: 'https://github.com/octocat'
-      parent: first-subsection
+      parent: special-subsection
       weight: 82
       params:
         isExternalLink: true
@@ -76,14 +85,14 @@ menus:
     - name: Glossary
       # Internal link with text and icon
       pageRef: '/glossary'
-      parent: first-subsection
+      parent: special-subsection
       weight: 90
       params:
         visualSign: glossary
-    - name: Same Glossary
+    - name: Same Glossary icon only
       # Internal link with only icon
       pageRef: '/glossary'
-      parent: first-subsection
+      parent: special-subsection
       weight: 90
       params:
         visualSign: glossary

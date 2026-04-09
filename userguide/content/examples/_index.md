@@ -6,6 +6,10 @@ description: Pagination example for the Sine Die theme
 menus:
   main:
     identifier: examples
+params:
+  SineDie:
+    SidebarMenu:
+      PagesSortBy: Title
 ---
 
 ## Content

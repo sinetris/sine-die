@@ -5,7 +5,7 @@ description: |
   The study of how colors interact with each other and how they can influence people's emotions and perceptions.
 params:
   contexts:
-    - graphic-design
+    - Graphic Design
   related:
     - Color Harmonies
 ---

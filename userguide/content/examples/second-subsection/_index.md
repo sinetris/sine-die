@@ -11,6 +11,10 @@ menus:
   main:
     identifier: second-subsection
     parent: examples
+params:
+  SineDie:
+    SidebarMenu:
+      PagesSortBy: Title
 ---
 
 ## Content

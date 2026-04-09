@@ -10,7 +10,8 @@ menus:
   main:
     parent: examples
 params:
-  collapsedSidebar: true
+  SineDie:
+    CollapsedSidebar: true
 ---
 
 The `sidebar` is collapsed.

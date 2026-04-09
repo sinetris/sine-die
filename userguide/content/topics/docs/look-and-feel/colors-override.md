@@ -30,3 +30,5 @@ scheme** with left and right inverted.
   --colors-secondary-hue-angle: 210deg;
 }
 ```
+
+You can see the changes right here on this page.

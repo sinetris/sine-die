@@ -2,7 +2,7 @@
 title: Sine Die
 linkTitle: Homepage
 date: '2025-03-10T08:07:15Z'
-description: Documentation and usage examples for the Sine Die theme
+description: Documentation and usage examples for the Sine Die semantic HTML theme for Hugo
 tags:
   - Hugo Theme
   - Semantic HTML
@@ -14,7 +14,8 @@ tags:
 params:
   body_classes:
     - homepage
-  collapsedSidebar: true
+  SineDie:
+    CollapsedSidebar: true
 ---
 
 {{< figure-wrapper
