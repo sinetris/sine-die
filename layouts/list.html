@@ -5,8 +5,7 @@
     <h1>{{ . }}</h1>
     {{- end -}}
     {{ if not .Content }}
-      {{- partial "sections-list.html" . }}
-      {{- partial "pages-list.html" . }}
+      {{- partial "sections-menu.html" (dict "page" .) }}
     {{- else }}
       {{- .Content }}
     {{- end }}

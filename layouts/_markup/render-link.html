@@ -54,7 +54,7 @@ environment, you can visually highlight broken internal links:
 This will add a "broken" class to anchor elements with invalid src attributes.
 Add a rule to your CSS targeting the broken links:
 
-  a.broken::before {
+  a.broken::after {
     --icon-size: .75em;
     content: "link_off" / "";
     display: inline-block;
@@ -167,7 +167,7 @@ either of these shortcodes in conjunction with this render hook.
     {{- with $u.Path }}
       {{- with $p := or ($.PageInner.GetPage .) ($.PageInner.GetPage (strings.TrimRight "/" .)) }}
         {{- /* Destination is a page. */}}
-        {{- $href := .RelPermalink }}
+        {{- $href = .RelPermalink }}
         {{- with $u.RawQuery }}
           {{- $href = printf "%s?%s" $href . }}
         {{- end }}
@@ -183,13 +183,13 @@ either of these shortcodes in conjunction with this render hook.
         {{- end }}
       {{- else with $.PageInner.Resources.Get $u.Path }}
         {{- /* Destination is a page resource; drop query and fragment. */}}
-        {{- $href := .RelPermalink -}}
+        {{- $href = .RelPermalink -}}
       {{- else with (and (ne $.Page.BundleType "leaf") ($.Page.CurrentSection.Resources.Get $u.Path)) }}
         {{- /* Destination is a section resource, and current page is not a leaf bundle. */}}
-        {{- $href := .RelPermalink -}}
+        {{- $href = .RelPermalink -}}
       {{- else with resources.Get $u.Path }}
         {{- /* Destination is a global resource; drop query and fragment. */}}
-        {{- $href := .RelPermalink -}}
+        {{- $href = .RelPermalink -}}
       {{- else }}
         {{- if eq $errorLevel "warning" }}
           {{- warnf $msg }}

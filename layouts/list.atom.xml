@@ -17,9 +17,9 @@
 {{- else }}
   {{- $pages = .Pages }}
 {{- end }}
-{{- $limit := site.Config.Services.RSS.Limit }}
+{{- $limit := or site.Params.SineDie.Feeds.Limit site.Config.Services.RSS.Limit }}
 {{- if ge $limit 1 }}
-  {{- $pages = $pages | first $limit }}
+  {{- $pages = $pages.Limit $limit }}
 {{- end }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <feed xmlns="http://www.w3.org/2005/Atom">

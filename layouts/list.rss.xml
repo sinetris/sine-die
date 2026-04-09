@@ -7,20 +7,20 @@
 {{- end }}
 
 {{- $webMaster := dict }}
-{{- if reflect.IsMap site.Params.sineDie.webMaster }}
-  {{- $webMaster = site.Params.sineDie.webMaster }}
+{{- if reflect.IsMap site.Params.SineDie.WebMaster }}
+  {{- $webMaster = site.Params.SineDie.WebMaster }}
 {{- else }}
-  {{- if site.Params.sineDie.webMaster }}
-    {{- warnf "The parameter '.sineDie.webMaster' should be a map with 'name' and 'email' keys." }}
+  {{- if site.Params.SineDie.WebMaster }}
+    {{- warnf "The parameter '.SineDie.WebMaster' should be a map with 'Name' and 'Email' keys." }}
   {{- end }}
   {{- $webMaster = $author }}
 {{- end }}
 
 {{- $managingEditor := dict }}
-{{- if reflect.IsMap site.Params.sineDie.managingEditor }}
-  {{- $managingEditor = site.Params.sineDie.managingEditor }}
-{{- else if site.Params.sineDie.managingEditor }}
-  {{- warnf "The parameter '.sineDie.managingEditor' should be a map with 'name' and 'email' keys." }}
+{{- if reflect.IsMap site.Params.SineDie.managingEditor }}
+  {{- $managingEditor = site.Params.SineDie.ManagingEditor }}
+{{- else if site.Params.SineDie.ManagingEditor }}
+  {{- warnf "The parameter '.SineDie.ManagingEditor' should be a map with 'Name' and 'Email' keys." }}
 {{- end }}
 
 {{- $pctx := . }}
@@ -30,9 +30,9 @@
 {{- else }}
   {{- $pages = $pctx.Pages }}
 {{- end }}
-{{- $limit := site.Config.Services.RSS.Limit }}
+{{- $limit := or site.Params.SineDie.Feeds.Limit site.Config.Services.RSS.Limit }}
 {{- if ge $limit 1 }}
-  {{- $pages = $pages | first $limit }}
+  {{- $pages = $pages.Limit $limit }}
 {{- end }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

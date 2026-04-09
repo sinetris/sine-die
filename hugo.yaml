@@ -42,3 +42,61 @@ params:
 
   # Copyright
   copyrightStartYear: '2023'
+
+  # Theme configuration
+  SineDie:
+    Debug: false
+    Feeds:
+      Limit: 100
+    SidebarMenu:
+      Limit: 100
+      MaxLevels: 3
+      PagesSortBy: Weight
+    Icons:
+      ### Error reporting on missing icons.
+      ## Valid values:
+      ##  - error: print an error and stop the building (default)
+      ##  - warning: print a warning and continue
+      ##  - ignore: ignore the problem and continue
+      ErrorLevel: error
+      ### Mapping icons associations by type (defined by the key).
+      ## Note: The key 'ErrorLevel' is reserved
+      ## Each type can set:
+      ## - 'Entries' as:
+      ##    - a list of accepted values
+      ##    - a map of keys/values
+      ##      - if the value is a string, it will be used as the icon
+      ##      - if the value is a map, it will use 'Name' as the icon and type
+      ## - 'UseDefaultIcon' as:
+      ##   - icon (get value from 'DefaultIcon' if not in 'Entries')
+      ##   - name (use the passed value if not in 'Entries')
+      ##   - (any other value is considered false)
+      ## - 'DefaultIcon' as: icon to use (used only when 'UseDefaultIcon' is set to 'icon')
+      taxonomies:
+        UseDefaultIcon: icon
+        DefaultIcon: bookmark
+        Entries:
+          authors: groups
+          categories: category
+          contexts: shelves
+          tags: list_alt
+      terms:
+        UseDefaultIcon: false
+        Entries:
+          author: person
+          category: topic
+          context: dictionary
+          glossary-term: description
+          tag: label
+          github:
+            name: github
+            type: brand
+      symbols:
+        UseDefaultIcon: name
+        Entries:
+          glossary-term: description
+
+taxonomies:
+  category: categories
+  context: contexts
+  tag: tags

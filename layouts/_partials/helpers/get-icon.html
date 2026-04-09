@@ -1,24 +1,24 @@
 {{- $name := .name -}}
 {{- $type := .type -}}
-{{- $iconsConfig := index site.Params.sineDie.icons $type | default dict -}}
+{{- $iconsConfig := index site.Params.SineDie.Icons $type | default dict -}}
 {{- $errors := slice }}
 {{- if not $iconsConfig }}
   {{- $errors = $errors | append "Missing config" }}
 {{- end -}}
-{{- $errorLevel := $iconsConfig.errorLevel | default site.Params.sineDie.icons.errorLevel -}}
-{{- $useDefaultIcon := $iconsConfig.useDefaultIcon -}}
+{{- $errorLevel := $iconsConfig.ErrorLevel | default "warning" -}}
+{{- $useDefaultIcon := $iconsConfig.UseDefaultIcon -}}
 
 {{- $defaultVisualSign := "" -}}
 {{- if eq $useDefaultIcon "icon" -}}
-  {{- $defaultVisualSign = $iconsConfig.defaultIcon -}}
+  {{- $defaultVisualSign = $iconsConfig.DefaultIcon -}}
 {{- else if eq $useDefaultIcon "name" -}}
   {{- $defaultVisualSign = $name -}}
 {{- end -}}
 
 {{- $visualSign := "" -}}
-{{- if reflect.IsMap $iconsConfig.entries -}}
-  {{- $visualSign = index $iconsConfig.entries $name -}}
-{{- else if in ($iconsConfig.entries | default slice) $name -}}
+{{- if reflect.IsMap $iconsConfig.Entries -}}
+  {{- $visualSign = index $iconsConfig.Entries $name -}}
+{{- else if in ($iconsConfig.Entries | default slice) $name -}}
   {{- $visualSign = $name -}}
 {{- end -}}
 
@@ -39,7 +39,7 @@
   {{- $error = printf "Icon name '%v' type '%v'\n  %s" $name $type $error -}}
   {{- if eq $errorLevel "error" }}
     {{- errorf $error }}
-  {{- else if or (eq $errorLevel "warning") site.Params.sineDie.debug }}
+  {{- else if or (eq $errorLevel "warning") site.Params.SineDie.Debug }}
     {{- warnf $error }}
   {{- end }}
 {{- end }}

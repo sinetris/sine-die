@@ -12,10 +12,10 @@
     <li property="itemListElement" typeof="ListItem">
       <a property="item" typeof="WebPage" href="{{.Permalink}}">
         <span property="name">
-          {{- if eq $index 0 }}
-          <span data-visual-sign>home</span>
+          {{ if eq $index 0 -}}
+          <span data-visual-sign="home"></span>
           {{- else }}
-          {{ .LinkTitle }}
+          {{- .LinkTitle }}
           {{- end }}
         </span>
       </a>
