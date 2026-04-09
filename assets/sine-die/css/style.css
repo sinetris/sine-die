@@ -16,6 +16,11 @@ body {
     border-right: 0.15rem solid var(--color-outline-variant);
     color: var(--color-on-surface);
 
+    &:has(nav ul :hover, nav ul :focus-visible) {
+      min-width: max-content;
+      z-index: 10;
+    }
+
     nav.toc {
       border-bottom: 0.25rem solid var(--color-secondary-container);
       white-space: nowrap;
@@ -253,8 +258,25 @@ a[rel~="external"]:not(body > footer a) {
     font-size: var(--icon-size);
     position: relative;
     vertical-align: top;
+    color: oklch(from currentcolor l c h / 50%);
   }
 }
+
+/* Show "link_off" symbol for links with class broken */
+a.broken {
+  &::after {
+    --icon-size: .75em;
+
+    content: "link_off" / "";
+    display: inline-block;
+    font-family: var(--font-family-icons);
+    font-size: var(--icon-size);
+    position: relative;
+    vertical-align: top;
+    color: var(--color-error);
+  }
+}
+
 
 :where(a, h1, h2, h3, h4, h5, h6) {
   &:has([data-visual-sign]) {
@@ -316,8 +338,7 @@ h6 {
   color: var(--color-on-primary-container);
 }
 
-.categories,
-.tags {
+dl[data-taxonomy] {
   a {
     text-decoration: none;
   }
@@ -395,7 +416,7 @@ nav.primary {
       vertical-align: middle;
     }
 
-    hgroup {
+    .title {
       display: inline-block;
       vertical-align: middle;
 
@@ -423,7 +444,7 @@ nav.primary {
 }
 
 [data-visual-sign="calendar"] {
-  &::before {
+  &::after {
     position: relative;
   }
 
@@ -449,6 +470,11 @@ ul.taxonomies {
 
   li {
     padding: 1em;
+
+    .count {
+      display: inline-block;
+      padding-inline-start: .25em;
+    }
 
     .count::before {
       content: "(";

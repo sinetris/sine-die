@@ -1,4 +1,4 @@
-.glossary-term {
+article.glossary-term {
   margin-block-end: 1em;
 
   header {
@@ -113,7 +113,7 @@
     }
   }
 
-  .glossary-term {
+  article.glossary-term {
     border-left: .15em solid oklch(from var(--color-on-secondary-container) l c h / 50%);
     padding-left: 1em;
 
@@ -124,13 +124,13 @@
     h2 {
       font-size: 1.1em;
     }
-  }
 
-  .glossary-term[data-is-draft] {
-    background-color: var(--color-error-container);
+    &[data-is-draft] {
+      background-color: var(--color-error-container);
 
-    .title h2 {
-      color: var(--color-on-error-container);
+      .title h2 {
+        color: var(--color-on-error-container);
+      }
     }
   }
 
