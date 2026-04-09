@@ -3,7 +3,6 @@ title: 'Web Feeds'
 date: '2026-01-14T08:16:25Z'
 description: |
   Add RSS and Atom feeds setup in Hugo config for Sine Die theme
-draft: true
 tags:
   - RSS
   - Atom
